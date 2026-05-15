@@ -15,6 +15,14 @@
 \usepackage{amssymb}
 \usepackage[shortlabels]{enumitem}
 \usepackage{listings}
+\lstdefinestyle{micode}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false
+}
+
 \DeclareMathOperator{\mcd}{mcd}
 
 \renewcommand{\refname}{Bibliografía}
@@ -97,7 +105,7 @@ y^2 = x(x+1)\lp x+\leg{r}{s}^2\rp \iff {(y's^{-3})}^2 = (x's^{-2})((x's^{-2})+1)
 
 Notemos también que es la curva de Legendre $E_\lambda : y^2 = x(x+1)(x+\lambda)$ con $\lambda = t^2$, sobre la cual hay mucha literatura.
 
-Los puntos:
+$\textbf{Los puntos:}$
 
 Sí ponemos $P = (rs,rs(r+s))$ y $Q = (r(u-r), iru(u-r))$ con $u^2=r^2-s^2$
 
@@ -122,13 +130,68 @@ Q& (-r(r-u),  & (-s(s-iu), & (-r(r+u), & (-s(s+iu), \\
 
 (esta tabla está chequeada a mano con Sage)
 
-Props y cositas copadas:
+$\textbf{Discriminante:}$
+
+\[
+\Delta_{Ers} = 16 r^4 s^4 {(r^2-s^2)}^2 = 2^4 r^4 s^4 u^4
+\]
+
+
+
+
+
+$\textbf{Mas puntos:}$
+
+Sí queremos más puntos necesitamos que $x(x+r^2)(x+s^2)$ sea un cuadrado en el cuerpo (recordar que estamos en $\QQ(i)$), por ejemplo podemos pedir $\pm x = (x+r^2)(x+s^2)$ es decir $0 = x^2+(r^2+s^2\pm 1)x +r^2s^2$ es decir que ${(r^2+s^2\pm 1)}^2-4r^2s^2$ sea un cuadrado. Sí ponemos el resto de fórmulas queremos que los siguientes sean cuadrados en el cuerpo:
+\[
+{(r^2+s^2\pm 1)}^2-4r^2s^2 
+\]
+\[
+{(r^2\pm 1)}^2\mp 4s^2
+\]
+\[
+{(s^2\pm 1)}^2\mp 4r^2
+\]
+
+Obvio habría que ver que estos puntos no terminen siendo los de torsión. 
+
+Tal vez el teorema que me dé puntos independientes no sea estilo Green-Tao sino con ternas pitagóricas...
+
+Ejemplo:
+
+\begin{lstlisting}[style=micode]
+
+Qi.<i> = QuadraticField(-1)
+Ee = EllipticCurve(Qi, [0, 7^2 + 24^2, 0, 7^2*24^2, 0])
+
+P = Ee(-18, i*558)
+Q = Ee(-32, i*544) 
+
+print(2*P == -2*Q)
+print(P == Ee(-24^2,0) - Q)
+
+print(P)
+print(P*2)
+print(P*3)
+print(P*4)
+print(P*5)
+print(P*6)
+
+True
+True
+(-18 : 558*i : 1)
+(-625 : -4200*i : 1)
+(-16006482/368449 : -80192491794/223648543*i : 1)
+(-131334484801/70560000 : 39027433524414049/592704000000*i : 1)
+(-8670396132425682/45913408358384449 : 716734971665869348872396306/9838056228201864674002207*i : 1)
+(-10263711005525248100880625/7609855338495900009601 : -24432799810728092317281273816037452600/663841809863829299588354188574401*i : 1)
+\end{lstlisting}
+
+
 
 \begin{prop}
-Un punto $(x,y)$ en $E(k): y^2 = (x-\alpha_1)(x-\alpha_2)(x-\alpha_3)$ se puede dividir por $2$ si y solo si los números $x-\alpha_i$ son cuadrados en $k$.
+Un punto $(x_1,y_1)$ en $E(k): y^2 = (x-\alpha_1)(x-\alpha_2)(x-\alpha_3)$ se puede dividir por $2$ si y solo si los números $x_1-\alpha_i$ son cuadrados en $k$.
 \end{prop}
-
-
 
 
 
