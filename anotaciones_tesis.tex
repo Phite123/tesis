@@ -72,7 +72,7 @@
 %Hipervínculos cliqueables, en color azul
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
 
-\title{Final formas cuadráticas}
+\title{Título}
 
 \author{Pedro Nicolás Peña}
 
@@ -82,60 +82,51 @@
 
 % con Alt + Z te acomoda las lineas
 
-\section*{Regular simplices and quadratic forms}
+\section*{Sección}
 
-Isaac Jacob Schoenberg, Rumano
-invento la splines (?), escribio papers sobre kakeya (para los fans), para los interesados era de familia judia, tampoco un santo
-
-% Defincion: U-Matrices (no son las matrices unitarias) si todo coef es $\pm 1$ y las columnas son ortogonales.
-
-% Salvo las obvias dimensiones 0, 1, solo pueden existir si $n\equiv 0$ mod 4, pero no siempre existen. 
-
-% ej:
-
-% 1	-1	 1	 1
-
-% 1	-1	-1	-1
-
-% 1	 1	-1	 1
-
-% 1	 1	 1	-1
-
-
-
-Lema: 
-\[
-2\sum_{i=1}^n x_i^2 + \sum_{i\neq k} x_i x_k = \sum_{i=1}^n \frac{i+1}{i}
-\lp x_i+\frac{x_{i+1}}{i+1}+\frac{x_{i+2}}{i+1}+ \cdots \rp^2
-\]
-
-Demo por inducción: si $n =1$ son ambas $2x^2$. Si lo tengo para $n$ veámoslo para $n+1$: lo que agregamos a cada sumatoria es:
-
-A la primera un $2x_{n+1}^2$ y un $2\sum_{i=1}^n x_{n+1}x_i$, mientras que a la segunda es más sutil:
-
-% \[ \frac{n+2}{n+1}x_{n+1}^2 + \sum_{i=1}^n \frac{i+1}{i} \leg{x_{n+1}}{i+1}^2 + 
-% 2 \sum_{i=1}^n \frac{i+1}{i} \lp \frac{x_{n+1}x_i}{i+1} + \sum_{j=i+1}^n \frac{x_{n+1}x_j}{{(i+1)}^2} \rp \]
-
-\[ \frac{n+2}{n+1}x_{n+1}^2 + \sum_{i=1}^n \frac{i+1}{i} \leg{x_{n+1}}{i+1}^2 + 
-2 \sum_{i=1}^n \frac{i+1}{i} \lp \frac{x_{n+1}x_i}{i+1} + \frac{x_{n+1}x_{i+1}}{{(i+1)}^2} + \frac{x_{n+1}x_{i+2}}{{(i+1)}^2}+ \cdots \rp \]
-
-Primero veamos la parte de $x_{n+1}^2$ que es exactamente 
-
-\[ \frac{n+2}{n+1} + \sum_{i=1}^n \frac{1}{i(i+1)} = \frac{n+2}{n+1} + \sum_{i=1}^n \frac{1}{i} - \frac{1}{i+1} = \frac{n+2}{n+1} + 1 - \frac{1}{n+1} = 1 + \frac{n+2-1}{n+1} = 2\]
-
-Y luego simplifiquemos un poco el otro:
-
-\[ 2 \sum_{i=1}^n \frac{i+1}{i} \lp \frac{x_{n+1}x_i}{i+1} + \frac{x_{n+1}x_{i+1}}{{(i+1)}^2} + \cdots \rp = 2x_{n+1} \sum_{i=1}^n \frac{1}{i} \lp x_i + \frac{x_{i+1}}{i+1} + \frac{x_{i+2}}{i+1}+ \cdots \rp\]
-
-Entonces de esa expresión queremos ver que el coeficiente que acompañe a cada $x_j$ sea igual a $1$: el coeficiente es
-
-\[ \sum_{i=1}^{j-1} \frac{1}{i(i+1)} + \frac{1}{j} = \sum_{i=1}^{j-1} \frac{1}{i} - \frac{1}{i+1} + \frac{1}{j} = 1-\frac{1}{j}+\frac{1}{j} = 1 \]
-
-\newpage
+Vamos a trabajar mucho con la curva $E_t: y^2 = x(x+1)(x+t^2)$ porque tiene grupo de torsión isomorfo a $\ZZ/2\ZZ \oplus \ZZ/4\ZZ$ sobre $\QQ$ y si $t^2-1$ es un cuadrado entonces sobre $\QQ(i)$ es $\ZZ/4\ZZ \oplus \ZZ/4\ZZ$. Otra presentación de la curva es $E_{mn}: y^2 = x(x+n^2)(x+m^2)$ con la condición siendo que $m^2-n^2$ sea un cuadrado. Y más en general la curva va a ser $E_{rs}: y^2 = x(x+r^2)(x+s^2)$ donde $r$ y $s$ van a ser polinomios en las variables $t$ o $m$ y $n$. El cambio de variables es fácil de ver: si $t = \frac{r}{s}$ entonces
 
 \[
-\sum_{s=1}^{n} e^{\frac{2\pi i s^2}{n}}  = i^{\lp\frac{n-1}{2}\rp^2} \sqrt{n} 
+y^2 = x(x+1)\lp x+\leg{r}{s}^2\rp \iff {(y's^{-3})}^2 = (x's^{-2})((x's^{-2})+1)\lp (x's^{-2})+\leg{r}{s}^2\rp 
 \]
+
+\[
+\iff y'^2 s^{-6} = x'(x'+s^2)(x'+r^2) s^{-6} \iff y'^2 = x'(x'+r^2)(x'+s^2)
+\]
+
+
+Notemos también que es la curva de Legendre $E_\lambda : y^2 = x(x+1)(x+\lambda)$ con $\lambda = t^2$, sobre la cual hay mucha literatura.
+
+Los puntos:
+
+Sí ponemos $P = (rs,rs(r+s))$ y $Q = (r(u-r), iru(u-r))$ con $u^2=r^2-s^2$
+
+\[
+\begin{array}{|c|c|c|c|c|}
+\hline
++   & \OO    & P      & 2*P    & 3*P \\ \hline
+
+\OO & \OO     & (rs,rs(r+s)) & (0,0)     & (rs,-rs(r+s)) \\ \hline
+
+Q& (-r(r-u),  & (-s(s-iu), & (-r(r+u), & (-s(s+iu), \\
+
+&  -iru(r-u)) & su(s-iu))  & iru(r+u)) & -su(s+iu)) \\ \hline
+
+2*Q& (-r^2,0) & (-rs,-rs(r-s))& (-s^2,0)& (-rs,rs(r-s)) \\ \hline
+
+3*Q & (-r(r-u),& (-s(s+iu, & (-r(r+u), & (-s(s-iu), \\ 
+
+&   iru(r-u)) & su(s+iu)) & -iru(r+u)) & -su(s-iu)) \\ \hline
+\end{array}
+\]
+
+(esta tabla está chequeada a mano con Sage)
+
+Props y cositas copadas:
+
+\begin{prop}
+Un punto $(x,y)$ en $E(k): y^2 = (x-\alpha_1)(x-\alpha_2)(x-\alpha_3)$ se puede dividir por $2$ si y solo si los números $x-\alpha_i$ son cuadrados en $k$.
+\end{prop}
 
 
 
