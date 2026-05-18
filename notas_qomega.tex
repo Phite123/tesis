@@ -1,0 +1,217 @@
+%LTeX: language=es-AR
+
+\documentclass[12pt]{amsart}
+
+%Fuente
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{epigraph}
+\usepackage{lipsum}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage{listings}
+\lstdefinestyle{micode}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false
+}
+
+\DeclareMathOperator{\mcd}{mcd}
+
+\renewcommand{\refname}{Bibliografía}
+
+%diagramas
+\usepackage{tikz-cd}
+
+%enumerar páginas y encabezados
+\pagestyle{headings}
+
+%Comandos para escribir C más rápido
+\usepackage{mathrsfs}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\cont}{\mathcal{C}}
+
+\newcommand{\pp}{\mathfrak{p}}
+
+\newcommand{\aaa}{\mathfrak{a}}
+\newcommand{\bbb}{\mathfrak{b}}
+
+\newcommand{\OO}{\mathcal{O}}
+
+\newcommand{\leg}[2]{\left( \frac{#1}{#2} \right)}
+\newcommand{\minimat}[4]{\left(\begin{smallmatrix} #1 & #2 \\ #3 & #4 
+\end{smallmatrix}\right)}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\lb}{\left|}
+\newcommand{\rb}{\right|}
+\newcommand{\lc}{\left<}
+\newcommand{\rc}{\right>}
+\newcommand{\lco}{\left[}
+\newcommand{\rco}{\right]}
+
+%dobles implicaciones
+\usepackage{csquotes}
+
+%Entornos con estilo 'tipo teorema'
+\theoremstyle{plain}
+\newtheorem{teo}[equation]{Teorema}
+\newtheorem{ej}[equation]{Ejercicio}
+\newtheorem{prop}[equation]{Proposición}
+\newtheorem{lem}[equation]{Lema}
+\newtheorem{coro}[equation]{Corolario}
+\newtheorem{defi}[equation]{Definición}
+\newtheorem{obs}[equation]{Observación}
+\newtheorem*{nota*}{Notación}
+\renewcommand*{\proofname}{Demostración}
+
+% Símbolo de Tate--Shafarevich
+\DeclareFontFamily{U}{wncy}{}
+\DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
+\DeclareSymbolFont{cyrletters}{U}{wncy}{m}{n}
+\DeclareMathSymbol{\Sha}{\mathord}{cyrletters}{"58}
+
+%Hipervínculos cliqueables, en color azul
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\title{Título}
+
+\author{Pedro Nicolás Peña}
+
+\begin{document}
+
+\maketitle
+
+% con Alt + Z te acomoda las lineas
+
+\section*{Sección}
+
+Vamos a trabajar mucho con la curva $E_{t^2}: y^2 = x^3 + t^2$ porque tiene un punto de 3 torsión, permitiéndonos 3-descenso. Tiene grupo de torsión isomorfo a $\ZZ/3\ZZ$ sobre $\QQ$ (porque no te queda otra) \textbf{ver sobre $\QQ(\omega)$}. Si $t = \frac{r}{s}$ entonces queda isomorfa a $E_{rs}: y^2 = x^3 +r^2s^4$. Las curvas  de la forma $y^2 = x^3 + d$ se llaman curvas de Mordell y hay mucha bibliografia sobre ellas.
+
+Para un ejemplo de rango 3 ver https://arxiv.org/pdf/1604.02693.
+
+%For curves with rational 3-torsion, your student could instead use this paper by Feng et al. (https://www.math.clemson.edu/~kevja/PAPERS/Selmer_Groups_3-Torsion-2011-11-10.pdf), which provides formulas for the 3-Selmer group (that should simplify considerably once you restrict to j=0). Alternatively, Chan’s recent work on the 3-isogeny Selmer groups of y^2 = x^3 + n^2 could be helpful. 
+
+% Note that bounding the rank typically requires computing both the phi-Selmer group and the phi'-Selmer group (where phi is the 3-isogeny and phi' is its dual). However, for E_{k^2} over Q(sqrt(-3)), the curve is isomorphic to its dual E_{-27k^2}. I have not worked out the details, but I think this should allow your student to bound the rank using only the phi-Selmer group
+
+\textbf{La  curva isógena:}
+
+La isogenia con kernel generado por $(0,t)$ 
+
+\textbf{Los puntos de torsión:}
+
+El punto $P=(0,t)$ es de orden $3$, y es el único sobre $\QQ$. Sobre $\QQ(\omega)$ puede haber otro si el parametro $t$ es cuatro veces un cubo.
+
+
+
+
+% Sí ponemos $P = ()$ y $Q = (r(u-r), iru(u-r))$ con $u^2=r^2-s^2$
+
+% \[
+% \begin{array}{|c|c|c|c|c|}
+% \hline
+% +   & \OO    & P      & 2*P    & 3*P \\ \hline
+
+% \OO & \OO     & (rs,rs(r+s)) & (0,0)     & (rs,-rs(r+s)) \\ \hline
+
+% Q& (-r(r-u),  & (-s(s-iu), & (-r(r+u), & (-s(s+iu), \\
+
+% &  -iru(r-u)) & su(s-iu))  & iru(r+u)) & -su(s+iu)) \\ \hline
+
+% 2*Q& (-r^2,0) & (-rs,-rs(r-s))& (-s^2,0)& (-rs,rs(r-s)) \\ \hline
+
+% 3*Q & (-r(r-u),& (-s(s+iu, & (-r(r+u), & (-s(s-iu), \\ 
+
+% &   iru(r-u)) & su(s+iu)) & -iru(r+u)) & -su(s-iu)) \\ \hline
+% \end{array}
+% \]
+
+% (esta tabla está chequeada a mano con Sage)
+
+\textbf{Discriminante:}
+
+\[
+\Delta_{E_{t^2}} = -432t^4 = -2^4 3^3 t^4
+\]
+
+
+\textbf{j-invariante:}
+
+0
+
+\textbf{Selmer:}
+
+
+
+\textbf{Puntos libres:}
+
+
+Ejemplo (me olvidé de la condición de que $r^2-s^2$ sea un cuadrado):
+
+\begin{lstlisting}[style=micode]
+Qi.<i> = QuadraticField(-1)
+
+E0 = EllipticCurve(QQ, [0, 7^2 + 24^2, 0, 7^2*24^2, 0])
+Ee = E0.change_ring(Qi)   #mejor esto que definirla directo en Qi pq asi tenemos .rank() y demas
+
+P = Ee(-18, i*558)
+print(Ee.rank(known_points=[P])) => 3
+print(Ee.gens()) => ((-18 : 558*i : 1), (504*i - 504 : 1512*i - 15624 : 1), (-525 : 3570 : 1))
+
+Q = Ee(-32, i*544) 
+print(2*P == -2*Q) => True
+print(P == Ee(-24^2,0) - Q) => True
+\end{lstlisting}
+
+
+
+\begin{prop}
+Un punto $(x_1,y_1)$ en $E(k): y^2 = (x-\alpha_1)(x-\alpha_2)(x-\alpha_3)$ se puede dividir por $2$ si y solo si los números $x_1-\alpha_i$ son cuadrados en $k$.
+\end{prop}
+
+\begin{prop}
+Para una curva elíptica definida sobre $K$, una extensión cuadrática $L=K(\sqrt{D})$ y el twist $E_D$ vale
+
+\[
+rg(E(L)) = rg(E(K)) + rg(E_D(K))
+\]
+\end{prop}
+
+
+
+
+
+
+\textbf{Que se sabe:}
+
+Hay infinitas curvas de rango $r$ para $0\leq r \leq 4$ sobre todo cuerpo de números. Las da Zywina en \cite{ZywinaSmallRank} que todas tienen full 2-torsion (generada por $(0,0)$)(obvio podes matarla y tenes de torsion trivial) con $\Sha [2] = 0$ (falta leer un poco mas de ese). Todo vino de una secuencia de papers: \cite{ZywinaRankNotJump}, \cite{ZywinaRankTwo} y \cite{ZywinaRankOneStability}. Usa numeros de Tamagawa para calcular los simbolos de Kodaira y el global root number porque (la conjetura de paridad dice que) te da la paridad del rango, y estas cosas te dan restricciones sobre las especializaciones.
+
+De Elkies hay curvas con rango alto, todas sobre $\QQ$, y ordenadas por grupo de torsion: Para el trivial el record es $29$ y está en un post random, y para varios grupos ($\ZZ /n\ZZ$ para $n\in \{2,3,4,6,7\}$) hay un paper: \cite{ElkiesKlagsbrun2020}. Lo hace con superficies K3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
