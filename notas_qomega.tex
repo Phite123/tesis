@@ -108,7 +108,7 @@ Para un ejemplo de rango 3 ver https://arxiv.org/pdf/1604.02693.
 
 \textbf{La  curva isógena:}
 
-La isogenia con kernel generado por $(0,t)$ 
+La isogenia con kernel generado por $(0,t)$ nos da la curva $E':y^2 = x^3 -27t^2$
 
 \textbf{Los puntos de torsión:}
 
@@ -151,35 +151,61 @@ El punto $P=(0,t)$ es de orden $3$, y es el único sobre $\QQ$. Sobre $\QQ(\omeg
 
 0
 
+\textbf{Notas para seguir el texto de Cohen y Pazuki:}
+
+Antes que nada no olvidar que las curvas que estamos viendo son isomorfas a su dual sobre $\QQ(\sqrt{-3})$
+
+Su $b$ es nuestro $t^2$ y $b=b_1b_3^3$ con $b_1$ libre de cubos
+
+$\alpha$ va a ser nuestro mapa que toma puntos de la curva y nos da elementos de $K^*/{(K^*)}^3$ con $\alpha(\OO)=1$, $\alpha((0, t)) = 1/(2t^2)$ y $\alpha((x, y)) = y-t^2$.
+
+$\hat\alpha$ va a ser lo mismo desde la isógena, y nos queda $\hat\alpha(\OO)=1$, $\hat\alpha((0, -t)) = 1/(54t^2)$ y $\hat\alpha((x, y)) = y+27t^2$.
+
+La joda teórica es $Ker(\alpha) = im(\hat\phi)$. También $|Im(\alpha)||Im(\hat\alpha)| = 3^{r+1}$.
+
+Para $\QQ$ vale lo siguiente: $\bar{u}\in \QQ^\times / {(\QQ^\times)}^3$ esta en la imagen de $\alpha$ si y solo si tiene un repr en $u\in \QQ$ tal que la siguiente tiene solución no trivial en $\ZZ$ (o $\QQ$, es lo mismo):
+\[
+uX^3 + (1/u)Y^3 + 2bZ^3 -2aXYZ= 0
+\]
+
+Y eso se puede simplificar: para una solución tomá $u=u_1^2u_2$ (troll) todo libre de cuadrados y $u_1\perp u_2$, y entonces $u_1u_2 | 2b$ y la solubilidad es equiv a la de:
+\[
+u_1X^3 + u_2Y^3 + (2b/(u_1u_2))Z^3 - 2aXY Z = 0 
+\]
+
+Osea para las que tenemos (esto es en $\QQ$ no olvidar):
+
+\[
+u_1X^3 + u_2Y^3 + (2t^2/(u_1u_2))Z^3 = 0
+\]
+
+\[
+u_1X^3 + u_2Y^3 - (54t^2/(u_1u_2))Z^3 = 0
+\]
+
+Obvio para los casos de $\OO$ y los puntos de torsión tenemos soluciones y son:
+\[
+\alpha(\OO) = 1 = u \implies (X,Y,Z) = (1,-1,0)
+\]
+\[
+\alpha((0, t)) = 1/2t = u \implies (X,Y,Z) = (0,1,-1)
+\]
+
+Y el caso $y-t^2 = uz^3$ tiene solución $(X,Y,Z) = (z^2,-x,z)$
+
+Dada una solución podemos buscar el punto del que venía.
+
+
+
+
+
+
+
 \textbf{Selmer:}
 
 
 
 \textbf{Puntos libres:}
-
-
-Ejemplo (me olvidé de la condición de que $r^2-s^2$ sea un cuadrado):
-
-\begin{lstlisting}[style=micode]
-Qi.<i> = QuadraticField(-1)
-
-E0 = EllipticCurve(QQ, [0, 7^2 + 24^2, 0, 7^2*24^2, 0])
-Ee = E0.change_ring(Qi)   #mejor esto que definirla directo en Qi pq asi tenemos .rank() y demas
-
-P = Ee(-18, i*558)
-print(Ee.rank(known_points=[P])) => 3
-print(Ee.gens()) => ((-18 : 558*i : 1), (504*i - 504 : 1512*i - 15624 : 1), (-525 : 3570 : 1))
-
-Q = Ee(-32, i*544) 
-print(2*P == -2*Q) => True
-print(P == Ee(-24^2,0) - Q) => True
-\end{lstlisting}
-
-
-
-\begin{prop}
-Un punto $(x_1,y_1)$ en $E(k): y^2 = (x-\alpha_1)(x-\alpha_2)(x-\alpha_3)$ se puede dividir por $2$ si y solo si los números $x_1-\alpha_i$ son cuadrados en $k$.
-\end{prop}
 
 \begin{prop}
 Para una curva elíptica definida sobre $K$, una extensión cuadrática $L=K(\sqrt{D})$ y el twist $E_D$ vale
