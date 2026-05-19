@@ -161,7 +161,10 @@ $\alpha$ va a ser nuestro mapa que toma puntos de la curva y nos da elementos de
 
 $\hat\alpha$ va a ser lo mismo desde la isógena, y nos queda $\hat\alpha(\OO)=1$, $\hat\alpha((0, -t)) = 1/(54t^2)$ y $\hat\alpha((x, y)) = y+27t^2$.
 
-La joda teórica es $Ker(\alpha) = im(\hat\phi)$. También $|Im(\alpha)||Im(\hat\alpha)| = 3^{r+1}$.
+La joda teórica es $Ker(\alpha) = im(\hat\phi)$. También $|Im(\alpha)||Im(\hat\alpha)| = 3^{r+1}$. El corolario es 
+\[
+\frac{E(\QQ)}{\hat\phi(E'(\QQ))} \simeq Im(\alpha)
+\]
 
 Para $\QQ$ vale lo siguiente: $\bar{u}\in \QQ^\times / {(\QQ^\times)}^3$ esta en la imagen de $\alpha$ si y solo si tiene un repr en $u\in \QQ$ tal que la siguiente tiene solución no trivial en $\ZZ$ (o $\QQ$, es lo mismo):
 \[
@@ -197,15 +200,20 @@ Dada una solución podemos buscar el punto del que venía.
 
 
 
-
-
-
-
 \textbf{Selmer:}
+
+\textbf{Como ver ${\QQ(\sqrt{-3})}^\times / {({\QQ(\sqrt{-3})}^\times)}^3$:}
+
+
+Note that since we are working over $Q(\sqrt{-3})$, $p = 3$ is the only ramified prime. If $p \equiv 2 (\mod 3)$, then $p$ is an inert prime.
+And if $p \equiv 1 (\mod 3)$, then $p$ is a split prime
 
 
 
 \textbf{Puntos libres:}
+
+https://personal.math.ubc.ca/~bennett/BeGa-data.html
+
 
 \begin{prop}
 Para una curva elíptica definida sobre $K$, una extensión cuadrática $L=K(\sqrt{D})$ y el twist $E_D$ vale
