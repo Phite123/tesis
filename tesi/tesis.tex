@@ -1,0 +1,176 @@
+\documentclass[12pt, a4paper]{report}
+
+% --- Paquetes básicos ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{stmaryrd}
+\usepackage{comment}
+\usepackage{graphicx} % <--- AGREGADO: Necesario para la imagen uba2.jpg
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+
+% --- Configuración de márgenes GENERAL (para el resto de la tesis) ---
+\geometry{left=3cm, right=3cm, top=3cm, bottom=3cm}
+
+% --- Configuración de entornos de Teoremas/Definiciones ---
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+\newtheorem{example}[definition]{Ejemplo}
+\newtheorem{remark}[definition]{Observación}
+\newtheorem{recordatorio}[definition]{Recordatorio}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Teorema}
+\newtheorem*{theorem*}{Teorema}
+\newtheorem{lemma}[definition]{Lema}
+\newtheorem{prop}[definition]{Proposición}
+\newtheorem{corollary}[definition]{Corolario}
+
+\renewcommand{\proofname}{Demostración}
+
+% --- Comandos personalizados ---
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\nuord}{\nu}
+\DeclareMathOperator{\mcd}{mcd}
+\newcommand{\Hcal}{\mathbb{H}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\mat}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
+\newcommand{\minmat}[4]{\left(\begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix}\right)}
+\newcommand{\qexp}{e^{2\pi i z}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+
+% --- Configuración de hyperref ---
+\hypersetup{
+    colorlinks=true, linkcolor=blue, citecolor=magenta, urlcolor=cyan
+}
+
+% --- Inicio del Documento ---
+\begin{document}
+
+% --- CARÁTULA PERSONALIZADA ---
+\begin{titlepage}
+    % Cambiamos los márgenes SOLO para esta página según pide la plantilla de UBA
+    \newgeometry{top=5cm, bottom=2cm, left=3cm, right=3cm}
+    
+    \thispagestyle{empty}
+
+    \begin{center}
+        \includegraphics[scale=.3]{uba2.jpg}
+
+        \medskip
+        \textbf{UNIVERSIDAD DE BUENOS AIRES}
+
+        \smallskip 
+
+        \textbf{Facultad de Ciencias Exactas y Naturales}
+
+        \smallskip
+
+        \textbf{Departamento de Matem\'atica}
+
+        \vspace{3.5cm}
+
+        \textbf{\large Tesis de Licenciatura}
+
+        \vspace{1.5cm}
+
+        \textbf{\large Congruencias para la Función Particiones y Coeficientes de Formas Modulares????}
+
+        \vspace{1.5cm}
+
+        \textbf{Pedro Nicolás Peña}
+
+    \end{center}
+
+    \vspace{1.5cm}
+
+    \noindent \textbf{Director} \ \ Dr. Martin Mereb
+
+    \vspace{3cm}
+
+    \rightline{\today}
+
+    % Restauramos los márgenes globales (3cm) para el resto del documento
+    \restoregeometry
+\end{titlepage}
+% --- FIN CARÁTULA ---
+
+\newpage
+\clearpage
+\mbox{}
+\clearpage
+\newpage
+
+\section*{Agradecimientos}
+
+A Juli Feldman que me paso este template.
+
+
+
+\newpage
+
+\section*{Introducción}
+
+El grupo abeliano de puntos racionales de una curva eliptica $E$ sobre un cuerpo de números $K$ es finitamente generado, y podemos considerar su parte de torsion y el rango de su parte libre. 
+
+Sobre $\QQ$ los posibles grupos de torsion fueron caracterizados completamente por Mazur \cite{Mazur1977} y luego para extensiones cuadraticas por Kamienny \cite{Kamienny1992} y Kenku-Momose \cite{KenkuMomose1988}. Más aún, para $K=\QQ(i)$ y $K=\QQ(\omega)$, Najman \cite{Najman2010} redujo la lista de posibles grupos.
+
+
+
+
+
+\subsection*{Estructura de la tesis}
+
+
+
+\newpage
+\tableofcontents
+\newpage
+
+
+\chapter{Formas modulares de peso entero}
+\label{cap:intro_formas_modulares}
+
+Las formas modulares son funciones complejas definidas en el semiplano superior complejo que satisfacen ciertas propiedades de simetría y condiciones analíticas. Juegan un papel crucial en diversas áreas de las matemáticas, como la teoría de números y la geometría algebraica. Esta sección introduce los conceptos fundamentales de las formas modulares; para un tratamiento riguroso y detallado de estos fundamentos, referimos al lector al texto de Diamond y Shurman \cite{DiamondShurman}.
+
+\section{Subgrupos de congruencia}
+\label{sec:Subgrupos_de_congruencia}
+
+El escenario principal para las formas modulares es el semiplano superior complejo.
+
+\begin{definition}[Semiplano superior complejo]
+\label{def:H}
+El \emph{semiplano superior complejo}, denotado por $\mathbb{H}$, es el conjunto
+\end{definition}
+
+
+
+
+
+
+
+
+% --- Bibliografía ---
+% Si tienes una bibliografía principal, añade esta referencia allí.
+% Si no, puedes incluirla así:
+\bibliographystyle{amsalpha}
+\bibliography{mi_bibliografia} % Nombre de tu archivo .bib
+
+
+
+\end{document}
+% --- Fin del Documento ---
