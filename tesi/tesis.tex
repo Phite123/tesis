@@ -47,11 +47,32 @@
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\pp}{\mathfrak{p}}
+
+
 \newcommand{\mat}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
 \newcommand{\minmat}[4]{\left(\begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix}\right)}
 \newcommand{\qexp}{e^{2\pi i z}}
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\cub}[2]{\left(\frac{#1}{#2}\right)_3}
+
+\newcommand{\sh}[1]{\left\{#1\right\}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\lb}{\left|}
+\newcommand{\rb}{\right|}
+\newcommand{\lc}{\left<}
+\newcommand{\rc}{\right>}
+\newcommand{\lco}{\left[}
+\newcommand{\rco}{\right]}
+
+
+
+
 
 % --- Configuración de hyperref ---
 \hypersetup{
@@ -127,7 +148,7 @@ A Juli Feldman que me paso este template.
 
 El grupo abeliano de puntos racionales de una curva eliptica $E$ sobre un cuerpo de números $K$ es finitamente generado, y podemos considerar su parte de torsion y el rango de su parte libre. 
 
-Sobre $\QQ$ los posibles grupos de torsion fueron caracterizados completamente por Mazur \cite{Mazur1977} y luego para extensiones cuadraticas por Kamienny \cite{Kamienny1992} y Kenku-Momose \cite{KenkuMomose1988}. Más aún, para $K=\QQ(i)$ y $K=\QQ(\omega)$, Najman \cite{Najman2010} redujo la lista de posibles grupos. Para cuerpos de numeros en general, el teorema de Merel \cite{Merel1996} nos da una cota superior para el tamaño del grupo. 
+Sobre $\QQ$ los posibles grupos de torsion fueron caracterizados completamente por Mazur \cite{Mazur1977} y luego para extensiones cuadraticas por Kamienny \cite{Kamienny1992} y Kenku-Momose \cite{KenkuMomose1988}. Más aún, para $\QQ(i)$ y $\QQ(\omega)$, Najman \cite{Najman2010} redujo la lista de posibles grupos. Para cuerpos de numeros en general, el teorema de Merel \cite{Merel1996} nos da una cota superior para el tamaño del grupo. 
 
 El rango por otra parte es un valor del que se sabe mucho menos y es componente de muchas conjeturas famosas. De las preguntas principales sobre él algunas son: el rango maximo que puede alcanzar una curva definida sobre $\QQ$, con el record actual de 29 por Elkies-Klagsbrun, o el maximo dado un grupo de torsion fijo, ver \cite{ElkiesKlagsbrun2020}; que valores de rango aparecen infinitas veces, con conjeturas al respecto recopiladas en \cite{ParkPoonenVoightWood2019} que conjeturan que sobre $\QQ$ hasta 20 hay infinitas y luego hay finitas excepciones; Birch y Swinnirtin-Dyir; y recien en el ultimo tiempo se comenzaron a obtener resultados de ejemplos de familias infinitas de cierto rango fijo.
 
@@ -138,8 +159,15 @@ Tambien surge el interes de fijar cierta condicion para la curva, como puede ser
 
 
 
-
 \subsection*{Estructura de la tesis}
+
+Capitulos
+
+Antes de empezar fijemos la notacion que usaremos: El grupo de puntos de una curva eliptica $E$ sobre un cuerpo de numeros $K$, por ser un grupo abeliano finitamente generado lo notaremos como $E(K) = T \oplus \ZZ^r$, donde $T$ es el grupo de torsion y $r$ es el rango de la curva. 
+
+Usaremos una curva en especifico, pero la presentaremos con mas o menos generalidad para simplificar los resultados en notacion, vamos a ver cada una de ellas: $E_d: y^2 = x^3 + d$ será la mas general, llamada curva de Mordell; luego como queremos asegurarnos de tener un puntos de 3-torsion precisamos que $d$ sea un cuadrado, y la llamaremos $E_{t}: y^2 = x^3 + t^2$; despues para nuestro resultado usaremos un $t$ especifico que será $t=k^2-1$, con el cual nos aseguramos un punto libre, y la curva será $E_{k}: y^2 = x^3 + {(k^2-1)}^2$; y finalmente para el analisis de rango vamos a escribir $k$ como $\frac{a}{b}$ y la curva nos queda $E_{a,b}: y^2 = x^3 + {(b(b-a)(b+a))}^2$.
+
+
 
 
 
@@ -148,20 +176,208 @@ Tambien surge el interes de fijar cierta condicion para la curva, como puede ser
 \newpage
 
 
-\chapter{Formas modulares de peso entero}
-\label{cap:intro_formas_modulares}
+\chapter{Chamullo de curvas elipticas y grupo de mordell-weil}
+\label{cap:mw}
 
-Las formas modulares son funciones complejas definidas en el semiplano superior complejo que satisfacen ciertas propiedades de simetría y condiciones analíticas. Juegan un papel crucial en diversas áreas de las matemáticas, como la teoría de números y la geometría algebraica. Esta sección introduce los conceptos fundamentales de las formas modulares; para un tratamiento riguroso y detallado de estos fundamentos, referimos al lector al texto de Diamond y Shurman \cite{DiamondShurman}.
+blabla
 
-\section{Subgrupos de congruencia}
-\label{sec:Subgrupos_de_congruencia}
+\section{asi}
+\label{sec:asi}
 
-El escenario principal para las formas modulares es el semiplano superior complejo.
+El escenario principal para las formas modulares es el semiplano superior complejoj jiji.
 
-\begin{definition}[Semiplano superior complejo]
-\label{def:H}
-El \emph{semiplano superior complejo}, denotado por $\mathbb{H}$, es el conjunto
+\begin{definition}[Rango de una curva elíptica]
+\label{def:rank}
+El \emph{rango de una curva elíptica}, denotado por $r$ es el exponente de la parte libre del grupo de Mordell-Weil.
 \end{definition}
+
+
+
+\chapter{Superficies elipticas}
+\label{cap:superficies}
+
+\chapter{El morfismo para el 3-descenso y el cuerpo $\QQ(\omega)$}
+\label{cap:selmer}
+
+Nos interesa ahora acotar el rango superiormente, y para ello nos gustaría un morfismo que salga del grupo de puntos de la curva $E(K)$ y sea inyectivo en algun grupo calculable. Esto no lo tenemos directamente pero si podremos armar uno que salga de $E(K)/\hat{\phi}(E'(K))$ para la 3-isogenia $\hat{\phi}: E' \to E$ que teniamos, y que caiga en un subgrupo de $K^\times/{(K^\times)}^3$ finitamente generado (entonces finito) y calculable.
+
+Esa idea es la que utiliza la demostracion del teorema de Mordell-Weil (que nos dice que el grupo de puntos es finitamente generado), y haciendo un analisis mas fino del morfismo se consigue una cota superior. La teoria está en el libro de Silverman \cite{SilvermanAEC} en los capitulos VIII y X, donde se desarrolla mas a fondo el grupo de Selmer, pero vamos a esquivar esto usando una idea analoga al ejemplo desarrollado allí en la seccion X.6 o en el libro de Silverman-Tate capitulo 3 (proposicion 3.8 en particular) \cite{SilvermanTate}, pero para 3-descenso en vez de 2-descenso. 
+
+Notemos que si tenemos un elemento $(x,y)\in E_t(K)$, es decir $y^2=x^3+t^2$, entonces $(y-t)(y+t)=x^3$ es un cubo en el cuerpo $K$. Con esto definamos el morfismo que codificará la informacion que necesitmos: será el mapa $\alpha:E_t(K) \to K^\times/{(K^\times)}^3$ tal que $\alpha(x,y) = y-t \mod {(K^\times)}^3$, con $\alpha(\OO) = 1$ y $\alpha(0,t) = {(2t)}^{-1}$. Y lo que nos interesa es lo siguiente:
+
+\begin{prop}
+El $\alpha$ es un morfismo, cuyo núcleo es la imagen de $\hat{\phi}$ y su imagen está contenida en el subgrupo generado por $\omega$ y los primos que dividen a $2t$.
+\end{prop}
+
+\begin{proof}
+Your proof here.
+elegir $y-t$ o $y+t$ es lo mismo porque son inversos modulo cubos (su producto es $1$)
+\end{proof}
+
+Ahora si tenemos que $\alpha(x,y) = \bar{u}$, es decir $y-t = uz^3$, entonces $y+t = u^{-1}w^3$ y si las restamos entonces cada punto de $E_t(K)$ nos dará un $u$ para el cual el espacio homogeneo
+\[
+C_u: uX^3+u^{-1}Y^3+2tZ^3=0
+\]
+debe tener una solucion, a saber $(X:Y:Z) = (z:-w:1)$. Equivalentemente si tenemos una solucion para $C_u$ con $Z\neq 0$ entonces llamando 
+\[
+\begin{array}{cc}
+x=-\frac{XY}{Z^2},
+&
+y=\frac{uX^3-u^{-1}Y^3}{2Z^3}
+\end{array}
+\]
+tenemos un punto de la curva eliptica que via $\alpha$ va a parar a (la clase de) $u$. El caso $Z=0$ nos queda ${(Y/X)}^3=-u^2$, pero esto nos dice que $u$ es un cubo en $K$, osea que cae en la clase trivial, que ya teniamos con $\alpha(\OO)$. En resumen acabamos de demostrar lo siguiente:
+
+\begin{prop}
+\[
+\bar{u}\in\im(\alpha) \iff C_u(K)\neq \varnothing.
+\]
+\end{prop}
+
+Ahora precisamos analizar los $C_u$ para ver que condiciones imponerle a $t$ y tener la cota que necesitamos para el rango. Para descartar de la imagen una clase $u$ bastará con encontrar un primo $\pp$ de los que dividen a $t$ para el cual $C_u(K_\pp) = \varnothing$.
+
+Para estudiar $C_u(K_\pp)$, eligiendo un modelo de $C_u$ con coeficientes enteros, vamos a considerar su reduccion módulo $\pp$, y para ver la condicion de ser un cubo módulo $\pp$ naturalmente vamos a usar el simbolo cubico: 
+
+\begin{definition}
+Sea $\pp$ un primo de $\OO_K$ tal que $\pp \nmid 3$ y $\beta\in \OO_K$ coprimo con $\pp$, entonces defimos $\cub{\beta}{\pp}$ como el elemento de $\{1,\omega,\omega^2\}$ tal que 
+\[
+\beta^{\frac{N(\pp)-1}{3}} \equiv \cub{\beta}{\pp} \mod \pp.
+\]
+\end{definition}
+
+En particular $\beta$ es un cubo módulo $\pp$ si y solo si $\cub{\beta}{\pp}=1$.
+
+Ahora para un primo $\pp$ que no divida a $6$ y que divida a $t$ una vez (osea $v_\pp(t)=1$) podemos escribir $t=\pp t'$ y $u=\pp^r v$ con $r\in \{0,1,2\}$ ya que trabajamos módulo cubos, tomando $t'$ y $v$ coprimos con $\pp$.
+
+\begin{prop}
+Con la notacion de arriba, si $C_u(K_\pp)\neq\varnothing$ y
+\begin{itemize}
+    \item $r=0$ entonces $\cub{v}{\pp}=1$
+    \item $r=1$ entonces $\cub{2t'v^{-1}}{\pp}=1$
+    \item $r=2$ entonces $\cub{2t'v}{\pp}=1$
+\end{itemize}
+\end{prop}
+
+\begin{proof}
+Tomemos $(X:Y:Z)\in C_u(K_\pp)$. Como son coordenadas proyectivas podemos asumir que $X,Y,Z \in \OO_K$ y al menos uno es una unidad. Multiplicando a $C_u$ por $u=\pp^r v$ una vez tenemos que:
+\[
+\pp^{2r}v^2X^3+Y^3+2\pp^{r+1}t'vZ^3=0
+\]
+
+Si $r=0$ nos queda $v^2 X^3 + Y^3 \equiv 0 \mod \pp$. $X$ e $Y$ no pueden ser ambos nulos porque en ese caso $Z$ sería la unidad y, volviendo a la ecuacion, la valuacion $\pp$-adica de los primeros dos sumandos nos quedaría al menos 3 mientras el tercero solo 1, contradiciendo que se puedan cancelar para dar 0. 
+
+Entonces dividiendo por $X^3$ nos queda ${(Y/X)}^3\equiv v^2 \mod \pp$ y como $-1$ es un cubo esto implica que $v$ es un cubo módulo $\pp$.
+
+Si $r=1$ entonces necesariamente $Y\equiv 0\mod \pp$, y reemplazando $Y=\pp Y_1$ nos queda 
+\[
+\pp^{2}v^2X^3+\pp^{3}Y_1^3+2\pp^{2}t'vZ^3=0
+\]
+\[
+v^2X^3+\pp Y_1^3+2t'vZ^3=0
+\]
+\[
+vX^3+2t'Z^3 \equiv 0 \mod \pp
+\]
+
+Donde eliminamos un $v$ recordando que era coprimo con $\pp$, luego de la ultima se ve que ni $X$ ni $Z$ pueden ser 0 porque entonces la otra lo sería y la unidad no puede ser $Y$, y entonces volvemos a tener ${(X/Z)}^3\equiv -2t'v^{-1} \mod \pp$
+
+Si $r=2$ nuevamente tenemos $Y=\pp Y_1$ y nos queda 
+\[
+\pp v^2X^3+ Y_1^3+2t'vZ^3=0
+\]
+Si $Z \not\equiv 0\mod \pp$ entonces ${(Y_1/Z)}^3\equiv -2t'v \mod \pp$. Y $Z$ no puede ser 0 porque en ese caso $X$ deberia ser la unidad y $\pp\mid Y_1$ con lo cual la ecuacion con $Y_1$ tendria valuacion $\pp$-adica de los ultimos dos sumandos de al menos 3 mientras el primero solo 1.
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+\chapter{Tao constellations o no da?}
+\label{cap:tao}
+
+Esta será una seccion corta donde contaremos algunos resultados de combinatoria aditiva que nos permiten asegurar la existencia de primos del modo que nos interesa para asegurar que tendremos infinitos ejemplos de la curva que construimos. Estos tipos de resultados son los que se usan en los papers de Zywina, Savoie y demas, pero principalmente como una ``caja negra'' ya que provienen de otras areas de la teoria de números.
+
+
+
+\chapter{Familia de curvas elipticas con $j=0$ sobre $\QQ(\omega)$ de rango 2}
+\label{cap:result}
+
+El resultado principal encontrado es el siguiente:
+\begin{prop}
+\label{prop:laprop}
+Dados $b-a$, $a$ y $b+a$ primos en $\ZZ[\omega]$ congruentes a $4+3\omega$ módulo $6$, la curva elíptica
+\[
+E_{a,b}: y^2=x^3+{(b(b-a)(b+a))}^2
+\]
+tiene rango 2 sobre $\QQ(\omega)$. 
+\end{prop}
+
+Y lo que nos interesa de este resultado es lo siguiente:
+
+\begin{theorem}
+Existen infinitas curvas de rango 2 sobre $\QQ(\omega)$ con $j$-invariante igual a $0$.
+\end{theorem}
+
+Vamos a juntar toda la teoria que fuimos contando en las demostraciones de estos resultados.
+
+Primero la curva $E_{a,b}$ tiene la forma de una curva de Mordell: $y^2 = x^3 + d$, prototipica de curvas con $j$-invariante $0$. El parametro $d$ es ${(b(b-a)(b+a))}^2 =: t^2$, un cuadrado para asegurarnos de tener el punto $(0,t)$ de 3-torsion en la curva, para poder realizar 3-descenso. ojo con otra torsion y con tener mucha 3-torsion, descartar a y b que no.
+
+
+
+La 3-isogenía con kernel $\langle (0,t) \rangle$ cae en la curva $E'_t: y^2 = x^3 - 27t^2$, y es por ello que elegimos trabajar en el cuerpo $\QQ(\omega)$, ya que el $-27$ es una potencia sexta (${\sqrt{-3}}^6 = -27$) y por lo tanto $E'_{a,b}$ es isomorfa a $E_{a,b}$ por la propiedad que nos dice eso (\textbf{Poner la prop y la referencia}). Ahora con eso nos ahorramos la mitad de las cuentas, ya que el grupo de Selmer que nos acotará el rango es el mismo para $E_t$ y $E'_t$.
+
+La eleccion del parametro $t=k^2-1$ viene de la superficie eliptica $E_k: y^2=x^3+{(k^2-1)}^2$ ya que contiene el punto $(k^2-1,k(k^2-1))$:
+\[
+k^2{(k^2-1)}^2 = (k^2-1+1){(k^2-1)}^2 = (k^2-1){(k^2-1)}^2+{(k^2-1)}^2 = {(k^2-1)}^3+{(k^2-1)}^2
+\]
+
+Luego de esa observacion, si notamos $k=\frac{a}{b}$ nos queda la curva que tenemos
+\[
+y^2=x^3+{\lp\frac{a}{b}^2-1\rp}^2 = x^3+{\lp\frac{a^2-b^2}{b^2}\rp}^2 = x^3+\frac{{(a^2-b^2)}^2}{b^4}
+\]
+y multiplicando a ambos lados por $b^6$ nos queda
+\[
+y^2b^6 = \lp x^3+\frac{{(a^2-b^2)}^2}{b^4} \rp b^6
+\]
+\[
+{(yb^3)}^2 = x^3b^6 + b^2{(a^2-b^2)}^2
+\]
+\[
+{(yb^3)}^2 = {(xb^2)}^3+{(b(a-b)(a+b))}^2
+\]
+
+que renombrando a las variables $x'=xb^2$ y $y'=yb^3$ nos queda la curva $E_{a,b}$ con el punto $(a^2-b^2, b(a^2-b^2))$ que no es de torsion.
+
+La otra ventaja de la curva y el cuerpo de definicion es que tiene el endomorfismo denotado como $[\omega]$ que envía un punto $(x,y)$ a $(\omega x, y)$ tambien perteneciente a la curva, por lo que su anillo de endomorfismos es (al menos) $\ZZ[\omega]$, por lo que el grupo de Mordell-Weil será un $\ZZ[\omega]$-módulo, y por lo tanto de rango libre par. Con esto nos aseguramos rango por lo menos 2.
+
+Segundo daremos una cota superior para el rango de la curva, usando el 3-descenso del punto encontrado y el morfismo del capitulo \ref{cap:selmer}. El discriminante de la curva es $\Delta_{E_{a,b}} = - 2^6 3^4{(b(b-a)(b+a))}^4$, por lo que si $b$, $b-a$ y $b+a$ son primos nos queda que el grupo de Selmer será un subgrupo de
+\[
+K(S,3) = \sh{\alpha\in K^\times/{\lp K^\times\rp}^3: \alpha = \omega^{e_0}2^{e_2}3^{e_3}{(b-a)}^{e_-}b^{e_b}{(b+a)}^{e_+} , e_i\in\{0,1,2\}}.
+\]
+donde $S=\sh{\omega,2,\sqrt{-3},b-a,b,b+a}$ es el conjunto de lugares de $K=\QQ(\sqrt{-3})$, $\omega$ correspondiendo al arquimediano y usando que $\sqrt{-3} \equiv 3$ módulo cubos.
+
+La dimension de ese espacio sobre $\FF_3$ es 6 y la queremos bajar a 2 con condiciones sobre los primos en funcion de que el espacio homogeneo asociado no tenga puntos. 
+
+Como nuestros primos son congruentes a $4 + 3\omega \mod 6$ entonces son $\omega \mod 2$ y $1 \mod \omega$, con eso y el desarrollo del 3-descenso que hicimos en el capitulo \ref{cap:selmer} podemos descartar elementos de $K(S,3)$. 
+
+Una vez que descendimos tenemos cota de rango explicada.
+
+Tercero aseguremosnos de que existan infinitas curvas para pasar de la prop al teo, y eso sale por Tao constellations o Kai o qcyo
+
+
+
+
+
+
+
+
 
 
 

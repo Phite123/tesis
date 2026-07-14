@@ -42,6 +42,7 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\cont}{\mathcal{C}}
+\newcommand{\Eps}{\mathcal{E}}
 
 \newcommand{\pp}{\mathfrak{p}}
 
@@ -120,33 +121,11 @@ La isogenia con kernel generado por $(0,t)$ nos da la curva $E':y^2 = x^3 -27t^2
 
 \textbf{Los puntos de torsión:}
 
-El punto $P=(0,t)$ es de orden $3$, y es el único sobre $\QQ$. Sobre $\QQ(\omega)$ puede haber otro si el parametro $t$ es cuatro veces un cubo.
+El punto $P=(0,t)$ es de orden $3$, y es el único sobre $\QQ$. Sobre $\QQ(\omega)$ puede haber otro si el parámetro $t$ es cuatro veces un cubo.
 
+Osea si $t = 4r^3$ entonces $E: y^2=x^3+16r^6$ entonces el punto $Q=(-4r^2 , -4r^3 \sqrt{-3})$ pertenece a la curva y es de 3-torsión y es el otro generador del grupo de torsión que queda isomorfo a $\ZZ/3\ZZ \times \ZZ/3\ZZ$. (No puede tener 2-torsión porque $y=0$ nos queda $x^3=-16t^6$ que necesita que el $16$ sea un cubo, pero tiene valuación $2$-adica (que es primo) igual a 4).
 
-
-
-% Sí ponemos $P = ()$ y $Q = (r(u-r), iru(u-r))$ con $u^2=r^2-s^2$
-
-% \[
-% \begin{array}{|c|c|c|c|c|}
-% \hline
-% +   & \OO    & P      & 2*P    & 3*P \\ \hline
-
-% \OO & \OO     & (rs,rs(r+s)) & (0,0)     & (rs,-rs(r+s)) \\ \hline
-
-% Q& (-r(r-u),  & (-s(s-iu), & (-r(r+u), & (-s(s+iu), \\
-
-% &  -iru(r-u)) & su(s-iu))  & iru(r+u)) & -su(s+iu)) \\ \hline
-
-% 2*Q& (-r^2,0) & (-rs,-rs(r-s))& (-s^2,0)& (-rs,rs(r-s)) \\ \hline
-
-% 3*Q & (-r(r-u),& (-s(s+iu, & (-r(r+u), & (-s(s-iu), \\ 
-
-% &   iru(r-u)) & su(s+iu)) & -iru(r+u)) & -su(s-iu)) \\ \hline
-% \end{array}
-% \]
-
-% (esta tabla está chequeada a mano con Sage)
+El resto de los puntos de torsión son $(2r^2(1\pm\sqrt{-3}), \pm 4r^3 \sqrt{-3})$ donde los $\pm$ son independientes, y esto junto con el punto en infinito nos dan los 9 puntos de torsión.
 
 \textbf{Discriminante:}
 
@@ -154,7 +133,10 @@ El punto $P=(0,t)$ es de orden $3$, y es el único sobre $\QQ$. Sobre $\QQ(\omeg
 \Delta_{E_{t^2}} = -432t^4 = -2^4 3^3 t^4
 \]
 
-Su factorización en $\QQ(\omega)$ es: $2^4 \omega^6 t^4$ si $t\equiv 2 \pmod 3$ primo de $\QQ$ y $2^4 \omega^6 t_1^4 t_2^4$ si $t\equiv 1 \pmod 3$ primo de $\QQ$.
+Su factorización en $\QQ(\omega)$ es: $2^4 \sqrt{-3}^6 t^4$ si $t\equiv 2 \pmod 3$ primo de $\QQ$ y $2^4 \sqrt{-3}^6 t_1^4 t_2^4$ si $t\equiv 1 \pmod 3$ primo de $\QQ$. Para $t=4r^3$ es
+\[
+\Delta_{E_{16r^6}} = -432\cdot 16r^{12} = 2^8 \sqrt{-3}^6 r^{12}
+\]
 
 \textbf{j-invariante:}
 
@@ -265,15 +247,36 @@ Hay infinitas curvas de rango $r$ para $0\leq r \leq 4$ sobre todo cuerpo de nú
 De Elkies hay curvas con rango alto, todas sobre $\QQ$, y ordenadas por grupo de torsion: Para el trivial el record es $29$ y está en un post random, y para varios grupos ($\ZZ /n\ZZ$ para $n\in \{2,3,4,6,7\}$) hay un paper: \cite{ElkiesKlagsbrun2020}. Lo hace con superficies K3.
 
 
+\textbf{La superficie de Z/3Z x Z/3Z:}
 
+Las curvas $y^2 = x^3 + 16r^6$ son todas isomorfas duh, entonces vamos a trabajar con la superficie eliptica que me parametriza las curvas de torsion $\ZZ/3\ZZ \times \ZZ/3\ZZ$ que es 
+\[ 
+\Eps^{(3,3)} : y^2 + s(vs^2 - 12)xy + 4v(144s^2 - 24vs^4 + 432vs + 432v^2 + v^2s^6 - 36v^2s^3)y = x^3
+\]
 
+con $v,s\in \QQ(\sqrt{-3})$ tales que 
+\[
+\Delta_{\Eps^{(3,3)}}=2^6v^3{(vs^3 - 36v - 12s)}^3{(144s^2 - 24vs^4 + 432vs+ 432v^2 + v^2s^6 - 36v^2s^3)}^3\neq 0
+\]
 
+\includegraphics[width=0.9\textwidth]{image.png}
 
+Si ponemos $s=0$ nos quedan las de antes (creo) (sino igual son todas isomorfas porque el determinante no depende de $v$)
 
+Pongamos $s=1$ y veamos
 
+\[ 
+\Eps_{s=1} : y^2 + (v - 12)xy + 4v (397 v^2 + 408v + 144) y = x^3
+\]
+\[ 
+\Delta_{\Eps_{s=1}}=- 2^6v^3{(35v + 12)}^3{(397 v^2 + 408v + 144)}^3
+\]
 
+\textbf{La curva con rango:}
 
+Si en la curva $y^2 = x^3 + t^2$ ponemos $t = k^2-1$ tenemos el punto $(k^2-1, (k^2-1)k)$ que no se si es de torsion pero no parece. Si ponemos $k=a/b$ nos queda tambien la escritura $y^2 = x^3 + (a^2b-b^3)^2$ con el punto $(a^2-b^2, a(a^2-b^2))$ .
 
+El discriminante es $\Delta = -2^4 3^3(k^2-1)^4$.
 
 
 
