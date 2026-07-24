@@ -165,7 +165,7 @@ Capitulos
 
 Antes de empezar fijemos la notacion que usaremos: El grupo de puntos de una curva eliptica $E$ sobre un cuerpo de numeros $K$, por ser un grupo abeliano finitamente generado lo notaremos como $E(K) = T \oplus \ZZ^r$, donde $T$ es el grupo de torsion y $r$ es el rango de la curva. 
 
-Usaremos una curva en especifico, pero la presentaremos con mas o menos generalidad para simplificar los resultados en notacion, vamos a ver cada una de ellas: $E_d: y^2 = x^3 + d$ será la mas general, llamada curva de Mordell; luego como queremos asegurarnos de tener un puntos de 3-torsion precisamos que $d$ sea un cuadrado, y la llamaremos $E_{t}: y^2 = x^3 + t^2$; despues para nuestro resultado usaremos un $t$ especifico que será $t=k^2-1$, con el cual nos aseguramos un punto libre, y la curva será $E_{k}: y^2 = x^3 + {(k^2-1)}^2$; y finalmente para el analisis de rango vamos a escribir $k$ como $\frac{a}{b}$ y la curva nos queda $E_{a,b}: y^2 = x^3 + {(b(b-a)(b+a))}^2$.
+Usaremos una curva en especifico, pero la presentaremos con mas o menos generalidad para simplificar los resultados en notacion, vamos a ver cada una de ellas: $E_d: y^2 = x^3 + d$ será la mas general, llamada curva de Mordell; luego como queremos asegurarnos de tener un puntos de 3-torsion precisamos que $d$ sea un cuadrado, y la llamaremos $E_{t}: y^2 = x^3 + t^2$; despues para nuestro resultado usaremos un $t$ especifico que será $t=k^2-1$, con el cual nos aseguramos un punto libre, y la curva será $E_{k}: y^2 = x^3 + {(k^2-1)}^2$; y finalmente para el analisis de rango vamos a escribir $k$ como $\frac{a}{b}$ y la curva nos queda $E_{a,b}: y^2 = x^3 + {(b(a-b)(a+b))}^2$.
 
 
 
@@ -198,6 +198,8 @@ El \emph{rango de una curva elíptica}, denotado por $r$ es el exponente de la p
 
 \chapter{El morfismo para el 3-descenso y el cuerpo $\QQ(\omega)$}
 \label{cap:selmer}
+
+\section{pone sections gil}
 
 Nos interesa ahora acotar el rango superiormente, y para ello nos gustaría un morfismo que salga del grupo de puntos de la curva $E(K)$ y sea inyectivo en algun grupo calculable. Esto no lo tenemos directamente pero si podremos armar uno que salga de $E(K)/\hat{\phi}(E'(K))$ para la 3-isogenia $\hat{\phi}: E' \to E$ que teniamos, y que caiga en un subgrupo de $K^\times/{(K^\times)}^3$ finitamente generado (entonces finito) y calculable.
 
@@ -234,7 +236,7 @@ tenemos un punto de la curva eliptica que via $\alpha$ va a parar a (la clase de
 \]
 \end{prop}
 
-Ahora precisamos analizar los $C_u$ para ver que condiciones imponerle a $t$ y tener la cota que necesitamos para el rango. Para descartar de la imagen una clase $u$ bastará con encontrar un primo $\pp$ de los que dividen a $t$ para el cual $C_u(K_\pp) = \varnothing$.
+Ahora precisamos analizar los $C_u$ para ver que condiciones imponerle a $t$ y tener la cota que necesitamos para el rango. Para descartar de la imagen una clase $u$ bastará con encontrar un primo $\pp$ para el cual $C_u(K_\pp) = \varnothing$ entre los que dividen a $t$ y el 2.
 
 Para estudiar $C_u(K_\pp)$, eligiendo un modelo de $C_u$ con coeficientes enteros, vamos a considerar su reduccion módulo $\pp$, y para ver la condicion de ser un cubo módulo $\pp$ naturalmente vamos a usar el simbolo cubico: 
 
@@ -250,6 +252,7 @@ En particular $\beta$ es un cubo módulo $\pp$ si y solo si $\cub{\beta}{\pp}=1$
 Ahora para un primo $\pp$ que no divida a $6$ y que divida a $t$ una vez (osea $v_\pp(t)=1$) podemos escribir $t=\pp t'$ y $u=\pp^r v$ con $r\in \{0,1,2\}$ ya que trabajamos módulo cubos, tomando $t'$ y $v$ coprimos con $\pp$.
 
 \begin{prop}
+\label{prop:casos_r}
 Con la notacion de arriba, si $C_u(K_\pp)\neq\varnothing$ y
 \begin{itemize}
     \item $r=0$ entonces $\cub{v}{\pp}=1$
@@ -259,14 +262,14 @@ Con la notacion de arriba, si $C_u(K_\pp)\neq\varnothing$ y
 \end{prop}
 
 \begin{proof}
-Tomemos $(X:Y:Z)\in C_u(K_\pp)$. Como son coordenadas proyectivas podemos asumir que $X,Y,Z \in \OO_K$ y al menos uno es una unidad. Multiplicando a $C_u$ por $u=\pp^r v$ una vez tenemos que:
+Tomemos $(X:Y:Z)\in C_u(K_\pp)$. Como son coordenadas proyectivas podemos asumir que $X,Y,Z \in \OO_{K_\pp}$ y al menos uno es una unidad. Multiplicando a $C_u$ una vez por $u=\pp^r v$ tenemos que:
 \[
 \pp^{2r}v^2X^3+Y^3+2\pp^{r+1}t'vZ^3=0
 \]
 
 Si $r=0$ nos queda $v^2 X^3 + Y^3 \equiv 0 \mod \pp$. $X$ e $Y$ no pueden ser ambos nulos porque en ese caso $Z$ sería la unidad y, volviendo a la ecuacion, la valuacion $\pp$-adica de los primeros dos sumandos nos quedaría al menos 3 mientras el tercero solo 1, contradiciendo que se puedan cancelar para dar 0. 
 
-Entonces dividiendo por $X^3$ nos queda ${(Y/X)}^3\equiv v^2 \mod \pp$ y como $-1$ es un cubo esto implica que $v$ es un cubo módulo $\pp$.
+Entonces dividiendo por $X^3$ nos queda ${(Y/X)}^3\equiv -v^2 \mod \pp$ y como $-1$ es un cubo esto implica que $v$ es un cubo módulo $\pp$.
 
 Si $r=1$ entonces necesariamente $Y\equiv 0\mod \pp$, y reemplazando $Y=\pp Y_1$ nos queda 
 \[
@@ -286,14 +289,309 @@ Si $r=2$ nuevamente tenemos $Y=\pp Y_1$ y nos queda
 \pp v^2X^3+ Y_1^3+2t'vZ^3=0
 \]
 Si $Z \not\equiv 0\mod \pp$ entonces ${(Y_1/Z)}^3\equiv -2t'v \mod \pp$. Y $Z$ no puede ser 0 porque en ese caso $X$ deberia ser la unidad y $\pp\mid Y_1$ con lo cual la ecuacion con $Y_1$ tendria valuacion $\pp$-adica de los ultimos dos sumandos de al menos 3 mientras el primero solo 1.
-
-
 \end{proof}
 
+Bien, entonces ahora vamos a ver el caso que nos interesa: $t=b(b-a)(b+a)$ asumiendo que los tres sean primos para simplificar lo mas posible, y que no sean ni 2, ni $\sqrt{-3}$, ni asociados entre si. Si nos paramos en uno de ellos entonces el $t'$ será el producto de los otros dos, y viendo la proposicion entonces nos van a interesar calcular simbolos como
+\[
+\begin{array}{ccc}
+\cub{2}{b-a}, &
+\cub{b+a}{b-a}, &
+\cub{\omega}{b-a}
+\end{array}
+\]
+donde usaremos propiedades como que estos unicamente dependen de la clase módulo el primo que estemos viendo, que son multiplicativos y la reciprocidad cubica:
+
+\begin{prop}
+Sean $\beta, \gamma \in \ZZ[\omega]$ elementos primarios (recordemos congruentes a $-1 \mod 3$), coprimos entre sí. Entonces
+\[
+\cub{\beta}{\gamma} = \cub{\gamma}{\beta}
+\]
+\end{prop}
+
+\begin{remark}
+La propiedad vale tambien para elementos congruentes a $1\mod 3$ ya que $-1$ es un cubo.
+\end{remark}
+
+Si fijamos una congruencia $\delta$ módulo 2 para cada uno de nuestros primos entonces el símbolo valdrá lo mismo:
+\[
+\cub{2}{\pp} = \cub{\pp}{2} \equiv \pp^{\frac{4-1}{3}} = \pp \equiv \delta \mod 2
+\]
+
+Ahora veamos los simbolos entre nuestros elementos, fijando alguno de ellos como referencia, calculando el resto en funcion de él y usando que
+\[
+(b-a) + (b+a) = 2b
+\]
+
+Entonces sea
+\[
+\rho := \cub{b}{b-a} = \cub{b-a}{b}
+\]
+
+Luego
+\[
+\cub{b+a}{b-a} = \cub{(b+a) + (b-a)}{b-a} = \cub{2b}{b-a} = \delta \rho
+\]
+
+Y usando nuevamente que $-1$ es un cubo y la reciprocidad tenemos
+\[
+\cub{b+a}{b} = \cub{b-a}{b} = \rho
+\]
+
+\subsection{Los simolos $\cub{\omega}{\pp}$}
+
+Ahora unicamente nos faltan los simbolos
+\[
+\cub{\omega}{b-a}, \cub{\omega}{b}, \cub{\omega}{b+a}
+\]
+que unicamente dependen de la clase de cada uno de los primos módulo 9 ya que su valor será 
+\[
+\cub{\omega}{\pp} = \omega^{\frac{N(\pp)-1}{3}}
+\]
+
+Nuevamente esos valores los podremos elegir, pero sujetos a la condicion 
+\[
+\cub{\omega}{b-a}\cub{\omega}{b}\cub{\omega}{b+a} = 1
+\]
+
+ya que es igual a
+\[
+\omega^{\frac{N(b-a)+N(b)+N(b+a)-3}{3}} = 
+\omega^{\frac{N(b)+2N(b)+2N(a)-3}{3}} = 
+\omega^{\frac{3N(b)+2N(a)-3}{3}} = 1
+\]
+
+donde usamos la ley del paralelogramo ($N(b-a)+N(b+a) = 2(N(b)+N(a))$), que $a\equiv 0 \mod 3$ para que los tres elementos en progresion aritmetica tengan la misma clase módulo 3, y que $b\equiv \pm 1 \mod 3$ asi que $N(b)\equiv 1\mod 3$ y entonces $3N(b)\equiv 3 \mod 9$, para llegar a que el exponente de $\omega$ es multiplo de 3.
+
+Para fijar notacion pongamos
+\[
+\begin{array}{ccc}
+\cub{\omega}{b-a} = \omega^{k_-} &
+\cub{\omega}{b} = \omega^{k_0} &
+\cub{\omega}{b+a} = \omega^{k_+}
+\end{array}
+\]
+de modo que $k_- + k_0 + k_+ = 0$.
+
+Ahora si, tenemos todos los simbolos que necesitamos en funcion de la clase $\delta$ que elijamos módulo $2$, la clase módulo $9$ que determina los $k$, y el valor de $\rho = \cub{b}{b-a}$. Tomemos un valor generico de $u=\omega^{e_\omega}2^{e_2}{(b-a)}^{e_-}b^{e_0}{(b+a)}^{e_+}$ con exponentes $e_i\in \{0,1,2\}$. Recordemos que queremos que haya unicamente dos clases independientes de $u$ en la imagen de $\alpha$, que una clase está si y solo si el espacio homogeneo tiene soluciones, y que tenemos una forma de asegurarnos de que eso no ocurra dependiendo del valor del exponente $e_i$ que corresponde al $r$ en la propiedad \ref{prop:casos_r}. Recordemos tambien la notacion: $u=\pp^r v$ y $b(b-a)(b+a) = t = \pp t'$ para cada primo $\pp$ que vayamos fijando.
+
+Vamos a tener muchos casos.
+
+\subsection{Primo $b-a$}
+\subsubsection{Caso $e_-=0$}
+La condicion queda
+\[
+\cub{v}{b-a} = {\cub{\omega}{b-a}}^{e_\omega}{\cub{2}{b-a}}^{e_2}{\cub{b}{b-a}}^{e_0}{\cub{b+a}{b-a}}^{e_+} = 1
+\]
+\[
+\omega^{k_- e_\omega} \delta^{e_2}\rho^{e_0}{(\delta \rho)}^{e_+} = 1
+\]
+\subsubsection{Caso $e_-=1$}
+\[
+\cub{2b(b+a)v^{-1}}{b-a} = 1
+\]
+\[
+\cub{2}{b-a}\cub{b}{b-a}\cub{b+a}{b-a} = \cub{v}{b-a}
+\]
+sustituyendo todo es 
+\[
+\delta \rho (\delta \rho)= \omega^{k_- e_\omega} \delta^{e_2}\rho^{e_0}{(\delta \rho)}^{e_+}
+\]
+\subsubsection{Caso $e_-=2$}
+\[
+\cub{2b(b+a)v}{b-a} = 1
+\]
+usando el anterior y que ${(\delta\rho)}^{-1}={(\delta\rho)}^2$ porque sus exponentes son módulo cubos, nos queda:
+\[
+\delta \rho= \omega^{k_- e_\omega} \delta^{e_2}\rho^{e_0}{(\delta \rho)}^{e_+}
+\]
+
+Y podemos resumir las tres en una sola condicion usando el $e_-$ en el exponente:
+\[
+{(\delta \rho)}^{2e_-}= \omega^{k_- e_\omega} \delta^{e_2+e_+}\rho^{e_0+e_+}
+\]
 
 
+\subsection{Primo $b$}
+\subsubsection{Caso $e_0=0$}
+\[
+\cub{v}{b} = \omega^{k_0e_\omega}\delta^{e_2}\rho^{e_-}\rho^{e_+} = 1
+\]
+\subsubsection{Caso $e_0=1$}
+\[
+\delta \rho^2= \omega^{k_0 e_\omega} \delta^{e_2}\rho^{e_-}\rho^{e_+}
+\]
+\subsubsection{Caso $e_0=2$}
+\[
+\delta^2 \rho= \omega^{k_0 e_\omega} \delta^{e_2}\rho^{e_-}\rho^{e_+}
+\]
+
+Juntandolas queda:
+\[
+{(\delta \rho^2)}^{e_0}= \omega^{k_0 e_\omega} \delta^{e_2}\rho^{e_-+e_+}
+\]
 
 
+\subsection{Primo $b+a$}
+\subsubsection{Caso $e_+=0$}
+\[
+\cub{v}{b+a} = \omega^{k_+e_\omega}\delta^{e_2}{(\delta\rho)}^{e_-}\rho^{e_0} = 1
+\]
+\subsubsection{Caso $e_+=1$}
+\[
+{(\delta \rho)}^2=  \omega^{k_+e_\omega}\delta^{e_2}{(\delta\rho)}^{e_-}\rho^{e_0}
+\]
+\subsubsection{Caso $e_+=2$}
+\[
+\delta \rho=  \omega^{k_+e_\omega}\delta^{e_2}{(\delta\rho)}^{e_-}\rho^{e_0}
+\]
+
+Y podemos resumir las tres en una sola condicion:
+\[
+{(\delta \rho)}^{2e_+} = \omega^{k_+e_\omega}\delta^{e_2+e_-}\rho^{e_0+e_-}
+\]
+
+
+\subsection{Primo $2$}
+Recordemos que para la propiedad \ref{prop:casos_r} habiamos asumido que nuestro primo no dividia a $6$, pero muchos pasos se pueden hacer igualmente y tendremos que finalizar con analisis de la ecuacion. 
+
+Como elegimos $b-a\equiv b \equiv b+a \equiv\delta\mod 2$ entonces queda $t\equiv \delta^3 \equiv 1 \mod 2$ ($\delta\not \equiv 0$), y el $u = 2^{e_2} v$ queda $v=\omega^{e_\omega}\delta^{e_- + e_0 + e_+}$. Con esto analicemos la solubilidad de 
+\[
+2^{2e_2}v^2X^3+Y^3+2^{e_2+1}tvZ^3=0,
+\]
+tambien considerando las variables $X,Y,Z\in K_2$ como enteros y al menos una unidad.
+
+Vamos a poder repetir la mayor parte del procedimiento de la demostracion de la propiedad pero la conclusion será distinta.
+
+\subsubsection{Caso $e_2=0$}
+Reduciendo módulo 2 nos queda 
+\[
+v^2X^3+Y^3=0,
+\]
+de donde no pueden ser cero porque si $Z$ era la unidad entonces el término $2tvZ^3$ tendria valuacion 1 y los otros dos valuacion 3. Entonces $\leg{Y}{X}^3 = -v^2$ pero en ${(\OO_{K}/(2))}^\times \cong \FF_4^\times$ todo elemento al cubo es 1, por lo que llegamos a la condicion de que 
+\[
+-v^2 = 1 
+\]
+Más aún, usando que $-1\equiv 1\mod 2$ y que $v^3 = 1$ nos queda necesariamente
+\[
+v \equiv 1 \mod 2 
+\]
+\subsubsection{Caso $e_2=1$}
+De la ecuacion 
+\[
+2^2 v^2X^3+Y^3+2^2 tvZ^3=0,
+\]
+tenemos $Y\equiv 0 \mod 2$, luego llamamos $Y = 2Y_1$, reemplazamos en la ecuacion, simplificamos un $2^2$ y reducimos módulo 2 nuevamente, y nos queda:
+\[
+v^2X^3+ tvZ^3=0.
+\]
+Como ya vimos que $t\equiv 1\mod 2$, $v$ es una unidad y $X,Z$ no pueden ser ambos cero, entonces llegamos nuevamente a la condicion $\leg{X}{Z}^3 = v^{-1}$ que al igual que el caso anterior nos dice que
+\[
+v \equiv 1 \mod 2 
+\]
+\subsubsection{Caso $e_2=2$}
+\[
+2^4 v^2X^3+Y^3+2^3 tvZ^3=0,
+\]
+\[
+2 v^2X^3+Y_1^3+ tvZ^3=0,
+\]
+\[
+Y_1^3+ tvZ^3\equiv 0\mod 2
+\]
+
+Por la misma lógica que el punto $r=2$ en la propiedad \ref{prop:casos_r} tenemos que $Z\not\equiv 0 \mod 2$ y nos queda $\leg{Y_1}{Z}^3= -tv$ que nos dice nuevamente $v\equiv 1 \mod 2$.
+
+La conclusion de los tres casos es que, como $v\equiv 1\mod 2$, nos queda $1=\omega^{e_\omega}\delta^{e_- + e_0 + e_+}$.
+
+\section{Condiciones}
+Nos quedaron las siguientes restricciones:
+\begin{enumerate}[label=(\alph*)]
+    \item ${(\delta \rho)}^{2e_-}= \omega^{k_- e_\omega} \delta^{e_2+e_+}\rho^{e_0+e_+}$
+    \item ${(\delta \rho^2)}^{e_0}= \omega^{k_0 e_\omega} \delta^{e_2}\rho^{e_-+e_+}$
+    \item ${(\delta \rho)}^{2e_+} = \omega^{k_+e_\omega}\delta^{e_2+e_-}\rho^{e_0+e_-}$
+    \item $\omega^{e_\omega}\delta^{e_- + e_0 + e_+} = 1$
+    \item $k_- + k_0 + k_+ \equiv 0 \mod 3$
+\end{enumerate}
+con todavia la posibilidad de elegir $\delta$ la congruencia módulo 2 de los primos, y $\rho$ que determina el valor de los simbolos cubicos entre ellos. 
+
+Vayamos demostrando que podemos obtener de ellas con el objetivo de tener suficientes restricciones para que la imagen de $\alpha$ sea de dimension 2.
+
+\subsection{$e_\omega=0$}
+
+Viendo el cociente entre $(a)$ y $(c)$ obtenemos
+\[
+{(\delta\rho)}^{2(e_- - e_+)} = \omega^{(k_- - k_+)e_\omega} \delta^{e_+-e_-} \rho^{e_+ - e_-}
+\]
+\[
+{(\delta\rho)}^{2(e_- - e_+)} = \omega^{(k_- - k_+)e_\omega} {(\delta\rho)}^{e_+ - e_-}
+\]
+y como los valores de $\rho$ y $\delta$ son potencias de $\omega$ y si pasamos dividiento aparecen al cubo, entonces nos queda que
+\[
+\omega^{(k_- - k_+)e_\omega} = 1
+\]
+o lo que es lo mismo: $(k_- - k_+) e_\omega \equiv 0 \mod 3$ de donde si $k_- \not\equiv k_+ \mod 3$ ya tenemos lo que queriamos. 
+
+En el caso en que $k_- \equiv k_+ \mod 3$ entonces por $(e)$ tambien $k_- \equiv k_0 \mod 3$. Ahora para agregar el $k_0$ veamos $(a)$ cocientada por $(b)$:
+\[
+{\delta}^{2e_- - e_0}{\rho}^{2e_- - 2e_0} = \delta^{e_+} \rho^{e_0 - e_-}
+\]
+de donde nuevamente se cancelan los $\rho$ por estar al cubo y nos queda
+\[
+{\delta}^{2e_- - e_0-e_+} = 1
+\]
+\[
+{\delta}^{e_- + e_0 + e_+} = 1
+\]
+que por $(d)$ nos dice que $\omega^{e_\omega}=1$ y nuevamente:
+\[
+e_\omega = 0
+\]
+
+\subsection{$\delta \neq 1$}
+
+Ahora la condicion $(d)$ quedó $\delta^{e_- + e_0 + e_+} = 1$ que si $\delta = 1$ no impone ninguna condicion mientras que si $\delta\in\{ \omega, \omega^2\}$ ya obliga $e_- + e_0 + e_+ = 0$ (menos libertad de valores de $u$ nos da menos dimensiones), y esta condicion nos dará muchas más en las otras ecuaciones.
+
+\subsection{$e_2 = e_0$}
+
+Volviendo a $(a)$ con  $e_\omega = 0$, $e_- + e_0 + e_+ = 0$ y $\delta\neq 1$ tenemos
+\[
+{(\delta \rho)}^{2e_-}= \omega^{k_- e_\omega} \delta^{e_2+e_+}\rho^{e_0+e_+}
+\]
+\[
+\delta^{2e_- - e_+ - e_2 } = \rho^{e_0 + e_+ - 2e_-}
+\]
+\[
+\delta^{e_0 - e_2} = 1
+\]
+que obliga la condicion $e_0 = e_2$
+
+\section{Conclusion}
+Tenemos que toda clase $u = \omega^{e_\omega} 2^{e_2} {(b-a)}^{e_-} b^{e_0} {(b+a)}^{e_+}$ que pueda estar en la imagen de $\alpha$ debe cumplir que 
+\[
+\begin{array}{ccc}
+e_\omega = 0, &
+e_- + e_0 + e_+ = 0, &
+e_2 = e_0
+\end{array}
+\]
+
+Una vez elegido un valor para $e_-$ y $e_+$ quedan determinados todos los demas, que es lo mismo que decir que la imagen de $\alpha$ tiene dimension como mucho 2. 
+
+Observemos que nos quedo lo que queriamos independientemente de la eleccion de $\delta \in \{\omega. \omega^2 \}$, pero fijaremos la primera para presentar el resultado, y lo mismo ocurre con el valor de $\rho$.
+
+Tambien es bueno observar que las condiciones que obtuvimos nos dejar disponibles las imagenes de $\alpha$ que sabiamos que ibamos a tener por los puntos que ya teniamos en las curvas:
+
+Para el punto de torsion
+\[
+\alpha(0,t) = \overline{{(2t)}^{-1}} = \overline{{(2t)}^2}
+\]
+que corresponde a $e_\omega = 0$ y $e_2 = e_- = e_0 = e_+ = 2$ que cumple nuestras ecuaciones. Y luego para $t=b(b-a)(b+a)$ tenemos nuestro punto de orden infinito $((a-b)(a+b), a(a-b)(a+b))$:
+\[
+\alpha((a-b)(a+b), a(a-b)(a+b)) = \overline{a(a-b)(a+b) - b(b-a)(b+a)} = \overline{{(a+b)}^2(a-b)}
+\]
+recordando que el valor lo queremos módulo cubos y $-1$ es un cubo, y esa clase corresponde a $e_\omega = e_2 = e_0 = 0$, $e_- =1$ y $e_+ = 2$. 
+
+Estas clases cumplen nuestras ecuaciones, es facil ver que son linealmente independientes (por ejemplo por el valor de $e_2$) y entonces generan la imagen de $\alpha$.
 
 
 
@@ -309,40 +607,45 @@ Esta será una seccion corta donde contaremos algunos resultados de combinatoria
 \chapter{Familia de curvas elipticas con $j=0$ sobre $\QQ(\omega)$ de rango 2}
 \label{cap:result}
 
+\section{asd}
+
 El resultado principal encontrado es el siguiente:
 \begin{prop}
 \label{prop:laprop}
-Dados $b-a$, $a$ y $b+a$ primos en $\ZZ[\omega]$ congruentes a $4+3\omega$ módulo $6$, la curva elíptica
+Dados $b-a$, $b$ y $b+a$ primos en $\ZZ[\omega]$ congruentes a $4+3\omega$ módulo $6$, la curva elíptica
 \[
 E_{a,b}: y^2=x^3+{(b(b-a)(b+a))}^2
 \]
 tiene rango 2 sobre $\QQ(\omega)$. 
 \end{prop}
 
-Y lo que nos interesa de este resultado es lo siguiente:
+Y lo que nos interesa de este resultado es:
 
 \begin{theorem}
 Existen infinitas curvas de rango 2 sobre $\QQ(\omega)$ con $j$-invariante igual a $0$.
 \end{theorem}
 
-Vamos a juntar toda la teoria que fuimos contando en las demostraciones de estos resultados.
+Vamos a juntar toda la teoria que fuimos contando en las demostraciones de estos resultados. 
 
-Primero la curva $E_{a,b}$ tiene la forma de una curva de Mordell: $y^2 = x^3 + d$, prototipica de curvas con $j$-invariante $0$. El parametro $d$ es ${(b(b-a)(b+a))}^2 =: t^2$, un cuadrado para asegurarnos de tener el punto $(0,t)$ de 3-torsion en la curva, para poder realizar 3-descenso. ojo con otra torsion y con tener mucha 3-torsion, descartar a y b que no.
+Primero la curva $E_{a,b}$ tiene la forma de una curva de Mordell: $y^2 = x^3 + d$, prototipica de curvas con $j$-invariante $0$. El parametro $d$ es ${(b(b-a)(b+a))}^2 =: t^2$, un cuadrado para asegurarnos de tener el punto $(0,t)$ de 3-torsion en la curva, para poder realizar 3-descenso. 
+
+\textbf{descartar a y b tq dan otra 3-torsion o otra torsion}
 
 
 
 La 3-isogenía con kernel $\langle (0,t) \rangle$ cae en la curva $E'_t: y^2 = x^3 - 27t^2$, y es por ello que elegimos trabajar en el cuerpo $\QQ(\omega)$, ya que el $-27$ es una potencia sexta (${\sqrt{-3}}^6 = -27$) y por lo tanto $E'_{a,b}$ es isomorfa a $E_{a,b}$ por la propiedad que nos dice eso (\textbf{Poner la prop y la referencia}). Ahora con eso nos ahorramos la mitad de las cuentas, ya que el grupo de Selmer que nos acotará el rango es el mismo para $E_t$ y $E'_t$.
 
-La eleccion del parametro $t=k^2-1$ viene de la superficie eliptica $E_k: y^2=x^3+{(k^2-1)}^2$ ya que contiene el punto $(k^2-1,k(k^2-1))$:
-\[
-k^2{(k^2-1)}^2 = (k^2-1+1){(k^2-1)}^2 = (k^2-1){(k^2-1)}^2+{(k^2-1)}^2 = {(k^2-1)}^3+{(k^2-1)}^2
-\]
+La eleccion del parametro $t=k^2-1$ viene de que superficie eliptica $E_k: y^2=x^3+{(k^2-1)}^2$ contiene el punto $(k^2-1,k(k^2-1))$:
+\begin{multline*}
+k^2{(k^2-1)}^2 = (k^2-1+1){(k^2-1)}^2 = \\
+(k^2-1){(k^2-1)}^2+{(k^2-1)}^2 = {(k^2-1)}^3+{(k^2-1)}^2
+\end{multline*}
 
 Luego de esa observacion, si notamos $k=\frac{a}{b}$ nos queda la curva que tenemos
 \[
 y^2=x^3+{\lp\frac{a}{b}^2-1\rp}^2 = x^3+{\lp\frac{a^2-b^2}{b^2}\rp}^2 = x^3+\frac{{(a^2-b^2)}^2}{b^4}
 \]
-y multiplicando a ambos lados por $b^6$ nos queda
+que multiplicando a ambos lados por $b^6$ nos queda
 \[
 y^2b^6 = \lp x^3+\frac{{(a^2-b^2)}^2}{b^4} \rp b^6
 \]
@@ -352,24 +655,23 @@ y^2b^6 = \lp x^3+\frac{{(a^2-b^2)}^2}{b^4} \rp b^6
 \[
 {(yb^3)}^2 = {(xb^2)}^3+{(b(a-b)(a+b))}^2
 \]
-
-que renombrando a las variables $x'=xb^2$ y $y'=yb^3$ nos queda la curva $E_{a,b}$ con el punto $(a^2-b^2, b(a^2-b^2))$ que no es de torsion.
+que renombrando a las variables $x'=xb^2$ y $y'=yb^3$ nos queda la curva $E_{a,b}$ con el punto $(a^2-b^2, a(a^2-b^2))$.
 
 La otra ventaja de la curva y el cuerpo de definicion es que tiene el endomorfismo denotado como $[\omega]$ que envía un punto $(x,y)$ a $(\omega x, y)$ tambien perteneciente a la curva, por lo que su anillo de endomorfismos es (al menos) $\ZZ[\omega]$, por lo que el grupo de Mordell-Weil será un $\ZZ[\omega]$-módulo, y por lo tanto de rango libre par. Con esto nos aseguramos rango por lo menos 2.
 
-Segundo daremos una cota superior para el rango de la curva, usando el 3-descenso del punto encontrado y el morfismo del capitulo \ref{cap:selmer}. El discriminante de la curva es $\Delta_{E_{a,b}} = - 2^6 3^4{(b(b-a)(b+a))}^4$, por lo que si $b$, $b-a$ y $b+a$ son primos nos queda que el grupo de Selmer será un subgrupo de
+Segundo daremos una cota superior para el rango de la curva, usando el 3-descenso del punto encontrado y el morfismo del capitulo \ref{cap:selmer}. Probamos que si $b$, $b-a$ y $b+a$ son primos nos queda que el grupo de Selmer será un subgrupo de
 \[
-K(S,3) = \sh{\alpha\in K^\times/{\lp K^\times\rp}^3: \alpha = \omega^{e_0}2^{e_2}3^{e_3}{(b-a)}^{e_-}b^{e_b}{(b+a)}^{e_+} , e_i\in\{0,1,2\}}.
+K(S,3) = \sh{u\in K^\times/{\lp K^\times\rp}^3: u = \omega^{e_0}2^{e_2}{(b-a)}^{e_-}b^{e_b}{(b+a)}^{e_+} , e_i\in\{0,1,2\}}.
 \]
-donde $S=\sh{\omega,2,\sqrt{-3},b-a,b,b+a}$ es el conjunto de lugares de $K=\QQ(\sqrt{-3})$, $\omega$ correspondiendo al arquimediano y usando que $\sqrt{-3} \equiv 3$ módulo cubos.
+donde $S=\sh{\omega,2,b-a,b,b+a}$ es el subconjunto de lugares de $K=\QQ(\sqrt{-3})$ donde puede caer la imagen de $\alpha$.\textbf{aca usamos $\ker(\alpha) = \hat{\phi} (E_t'(K))$, demostrar o citar}
 
-La dimension de ese espacio sobre $\FF_3$ es 6 y la queremos bajar a 2 con condiciones sobre los primos en funcion de que el espacio homogeneo asociado no tenga puntos. 
+La dimension de ese espacio sobre $\FF_3$ es 5 y la queremos bajar a 2 con condiciones sobre los primos en funcion de que el espacio homogeneo asociado no tenga puntos. 
 
-Como nuestros primos son congruentes a $4 + 3\omega \mod 6$ entonces son $\omega \mod 2$ y $1 \mod \omega$, con eso y el desarrollo del 3-descenso que hicimos en el capitulo \ref{cap:selmer} podemos descartar elementos de $K(S,3)$. 
+Como nuestros primos son congruentes a $4 + 3\omega \mod 6$ entonces son $\omega \mod 2$ y $1 \mod 3$, con eso y el desarrollo del 3-descenso que hicimos en el capitulo \ref{cap:selmer} podemos descartar elementos de $K(S,3)$. 
 
-Una vez que descendimos tenemos cota de rango explicada.
+Una vez que descendimos tenemos cota de rango. 
 
-Tercero aseguremosnos de que existan infinitas curvas para pasar de la prop al teo, y eso sale por Tao constellations o Kai o qcyo
+Tercero aseguremosnos de que existan infinitas curvas para pasar de la prop al teo, y eso sale por Tao constellations o Kai o qcyo. demostrar pq no son isomorfas sobre $K$
 
 
 
