@@ -146,6 +146,8 @@ A Juli Feldman que me paso este template.
 
 \section*{Introducción}
 
+El objetivo de esta tesis es recopilar la teoria y los ejemplos necesarios para la construccion de un ejemplo de una familia de curvas elipticas de un rango fijo, junto con todos los nuevos metodos que vayan se vayan incorporando en aplicaciones al area. Sobre este tema han habido recientes avances que combinan ideas y desarrollos previos en un resultado novedoso. Este documento se irá actualizando conforme avance el área como un resumen de los metodos que surjan, las nuevas versiones se encontraran en el GitHub de su autor.
+
 El grupo abeliano de puntos racionales de una curva eliptica $E$ sobre un cuerpo de números $K$ es finitamente generado, y podemos considerar su parte de torsion y el rango de su parte libre. 
 
 Sobre $\QQ$ los posibles grupos de torsion fueron caracterizados completamente por Mazur \cite{Mazur1977} y luego para extensiones cuadraticas por Kamienny \cite{Kamienny1992} y Kenku-Momose \cite{KenkuMomose1988}. Más aún, para $\QQ(i)$ y $\QQ(\omega)$, Najman \cite{Najman2010} redujo la lista de posibles grupos. Para cuerpos de numeros en general, el teorema de Merel \cite{Merel1996} nos da una cota superior para el tamaño del grupo. 
@@ -161,7 +163,7 @@ Tambien surge el interes de fijar cierta condicion para la curva, como puede ser
 
 \subsection*{Estructura de la tesis}
 
-Capitulos
+A lo largo de esta tesis desarrollaremos los distintos temas que tocamos en la introduccion con especial interes en sus aplicaciones al problema de encontrar infinitas curvas con un rango fijo. Capitulos
 
 Antes de empezar fijemos la notacion que usaremos: El grupo de puntos de una curva eliptica $E$ sobre un cuerpo de numeros $K$, por ser un grupo abeliano finitamente generado lo notaremos como $E(K) = T \oplus \ZZ^r$, donde $T$ es el grupo de torsion y $r$ es el rango de la curva. 
 
@@ -176,30 +178,94 @@ Usaremos una curva en especifico, pero la presentaremos con mas o menos generali
 \newpage
 
 
-\chapter{Chamullo de curvas elipticas y grupo de mordell-weil}
+\chapter{Preliminares: curvas elipticas y grupo de Mordell-Weil}
 \label{cap:mw}
 
-blabla
+\section{Motivacion}
+\label{sec:motivacion}
 
-\section{asi}
-\label{sec:asi}
+Una ecuacion diofantica
 
-El escenario principal para las formas modulares es el semiplano superior complejoj jiji.
+En la naturaleza de muchos problemas diofanticos
+
+\section{Curvas elípticas}
+
+Veamos una definicion de curva eliptica más enfocada a la teoria que nos interesa, salteando detalles tecnicos y demostraciones. Para ver las definiciones formales correctas de estos temas ver \cite{SilvermanTate}.
+
+\begin{definition}[Curva elíptica]
+\label{def:curva_ell}
+Una \emph{curva eliptica} $E$ definida sobre un cuerpo de numeros $K$ es una ecuacion de la forma 
+\[
+E: y^2 = x^3 + Ax + B
+\]
+donde $A$ y $B$ son elementos de $K$ y vale que $4 A^3+27 B^2 \neq 0$.
+\end{definition}
+
+De una curva eliptica nos interesa el conjunto de puntos racionales denotado $E(K)$ que consta de los pares $(x,y)$ de elementos en $K$ que cumplen la ecuacion, junto con ``el punto en el infinito'' (un elemento distinguido que proviene de ver la curva proyectivamente, y que denotaremos $\OO$). Este conjunto tiene una estructura de grupo con una descripcion geometrica muy elegante:
+
+Para dos puntos $P$ y $Q$ en $E(K)$, definimos una operacion entre ellos que denotaremos como una suma como $P+Q$ será el punto opuesto al que se encuentre sobre la curva alineado con ellos. Este será nuevamente un punto de $E(K)$ porque es simplemente el inverso en $y$ del punto que se encuentra en la interseccion de la recta que conecta $P$ y $Q$ y la curva $E$, definido por dos ecuaciones con coeficientes en $K$ de grados 1 y 3 respectivamente para las cuales dos de las tres intersecciones ya pertenecen al cuerpo. Aprovechando la notacion aditiva, notaremos tambien $2 \cdot P$ para $P+P$, que se calcula con la tangente a la curva por ese punto, y en general $n\cdot P$ para sumar $n$ veces.
+
+Es facil ver que esa operacion es conmutativa, ya que el orden de los puntos no cambia la recta que los une; y si nos creemos que ``el punto en el infinito'' corresponde geometricamente a hacer tender la coordenada $y$ a infinito, entonces pertenece a cualquier recta vertical y es facil ver que corresponde al elemento neutro, y que el cada punto tiene un inverso que es simplemente invertir su coordenada $y$. Lo que no es facil es ver que es asociativa, pero se puede encontrar en cualquier bibliografia. Con todo esto tenemos:
+
+\begin{definition}[Grupo de Mordell-Weil]
+\label{def:mw}
+Dada curva eliptica $E$ definida sobre un cuerpo de numeros $K$, llamamos \emph{grupo de Mordell-Weil de E} al grupo conmutativo $(E(K),+)$.
+\end{definition}
+
+Un hecho muy importante sobre este grupo es el siguiente:
+
+\begin{theorem}[Mordell]
+\label{def:mwfg}
+El grupo $(E(K),+)$ es finitamente generado.
+\end{theorem}
+
+La demostracion de este teorema consta principalmente de dos partes: dar una altura\footnote{Una altura es una funcion que nos de valores en $\RR_{\geq 0}$ para cada punto que cumpla (entre otras cosas) que la cantidad de puntos con altura menor a una constante sea finita. El ejemplo canonico para $\QQ$ es $h(a/b) = \max \{ |a| , |b|\}$ para $a/b$ irreducible, y la de la curva no es muy distinta.} para cada punto de la curva que aumente estrictamente si duplicamos un punto, y probar que el conjunto $E(K)/2E(K)$ es finito via el metodo de descenso que veremos en mas detalle en el capitulo \ref{cap:selmer}. Con estos dos resultados que nos dicen que hay finitas clases y que siempre podemos caer en una de ellas, tenemos que el grupo es finitamente generado, y usando el teorema de estructura nos queda:
+\[
+E(K) \cong T \oplus \ZZ^r
+\]
+donde $T$ es un grupo finito correspondiente a la torsion de la curva, y tenemos la esperada:
 
 \begin{definition}[Rango de una curva elíptica]
 \label{def:rank}
-El \emph{rango de una curva elíptica}, denotado por $r$ es el exponente de la parte libre del grupo de Mordell-Weil.
+El \emph{rango de una curva elíptica}, denotado por $r$, es el exponente de la parte libre del grupo de Mordell-Weil.
 \end{definition}
 
+Sobre el grupo de torsion de una curva eliptica se conocen resultados que califican muy bien todos los posibles y cotas para su crecimiento.Recopilando algunos de ellos, Mazur \cite{Mazur1977} dio una completa clasificacion de todos los que pueden aparecer sobre $\QQ$; Merel \cite{Merel1996} dio una cota para el exponente de los grupos que pueden aparecer sobre un cuerpo de numeros cualquiera en funcion de su grado, que ultimamente nos da tambien una cota del orden; sobre cuerpos cuadraticos ya se conocian los posibles por Kenku-Momose \cite{KenkuMomose1988} y Kamienny \cite{Kamienny1992}, y luego sobre los especificos que nos interesan, Najman \cite{Najman2010} la redujo más aún; y para cada uno de estos hay un modelo que lo tiene, bien recopilado en \cite{Rabarison2010} si es que al lector le interesa trabajar con alguno en particular.
+
+Sobre el rango no se sabe nada.
+
+
+
+
+
+
+
+Mencionar cuando termine de escupir toda la teoria que nos intersa el grupo de mordell-weil porque (volviendo para atras) es el que forman todas las soluciones, y si conocemos como generarlo conocemos una forma de encontrar soluciones y cuantas hay y etc.
 
 
 \chapter{Superficies elipticas}
 \label{cap:superficies}
 
-\chapter{El morfismo para el 3-descenso y el cuerpo $\QQ(\omega)$}
+que son 
+
+\section{Reduccion y fibras singulares}
+
+
+\section{Como construirselas con props}
+
+
+\chapter{Cota superior del rango: el grupo de Selmer}
 \label{cap:selmer}
 
-\section{pone sections gil}
+
+\section{Teoria del selmer y morfismo de descenso (solo teoria)}
+
+\section{Espacios homogeneos asociados y un ejemplo de 2-desc de Zywina con cositas locales}
+
+
+\section{El morfismo para el 3-descenso y el cuerpo $\QQ(\omega)$, nuestro caso particular}
+
+Este capitulo va a ser largo, trabajando por completo nuestro caso particular.
 
 Nos interesa ahora acotar el rango superiormente, y para ello nos gustaría un morfismo que salga del grupo de puntos de la curva $E(K)$ y sea inyectivo en algun grupo calculable. Esto no lo tenemos directamente pero si podremos armar uno que salga de $E(K)/\hat{\phi}(E'(K))$ para la 3-isogenia $\hat{\phi}: E' \to E$ que teniamos, y que caiga en un subgrupo de $K^\times/{(K^\times)}^3$ finitamente generado (entonces finito) y calculable.
 
@@ -597,11 +663,14 @@ Estas clases cumplen nuestras ecuaciones, es facil ver que son linealmente indep
 
 
 
-\chapter{Tao constellations o no da?}
-\label{cap:tao}
+\chapter{Teoremas de distribucion de primos}
+\label{cap:primos}
+
+\section{sobre $\ZZ$ para introducir}
+
+\section{sobre cuerpos de numeros}
 
 Esta será una seccion corta donde contaremos algunos resultados de combinatoria aditiva que nos permiten asegurar la existencia de primos del modo que nos interesa para asegurar que tendremos infinitos ejemplos de la curva que construimos. Estos tipos de resultados son los que se usan en los papers de Zywina, Savoie y demas, pero principalmente como una ``caja negra'' ya que provienen de otras areas de la teoria de números.
-
 
 
 \chapter{Familia de curvas elipticas con $j=0$ sobre $\QQ(\omega)$ de rango 2}
