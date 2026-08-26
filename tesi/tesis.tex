@@ -49,9 +49,11 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
 \newcommand{\OO}{\mathcal{O}}
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\ee}{\mathcal{E}}
 \newcommand{\pp}{\mathfrak{p}}
-
 
 \newcommand{\mat}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
 \newcommand{\minmat}[4]{\left(\begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix}\right)}
@@ -150,22 +152,22 @@ El objetivo de esta tesis es recopilar la teoria y los ejemplos necesarios para 
 
 El grupo abeliano de puntos racionales de una curva eliptica $E$ sobre un cuerpo de números $K$ es finitamente generado, y podemos considerar su parte de torsion y el rango de su parte libre. 
 
-Sobre $\QQ$ los posibles grupos de torsion fueron caracterizados completamente por Mazur \cite{Mazur1977} y luego para extensiones cuadraticas por Kamienny \cite{Kamienny1992} y Kenku-Momose \cite{KenkuMomose1988}. Más aún, para $\QQ(i)$ y $\QQ(\omega)$, Najman \cite{Najman2010} redujo la lista de posibles grupos. Para cuerpos de numeros en general, el teorema de Merel \cite{Merel1996} nos da una cota superior para el tamaño del grupo. 
+Sobre $\QQ$ los posibles grupos de torsion fueron caracterizados completamente por Mazur~\cite{Mazur1977} y luego para extensiones cuadraticas por Kamienny~\cite{Kamienny1992} y Kenku-Momose~\cite{KenkuMomose1988}. Más aún, para $\QQ(i)$ y $\QQ(\omega)$, Najman~\cite{Najman2010} redujo la lista de posibles grupos. Para cuerpos de numeros en general, el teorema de Merel~\cite{Merel1996} nos da una cota superior para el tamaño del grupo. 
 
-El rango por otra parte es un valor del que se sabe mucho menos y es componente de muchas conjeturas famosas. De las preguntas principales sobre él algunas son: el rango maximo que puede alcanzar una curva definida sobre $\QQ$, con el record actual de 29 por Elkies-Klagsbrun, o el maximo dado un grupo de torsion fijo, ver \cite{ElkiesKlagsbrun2020}; que valores de rango aparecen infinitas veces, con conjeturas al respecto recopiladas en \cite{ParkPoonenVoightWood2019} que conjeturan que sobre $\QQ$ hasta 20 hay infinitas y luego hay finitas excepciones; Birch y Swinnirtin-Dyir; y recien en el ultimo tiempo se comenzaron a obtener resultados de ejemplos de familias infinitas de cierto rango fijo.
+El rango por otra parte es un valor del que se sabe mucho menos y es componente de muchas conjeturas famosas. De las preguntas principales sobre él algunas son: el rango maximo que puede alcanzar una curva definida sobre $\QQ$, con el record actual de 29 por Elkies-Klagsbrun, o el maximo dado un grupo de torsion fijo, ver~\cite{ElkiesKlagsbrun2020}; que valores de rango aparecen infinitas veces, con conjeturas al respecto recopiladas en~\cite{ParkPoonenVoightWood2019} que conjeturan que sobre $\QQ$ hasta 20 hay infinitas y luego hay finitas excepciones; Birch y Swinnirtin-Dyir; y recien en el ultimo tiempo se comenzaron a obtener resultados de ejemplos de familias infinitas de cierto rango fijo.
 
-Un resultado conocido de Silverman nos da una forma de construir infinitas curvas sobre $\QQ$ de rango al menos $r$ via especializaciones de una curva eliptica definida sobre $\QQ(T)$. Usando herramientas de combinatoria aditiva se logró encontrar una forma de acotar superiormente el rango de estas familias para así poder dar ejemplos de rango fijo. El mejor resultado hasta la fecha es el de Zywina \cite{Zywina2026SmallRank} que da ejemplos de curvas de rango $r$ para $0\leq r \leq 4$ para todo cuerpo de numeros $K$. 
+Un resultado conocido de Silverman nos da una forma de construir infinitas curvas sobre $\QQ$ de rango al menos $r$ via especializaciones de una curva eliptica definida sobre $\QQ(T)$. Usando herramientas de combinatoria aditiva se logró encontrar una forma de acotar superiormente el rango de estas familias para así poder dar ejemplos de rango fijo. El mejor resultado hasta la fecha es el de Zywina~\cite{Zywina2026SmallRank} que da ejemplos de curvas de rango $r$ para $0\leq r \leq 4$ para todo cuerpo de numeros $K$. 
 
-Tambien surge el interes de fijar cierta condicion para la curva, como puede ser el $j$-invariante. Los casos principales son $j=1728$, naturalmente interesante sobre $\QQ(i)$, para el cual Savoie \cite{Savoie2025QiRank2} dio una familia de curvas de rango 2; y $j=0$ sobre $\QQ(\omega)$, que estudiaremos aqui.
-
-
+Tambien surge el interes de fijar cierta condicion para la curva, como puede ser el $j$-invariante. Los casos principales son $j=1728$, naturalmente interesante sobre $\QQ(i)$, para el cual Savoie~\cite{Savoie2025QiRank2} dio una familia de curvas de rango 2; y $j=0$ sobre $\QQ(\omega)$, que estudiaremos aqui.
 
 
-\subsection*{Estructura de la tesis}
+
+
+\subsection*{Estructura de la tesis y notacion}
 
 A lo largo de esta tesis desarrollaremos los distintos temas que tocamos en la introduccion con especial interes en sus aplicaciones al problema de encontrar infinitas curvas con un rango fijo. Capitulos
 
-Antes de empezar fijemos la notacion que usaremos: El grupo de puntos de una curva eliptica $E$ sobre un cuerpo de numeros $K$, por ser un grupo abeliano finitamente generado lo notaremos como $E(K) = T \oplus \ZZ^r$, donde $T$ es el grupo de torsion y $r$ es el rango de la curva. 
+Antes de empezar fijemos la notacion que usaremos: A lo largo de la tesis trabajaremos mayormente con cuerpos de numeros (extensiones finitas de $\QQ$) y los denotaremos $K$, y aunque muchos resultados se pueden extender a cuerpos arbitrarios, otros tantos no, y no los diferenciaremos. El grupo de puntos de una curva eliptica $E$ sobre un cuerpo de numeros $K$, por ser un grupo abeliano finitamente generado lo notaremos como $E(K) = T \oplus \ZZ^r$, donde $T$ es el grupo de torsion y $r$ es el rango de la curva. 
 
 Usaremos una curva en especifico, pero la presentaremos con mas o menos generalidad para simplificar los resultados en notacion, vamos a ver cada una de ellas: $E_d: y^2 = x^3 + d$ será la mas general, llamada curva de Mordell; luego como queremos asegurarnos de tener un puntos de 3-torsion precisamos que $d$ sea un cuadrado, y la llamaremos $E_{t}: y^2 = x^3 + t^2$; despues para nuestro resultado usaremos un $t$ especifico que será $t=k^2-1$, con el cual nos aseguramos un punto libre, y la curva será $E_{k}: y^2 = x^3 + {(k^2-1)}^2$; y finalmente para el analisis de rango vamos a escribir $k$ como $\frac{a}{b}$ y la curva nos queda $E_{a,b}: y^2 = x^3 + {(b(a-b)(a+b))}^2$.
 
@@ -178,11 +180,9 @@ Usaremos una curva en especifico, pero la presentaremos con mas o menos generali
 \newpage
 
 
-\chapter{Preliminares: curvas elipticas y grupo de Mordell-Weil}
-\label{cap:mw}
+\chapter{Preliminares: curvas elipticas y grupo de Mordell-Weil}\label{cap:mw}
 
-\section{Motivacion}
-\label{sec:motivacion}
+\section{Motivacion}\label{sec:motivacion}
 
 Una ecuacion diofantica
 
@@ -190,10 +190,9 @@ En la naturaleza de muchos problemas diofanticos
 
 \section{Curvas elípticas}
 
-Veamos una definicion de curva eliptica más enfocada a la teoria que nos interesa, salteando detalles tecnicos y demostraciones. Para ver las definiciones formales correctas de estos temas ver \cite{SilvermanTate}.
+Veamos una definicion de curva eliptica más enfocada a la teoria que nos interesa, salteando detalles tecnicos y demostraciones. Para ver las definiciones formales correctas de estos temas ver~\cite{SilvermanTate}.
 
-\begin{definition}[Curva elíptica]
-\label{def:curva_ell}
+\begin{definition}[Curva elíptica]\label{def:curva_ell}
 Una \emph{curva eliptica} $E$ definida sobre un cuerpo de numeros $K$ es una ecuacion de la forma 
 \[
 E: y^2 = x^3 + Ax + B
@@ -201,21 +200,19 @@ E: y^2 = x^3 + Ax + B
 donde $A$ y $B$ son elementos de $K$ y vale que $4 A^3+27 B^2 \neq 0$.
 \end{definition}
 
-De una curva eliptica nos interesa el conjunto de puntos racionales denotado $E(K)$ que consta de los pares $(x,y)$ de elementos en $K$ que cumplen la ecuacion, junto con ``el punto en el infinito'' (un elemento distinguido que proviene de ver la curva proyectivamente, y que denotaremos $\OO$). Este conjunto tiene una estructura de grupo con una descripcion geometrica muy elegante:
+De una curva eliptica nos interesa el conjunto de puntos racionales denotado $E(K)$ que consta de los pares $(x,y)$ de elementos en $K$ que cumplen la ecuacion, junto con ``el punto en el infinito'' (un elemento distinguido que proviene de ver la curva proyectivamente, y que denotaremos $\OO$). Este conjunto tiene una estructura de grupo con una descripcion geometrica muy elegante.
 
 Para dos puntos $P$ y $Q$ en $E(K)$, definimos una operacion entre ellos que denotaremos como una suma como $P+Q$ será el punto opuesto al que se encuentre sobre la curva alineado con ellos. Este será nuevamente un punto de $E(K)$ porque es simplemente el inverso en $y$ del punto que se encuentra en la interseccion de la recta que conecta $P$ y $Q$ y la curva $E$, definido por dos ecuaciones con coeficientes en $K$ de grados 1 y 3 respectivamente para las cuales dos de las tres intersecciones ya pertenecen al cuerpo. Aprovechando la notacion aditiva, notaremos tambien $2 \cdot P$ para $P+P$, que se calcula con la tangente a la curva por ese punto, y en general $n\cdot P$ para sumar $n$ veces.
 
 Es facil ver que esa operacion es conmutativa, ya que el orden de los puntos no cambia la recta que los une; y si nos creemos que ``el punto en el infinito'' corresponde geometricamente a hacer tender la coordenada $y$ a infinito, entonces pertenece a cualquier recta vertical y es facil ver que corresponde al elemento neutro, y que el cada punto tiene un inverso que es simplemente invertir su coordenada $y$. Lo que no es facil es ver que es asociativa, pero se puede encontrar en cualquier bibliografia. Con todo esto tenemos:
 
-\begin{definition}[Grupo de Mordell-Weil]
-\label{def:mw}
+\begin{definition}[Grupo de Mordell-Weil]\label{def:mw}
 Dada curva eliptica $E$ definida sobre un cuerpo de numeros $K$, llamamos \emph{grupo de Mordell-Weil de E} al grupo conmutativo $(E(K),+)$.
 \end{definition}
 
 Un hecho muy importante sobre este grupo es el siguiente:
 
-\begin{theorem}[Mordell]
-\label{def:mwfg}
+\begin{theorem}[Mordell]\label{theorem:mwfg}
 El grupo $(E(K),+)$ es finitamente generado.
 \end{theorem}
 
@@ -225,14 +222,138 @@ E(K) \cong T \oplus \ZZ^r
 \]
 donde $T$ es un grupo finito correspondiente a la torsion de la curva, y tenemos la esperada:
 
-\begin{definition}[Rango de una curva elíptica]
-\label{def:rank}
+\begin{definition}[Rango de una curva elíptica]\label{def:rank}
 El \emph{rango de una curva elíptica}, denotado por $r$, es el exponente de la parte libre del grupo de Mordell-Weil.
 \end{definition}
 
-Sobre el grupo de torsion de una curva eliptica se conocen resultados que califican muy bien todos los posibles y cotas para su crecimiento.Recopilando algunos de ellos, Mazur \cite{Mazur1977} dio una completa clasificacion de todos los que pueden aparecer sobre $\QQ$; Merel \cite{Merel1996} dio una cota para el exponente de los grupos que pueden aparecer sobre un cuerpo de numeros cualquiera en funcion de su grado, que ultimamente nos da tambien una cota del orden; sobre cuerpos cuadraticos ya se conocian los posibles por Kenku-Momose \cite{KenkuMomose1988} y Kamienny \cite{Kamienny1992}, y luego sobre los especificos que nos interesan, Najman \cite{Najman2010} la redujo más aún; y para cada uno de estos hay un modelo que lo tiene, bien recopilado en \cite{Rabarison2010} si es que al lector le interesa trabajar con alguno en particular.
+Sobre el grupo de torsion de una curva eliptica se conocen resultados que califican muy bien todos los posibles y cotas para su crecimiento.Recopilando algunos de ellos, Mazur~\cite{Mazur1977} dio una completa clasificacion de todos los que pueden aparecer sobre $\QQ$; Merel~\cite{Merel1996} dio una cota para el exponente de los grupos que pueden aparecer sobre un cuerpo de numeros cualquiera en funcion de su grado, que ultimamente nos da tambien una cota del orden; sobre cuerpos cuadraticos ya se conocian los posibles por Kenku-Momose~\cite{KenkuMomose1988} y Kamienny~\cite{Kamienny1992}, y luego sobre los especificos que nos interesan, Najman~\cite{Najman2010} la redujo más aún; y para cada uno de estos hay un modelo que lo tiene, bien recopilado en~\cite{Rabarison2010} si es que al lector le interesa trabajar con alguno en particular.
 
-Sobre el rango no se sabe nada.
+Sobre el rango se sabe mucho menos. Hay resultados de densidad, el más notable por Bharghava siendo que un $50\%$ de las curvas elipticas sobre $\QQ$ tienen rango 0 y el otro $50\%$ tienen rango 1, pero como los resultados probabilisticos, aún deja lugar a que hayan igualmente infinitas curvas del resto de rangos. Una heuristica por Park, Poonen, Voight y Wood~\cite{ParkPoonenVoightWood2019} predice que hay infinitas curvas de cada rango hasta 20 y solo finitas excepciones de rango mayor. El problema de encontrar curvas de rango alto sobre $\QQ$ es tambien interesante, siendo el record una curva de rango al menos 30 publicada (aún) anonimamente, y el previo, de $\geq 29$, por Elkies y Klagsbrun~\cite{ElkiesKlagsbrun2020}; y tambien records de rango con un grupo de torsion fijo, casi todos sostenidos por Elkies. Si uno define el rango analitico de una curva eliptica como el residuo en 1 de su L-serie asociada, la conjetura de Birch y Swinnerton-Dyer predice que ambos rangos coinciden y aparte provee una formula cerrada para este.
+
+\section{Mas resultados sobre curvas elipticas}
+
+Recopilemos algunos resultados que se conocen sobre curvas elipticas y que nos pueden ayudar a utilizarlas para resolver las preguntas que las motivan. Todos estos resultados se pueden encontrar en~\cite{SilvermanAEC}.
+
+Un resultado importante es 
+\begin{theorem}[Nagell-Lutz]\label{theorem:NagellLutz}
+Todos los puntos de torsion tienen coordenadas enteras.
+\end{theorem}
+
+Tambien se demuestra con teoria de alturas, viendo que si un punto es de torsion tiene que tener altura cero porque $h(2^n\cdot P)$ crece como $4n\cdot h(P)$ pero la primera expresion es ciclica mientras que, si la altura no es cero, la segunda diverge.
+
+Para encontrar puntos mencionamos la idea de la ley del grupo (la operacion que lo define) pero podemos verla explicitamente y usarla para calcular elementos. Si tenemos una curva $E: y^2 = x^3+Ax+B$ y un punto $P = (x_1,y_1)$ para calcular $2\cdot P$ primero necesitamos la tangente a la curva por el punto $P$. Calculamos la pendiente derivando
+\[
+2y\frac{dy}{dx} = 3x^2+A \implies m=\frac{3{x_1}^2+A}{2y_1}
+\]
+y reemplazamos la ecuacion de la recta $y-y_1 = m (x-x_1)$, que debe contener (al inverso de) $2 P$, en nuestra curva
+\[
+{(m(x-x_1)+y_1)}^2=x^3+Ax+B
+\]
+que nos queda la cosa horrible
+\[
+x^3-m^2x^2+(A+2m^2x_1-2m y_1)x+B-m^2 x_1^2+2my_1x_1-y_1^2=0
+\]
+pero ya sabemos que $x_1$ es raiz doble, asi que viendo el coeficiente de $x^2$ tenemos que $-m^2 = -(2x_1 + x(2P))$, o lo que es lo mismo y nos da la coordenada $x$ de la duplicacion de un punto:
+\[
+x(2P) = m^2 -2x_1.
+\]
+Ahora para obtener la coordenada $y(2\cdot P)$ reemplazamos en la recta e invertimos (porque esa era la definicion de la ley de grupo):
+\[
+y(2P) = -(m(x(2P)-x_1)+y_1) = m(3x_1 - m^2) - y_1.
+\]
+
+De esta forma obtuvimos el duplicado de un punto en terminos polinomiales en las coordenadas del anterior. Con la misma logica y muchas cuentas podemos obtener formulas para $n\cdot P$ para todo $n$ y seguiran siendo funciones racionales (cocientes de polinomios). Incluso existe una recursion para calcular todos estos polinomios y se implementan computacionalmente.
+
+\begin{theorem}[Polinomios de división]\label{theorem:polinomiosDivision} Sea $E:y^2=x^3+Ax+B$ una curva elíptica y $P=(x,y)$ un punto sobre ella. Existen polinomios $\psi_n , \phi_n \in\ZZ[A,B,x,y]$\footnote{En particular, si $A$ y $B$ son enteros, estos polinomios serán enteros.} definidos a partir de 
+\[ 
+\begin{array}{ccc}
+\psi_0=0, & \psi_1=1, & \psi_2=2y, 
+\end{array}
+\] 
+\[ \psi_3=3x^4+6Ax^2+12Bx-A^2, \] 
+\[ \psi_4= 4y\left( x^6+5Ax^4+20Bx^3-5A^2x^2-4ABx-A^3-8B^2 \right), \] 
+\[ \psi_{2m+1} = \psi_{m+2}\psi_m^3-\psi_{m-1}\psi_{m+1}^3, \] 
+\[ \psi_{2m} = \frac{\psi_m}{2y} \left( \psi_{m+2}\psi_{m-1}^2-\psi_{m-2}\psi_{m+1}^2 \right), \] 
+\[ \phi_n=x\psi_n^2-\psi_{n+1}\psi_{n-1} \] 
+
+tales que si $\psi_n(P)\neq0$ se tiene 
+\[ 
+[n]P= \left( \frac{\phi_n(P)}{{\psi_n(P)}^2}, \frac{\psi_{2n}(P)}{2{\psi_n(P)}^4} \right). 
+\] 
+\end{theorem} 
+
+\begin{corollary}\label{cor:GradosPolinomiosDivision} 
+Luego de reemplazar las apariciones de $y^2$ con $x^3+Ax+B$, tanto $\phi_n$ como $\psi_n^2$ pueden considerarse polinomios en $x$, y sus términos principales son 
+\[ \phi_n(x)=x^{n^2}+\text{términos de menor grado}, \] 
+\[ {\psi_n(x)}^2=n^2x^{n^2-1}+\text{términos de menor grado}. \] 
+
+En particular esto muestra que el grado de la multiplicacion por $n$ (como isogenia) es $n^2$.
+\end{corollary} 
+
+\begin{corollary}\label{cor:torsionPolinomiosDivision} 
+Para todo punto $P=(x,y)\in E$, 
+\[ 
+[n]P=\OO \Longleftrightarrow {\psi_n(x)}^2=0. 
+\] 
+
+Por lo tanto, las raíces de $\psi_n^2$ son exactamente las coordenadas $x$ de los puntos de $n$-torsión de $E$.
+\end{corollary}
+
+Definir discriminante, j-invariante?
+
+In view of Falting's theorem [24], elliptic curves can be considered the most
+intriguing curves if it comes to rational points over number fields. Namely, a
+curve of genus zero has either no points at all, or it has infinitely many rational
+points and is isomorphic to P
+1
+. On the other hand, curves of genus g > 1 have
+only finitely many points over any number field.
+
+
+\section{Recapitulacion}
+
+Es importante detenerse un segundo a pensar en para que sirve todo esto. Dijimos que estabamos trabajando con $E(\QQ)$ el conjunto de soluciones (sobre los racionales para simplificar) de nuestra ecuacion, y encontramos una estructura para él, es decir una relacion entre soluciones que nos permitirá encontrar nuevas, estimar cuantas nos faltan y saber cuando las tenemos todas. Tomemos los ejemplos
+\[
+\begin{array}{cc}
+E_1: y^2 = x^3+1 &
+E_2: y^2 = x^3+2
+\end{array}
+\]
+que a simple vista uno esperaria que se comporten parecido, y tambien que son interesantes si uno quiere saber cuando un cuadrado es el siguiente o dos más que un cubo. 
+
+Simplemente probando encontramos valores para cada una:
+\[
+P_1 = (2,3) \in E_1(\QQ) \text{ pues } 3^2 = 2^3+1
+\]
+\[
+\text{ y } P_2 = (-1,1) \in E_2(\QQ) \text{ pues } 1^2 = {(-1)}^3+2.
+\]
+
+Como vimos en la seccion anterior, podemos calcular los valores de $n\cdot P_i$ para algunos $n$. Primero veamos con la formula de duplicacion:
+\[
+x(2\cdot P_1) = {\lp \frac{3{x(P_1)}^2}{2y(P_1)} \rp}^2 - 2x(P_1) = {\lp \frac{3\cdot 2^2}{2\cdot 3} \rp}^2 - 2\cdot 2 = 2^2-2\cdot 2 = 0
+\]
+y el valor de $y(2\cdot P_1)$ es 1, por lo que obtuvimos un punto nuevo de la curva, el $(0,1)$. Ahora veamos $3\cdot P_1$ como $2\cdot P_1 + P_1$ calculando la pendiente entre ellos y luego donde interseca la curva:
+\[
+m= \frac{y(P_1)- y(2P_1)}{x(P_1)- x(2P_1)} = \frac{3-1}{2-0} = 1 \implies x(3P_1) = m^2-x(2P_1)-x(P_1) = 1-2 = -1
+\]
+y reemplazando en la ecuacion obtenemos ${y(3P_1)}^2 = {(-1)}^3+1 = 0$ por lo que encontramos el punto $(-1,0)$ de 2-torsion. Esto nos dice que el punto $(2,3)$ con el que empezamos era de orden 6. Haciendo otras cuentas simples podemos ver que esa es toda la torsion y más adelante veremos una forma de probar que el rango de esta curva es 0, pero si asumimos ahora que podemos hacer todo esto entonces tendriamos una prueba de que el unico caso no trivial de un cubo racional que al sumarle 1 es un cuadrado es el 8.
+
+El caso de $P_2 = (-1,1)$ es distinto:
+\[
+x(2\cdot P_2) = {\lp \frac{3\cdot {(-1)}^2}{2\cdot 1} \rp}^2 - 2\cdot (-1) = {\lp \frac{3}{2} \rp}^2 + 2 = \frac{17}{4} \not\in \ZZ
+\]
+Como vemos que el punto nuevo encontrado no es entero, por el teorema de Nagell-Lutz sabemos que no es de torsion, por lo cual podemos saber que la curva tendrá rango positivo, es decir infinitas soluciones, sin mas que haber encontrado un punto ``obvio'' y haberlo duplicado con la formula. Y no solo sabemos que existen infinitas soluciones, sino que tambien las podemos generar. Por ahora con unos simples calculos ya encontramos que
+\[
+{\lp -\frac{71}{8} \rp}^2 = {\lp \frac{17}{4} \rp}^3 + 2,
+\]
+pero usando los polinomios que mencionamos previamente podriamos calcular muy rapidamente $10\cdot P_2$ para descubrir la solucion:
+\begin{multline*}
+{\lp\frac{7101756495124011219835271161698654764912754876409}
+{5034957028437368992912415633092962882910696377832}\rp}^2 = \\
+{\lp-\frac{64363752249455070879137307239023}
+{293763056960316465372944069236324}\rp}^3 +2.
+\end{multline*}
 
 
 
@@ -240,22 +361,116 @@ Sobre el rango no se sabe nada.
 
 
 
-Mencionar cuando termine de escupir toda la teoria que nos intersa el grupo de mordell-weil porque (volviendo para atras) es el que forman todas las soluciones, y si conocemos como generarlo conocemos una forma de encontrar soluciones y cuantas hay y etc.
 
 
-\chapter{Superficies elipticas}
-\label{cap:superficies}
 
-que son 
+
+
+\chapter{Superficies elipticas}\label{cap:superficiesElipticas}
+
+En este capitulo presentaremos a las superficies elipticas de un modo orientado a la aplicacion que nos interesa: proveer familias de ejemplos de curvas elipticas con puntos independientes prefijados, que en particular tienen una cota inferior del rango, y con parametros que podamos controlar. Si queremos trabajar con curvas elipticas que cumplan una propiedad fija, lo natural es agregarles un parametro $T$ y codificar en él la informacion que querramos. La mejor referencia para comenzar con el tema puede ser el capitulo 3 del ``advanced'' de Silverman~\cite{SilvermanAdvanced}, y para seguir recomendamos el articulo por Schütt y Shioda~\cite{SchuttShioda2010}.
+
+Por ejemplo, si nos interesa el caso de $j$-invariante igual a 0 nuestras curvas tendran la forma $y^2=x^3+T$; y si ademas queremos tener un punto de 3-torsion asegurado para el 3-descenso, entonces, notando que si $x=0$ queda $y^2 = T$ y esto puede tener dos soluciones, tenemos que la curva 
+\[
+E_T: y^2 = x^3 + T^2
+\]
+tiene siempre un punto de 3-torsion y $j$-invariante igual a 0 ($T\neq 0$ para que no sea singular). Ahora vamos a querer presentar un resultado donde tengamos una familia de curvas de rango positivo, asi que busquemos mas condiciones sobre $T$ para que esta curva tenga un punto asegurado. Probando el caso mas simple: poner $x=T$ y ver que forma tendria que tener $y$, llegamos a que si $T^3+T^2 = T^2(T+1)$ es un cuadrado entonces podriamos reemplazar en $y$. De esta forma encontramos la familia
+\[
+E_k : y^2 = x^3 + {(k^2-1)}^2
+\]
+que tiene siempre el punto $(k^2-1 , k(k^2-1))$, es decir, rango positivo.
+
+\section{Definiciones y teoremas de especializacion}
+
+Hay varias definiciones de lo que es una superficie eliptica, pero la idea deberia ser tener una familia de curvas elipticas ``a un parametro''. Podemos considerar
+\[
+E_T:y^2 = x^3 +A(T)x + B(T)
+\]
+para dos funciones racionales $A(T), B(T) \in K(T)$ y querriamos que cuando reemplazamos $T$ por $t\in K$ tengamos una curva eliptica $E_t:y^2 = x^3 +A(t)x + B(t)$. Para ello necesitamos que el discriminante 
+\[
+\Delta_{E_T} = -16(4{A(T)}^3+27{B(T)}^2)
+\]
+no se anule; lo que se traduce a pedir que la funcion $\Delta_{E_T}$ no sea constantemente cero, que $t$ no sea una raiz de ella y evidentemente tenemos que tener cuidado con los valores de los polos de $A(T)$ y $B(T)$.
+
+Tambien es posible querer tener más parametros, pero pensando tambien en querer especializar ``una sola vez'', es decir tener una relacion entre ellos que los haga una familia a un parametro. Si fuesen dos parametros relacionados, esto se podria representar como una curva $\cc$, pensandola como la relacion entre los parametros, y con $A$ y $B$ viviendo en el cuerpo $K(\cc)$ de funciones definidas en los puntos de la curva; y nuevamente con alguna condicion para que cada evaluacion de $A$ y $B$ en un punto de la curva nos de una curva eliptica. El caso anterior sería tambien un caso particular de este tomando la recta $\PP^1(K)$.
+
+Otra forma de definir superficies elipticas (la que usaremos finalmente) es considerar el $t$ como una variable más y ver el conjunto
+\[
+\ee = \{ (x,y,t)\in K^3 : y^2=x^3+A(t)x+B(t) \}
+\]
+que es una subvariedad de dimension dos de $K^3$ (es decir una superficie) formada por una familia de curvas elipticas. Nuevamente esto no basta y nos faltan muchos detalles tecnicos sobre los puntos de discriminante cero y los polos de las funciones; y tambien de nuevo se puede considerar $t\in \cc$ y ver $\ee \subseteq K^2\times \cc$.
+
+Algo que estamos pasando por alto en esta lógica es que las curvas elipticas, como las definimos, vienen provistas de un punto distinguido $\OO$, en particular que deberiamos estar considerando pares de la forma $(\ee_t , \OO_t)$ de curvas elipticas con su elemento neutro. La familia algebraica $\ee$, que proviene de una ecuacion en $A$ y $B$ funciones en $\cc$, tiene que tener tambien la propiedad de que los puntos $\OO_t$ sean una familia algebraica, es decir que tambien esten definidos como una funcion en $\cc$. Esta propiedad se puede ver tambien como que la funcion $\sigma_\OO : \cc \to \ee$ que nos da $\sigma_\OO(t) = \OO_t$ debe ser un mapa de variedades algebraicas, y en particular, como sale de una curva, nos queda morfismo. Observemos que si tenemos nuestros puntos en $\ee$ como $(x,y,t)$ entonces la proyeccion $\pi$ en la tercera coordenada cumple que $\pi(\sigma_\OO(t))=t$, que es la definicion de pedir que $\sigma_\OO$ sea una seccion de $\pi$.
+
+Entonces estamos listos y motivados para la definicion:
+
+\begin{definition}[Superficie eliptica]\label{def:superficieEliptica}
+Dada $\cc$ una curva no singular, una superficie eliptica sobre $\cc$ consiste de lo siguiente:
+\begin{enumerate}[label=\roman*.]
+    \item una variedad $\ee$ de dimension dos,
+    \item un morfismo $\pi:\ee\to\cc$ tal que $\ee_t=\pi^{-1}(t)$ es una curva eliptica para todo $t\in\cc(\bar{K})$ salvo finitos,
+    \item y una seccion distinguida $\sigma_\OO$ de $\pi$.
+\end{enumerate}
+\end{definition}
+
+Esta nocion de superficie eliptica es equivalente a la de una curva eliptica definida sobre un cuerpo $K(\cc)$, la demostracion de esto requiere herramientas de geometria algebraica y muchas definiciones, no la daremos aca pero esta bien mencionar el analogo al grupo de puntos y sus propiedades:
+
+\begin{definition}[Grupo de secciones]\label{SeccionesSuperficie}
+El conjunto
+\[
+\ee(\cc) = \{ \text{secciones } \sigma:\cc\to\ee \}
+\]
+con las operaciones
+\[
+\begin{array}{ccc}
+(\sigma_1+\sigma_2)(t) = \sigma_1(t) +_{\ee_t} \sigma_2(t) &
+\text{y} &
+(-\sigma)(t) = -_{\ee_t} (\sigma(t))
+\end{array}
+\]
+donde (casi todas) las fibras son curvas elipticas entonces podemos sumar e invertir sobre ellas, y elemento neutro $\sigma_\OO$, es el grupo abeliano de secciones de la superficie eliptica.
+\end{definition}
+
+Dos cosas que querriamos ahora son un analogo al teorema de Mordell-Weil, es decir que este grupo sea finitamente generado, y poder distinguir los casos triviales de los interesantes. Esto ultimo se refiere a que uno podria tener una curva eliptica definida sobre $K$ y decir que está definida sobre $K(\cc)$, o tambien tenerla sobre $K(\cc)$ pero que sea isomorfa a una definida sobre $K$, y ambos casos querriamos evitarlos para que la superficie realmente parametrice una familia de curvas elipticas distintas. Es facil ver que esta condicion es equivalente a pedir que la curva eliptica asociada no sea de la forma $E_0 \times \cc$ para una curva eliptica $E_0$ definida sobre el cuerpo $K$, ya que en este caso todas las fibras serian $E_0$. Resulta que estos dos elementos vienen de la mano:
+
+\begin{theorem}[Mordell-Weil para cuerpos de funciones]
+Sea $\ee\to\cc$ superficie eliptica definida sobre un cuerpo $K$ y $E$ la curva eliptica correspondiente definida sobre $K(\cc)$. Si $E$ no es isomorfa a $E_0 \times \cc$ entonces $\ee(\cc)$ es finitamente generado.
+\end{theorem}
+
+Este teorema corresponde al 6.1 del capitulo 3 del libro de Silverman~\cite{SilvermanAdvanced}, y su demostracion se puede encontrar ahi principalmente leyendo la seccion anterior.
+
+pag 242
+
+Remark 6.2.2. If k is a number field, or more generally if k is a finitely
+generated extension of Q, then the Mordell-Weil theorem (6.1) is true regardless of whether or not $\ee$ → C splits. This generalization of the original
+Mordell-Weil theorem for number fields is due to Néron; see exercise 3.4. (pag 290)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Reduccion y fibras singulares}
 
 
-\section{Como construirselas con props}
-
-
-\chapter{Cota superior del rango: el grupo de Selmer}
-\label{cap:selmer}
+\chapter{Cota superior del rango: el grupo de Selmer}\label{cap:selmer}
 
 
 \section{Teoria del selmer y morfismo de descenso (solo teoria)}
@@ -269,7 +484,7 @@ Este capitulo va a ser largo, trabajando por completo nuestro caso particular.
 
 Nos interesa ahora acotar el rango superiormente, y para ello nos gustaría un morfismo que salga del grupo de puntos de la curva $E(K)$ y sea inyectivo en algun grupo calculable. Esto no lo tenemos directamente pero si podremos armar uno que salga de $E(K)/\hat{\phi}(E'(K))$ para la 3-isogenia $\hat{\phi}: E' \to E$ que teniamos, y que caiga en un subgrupo de $K^\times/{(K^\times)}^3$ finitamente generado (entonces finito) y calculable.
 
-Esa idea es la que utiliza la demostracion del teorema de Mordell-Weil (que nos dice que el grupo de puntos es finitamente generado), y haciendo un analisis mas fino del morfismo se consigue una cota superior. La teoria está en el libro de Silverman \cite{SilvermanAEC} en los capitulos VIII y X, donde se desarrolla mas a fondo el grupo de Selmer, pero vamos a esquivar esto usando una idea analoga al ejemplo desarrollado allí en la seccion X.6 o en el libro de Silverman-Tate capitulo 3 (proposicion 3.8 en particular) \cite{SilvermanTate}, pero para 3-descenso en vez de 2-descenso. 
+Esa idea es la que utiliza la demostracion del teorema de Mordell-Weil (que nos dice que el grupo de puntos es finitamente generado), y haciendo un analisis mas fino del morfismo se consigue una cota superior. La teoria está en el libro de Silverman~\cite{SilvermanAEC} en los capitulos VIII y X, donde se desarrolla mas a fondo el grupo de Selmer, pero vamos a esquivar esto usando una idea analoga al ejemplo desarrollado allí en la seccion X.6 o en el libro de Silverman-Tate capitulo 3 (proposicion 3.8 en particular)~\cite{SilvermanTate}, pero para 3-descenso en vez de 2-descenso. 
 
 Notemos que si tenemos un elemento $(x,y)\in E_t(K)$, es decir $y^2=x^3+t^2$, entonces $(y-t)(y+t)=x^3$ es un cubo en el cuerpo $K$. Con esto definamos el morfismo que codificará la informacion que necesitmos: será el mapa $\alpha:E_t(K) \to K^\times/{(K^\times)}^3$ tal que $\alpha(x,y) = y-t \mod {(K^\times)}^3$, con $\alpha(\OO) = 1$ y $\alpha(0,t) = {(2t)}^{-1}$. Y lo que nos interesa es lo siguiente:
 
