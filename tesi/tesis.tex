@@ -10,6 +10,7 @@
 \usepackage{amsthm}
 \usepackage{geometry}
 \usepackage{mathtools}
+\usepackage{epigraph}
 \usepackage{enumitem}
 \usepackage{stmaryrd}
 \usepackage{comment}
@@ -380,7 +381,7 @@ E_k : y^2 = x^3 + {(k^2-1)}^2
 \]
 que tiene siempre el punto $(k^2-1 , k(k^2-1))$, es decir, rango positivo.
 
-\section{Definiciones y teoremas de especializacion}
+\section{Definiciones y grupo de Mordell-Weil}
 
 Hay varias definiciones de lo que es una superficie eliptica, pero la idea deberia ser tener una familia de curvas elipticas ``a un parametro''. Podemos considerar
 \[
@@ -428,22 +429,54 @@ con las operaciones
 (-\sigma)(t) = -_{\ee_t} (\sigma(t))
 \end{array}
 \]
-donde (casi todas) las fibras son curvas elipticas entonces podemos sumar e invertir sobre ellas, y elemento neutro $\sigma_\OO$, es el grupo abeliano de secciones de la superficie eliptica.
+realizadas sobre las fibras, pues (casi todas) son curvas elipticas y entonces podemos sumar e invertir sobre ellas, y con elemento neutro $\sigma_\OO$, es el grupo abeliano de secciones de la superficie eliptica.
 \end{definition}
 
-Dos cosas que querriamos ahora son un analogo al teorema de Mordell-Weil, es decir que este grupo sea finitamente generado, y poder distinguir los casos triviales de los interesantes. Esto ultimo se refiere a que uno podria tener una curva eliptica definida sobre $K$ y decir que está definida sobre $K(\cc)$, o tambien tenerla sobre $K(\cc)$ pero que sea isomorfa a una definida sobre $K$, y ambos casos querriamos evitarlos para que la superficie realmente parametrice una familia de curvas elipticas distintas. Es facil ver que esta condicion es equivalente a pedir que la curva eliptica asociada no sea de la forma $E_0 \times \cc$ para una curva eliptica $E_0$ definida sobre el cuerpo $K$, ya que en este caso todas las fibras serian $E_0$. Resulta que estos dos elementos vienen de la mano:
+Dos cosas que querriamos ahora son un analogo al teorema de Mordell-Weil, es decir que este grupo sea finitamente generado, y poder distinguir los casos triviales de los interesantes. Esto ultimo se refiere a que uno podria tener una curva eliptica definida sobre $K$ y decir que está definida sobre $K(\cc)$, o tambien tenerla sobre $K(\cc)$ pero que sea isomorfa a una definida sobre $K$, y ambos casos querriamos evitarlos para que la superficie realmente parametrice una familia de curvas elipticas ``distintas''. Es facil ver que esta condicion es equivalente a pedir que la superficie $\ee$ no sea de la forma $E_0 \times \cc$ para una curva eliptica $E_0$ definida sobre el cuerpo $K$, ya que en este caso todas las fibras serian $E_0$. La equivalencia de superficies que nos interesa aca es mediante mapas birracionales (racionales en ambas direcciones) que respeten el morfismo $\ee\to\cc$, y si $\ee \sim E_0 \times \cc$ se dice que la superficie es \emph{split}, y caso contrario \emph{non-split}.Resulta que en el caso de cuerpos arbitrarios estos dos elementos vienen de la mano:
 
 \begin{theorem}[Mordell-Weil para cuerpos de funciones]
-Sea $\ee\to\cc$ superficie eliptica definida sobre un cuerpo $K$ y $E$ la curva eliptica correspondiente definida sobre $K(\cc)$. Si $E$ no es isomorfa a $E_0 \times \cc$ entonces $\ee(\cc)$ es finitamente generado.
+Sea $\ee\to\cc$ una superficie eliptica definida sobre un cuerpo $K$. Si $\ee$ es non-split, entonces $\ee(\cc)$ es finitamente generado.
 \end{theorem}
 
-Este teorema corresponde al 6.1 del capitulo 3 del libro de Silverman~\cite{SilvermanAdvanced}, y su demostracion se puede encontrar ahi principalmente leyendo la seccion anterior.
+Este teorema corresponde al 6.1 del capitulo 3 del libro de Silverman~\cite{SilvermanAdvanced}, y su demostracion se puede encontrar alli, principalmente leyendo la seccion anterior. En realidad, para cuerpos de numeros especificamente, el teorema es cierto sin pedir la hipotesis de non-split. Veamos rapidamente por qué en el caso de $\cc=\PP^1$: Si la superficie es de la forma
+\[
+E_0\times\PP^1 \to \PP^1,
+\]
+entonces sus secciones serán morfismos $\PP^1\to E_0$, pero estos deben ser constantes\footnote{Esto es un hecho conocido de geometria algebraica: todos los morfismos de una curva de genero 0 a una de genero 1 son constantes.}. Luego, si a cada seccion le asignamos su imagen (un punto en $E_0$) tenemos el isomorfismo $E(K(\PP^1)) \cong E_0(K)$, y sabemos que el segundo es finitamente generado por el teorema de Mordell-Weil original (aca usamos que $K$ es un cuerpo de numeros). Para una curva en general no tendremos la asociacion directa a puntos, sino una sucecion exacta corta
+\[
+0\to E_0(K) \to E_0(K(\cc)) \to \text{Hom}_K(J_\cc , E_0) \to 0
+\]
+donde ambos grupos de los costados son finitamente generados.
 
-pag 242
+La teoria de superficies elipticas a partir de este punto se pone mas tecnica, con metodos para estudiar las fibras de mala reduccion y clasificarlas, eliminar las singularidades de la superficie con herramientas de geometria algebraica, concluyendo con una clasificacion de superficies no-singulares. 
 
-Remark 6.2.2. If k is a number field, or more generally if k is a finitely
-generated extension of Q, then the Mordell-Weil theorem (6.1) is true regardless of whether or not $\ee$ → C splits. This generalization of the original
-Mordell-Weil theorem for number fields is due to Néron; see exercise 3.4. (pag 290)
+\section{Teorema de especializacion de Silverman}
+
+Recordemos que a nosotros nos interesa generar una familia de curvas elipticas con caracteristicas particulares de su grupo de Mordell-Weil, y que dijimos que ibamos a hacer esto via especializacion de una superficie eliptica. Hasta ahora vimos (comentamos) que teniamos la construccion de ese grupo en el contexto de superficies elipticas y que cumplia las propiedades que nos interesaban, veamos ahora que esas propiedades se traspasan a la curva eliptica en todas salvo finitas de las especializaciones.
+
+Si tenemos una superficie eliptica $\ee \to \PP^1$ (podriamos poner $\cc$) y un punto $P \in E(K(T))$ en la curva eliptica asociada, habiamos definido que la seccion $\sigma_P : \PP^1 \to \ee$ que notamos $t \to P_t$ era el analogo a los puntos. Intuitivamente era como elegir en cada curva ``el mismo punto'' a lo largo de la superficie. Dando vuelta esta asignacion pordemos decir que cada $t\in \PP^1 $ define un $\sigma_t: E(K(T)) \to \ee_t$ que será el mapa de especializacion, y que no es mas que reemplazar en $T=t$ si tenemos la ecuacion de Weierstrass. Si la fibra $\ee_t$ no es singular (es decir, es una curva eliptica), es claro que $\sigma_t$ es un morfismo de grupos de la definicion que dimos de suma de secciones. El siguiente teorema nos dice que el grupo de Mordell-Weil de las curvas que obtenemos va a contener una copia del de la superficie:
+
+\begin{theorem}[Silverman]\label{Especializacion}
+Si $\ee$ es non-split entonces el mapa
+\[
+\sigma_t : E(K(T)) \to \ee_t(K)
+\]
+es inyectivo para todos salvo finitos valores de $t\in \PP^1(K)$.
+\end{theorem}
+
+La forma de ver lo que queremos es que si tenemos $r$ puntos independientes en $E(K(T))$ entonces sus especializaciones serán independientes por inyectividad, ya que una combinacion que nos de $\OO$ podria traerse a la superficie. Similarmente se mantiene la torsion. En particular, esto nos dice que el rango de las curvas es al menos el de la superficie y que podemos preservar puntos de $n$-torsion de la superficie a la curva (esto será importante más adelante).
+
+La demostracion del teorema utiliza la teoria de alturas y resultados de Tate que nos garantizan que la altura canonica sobre la superficie eliptica controla las alturas canonica de cada curva para valores de $h(t)$ suficientemente grandes, y que esto se mantiene para la forma bilineal que definen; y entonces, usando que la matriz de alturas entre puntos (modulo torsion) tiene determinante distinto de cero si y solo si son independientes, al especializar tambien tiene determinante no nulo y eso nos garantiza que se mantienen independientes. Para los de torsion se usa el argumento de que las secciones $\sigma_P$ y $\sigma_\OO$ solo pueden cruzarse en finitos puntos, y sacando los $t$ que corresponden a ellos tenemos que en la especializacion serán distintos. Como hay finitos $t\in K$ con altura acotada, para los que $\ee_t$ no es una curva eliptica, o donde se intersecan $\sigma_P$ y $\sigma_\OO$ para los finitos $P$ de torsion; y vimos que $\sigma_t$ es inyectiva cuando nada de esto ocurre, tenemos el teorema.
+
+Cuando el rango de una especializacion es estrictamente mayor que de la superficie se dice que hay un ``salto de rango'', peor sobre cuando ocurre esto no se sabe realmente mucho: la conjetura principal es que las curvas que aparezcan con rango igual a la superficie o uno mayor deberian tener densidad 1 (respecto a la altura de $t$), teniendo densidad positiva cada uno de las posibilidades en familias no isotriviales. Pero ni siquiera se sabe si siempre son infinitos aquellos $t$ para los que no salta el rango, y recien el primer ejemplo de esto lo dio Zywina en su paper de 2025~\cite{Zywina2025RankDoesNotJump} combinando con metodos de descenso que veremos en el proximo capitulo, y que comienza con esta serie de resultados que nos interesan.
+
+Tambien es importante mencionar que a partir de este tipo de resultados es que se empiezan a buscar superficies de rango alto y aquellas especializaciones donde el rango crece lo maximo posibles para encontrar curvas de rango alto. Hasta la salida del libro se habian encontrado sobre $\QQ$ superficies de rango hasta 13 por Nagao, y especializaciones con rango hasta 21 por Nagao-Kouya. A dia de hoy, usando superficies K3 que son una generalizacion pero funcionan similarmente, los records son de familias de rango por lo menos 18 y una especializacion de rango 31.
+
+\epigraph{
+And the quest continues!
+}{
+Silverman
+}
 
 
 
@@ -452,22 +485,6 @@ Mordell-Weil theorem for number fields is due to Néron; see exercise 3.4. (pag 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Reduccion y fibras singulares}
 
 
 \chapter{Cota superior del rango: el grupo de Selmer}\label{cap:selmer}
