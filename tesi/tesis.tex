@@ -56,6 +56,13 @@
 \newcommand{\ee}{\mathcal{E}}
 \newcommand{\pp}{\mathfrak{p}}
 
+\newcommand{\QmodD}{\QQ^\times / {(\QQ^\times)}^2}
+\newcommand{\QmodT}{\QQ^\times / {(\QQ^\times)}^3}
+\newcommand{\QmodN}{\QQ^\times / {(\QQ^\times)}^n}
+\newcommand{\KmodD}{K^\times / {(K^\times)}^2}
+\newcommand{\KmodT}{K^\times / {(K^\times)}^3}
+\newcommand{\KmodN}{K^\times / {(K^\times)}^n}
+
 \newcommand{\mat}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
 \newcommand{\minmat}[4]{\left(\begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix}\right)}
 \newcommand{\qexp}{e^{2\pi i z}}
@@ -168,11 +175,9 @@ Tambien surge el interes de fijar cierta condicion para la curva, como puede ser
 
 A lo largo de esta tesis desarrollaremos los distintos temas que tocamos en la introduccion con especial interes en sus aplicaciones al problema de encontrar infinitas curvas con un rango fijo. Capitulos
 
-Antes de empezar fijemos la notacion que usaremos: A lo largo de la tesis trabajaremos mayormente con cuerpos de numeros (extensiones finitas de $\QQ$) y los denotaremos $K$, y aunque muchos resultados se pueden extender a cuerpos arbitrarios, otros tantos no, y no los diferenciaremos. El grupo de puntos de una curva eliptica $E$ sobre un cuerpo de numeros $K$, por ser un grupo abeliano finitamente generado lo notaremos como $E(K) = T \oplus \ZZ^r$, donde $T$ es el grupo de torsion y $r$ es el rango de la curva. 
+Antes de empezar fijemos la notacion que usaremos: A lo largo de la tesis trabajaremos mayormente con cuerpos de numeros (extensiones finitas de $\QQ$) y los denotaremos $K$; y, aunque muchos resultados se pueden extender a cuerpos arbitrarios, otros tantos no. El grupo de puntos de una curva eliptica $E$ sobre un cuerpo de numeros $K$, por ser un grupo abeliano finitamente generado lo notaremos como $E(K) = T \oplus \ZZ^r$, donde $T$ es el grupo de torsion y $r$ es el rango de la curva. 
 
 Usaremos una curva en especifico, pero la presentaremos con mas o menos generalidad para simplificar los resultados en notacion, vamos a ver cada una de ellas: $E_d: y^2 = x^3 + d$ será la mas general, llamada curva de Mordell; luego como queremos asegurarnos de tener un puntos de 3-torsion precisamos que $d$ sea un cuadrado, y la llamaremos $E_{t}: y^2 = x^3 + t^2$; despues para nuestro resultado usaremos un $t$ especifico que será $t=k^2-1$, con el cual nos aseguramos un punto libre, y la curva será $E_{k}: y^2 = x^3 + {(k^2-1)}^2$; y finalmente para el analisis de rango vamos a escribir $k$ como $\frac{a}{b}$ y la curva nos queda $E_{a,b}: y^2 = x^3 + {(b(a-b)(a+b))}^2$.
-
-
 
 
 
@@ -359,14 +364,6 @@ pero usando los polinomios que mencionamos previamente podriamos calcular muy ra
 
 
 
-
-
-
-
-
-
-
-
 \chapter{Superficies elipticas}\label{cap:superficiesElipticas}
 
 En este capitulo presentaremos a las superficies elipticas de un modo orientado a la aplicacion que nos interesa: proveer familias de ejemplos de curvas elipticas con puntos independientes prefijados, que en particular tienen una cota inferior del rango, y con parametros que podamos controlar. Si queremos trabajar con curvas elipticas que cumplan una propiedad fija, lo natural es agregarles un parametro $T$ y codificar en él la informacion que querramos. La mejor referencia para comenzar con el tema puede ser el capitulo 3 del ``advanced'' de Silverman~\cite{SilvermanAdvanced}, y para seguir recomendamos el articulo por Schütt y Shioda~\cite{SchuttShioda2010}.
@@ -470,7 +467,7 @@ La demostracion del teorema utiliza la teoria de alturas y resultados de Tate qu
 
 Cuando el rango de una especializacion es estrictamente mayor que de la superficie se dice que hay un ``salto de rango'', peor sobre cuando ocurre esto no se sabe realmente mucho: la conjetura principal es que las curvas que aparezcan con rango igual a la superficie o uno mayor deberian tener densidad 1 (respecto a la altura de $t$), teniendo densidad positiva cada uno de las posibilidades en familias no isotriviales. Pero ni siquiera se sabe si siempre son infinitos aquellos $t$ para los que no salta el rango, y recien el primer ejemplo de esto lo dio Zywina en su paper de 2025~\cite{Zywina2025RankDoesNotJump} combinando con metodos de descenso que veremos en el proximo capitulo, y que comienza con esta serie de resultados que nos interesan.
 
-Tambien es importante mencionar que a partir de este tipo de resultados es que se empiezan a buscar superficies de rango alto y aquellas especializaciones donde el rango crece lo maximo posibles para encontrar curvas de rango alto. Hasta la salida del libro se habian encontrado sobre $\QQ$ superficies de rango hasta 13 por Nagao, y especializaciones con rango hasta 21 por Nagao-Kouya. A dia de hoy, usando superficies K3 que son una generalizacion pero funcionan similarmente, los records son de familias de rango por lo menos 18 y una especializacion de rango 31.
+Tambien es importante mencionar que a partir de este tipo de resultados es que se empiezan a buscar superficies de rango alto y aquellas especializaciones donde crece lo maximo posibles para encontrar curvas de rango alto. Hasta la salida del libro se habian encontrado sobre $\QQ$ superficies de rango hasta 13 por Nagao, y especializaciones con hasta 21 por Nagao-Kouya. A dia de hoy, usando superficies K3, que son una generalizacion pero funcionan similarmente, los records son de familias de rango por lo menos 18 y una especializacion de 31.
 
 \epigraph{
 And the quest continues!
@@ -481,25 +478,95 @@ Silverman
 
 
 
+\chapter{Metodo de descenso y grupo de Selmer}\label{cap:selmer}
+
+En este capitulo presentaremos la forma de obtener una cota superior para el rango, conocida como metodo del descenso. La idea es encontrar un morfismo inyectivo que salga de los puntos independientes de la curva y que podamos controlar su imagen en el grupo que caiga. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Aca daremos un ejemplo puntual de 3-descenso para motivar y tambien porque es el que será usado despues.
+
+Supongamos que tenemos una curva de la forma $E_t: y^2=x^3+t^2$ con coordenadas en $\ZZ$ para hacer mas facil. Podemos pasar restando el $t^2$ y factorizar y nos queda 
+\[
+(y-t)(y+t) = x^3.
+\]
+Escrito de este modo, para encontrar un punto en la curva nos hace falta encontrar dos numeros a distancia $2t$ cuyo producto sea un cubo. Si estos numeros los escribimos, separando su parte cubica, como $au^3$ y $bv^3$ con $a,b$ libres de potencias cubicas\footnote{Aca estamos usando que la factorizacion es unica en $\ZZ$. Cuando trabajemos con el anillo de enteros de un cuerpo de numeros esto no siempre ocurre, y mas bien es la excepcion.}, entonces solo necesitamos que $ab$ sea un cubo. Por esto tiene sentido ver los elementos $a$ y $b$ en $\QmodT$, y que su producto sea 1 nos dice que podemos quedarnos con $a$, y $b$ será el inverso; y no nos olvidemos que $au^3 - a^{-1}v^3 = -2t$. Para trabajar en $\QmodT$ necesitamos homogeneizar la ecuacion y nos queda:
+\[
+C_a: aU^3 - a^{-1}V^3 + 2tW^3 = 0
+\]
+
+Ahora, si tenemos un punto $P=(x_0,y_0)$ en la curva, eligiendo $U = u$ la parte cubica de $y_0-t$, $V=v$ la de $y_0+t$ y $W=1$ entonces tendremos una solucion en $C_a(\QQ)$, que multiplicando por el denominador en $W$ podemos llevar a $C_a(\ZZ)$ (simplemente porque es homogenea). Lo interesante es que podemos ir para el otro lado tambien: si tenemos un punto de $C_a(\ZZ)$ entonces eligiendo 
+\[
+\begin{array}{cc}
+x_0=-\frac{XY}{Z^2},
+&
+y_0=\frac{aX^3-a^{-1}Y^3}{2Z^3}
+\end{array}
+\]
+tenemos que $(x_0, y_0)$ pertenece a $E_t(\QQ)$. Con esto obtuvimos que el espacio homogeneo $C_a$ tiene puntos racionales si y solo si existe un punto en la curva que cumple $y_0-t \equiv a \mod {(\QQ^\times)}^3$.
+
+En todo este razonamiento quedan muchas cosas para analizar que veremos en este capitulo: la asignacion de $E(\QQ) \to \QmodT$ que vale $(x_0, y_0) \mapsto y_0-t$ es un morfismo; su nucleo lo conocemos y es finito; y, al cocientar por él, la imagen cae en un subgrupo finito. Con todo eso tendremos una cota superior para el rango, y con una forma de chequear si $C_a(\ZZ)$ es o no vacio podremos hacerla efectiva.
+
+Este capitulo se basará en los VIII y X del libro de Silverman~\cite{SilvermanAEC}, donde se desarrolla y se dan un ejemplo de 2-descenso. La generalizacion a cuerpos de numeros donde $\OO_K$ es un dominio de factorizacion unica es directa. \textbf{Poner mas referencias de descenso?}
+
+
+\section{Teoria del selmer y morfismo de descenso}
+
+En la introduccion utilizamos una curva especifica que nos permitia encontrar mas facilmente la conexion entre un punto racional y los elementos de $\QmodT$, pero para que esta asignacion cumpla las propiedades que queriamos, secretamente estabamos usando que teniamos un punto de 3-torsion o, más especificamente, una isogenia de grado 3.
+
+Supongamos que tenemos una curva $E$ con una isogenia $\phi:E\to E'$ de grado $m$, en particular $\hat{phi} \circ \phi = [m]$. En conjunto con la secuencia exacta corta 
+\[
+0 \to E(K)[m] \to E(\bar{K}) \longrightarrow E(\bar{K}) \to 0
+\]
 
 
 
 
 
 
-\chapter{Cota superior del rango: el grupo de Selmer}\label{cap:selmer}
 
 
-\section{Teoria del selmer y morfismo de descenso (solo teoria)}
-
-\section{Espacios homogeneos asociados y un ejemplo de 2-desc de Zywina con cositas locales}
 
 
-\section{El morfismo para el 3-descenso y el cuerpo $\QQ(\omega)$, nuestro caso particular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Espacios homogeneos asociados y un ejemplo de 2-desc de Zywina con cositas locales ie de como descartarlos}
+
+
+\section{El morfismo para el 3-descenso y el cuerpo $\QQ(\omega)$}
 
 Este capitulo va a ser largo, trabajando por completo nuestro caso particular.
 
-Nos interesa ahora acotar el rango superiormente, y para ello nos gustaría un morfismo que salga del grupo de puntos de la curva $E(K)$ y sea inyectivo en algun grupo calculable. Esto no lo tenemos directamente pero si podremos armar uno que salga de $E(K)/\hat{\phi}(E'(K))$ para la 3-isogenia $\hat{\phi}: E' \to E$ que teniamos, y que caiga en un subgrupo de $K^\times/{(K^\times)}^3$ finitamente generado (entonces finito) y calculable.
+Nos interesa ahora acotar el rango superiormente, y para ello nos gustaría un morfismo que salga del grupo de puntos de la curva $E(K)$ y sea inyectivo en algun grupo calculable. Esto no lo tenemos directamente pero si podremos armar uno que salga de $E(K)/\hat{\phi}(E'(K))$ para la 3-isogenia $\hat{\phi}: E' \to E$ que teniamos, y que caiga en un subgrupo de $\QmodT$ finitamente generado (entonces finito) y calculable.
 
 Esa idea es la que utiliza la demostracion del teorema de Mordell-Weil (que nos dice que el grupo de puntos es finitamente generado), y haciendo un analisis mas fino del morfismo se consigue una cota superior. La teoria está en el libro de Silverman~\cite{SilvermanAEC} en los capitulos VIII y X, donde se desarrolla mas a fondo el grupo de Selmer, pero vamos a esquivar esto usando una idea analoga al ejemplo desarrollado allí en la seccion X.6 o en el libro de Silverman-Tate capitulo 3 (proposicion 3.8 en particular)~\cite{SilvermanTate}, pero para 3-descenso en vez de 2-descenso. 
 
