@@ -16,10 +16,11 @@
 \usepackage{comment}
 \usepackage{graphicx} % <--- AGREGADO: Necesario para la imagen uba2.jpg
 \usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{babel,positioning,arrows.meta,calc}
 
 % --- Configuración de márgenes GENERAL (para el resto de la tesis) ---
 \geometry{left=3cm, right=3cm, top=3cm, bottom=3cm}
-
 % --- Configuración de entornos de Teoremas/Definiciones ---
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[section]
@@ -508,11 +509,101 @@ Este capitulo se basará en los VIII y X del libro de Silverman~\cite{SilvermanA
 
 \section{Teoria del selmer y morfismo de descenso}
 
-En la introduccion utilizamos una curva especifica que nos permitia encontrar mas facilmente la conexion entre un punto racional y los elementos de $\QmodT$, pero para que esta asignacion cumpla las propiedades que queriamos, secretamente estabamos usando que teniamos un punto de 3-torsion o, más especificamente, una isogenia de grado 3.
+En la introduccion utilizamos una curva especifica que nos permitia encontrar mas facilmente la conexion entre un punto racional y los elementos de $\QmodT$, pero para que esta asignacion cumpla las propiedades que queriamos, secretamente estabamos usando que teniamos una isogenia de grado 3 a traves del punto de 3-torsion.
 
-Supongamos que tenemos una curva $E$ con una isogenia $\phi:E\to E'$ de grado $m$, en particular $\hat{phi} \circ \phi = [m]$. En conjunto con la secuencia exacta corta 
+Supongamos que tenemos una curva $E$ con una isogenia $\phi:E\to E'$. Junto con la sucesion exacta corta 
 \[
-0 \to E(K)[m] \to E(\bar{K}) \longrightarrow E(\bar{K}) \to 0
+0 \longrightarrow E[\phi] \longrightarrow E(\bar{K}) \overset{\phi}{\longrightarrow} E'(\bar{K}) \longrightarrow 0
+\]
+vamos a tener una sucesion exacta larga tomando cohomologia de Galois (todos estos grupos son $G_{\bar{K}/K}$-módulos):
+\begin{center}
+{\shorthandoff{<>}
+\begin{tikzpicture}[
+    %node distance=1.8cm and 1.3cm,
+    every node/.style={inner sep=2pt},
+    >=Stealth
+]
+
+% Segunda fila: la construimos primero para evitar superposiciones
+\node (Hkernel)
+    {$H^1(G_{\bar{K}/K},E[\phi])$};
+
+\node[right=1cm of Hkernel] (HE)
+    {$H^1(G_{\bar{K}/K},E)$};
+
+\node[right=1cm of HE] (HEp)
+    {$H^1(G_{\bar{K}/K},E')...$};
+
+% Primera fila: cada grupo exactamente encima de su H^1
+\node[above=1.2cm of Hkernel] (kernel)
+    {$E(K)[\phi]$};
+
+\node[above=1.2cm of HE] (E)
+    {$E(K)$};
+
+\node[above=1.2cm of HEp] (Ep)
+    {$E'(K)$};
+
+\node[left=1cm of kernel] (zero)
+    {$0$};
+
+% Flechas de la primera fila
+\draw[->] (zero) -- (kernel);
+\draw[->] (kernel) -- (E);
+\draw[->] (E) -- node[above] {$\phi$} (Ep);
+
+% Flechas de la segunda fila
+\draw[->] (Hkernel) -- (HE);
+\draw[->] (HE) -- node[above] {$\phi$} (HEp);
+
+% Puntos para la flecha delta
+\coordinate (Rtop) at ([xshift=0.8cm]Ep.east);
+\coordinate (Rmid) at ([yshift=-0.9cm]Rtop);
+
+\coordinate (Lbottom) at ([xshift=-0.8cm]Hkernel.west);
+\coordinate (Lmid) at (Lbottom |- Rmid);
+
+% Flecha delta
+\draw[->,rounded corners=12pt]
+    (Ep.east)
+    -- (Rtop)
+    -- (Rmid)
+    -- node[midway,above] {$\delta$} (Lmid)
+    -- (Lbottom)
+    -- (Hkernel.west);
+
+\end{tikzpicture}
+}
+\end{center}
+y tomando de la mitad obtenemos la \emph{sucesion exacta de Kummer de $E/K$}, que usaremos para el descenso:
+\[
+0 \longrightarrow \frac{E'(K)}{\phi(E(K))} \overset{\delta}{\longrightarrow} H^1(G_{\bar{K}/K},E[\phi]) \overset{\gamma}{\longrightarrow} H^1(G_{\bar{K}/K},E)[\phi] \longrightarrow 0
+\]
+
+Rapidamente queremos identificar el segundo y el tercer grupo con otros que conozcamos mejor y podamos controlar, y tambien entender el $\delta$. Para el segundo grupo vamos a hacerlo en el caso particular donde $E[\phi]$ sea ciclico y $K$-racional, que podemos obtener simplemente cocientando por el grupo generado por un punto de $n$-torsion (recordemos que una isogenia queda determinada por su nucleo). Si $\phi$ es de grado $n$ y $\mu_n \subset K$ entonces quedará $E[\phi] \cong \mu_n$ y podemos dar un isomorfismo explicito usando el emparejamiento de Weil. Un teorema de Kummer nos dice que
+\[
+H^1(G_{\bar{K}/K},\mu_n) \cong \KmodN,
+\]
+que será la identificacion que usaremos para el descenso.
+
+Para el tercer grupo, la identificacion se consigue asociando espacios homogeneos a la curva, y mirando si es posible encontrar un punto racional en ciertos de ellos, ya que corresponderan a un elemento en el nucleo de $\gamma$. El problema de encontrar un punto racional en un espacio homogeneo es casi tan difícil, pero podremos descartar muchos trabajando en las completaciones del cuerpo y sus anillos locales, llegando idealmente a todos los necesarios. Al traducir la sucesion de Kummer a las completaciones de $K$ y estudiar como se comporta esta reduccion tenemos el proceso completo para determinar una cota superior para el rango, conocido como \emph{método del descenso}.
+
+Nuevamente para no introducir demasiada teoria mencionaremos que asociado a cada curva eliptica existe el grupo de Weil-Châtelet $WC(E/K)$ de clases de equivalencia de espacios homogeneos sobre $E$. Estos ultimos constan de una curva $\cc/K$ junto con una accion de $E$ en $\cc$ definida sobre $K$ simplemente transitiva. Lo importante sobre estos es que, dado un punto $P\in \cc$, tenemos un isomorfismo con $E$ definido sobre $K(P)$ (adjuntar a $K$ las coordenadas de $P$); y esto nos dice que, si $\cc$ tiene un punto $K$-racional entonces está en la clase trivial de $WC(E/K)$, que es lo que nos interesa calcular. Tambien tenemos el teorema que nos dice que existe una biyeccion entre $WC(E/K)$ y $H^1(G_{\bar{K}/K},E)$ para poder reemplazar uno de los terminos de la sucesion. 
+
+Para calcular estos espacios homogeneos vamos a elegir un punto $Q_0\in E'[\hat\phi](K)$ que genere el nucleo de la isogenia dual (que tambien será ciclico) y tenemos que encontrar una funcion racional $f \in K(E')^\times$ tal que 
+\[
+div(f) = n(Q_0) - n(\OO).
+\]
+Con esto, el espacio homogeneo asociado a $a\in\KmodN$ será (el modelo proyectivo suave de) la curva
+\[
+f(Q) = az^n.
+\]
+Notemos que está evaluada en $Q \in E'$, entonces esto puede traducirse a variables $x$ e $y$ con la ecuacion de la curva $E'$ (cuidado, no es la de $E$). No olvidemos que $f=g/h$ era una funcion racional, por lo que si nos interesan ecuaciones polinomicas terminariamos obteniendo
+\[
+\begin{cases}
+y^2 = x^3 +A'x + B'  \\
+g(x,y)=az^nh(x,y).
+\end{cases}
 \]
 
 
@@ -527,6 +618,7 @@ Supongamos que tenemos una curva $E$ con una isogenia $\phi:E\to E'$ de grado $m
 
 
 
+Mencionar que local-global falla por el sha
 
 
 
