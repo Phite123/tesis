@@ -237,16 +237,60 @@ Sobre el grupo de torsion de una curva eliptica se conocen resultados que califi
 
 Sobre el rango se sabe mucho menos. Hay resultados de densidad, el más notable por Bharghava siendo que un $50\%$ de las curvas elipticas sobre $\QQ$ tienen rango 0 y el otro $50\%$ tienen rango 1, pero como los resultados probabilisticos, aún deja lugar a que hayan igualmente infinitas curvas del resto de rangos. Una heuristica por Park, Poonen, Voight y Wood~\cite{ParkPoonenVoightWood2019} predice que hay infinitas curvas de cada rango hasta 20 y solo finitas excepciones de rango mayor. El problema de encontrar curvas de rango alto sobre $\QQ$ es tambien interesante, siendo el record una curva de rango al menos 30 publicada (aún) anonimamente, y el previo, de $\geq 29$, por Elkies y Klagsbrun~\cite{ElkiesKlagsbrun2020}; y tambien records de rango con un grupo de torsion fijo, casi todos sostenidos por Elkies. Si uno define el rango analitico de una curva eliptica como el residuo en 1 de su L-serie asociada, la conjetura de Birch y Swinnerton-Dyer predice que ambos rangos coinciden y aparte provee una formula cerrada para este.
 
+Para justificar tambien el estudio de las curvas elipticas vamos a presentar tambien el teorema de Falting que nos habla sobre curvas de genero mayor a 1:
+
+\begin{theorem}[Falting]
+Una curva de genero mayor a 1 tiene solo finitos puntos sobre cualquier cuerpo de numeros $K$.
+\end{theorem}
+
+Teniendo en cuenta este teorema, las curvas elipticas pueden ser considerado el caso mas interesante de curvas cuando se habla de puntos racionales sobre cuerpos de numeros, ya que tambien, las de genero cero que tienen al menos un punto tienen infinitos y son isomorfas a $\PP^1$.
+
+
 \section{Mas resultados sobre curvas elipticas}
 
 Recopilemos algunos resultados que se conocen sobre curvas elipticas y que nos pueden ayudar a utilizarlas para resolver las preguntas que las motivan. Todos estos resultados se pueden encontrar en~\cite{SilvermanAEC}.
 
-Un resultado importante es 
+\subsection{Modelo de Weierstrass}
+
+Motivados por el estudio de ecuaciones diofanticas, muchas veces vamos a querer trabajar con coeficientes enteros\footnote{Si estamos en $\QQ$ son enteros, en un cuerpo de numeros $K$ estamos hablando del anillo de enteros del cuerpo: $\OO_K$.} en nuestras curvas, y es bueno saber que siempre podemos encontrar un modelo con coeficientes enteros.
+
+Primero definamos el discriminante de una curva que nos va a ayudar:
+
+\begin{definition}[Discriminante]
+Para $E: y^2 = x^3+Ax+B$ definimos el discriminante de $E$ como
+\[
+\Delta_E = -16(4A^3+27B^2).
+\]
+\end{definition}
+
+Notemos que para una ecuacion de esa forma vale que $E$ es una curva eliptica si y solo si $\Delta_E \neq 0$ (salvo caracteristica 2).
+
+Ahora si, observemos que si en la ecuacion $y^2 = x^3 +Ax+B$ reemplazamos por $x=\tilde{x}/u^2$ e $y=\tilde{y}/u^3$ nos queda la ecuacion $\tilde{y}^2/u^6 = \tilde{x}^3/u^6  + A\tilde{x}/u^2 + B$, y cancelando los $u$ tenemos 
+\[
+\tilde{y}^2 = \tilde{x}^3 + u^4 A \tilde{x} + u^6 B.
+\]
+De esta forma, metiendo en $u$ los valores necesarios para cancelar los denominadores de nuestros coeficientes $A$ y $B$ podemos tener un modelo con coeficientes enteros. Y el discriminante del nuevo modelo será
+\[
+\Delta_{\tilde{E}} = -16 \lp 4{(u^4A)}^3+27{(u^6B)}^2 \rp = u^{12} \Delta_E.
+\]
+De la misma manera podemos eliminar elementos que aparezcan a potencias altas en los coeficientes, y en el discriminante terminaremos dividiendo por un $u^{12}$. Con todo esto demostramos lo siguiente:
+
+\begin{prop}
+Para toda curva eliptica sobre un cuerpo de numeros $K$ existe un modelo con coeficientes enteros.
+\end{prop}
+
+Hablando de enteros, un resultado importante es 
+
 \begin{theorem}[Nagell-Lutz]\label{theorem:NagellLutz}
-Todos los puntos de torsion tienen coordenadas enteras.
+Para curvas sobre $\QQ$, si los coeficientes de nuestra curva son enteros, todos los puntos de torsion tienen coordenadas enteras.
 \end{theorem}
 
-Tambien se demuestra con teoria de alturas, viendo que si un punto es de torsion tiene que tener altura cero porque $h(2^n\cdot P)$ crece como $4n\cdot h(P)$ pero la primera expresion es ciclica mientras que, si la altura no es cero, la segunda diverge.
+Tambien se demuestra en parte con teoria de alturas, definiendo una altura ``refinada'' que cumple $\hat{h}(2^n\cdot P) = 4^n\cdot \hat{h}(P)$ pero la primera expresion es ciclica en puntos de torsion mientras que la segunda diverge, por lo que deberian tener altura cero. Esto solo no alcanza para decir que sus cooordenadas son enteras, falta un argumento local en los primos del denominador donde el punto reduciría a un entorno del $\OO$ pero este no tiene torsion, pero es mas complejo.
+
+No hay muchos analogos de este teorema para cuerpos de numeros en general. Para cuerpos cuadraticos imaginarios con numero de clase 1 se probó en el año 2015 en~\cite{MondalChalilBanerjee2025}.
+
+
+\subsection{Puntos en la curva}
 
 Para encontrar puntos mencionamos la idea de la ley del grupo (la operacion que lo define) pero podemos verla explicitamente y usarla para calcular elementos. Si tenemos una curva $E: y^2 = x^3+Ax+B$ y un punto $P = (x_1,y_1)$ para calcular $2\cdot P$ primero necesitamos la tangente a la curva por el punto $P$. Calculamos la pendiente derivando
 \[
@@ -306,16 +350,88 @@ Para todo punto $P=(x,y)\in E$,
 Por lo tanto, las raíces de $\psi_n^2$ son exactamente las coordenadas $x$ de los puntos de $n$-torsión de $E$.
 \end{corollary}
 
-Definir discriminante, j-invariante?
+\subsection{Isogenias}
 
-In view of Falting's theorem [24], elliptic curves can be considered the most
-intriguing curves if it comes to rational points over number fields. Namely, a
-curve of genus zero has either no points at all, or it has infinitely many rational
-points and is isomorphic to P
-1
-. On the other hand, curves of genus g > 1 have
-only finitely many points over any number field.
+Los mapas entre curvas elipticas serán las isogenias:
 
+\begin{definition}[Isogenias]
+Una isogenia $\phi: E\to E'$ es un morfismo entre curvas elipticas que manda $\OO_E \mapsto \OO_{E'}$. 
+\end{definition}
+
+Lo mas importante es que respetan la ley del grupo: $\phi(P+Q) = \phi(P) + \phi(Q)$. Estos morfismos estarán definidos por funciones racionales en las coordenadas de los puntos, permitiendonos calcularlas explicitamente, hablar del cuerpo de definicion de una isogenia, y llevandose bien con la accion de Galois que veremos mas adelante. Los primeros ejemplos de isogenias son la multiplicacion por $m$ un entero:
+
+\begin{definition}
+La multiplicacion por $m$ la denotamos
+\[
+[m]:E\to E
+\]
+definida por $[m](P) = m\cdot P$ es una isogenia.
+\end{definition}
+
+\begin{prop}
+Toda isogenia no constante es sobreyectiva.
+\end{prop}
+
+Este hecho proviene directo de la geometria algebraica: un mapa de curvas tiene que tener imagen cerrada, y por no ser constante es toda la curva $E'$. Con ello definimos el grado de una isogenia.
+
+\begin{definition}[Grado de una isogenia]
+El grado de una isogenia sobre $K$ es el cardinal de una preimagen generica.
+\end{definition}
+
+No todos los puntos tienen el mismo cardinal en su preimagen, ya que puede haber puntos de ramificacion, pero estos serán finitos. Lo que mas se usa es el cardinal del nucleo de la isogenia $gr(\phi) = \# E[\phi]$, o la siguiente proposicion:
+
+\begin{prop}
+El grado de una isogenia coincide con el grado de la extension de cuerpos de funciones de las curvas:
+\[
+gr(\phi) = [K(E) : \phi^*(K(E'))]
+\]
+\end{prop}
+
+Para el caso de cuerpos genericos, donde una isogenia puede no ser separable, esta es la definicion que se usa de grado. 
+
+Un resultado que vamos a usar muy seguido nos dice que, salvo isomorfismo, una isogenia esta determinada por su nucleo, y eso nos permite definir el cociente de una curva eliptica $E$ por un subgrupo $G\leq E(K)$ finito:
+
+\begin{prop}
+Si $\phi:E_1\to E_2$ y $\psi:E_1 \to E_3$ son dos isogenias con el mismo nucleo, entonces existe un isomorfismo $\eta :E_2 \to E_3$ tal que $\psi = \eta\circ\phi$
+\end{prop}
+
+La construccion de $E/G$ y de la isogenia cociente tambien son explicitas, utilizando las formulas de Velú.
+
+Asociada a una isogenia $\phi:E\to E'$ tendremos su isogenia dual $\hat\phi:E'\to E$ que cumple que $\hat\phi \circ \phi = [gr(\phi)]_E$ y $\phi \circ \hat\phi= [gr(\phi)]_{E'}$. La isogenia dual es unica.
+
+\subsection{Popurrí}
+
+Cuando tengamos una curva eliptica definida sobre $K$ nos van a interesar los puntos en $E(\bar{K})$ y a su vez la accion de Galois del grupo absoluto $G_{\bar{K}/K}$ en nuestros puntos, que en un punto $P=(x,y)\in E(\bar{K})$ será
+\[
+\sigma(P) = (\sigma(x), \sigma(y)) \in E(\bar{K}).
+\]
+
+Esta accion la usaremos mas adelante para determinar cuando un punto está en $E(K)$, que serán los fijos por la accion; y tiene otra variedad de aplicaciones. Nos interesa en particular que, para isogenias definidas sobre $K$, su nucleo $E[\phi]$ será un $G_{\bar{K}/K}$-modulo porque la accion de galois conmuta con la isogenia (es una funcion racional con coeficientes en $K$). Tambien, a una curva eliptica se le puede asociar una representacion de Galois utilizando esta accion sobre los grupos $E[l^m]$ para cada primo $l$, y esto lleva a una amplia teoria de representaciones asociadas a curvas elipticas, formas modulares y L-series. 
+
+Otra herramienta muy utilizada tambien en la geometria algebraica es el concepto de divisores: sumas formales indexadas, en este caso, por los puntos de la curva:
+\[
+D = \sum_{P\in E} n_P (P)
+\]
+
+Pidiendo soporte finito, estos forman el grupo de divisores de la curva $Div(E)$. Cada divisor tendrá un grado que será la suma en $\ZZ$ de sus coeficientes $n_P$, cada funcion racional en la curva tiene un divisor asociado relacionado a sus raices y polos, y cocientando el grupo de divisores por el de asociados a funciones se obtiene el grupo de Picard denotado $Pic(E)$; y el gran resultado sobre curvas elipticas es que $E\cong Pic^0(E)$ el subgrupo de grado cero, que nos esta diciendo que si un divisor consta de una suma que corresponderia a $\OO$ entonces es principal.
+
+Tambien es importante mencionar que existe el \emph{emparejamiento de Weil}, que, dado un $n$, es una funcion 
+\[
+e_n: E[n]\times E[n] \to \mu_n
+\]
+bilineal, alternada, no degenerada y compatible con la accion de Galois. Ademas este emparejamiento cumple muchas más propiedades, y contaremos las que vayamos a utilizar. 
+
+De la misma manera, asociada a una isogenia $\phi$ de grado $n$ existe
+\[
+e_\phi: E[\phi]\times E'[\hat\phi] \to \mu_n
+\]
+que nos servirá para, una vez fijado un elemento de $E'[\hat\phi]$ que lo genere, dar un isomorfismo $E[\phi]\cong \mu_n$. Esta identificacion puede describirse con funciones racionales especificas, y usaremos esto para el metodo para acotar el rango superiormente:
+
+Dado $Q_0\in E'[\hat\phi]$, sea $f\in K(E')\times$ tal que $div(f)=n(Q_0) - n(\OO)$ y que $f\circ \phi=g^n$ para una $g\in K(E)\times$, entonces para un $T\in E[\phi]$ vale 
+\[
+e_\phi(T,Q_0) = \frac{g(P+T)}{g(P)}
+\]
+para cualquier $P$ donde este definido el cociente. Esto tiene sentido porque $g(P+T)^n = f(\phi(P+T)) = f(\phi(P)) = g(P)^n$ por estar $T\in E[\phi]$, entonces $g(P+T)/g(P) \in \mu_n$, y no depende de $P$. 
 
 \section{Recapitulacion}
 
@@ -476,10 +592,8 @@ And the quest continues!
 Silverman
 }
 
-
-
-
 \chapter{Metodo de descenso y grupo de Selmer}\label{cap:selmer}
+
 
 En este capitulo presentaremos la forma de obtener una cota superior para el rango, conocida como metodo del descenso. La idea es encontrar un morfismo inyectivo que salga de los puntos independientes de la curva y que podamos controlar su imagen en el grupo que caiga. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Aca daremos un ejemplo puntual de 3-descenso para motivar y tambien porque es el que será usado despues.
 
@@ -511,6 +625,8 @@ Este capitulo se basará en los VIII y X del libro de Silverman~\cite{SilvermanA
 
 En la introduccion utilizamos una curva especifica que nos permitia encontrar mas facilmente la conexion entre un punto racional y los elementos de $\QmodT$, pero para que esta asignacion cumpla las propiedades que queriamos, secretamente estabamos usando que teniamos una isogenia de grado 3 a traves del punto de 3-torsion.
 
+\subsection*{Sucesion exacta de Kummer}
+
 Supongamos que tenemos una curva $E$ con una isogenia $\phi:E\to E'$. Junto con la sucesion exacta corta 
 \[
 0 \longrightarrow E[\phi] \longrightarrow E(\bar{K}) \overset{\phi}{\longrightarrow} E'(\bar{K}) \longrightarrow 0
@@ -532,7 +648,7 @@ vamos a tener una sucesion exacta larga tomando cohomologia de Galois (todos est
     {$H^1(G_{\bar{K}/K},E)$};
 
 \node[right=1cm of HE] (HEp)
-    {$H^1(G_{\bar{K}/K},E')...$};
+    {$H^1(G_{\bar{K}/K},E')\cdots$};
 
 % Primera fila: cada grupo exactamente encima de su H^1
 \node[above=1.2cm of Hkernel] (kernel)
@@ -580,11 +696,17 @@ y tomando de la mitad obtenemos la \emph{sucesion exacta de Kummer de $E/K$}, qu
 0 \longrightarrow \frac{E'(K)}{\phi(E(K))} \overset{\delta}{\longrightarrow} H^1(G_{\bar{K}/K},E[\phi]) \overset{\gamma}{\longrightarrow} H^1(G_{\bar{K}/K},E)[\phi] \longrightarrow 0
 \]
 
-Rapidamente queremos identificar el segundo y el tercer grupo con otros que conozcamos mejor y podamos controlar, y tambien entender el $\delta$. Para el segundo grupo vamos a hacerlo en el caso particular donde $E[\phi]$ sea ciclico y $K$-racional, que podemos obtener simplemente cocientando por el grupo generado por un punto de $n$-torsion (recordemos que una isogenia queda determinada por su nucleo). Si $\phi$ es de grado $n$ y $\mu_n \subset K$ entonces quedará $E[\phi] \cong \mu_n$ y podemos dar un isomorfismo explicito usando el emparejamiento de Weil. Un teorema de Kummer nos dice que
+Rapidamente queremos identificar el segundo y el tercer grupo con otros que conozcamos mejor y podamos controlar, y tambien entender los morfismos. 
+
+\subsection*{Isomorfismo para $H^1(G_{\bar{K}/K},E[\phi])$}
+
+Para el segundo grupo vamos a hacerlo en el caso particular donde $E[\phi]$ sea ciclico y $K$-racional, que podemos obtener simplemente cocientando por el grupo generado por un punto de $n$-torsion (recordemos que una isogenia queda determinada por su nucleo). Si $\phi$ es de grado $n$ y $\mu_n \subset K$ entonces quedará $E[\phi] \cong \mu_n$ y podemos dar un isomorfismo explicito usando el emparejamiento de Weil. Un teorema de Kummer nos dice que
 \[
 H^1(G_{\bar{K}/K},\mu_n) \cong \KmodN,
 \]
 que será la identificacion que usaremos para el descenso.
+
+\subsection*{Grupo de Weil-Châtelet}
 
 Para el tercer grupo, la identificacion se consigue asociando espacios homogeneos a la curva, y mirando si es posible encontrar un punto racional en ciertos de ellos, ya que corresponderan a un elemento en el nucleo de $\gamma$. El problema de encontrar un punto racional en un espacio homogeneo es casi tan difícil, pero podremos descartar muchos trabajando en las completaciones del cuerpo y sus anillos locales, llegando idealmente a todos los necesarios. Al traducir la sucesion de Kummer a las completaciones de $K$ y estudiar como se comporta esta reduccion tenemos el proceso completo para determinar una cota superior para el rango, conocido como \emph{método del descenso}.
 
@@ -606,18 +728,74 @@ g(x,y)=az^nh(x,y).
 \end{cases}
 \]
 
+\subsection*{Morfismo de descenso}
 
+Ahora nos falta analizar el morfismo $\delta$, haciendo la identificacion de su codominio con $\KmodN$. Para lo que lo estamos usando unicamente necesitariamos saber que existe un morfismo inyectivo que sale del cociente de los puntos y que su imagen coincide con el nucleo de $\gamma$ y asi podremos acotarla, es decir, no necesitamos calcularlo explicitamente. Igualmente vamos a presentarlo ya que saber la imagen de los elementos que tenemos (como los puntos de torsion y libres con que hayamos partido) nos ayuda a saber en que espacios concentrarnos para descartar. Antes de comenzar con la teoria general notemos que, en el caso de la introduccion, encontramos un morfismo que cumplia lo que necesitabamos, con el que incluso nos pudimos armar el espacio homogeneo, y fue simplemente de la estructura de la curva. Esto puede ser la solucion en muchos casos para evitar esta parte, pero presentaremos el caso general.
 
+\begin{lemma}\label{lemma:funcionDescenso}
+Dada una isogenia $\phi:E\to E'$ ciclica de grado $n$ y un punto $Q_0\in E'[\hat{\phi}](K)$ generador del nucleo de $\hat{\phi}$, existe una funcion $f\in K(E')^\times$ tal que $div(f)=n(Q_0)-n(\OO)$ que puede normalizarse para que $f\circ\phi=g^n$ para alguna $g\in K(E)^\times$.
+\end{lemma}
 
+\begin{proof}
+Como $Q_0$ tiene orden $n$, el divisor $n(Q_0)- n(\OO)$ (que seria $n$ veces el asociado al punto $Q_0$) es trivial en $Pic^0(E')$ y por lo tanto es principal: existe $f$ con ese divisor en $K(E')^\times$ ($Q_0\in E'(K)$ asi que $f$ puede tomarse definida sobre $K$). La funcion asociada a un divisor estará definida salvo constantes. Veamos que, con la constante adecuada, podemos conseguir que $f\circ\phi=g^n$.
 
+Como $\phi$ es sobreyectiva, existe $P_0 \in E(\bar{K})$ con $\phi(P_0)=Q_0$ y las preimagenes de $Q_0$ serán $P_0 + T$ para los $T\in ker(\phi)$. Entonces, el divisor 
+\[ 
+D = \sum_{T\in E[\phi]} (P_0 + T) - \sum_{T\in E[\phi]} (T) 
+\] 
+es tal que $D = \phi^*((Q_0)-(\OO))$. Viendo $D$ en $Pic^0(E)$ (como puntos por ser $\cong E$) se cancelan los $T$ y queda $nP_0$, pero $[n]P_0 = \hat{\phi}(Q_0) = \OO$ en $E$ y entonces existe $g \in K(E)^\times$ con $div(g) = D$ ($g$ está definida sobre $K$ porque $D$ lo está). Ahora como $div(f)= n((Q_0)-(\OO))$ tenemos
+\[
+div(f \circ \phi)=\phi^*(n((Q_0)-(\OO)))=n D=n\ div(g)=div(g^n).
+\]
 
+Como tienen los mismos divisores, $f\circ\phi = \lambda g^n$ para algun $\lambda \in K^\times$, y tomando $\lambda^{-1}f$ nos queda
+\[
+f\circ\phi = g^n.
+\]
+\end{proof}
 
+La $f$ del lema nos permitirá dar una descripcion explicita de $\delta$, donde para puntos $P\in E'(K)$ distintos a $\OO$ y $Q_0$ valdrá $\delta(P)=f(P) \mod {(K^\times)}^n$. Para $\OO$, por ser morfismo, debe caer en la clase trivial ($f$ tendría un polo en $\OO$, por eso no está definida); y en $Q_0$ la definimos como el valor de su coeficiente principal $c$ ($f$ tiene un cero en $Q_0$). Juntemos esto en un resultado y demostremoslo abajo:
 
+\begin{theorem}[Morfismo de descenso]
+Sea $f$ la funcion del Lema~\ref{lemma:funcionDescenso}. El mapa
+\[
+\begin{array}{crcl}
+\alpha:&E'(K) & \longrightarrow & \KmodN \\
+&P & \longmapsto &
+\begin{cases}
+1 & \bmod (K^\times)^n \text{ si } P=\OO, \\
+c & \bmod (K^\times)^n \text{ si } P=Q_0, \\
+f(P) & \bmod (K^\times)^n \text{ si no.}
+\end{cases}
+\end{array}
+\]
+está bien definido, es un morfismo, su nucleo es $\phi(E(K))$ y, cocientando por él, corresponde al morfismo $\delta$ de la sucesion de Kummer luego de hacer la identificacion $H^1(G_{\bar{K}/K}, E[\phi])$ con $\KmodN$ usando el emparejamiento de Weil con $Q_0$.
+\end{theorem}
 
+\begin{proof}
+Veamos la evaluacion $f(Q)$ para un $Q \neq Q_0,\OO$. Podemos tomar una de sus preimagenes $P\in E(\bar{K})$ y $g(P)$ será una raiz $n$-esima. Para ver la clase de $f(Q)$ via el isomorfismo en $\KmodN$ nos basta ver como actua un $\sigma \in G_{\bar{K}/K}$ en $g(P)$, es decir, 
+\[
+\sigma \mapsto \frac{\sigma(g(P))}{g(P)}.
+\]
+Veremos que este cociclo, luego de las identificaciones, es igual a $\delta(Q)$. Su definicion es $\delta(Q) = (\sigma \mapsto \sigma(P)-P)$ para un $P\in E(\bar{K})$ tal que $\phi(P)=Q$. Es facil ver que toma valores en $E[\phi]$ pues $\sigma(Q) = Q$ y $\sigma$ conmuta con $\phi$. Cuando identificamos $E[\phi]\cong \mu_n$ a traves del emparejamiento de Weil con el $Q_0$, nos queda 
+\[
+\delta(Q) = (\sigma \mapsto e_{\phi}(\sigma(P)-P,Q_0)).
+\]
+Ahora, si llamamos $T=\sigma(P)-P \in E[\phi]$, por la identificacion del emparejamiento de Weil con funciones racionales nos queda que 
+\[
+e_{\phi}(\sigma(P)-P, Q_0) = \frac{g(P+T)}{g(P)} = \frac{g(\sigma(P))}{g(P)} = \frac{\sigma(g(P))}{g(P)},
+\]
+que es exactamente lo que queriamos. 
 
+Para definir $\alpha(Q_0)$ en $\KmodN$, como tenemos un cero de orden $n$, necesitaremos definirlo con un parametro local $t^n$ con el cual $f=c_n t^n + c_{n+1}t^{n+1}+\cdots$ y definimos $\alpha(Q_0) = c_n \in \KmodN$ ya que, si cambiamos de parametro local, el valor de $c_n$ cambiará solo por una potencia $n$-esima. \textbf{Falta ver pq coincide con $\delta(Q_0)$}. Para $\OO$ podriamos hacer lo mismo, pero como $\delta$ es un morfismo, lo asignará a la clase trivial en la cohomologia, que corresponde en nuestra identificacion con la clase del 1 en $\KmodN$.
 
+Finalmente, como probamos que $\alpha$ coincide, via $f$ y luego de identificaciones, con $\delta$, entonces será un morfismo; y por exactitud de la sucesion de Kummer su nucleo será $ker(\delta)=\phi(E(K))$. Al cocientar obtenemos la inyeccion
+\[
+\alpha:\frac{E'(K)}{\phi(E(K))} \hookrightarrow \KmodN.
+\]
+\end{proof}
 
-
+Definir selmer y
 Mencionar que local-global falla por el sha
 
 
