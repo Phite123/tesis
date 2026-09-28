@@ -8,4 +8,8 @@
 *.bbl
 *.blg
 
+*:Zone.Identifier
+
 .ipynb_checkpoints/
+
+/tesi/Bibliografia/
