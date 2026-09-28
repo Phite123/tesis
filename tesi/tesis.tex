@@ -471,54 +471,61 @@ Si $\phi:E_1\to E_2$ y $\psi:E_1 \to E_3$ son dos isogenias con el mismo nucleo,
 
 La construccion de $E/G$ y de la isogenia cociente tambien son explicitas, utilizando las formulas de Vélu. Esto nos permite partir de un punto de torsion conocido y construir la isogenia con la que haremos descenso.
 
-\begin{prop}[Isogenia asociada a un punto de torsion]\label{prop:isogeniaDesdeTorsion}
+\begin{prop*}[Isogenia asociada a un punto de torsion]\label{prop:isogeniaDesdeTorsion}
 Sea $T_0\in E(K)$ un punto de orden $n$. Existe una curva eliptica $E'=E/\lc T_0 \rc$ y una isogenia $\phi:E\to E'$ definida sobre $K$, con
 \[
 \operatorname{nu}(\phi)=\lc T_0\rc,\qquad \operatorname{gr}(\phi)=n.
 \]
 Mas generalmente, basta que el subgrupo finito que queremos tomar como nucleo sea estable por Galois; no hace falta que todos sus puntos sean racionales.
-\end{prop}
+\end{prop*}
 
 Para calcularla, escribimos $E:y^2=x^3+Ax+B$ y $G=\lc T_0\rc$. Las formulas de Vélu dan, fuera del nucleo,
 \[
 \begin{aligned}
-X(P)&=x(P)+\sum_{Q\in G\setminus\{\OO\}}\bigl(x(P+Q)-x(Q)\bigr),\\
-Y(P)&=y(P)+\sum_{Q\in G\setminus\{\OO\}}\bigl(y(P+Q)-y(Q)\bigr).
+X(P)&=x(P)+\sum_{Q\in G\setminus\{\OO\}}\lp x(P+Q)-x(Q)\rp,\\
+Y(P)&=y(P)+\sum_{Q\in G\setminus\{\OO\}}\lp y(P+Q)-y(Q)\rp.
 \end{aligned}
 \]
 Estas funciones definen $\phi(P)=(X(P),Y(P))$. Una presentacion breve de las formulas, incluyendo los coeficientes de la curva cociente, está en las notas de Sutherland~\cite{Sutherland2023Isogenias}.
 
 \begin{example}\label{ej:veluTres}
-Tomemos nuestra familia $E_t:y^2=x^3+t^2$, con $t\neq0$. El punto $T_0=(0,t)$ tiene orden $3$, y entonces $G=\{\OO,T_0,-T_0\}$.
+Tomemos nuestra familia $E_t:y^2=x^3+t^2$, con $t\neq0$. El punto $T_0=(0,t)$ tiene orden $3$, y entonces $G=\{\OO,T_0,-T_0\}$. Como $x(T_0)=0$ se simplifican muchas cuentas.
 
 Para $P=(x,y)$ fuera de $G$, las pendientes de las rectas por $P$ y $\pm T_0$ son $(y\mp t)/x$, de donde
 \[
-x(P\pm T_0)=\frac{(y\mp t)^2}{x^2}-x.
-\]
-Sumando y usando $y^2=x^3+t^2$, obtenemos
-\[
-X=x+x(P+T_0)+x(P-T_0)=x+\frac{4t^2}{x^2}.
-\]
-Para la otra coordenada usamos
-\[
+x(P\pm T_0)=\frac{{(y\mp t)}^2}{x^2}-x,
+\qquad
 y(P\pm T_0)=\frac{y\mp t}{x}\bigl(x-x(P\pm T_0)\bigr)-y.
 \]
-Al sumar ambas expresiones queda $y(P+T_0)+y(P-T_0)=-8t^2y/x^3$, y por lo tanto
+Usando la formulas de Velú y la ecuacion de la curva, las coordenadas de la imagen de $P$, que seran $(X,Y)$ nos quedan
+\begin{multline*}
+X=x+x(P+T_0)+x(P-T_0)=x+\frac{{(y- t)}^2}{x^2}-x+\frac{{(y + t)}^2}{x^2}-x =\\= \frac{2 y^2+ 2 t^2}{x^2} - x = \frac{2 x^3 + 4 t^2}{x^2} - x = x+\frac{4t^2}{x^2},
+\end{multline*}
+\begin{flalign*}
+\hspace{\multlinegap}Y &= y+y(P+T_0)+y(P-T_0) = \cdots = \frac{y(x^3-8t^2)}{x^3} &&
+\end{flalign*}
+
+% \begin{multline*}
+% Y = y+y(P+T_0)+y(P-T_0)= 3y - \frac{y{(y-t)}^2+y{(y+t)}^2-t{(y-t)}^2+t{(y+t)}^2}{x^3} = \\
+% 3y - \frac{2y^3 +2y t^2 + 4yt^2}{x^3} =\frac{y (3x^3 -2(x^3+t^2) - 6t^2)}{x^3} = \frac{y(x^3 - 8t^2)}{x^3}
+% \end{multline*}
+
+Entonces nos quedó
 \[
 \phi(x,y)=\left(\frac{x^3+4t^2}{x^2},\frac{y(x^3-8t^2)}{x^3}\right).
 \]
-Finalmente,
-\[
-Y^2-X^3
-=\frac{(x^3+t^2)(x^3-8t^2)^2-(x^3+4t^2)^3}{x^6}
-=-27t^2.
-\]
+
+Finalmente, para saber la curva imagen, veamos
+\begin{multline*}
+Y^2-X^3 = \frac{y^2{(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \frac{(x^3+t^2){(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \\ =\frac{(x^9-15x^6t^2+48x^3t^4+64t^6)-(x^9 +12x^6 t^2 + 48 x^3 t^4 + 64t^6)}{x^6}=-27t^2.
+\end{multline*}
+
 Asi construimos una isogenia de grado $3$ hacia $E'_t:Y^2=X^3-27t^2$, con nucleo $\{\OO,(0,t),(0,-t)\}$.
 \end{example}
 
 Asociada a una isogenia $\phi:E\to E'$ tendremos su isogenia dual $\hat\phi:E'\to E$ que cumple que $\hat\phi \circ \phi = [\operatorname{gr}(\phi)]_E$ y $\phi \circ \hat\phi= [\operatorname{gr}(\phi)]_{E'}$. La isogenia dual es unica.
 
-En particular, dos curvas isogenas sobre $K$ tienen el mismo rango sobre $K$: al pasar a las partes libres y tensorizar con $\QQ$, la isogenia tiene inversa $\hat\phi/\operatorname{gr}(\phi)$. Por eso podemos calcular el rango usando cualquiera de las dos curvas del descenso.
+En particular, dos curvas isogenas sobre $K$ tienen el mismo rango: al pasar a las partes libres y tensorizar con $\QQ$, la isogenia tiene inversa $\hat\phi/\operatorname{gr}(\phi)$. Por eso podemos calcular el rango usando cualquiera de las dos curvas del descenso.
 
 \subsection{Un endomorfismo para las curvas con \texorpdfstring{$j=0$}{j=0}}
 
