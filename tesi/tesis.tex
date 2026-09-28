@@ -50,6 +50,9 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\nuord}{\nu}
 \DeclareMathOperator{\mcd}{mcd}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\nuc}{nu}
+\DeclareMathOperator{\rg}{rg}
 \newcommand{\Hcal}{\mathbb{H}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\RR}{\mathbb{R}}
@@ -180,7 +183,7 @@ Antes de empezar fijemos la notacion que usaremos. A lo largo de la tesis trabaj
 \[
 E(K)\cong T\oplus\ZZ^r,
 \]
-donde $T$ es el grupo de torsion y $r=\operatorname{rg}E(K)$ es el rango.
+donde $T$ es el grupo de torsion y $r=\rg E(K)$ es el rango.
 
 Usaremos la notacion habitual de teoria de numeros algebraica, que resumimos a continuacion: Denotaremos $\OO_K$ al anillo de enteros, $\bar K$ a una clausura algebraica y $G_K=\operatorname{Gal}(\bar K/K)$. El grupo $E[n]$ contiene todos los puntos anulados por $[n]$ sobre $\bar K$, mientras que $E(K)[n]$ contiene solo los definidos sobre $K$; la misma convencion vale para cualquier isogenia $\phi$. Los lugares de $K$ forman el conjunto $M_K$. Para un lugar $v$, $K_v$ es la completacion respecto a la valuacion de $v$; si es finito y corresponde al ideal primo $\pp$, tambien escribiremos $K_\pp$ y usaremos la valuacion $v_\pp$, con $v_\pp(0)=+\infty$.
 
@@ -452,12 +455,12 @@ Este hecho proviene directo de la geometria algebraica: un mapa de curvas tiene 
 El grado de una isogenia no constante sobre un cuerpo de numeros $K$ es el cardinal de una fibra sobre $\bar K$.
 \end{definition*}
 
-Lo que mas se usa es el cardinal del nucleo de la isogenia $\operatorname{gr}(\phi) = \# E[\phi]$, o la siguiente proposicion:
+Lo que mas se usa es el cardinal del nucleo de la isogenia $\gr (\phi) = \# E[\phi]$, o la siguiente proposicion:
 
 \begin{prop*}
 El grado de una isogenia no constante coincide con el grado de la extension de cuerpos de funciones de las curvas:
 \[
-\operatorname{gr}(\phi) = [K(E) : \phi^*(K(E'))]
+\gr (\phi) = [K(E) : \phi^*(K(E'))]
 \]
 \end{prop*}
 
@@ -474,7 +477,7 @@ La construccion de $E/G$ y de la isogenia cociente tambien son explicitas, utili
 \begin{prop*}[Isogenia asociada a un punto de torsion]\label{prop:isogeniaDesdeTorsion}
 Sea $T_0\in E(K)$ un punto de orden $n$. Existe una curva eliptica $E'=E/\lc T_0 \rc$ y una isogenia $\phi:E\to E'$ definida sobre $K$, con
 \[
-\operatorname{nu}(\phi)=\lc T_0\rc,\qquad \operatorname{gr}(\phi)=n.
+\nuc (\phi)=\lc T_0\rc,\qquad \gr(\phi)=n.
 \]
 Mas generalmente, basta que el subgrupo finito que queremos tomar como nucleo sea estable por Galois; no hace falta que todos sus puntos sean racionales.
 \end{prop*}
@@ -488,8 +491,12 @@ Y(P)&=y(P)+\sum_{Q\in G\setminus\{\OO\}}\lp y(P+Q)-y(Q)\rp.
 \]
 Estas funciones definen $\phi(P)=(X(P),Y(P))$. Una presentacion breve de las formulas, incluyendo los coeficientes de la curva cociente, está en las notas de Sutherland~\cite{Sutherland2023Isogenias}.
 
+Asociada a una isogenia $\phi:E\to E'$ tendremos su isogenia dual $\hat\phi:E'\to E$ que cumple que $\hat\phi \circ \phi = {[\gr (\phi)]}_E$ y $\phi \circ \hat\phi= {[\gr (\phi)]}_{E'}$.
+
+En particular, dos curvas isogenas sobre $K$ tienen el mismo rango: al pasar a las partes libres y tensorizar con $\QQ$, la isogenia tiene inversa $\hat\phi/\gr (\phi)$. Por eso en el caso general podremos calcular el rango usando cualquiera de las dos curvas del descenso. 
+
 \begin{example}\label{ej:veluTres}
-Tomemos nuestra familia $E_t:y^2=x^3+t^2$, con $t\neq0$. El punto $T_0=(0,t)$ tiene orden $3$, y entonces $G=\{\OO,T_0,-T_0\}$. Como $x(T_0)=0$ se simplifican muchas cuentas.
+Tomemos la familia $E_t:y^2=x^3+t^2$, con $t\neq0$. El punto $T_0=(0,t)$ tiene orden $3$, y entonces $G=\{\OO,T_0,-T_0\}$. Como $x(T_0)=0$ se simplifican muchas cuentas.
 
 Para $P=(x,y)$ fuera de $G$, las pendientes de las rectas por $P$ y $\pm T_0$ son $(y\mp t)/x$, de donde
 \[
@@ -523,139 +530,118 @@ Y^2-X^3 = \frac{y^2{(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \frac{(x^3+t^2){(x^3-8t
 Asi construimos una isogenia de grado $3$ hacia $E'_t:Y^2=X^3-27t^2$, con nucleo $\{\OO,(0,t),(0,-t)\}$.
 \end{example}
 
-Asociada a una isogenia $\phi:E\to E'$ tendremos su isogenia dual $\hat\phi:E'\to E$ que cumple que $\hat\phi \circ \phi = [\operatorname{gr}(\phi)]_E$ y $\phi \circ \hat\phi= [\operatorname{gr}(\phi)]_{E'}$. La isogenia dual es unica.
+\subsection{Curvas con \texorpdfstring{$j=0$}{j=0}}
 
-En particular, dos curvas isogenas sobre $K$ tienen el mismo rango: al pasar a las partes libres y tensorizar con $\QQ$, la isogenia tiene inversa $\hat\phi/\operatorname{gr}(\phi)$. Por eso podemos calcular el rango usando cualquiera de las dos curvas del descenso.
+Otro valor asociado a una curva eliptica es su $j$-invariante, que las clasifica completamente salvo isomorfismo sobre $\bar{K}$. 
 
-\subsection{Un endomorfismo para las curvas con \texorpdfstring{$j=0$}{j=0}}
+\begin{definition*}
+Dada una curva eliptica $E: y^2 = x^3 +Ax +B$ sobre $K$, su $j$-invariante es el numero
+\[
+j_E = 1728 \frac{4A^3}{4A^3+27B^2} = \frac{{(-48A)}^3}{\Delta_E}
+\]
+\end{definition*}
 
-En nuestra familia podemos obtener dos puntos independientes a partir de uno. Sea $K$ un cuerpo de numeros que contiene una raiz cubica primitiva de la unidad $\omega$, y consideremos $E:y^2=x^3+b$, con $b\neq0$. El mapa
+Nosotros trabajaremos con curvas de $j$-invariante igual a 0. De la definicion vemos que siempre tendran la forma $y^2 = x^3 + B$ para algun $B\neq 0$, pero tambien se puede ver que, reemplazando $B$ por $u^6B$ y utilizando el mismo truco que con el determinante obtenemos la misma curva. Vamos a resumirlo en la siguiente proposicion, donde cambiaremos la notacion de $B$ a $d$ para representar un elemento libre de potencias sextas. A estas curvas se las conoce como \emph{curvas de Mordell}.
+
+\begin{prop}\label{prop:isomorfismosMordell}
+Sean $d,d'\in K^\times$. Las curvas $E_d:y^2=x^3+d$ y $E_{d'}:y^2=x^3+d'$ son isomorfas sobre $K$ si y solo si $d'/d\in{(K^\times)}^6$.
+\end{prop}
+
+Para nuestros modelos $E_t:y^2=x^3+t^2$ y $E_{t'}:y^2=x^3+{(t')}^2$, la condicion equivale a que $t'/t$ sea un cubo en $K$.
+
+Algo particular que ocurre en la familia de Mordell es el fenomeno de multiplicacion compleja, que no veremos aca toda su generalidad, pero en este caso nos da que, siempre que tengamos $\omega\in K$, tendremos un morfismo definido en la misma curva que nos permite obtener dos puntos independientes a partir de uno. El mapa
 \[
 [\omega](x,y)=(\omega x,y),\qquad [\omega](\OO)=\OO,
 \]
-es un automorfismo de la curva definido sobre $K$. Ademas, los puntos $P,[\omega]P,[\omega]^2P$ están sobre la misma recta horizontal, por lo que su suma es $\OO$. Asi obtenemos la relacion
-\[
-[1]+[\omega]+[\omega]^2=0.
-\]
-Esto permite multiplicar puntos por elementos de $\ZZ[\omega]$, y es un ejemplo concreto de multiplicacion compleja~\cite[cap.~III, secciones~9--10]{SilvermanAEC}.
+es un automorfismo de la curva definido sobre $K$. 
 
 \begin{prop}\label{prop:omegaIndependencia}
-En estas condiciones, $\operatorname{rg}E(K)$ es par. Si $P\in E(K)$ no es de torsion, entonces $P$ y $[\omega]P$ son independientes.
+En estas condiciones, $\rg E(K)$ es par. Si $P\in E(K)$ no es de torsion, entonces $P$ y $[\omega]P$ son independientes.
 \end{prop}
 \begin{proof}
-El espacio $E(K)\otimes_\ZZ\QQ$ es un espacio vectorial sobre $\QQ(\omega)$, de modo que su dimension sobre $\QQ$ es par. Si $mP+n[\omega]P=\OO$, aplicamos $m+n[\omega]^2$ y obtenemos
+Como los puntos $P,[\omega]P,{[\omega]}^2P$ están sobre la misma recta horizontal su suma es $\OO$, lo que nos dice en terminos de isogenias que $[1]+[\omega]+{[\omega]}^2=0$. Esto nos permite decir que $E(K)$ es un $\ZZ[\omega]$-modulo. Luego, el espacio $E(K) \otimes_\ZZ \QQ$ es un espacio vectorial sobre $\QQ(\omega)$, de modo que su dimension sobre $\QQ$ es par. Para ver independencia, si $mP+n[\omega]P=\OO$, aplicamos $m+n{[\omega]}^2$ y obtenemos
 \[
 (m^2-mn+n^2)P=\OO.
 \]
-Como $P$ tiene orden infinito y $m^2-mn+n^2$ solo se anula para $m=n=0$, los dos puntos son independientes. El mismo argumento se aplica a una relacion modulo torsion, multiplicandola primero por el orden de ese punto de torsion.
+Como $P$ tiene orden infinito y $m^2-mn+n^2$ solo se anula para $m=n=0$, los dos puntos son independientes. El mismo argumento se aplica a una relacion modulo torsion, multiplicandola primero por el orden de torsion de ese punto.
 \end{proof}
 
-\subsection{Isomorfismos y torsion en las curvas de Mordell}\label{subsec:torsionMordell}
-
-Para distinguir los ejemplos que construimos no alcanza con cambiar los coeficientes: hay que saber cuando representan la misma curva sobre $K$. En el caso $j=0$, esto se reduce a comparar potencias sextas~\cite[cap.~III, proposicion~1.4, y cap.~X, proposicion~5.4]{SilvermanAEC}.
-
-\begin{prop}\label{prop:isomorfismosMordell}
-Sean $d,d'\in K^\times$. Las curvas $E_d:y^2=x^3+d$ y $E_{d'}:y^2=x^3+d'$ son isomorfas sobre $K$ si y solo si $d'/d\in(K^\times)^6$. Si $d'=u^6d$, un isomorfismo es
-\[
-(x,y)\longmapsto(u^2x,u^3y).
-\]
-Para los modelos $E_t:y^2=x^3+t^2$ y $E_{t'}:y^2=x^3+(t')^2$, la condicion equivale a que $t'/t$ sea un cubo en $K$.
-\end{prop}
-\begin{proof}
-Un isomorfismo entre modelos cortos de Weierstrass en caracteristica cero tiene esa forma, y al reemplazar obtenemos $d'=u^6d$. En el segundo caso, $(t'/t)^2=u^6$ equivale a $t'/t=\pm u^3$, y ambos signos son cubos.
-\end{proof}
-
-En particular, dos parametros $t,t'\in\OO_K$ libres de cubos que tienen una valuacion distinta modulo $3$ producen curvas $E_t,E_{t'}$ no isomorfas sobre $K$. Usaremos esto para distinguir curvas con distintos factores primos.
-
-La 3-torsion completa impone una restriccion mucho mas fuerte de lo que parece.
+Para nuestras curvas pusimos la condicion de que $d=t^2$ sea un cuadrado para tener en el cuerpo el punto $(0,t)$ que será de 3-torsion y usaremos en el descenso. Si hubiesemos querido que haya otro punto de 3-torsion definido sobre el cuerpo (lo cual ayuda considerablemente al descenso) nos hubieramos topado con el siguiente problema:
 
 \begin{prop}\label{prop:jCeroTorsionCompleta}
-Sea $K$ un cuerpo de numeros que contiene $\omega$. Todas las curvas de $j$-invariante $0$ cuya 3-torsion está definida sobre $K$ son isomorfas sobre $K$ a
-\[
-E_*:y^2=x^3+16.
-\]
-En un modelo $E_d$ la condicion es $d\in16(K^\times)^6$; en un modelo $E_t$ es $t\in4(K^\times)^3$.
+Sea $K$ un cuerpo de numeros que contiene $\omega$. Todas las curvas de $j$-invariante $0$ cuya 3-torsion está completamente definida sobre $K$ son isomorfas sobre $K$ a $E:y^2=x^3+16$.
 \end{prop}
 \begin{proof}
-Podemos escribir la curva como $E_d$. Por el teorema~\ref{theorem:polinomiosDivision},
+Podemos escribir la curva como $E_t$. La condicion de que toda la 3-torsion esté en $K$ nos dice que el polinomio de division $\psi_3$ debe partirse completamente por el teorema~\ref{theorem:polinomiosDivision}.
 \[
-\psi_3(x)=3x(x^3+4d).
+\psi_3(x)=3x(x^3+4t^2).
 \]
-Si toda la 3-torsion está en $K$, los puntos con $x=0$ nos dan $d=t^2$ para algun $t\in K^\times$, y el otro factor debe tener una raiz $c\in K^\times$. Entonces
+Como $x=0$ es nuestro punto, el otro factor debe tener una raiz $c\in K^\times$. Entonces de $c^3=-4 t^2$ tenemos que $t=4{(c^2/4t)}^3 = t u^3$ para un $u\in K^\times$. De esta forma, como por la proposicion~\ref{prop:isomorfismosMordell} potencias cubicas en $t$ nos dan la misma curva, todas serán isomorfas a $E:y^2=x^3+4^2$.
+
+Reciprocamente, los nueve puntos de $E[3]$ son los generados por
 \[
-c^3=-4t^2,\qquad
-\left(\frac{t}{c}\right)^6=\frac{t^2}{16}=\frac d{16}.
+(0, 4),\quad (-4, 4(1+2\omega))
 \]
-La proposicion~\ref{prop:isomorfismosMordell} da el isomorfismo buscado. Reciprocamente, si $s=1+2\omega$, los nueve puntos de $E_*[3]$ son
-\[
-\OO,\quad (0,\pm4),\quad
-(-4\omega^i,\pm4s)\quad (i=0,1,2),
-\]
-y todos pertenecen a $K$. La condicion sobre $t$ se sigue tomando cuadrados y usando que $-1$ es un cubo.
+y todos pertenecen a $K$. Observemos para facilitar la cuenta que $1+2\omega = \sqrt{-3}$. Tambien es facil encontrar explicitamente todos poniendo $\omega$ y $\omega^2$ en las coordenadas $x$, y $\pm$ en las coordenadas $y$.
 \end{proof}
 
-Sobre $\QQ$ no puede ocurrir esto: el emparejamiento de Weil obligaria a que $\mu_3\subset\QQ$. Para $K=\QQ(\omega)$, la clasificacion completa de Najman dice que los unicos grupos de torsion adicionales a los de Mazur son $(\ZZ/3\ZZ)^2$ y $\ZZ/3\ZZ\oplus\ZZ/6\ZZ$~\cite[teorema~2(ii)]{Najman2010Completa}. Esto se refiere a todas las curvas sobre $K$; para nuestra forma de ecuacion la lista se reduce aun mas.
+Con esto clasifiquemos completamente la torsion de nuestras curvas para luego poder dar un resultado exacto sobre el grupo de Mordell-Weil. Recordemos que sobre $\QQ(\omega)$ los grupos posibles de torsion son mas que sobre $\QQ$, y usaremos la clasificacion completa dada por Najman~\cite{Najman2010Completa} para este cuerpo.
 
 \begin{prop}\label{prop:torsionEt}
 Sea $K=\QQ(\omega)$ y $t\neq0$. La torsion de $E_t:y^2=x^3+t^2$ es
 \[
 T\cong
 \begin{cases}
-\ZZ/2\ZZ\oplus\ZZ/6\ZZ,&t\in(K^\times)^3,\\
-(\ZZ/3\ZZ)^2,&t\in4(K^\times)^3,\\
-\ZZ/3\ZZ,&\text{en los demas casos}.
+\ZZ/2\ZZ\oplus\ZZ/6\ZZ & t \in {(K^\times)}^3,\\
+{(\ZZ/3\ZZ)}^2 & t \in 4{(K^\times)}^3,\\
+\ZZ/3\ZZ & \text{en los demas casos}.
 \end{cases}
 \]
-En particular, $\ZZ/3\ZZ\oplus\ZZ/6\ZZ$ no ocurre para $j=0$ sobre este cuerpo.
 \end{prop}
 \begin{proof}
-Ya tenemos el punto $(0,t)$ de orden $3$. Si aparece un punto de orden $2$, su coordenada satisface $x^3=-t^2$. Como $\omega\in K$, aparecen entonces los tres puntos de orden $2$. En la lista de Najman esto descarta los grupos ciclicos de orden $6$ o $12$ y el grupo $\ZZ/3\ZZ\oplus\ZZ/6\ZZ$.
+Partimos del punto $(0,t)$ de orden $3$. Si tenemos un punto de orden $2$, debe satisfacer $y=0$, es decir, $x^3=-t^2$, y entonces tendremos tres puntos de orden $2$ (agregando $\omega$ en la $x$). En la lista de Najman esto descarta los grupos ciclicos de orden $6$ o $12$ y el grupo $\ZZ/3\ZZ\oplus\ZZ/6\ZZ$ ya que no tienen 3 puntos de 2-torsion. Otra razon es que, si hay 2-torsion, $t$ debe ser un cubo para que $x^3=-t^2$ tenga solucion, lo que nos da una unica curva posible modulo cubos.
 
-Tampoco puede aparecer torsion ciclica de orden $9$: el endomorfismo $[\omega]$ actuaria sobre ella como multiplicacion por un entero $h$ que cumpliese $h^2+h+1\equiv0\pmod9$. Modulo $3$ esto exige $h\equiv1$, pero entonces $h^2+h+1\equiv3\pmod9$.
+Tampoco puede aparecer torsion ciclica de orden $9$: el endomorfismo $[\omega]$ actuaria sobre ella como multiplicacion por un entero $h$ que cumpliese $h^2+h+1\equiv0 \pmod{9}$. Modulo $3$ esto exige $h\equiv1$, pero entonces $h^2+h+1\equiv3\pmod9$.
 
-Solo quedan los tres grupos del enunciado. Hay 2-torsion si y solo si $t$ es un cubo, y hay 3-torsion completa si y solo si $t$ es cuatro veces un cubo, por la proposicion anterior. Las condiciones no pueden darse a la vez, pues $4$ no es un cubo en $K$, como se ve en su valuacion en $(2)$.
+Solo quedan los tres grupos del enunciado, y los primeros dos ya los caracterizamos.
 \end{proof}
-
-Para implementar este criterio, factorizamos $t$ y comprobamos los exponentes y la unidad modulo cubos; en $E_{a,b}$ usamos $t=b(b-a)(b+a)$. En particular, si algun primo $\pp\nmid2$ cumple $v_\pp(t)\not\equiv0\pmod3$, la torsion es exactamente $\langle(0,t)\rangle\cong\ZZ/3\ZZ$.
-
-Tambien obtenemos una version de la idea de Nagell--Lutz adaptada a esta familia: si $t\in\OO_K$, todos sus puntos de torsion tienen coordenadas en $\OO_K$. En efecto, en el primer caso escalamos los doce puntos
-\[
-\OO,\quad(0,\pm1),\quad(-\omega^i,0),\quad(2\omega^i,\pm3)
-\qquad(i=0,1,2)
-\]
-de $y^2=x^3+1$; en el segundo, los nueve puntos de $E_*$ ya escritos. Los factores de escala son enteros: tanto $u^3=t$ como $4u^3=t$ con $t$ entero obligan a $v_\pp(u)\geq0$ en todos los primos. En el tercer caso solo están $\OO$ y $(0,\pm t)$. Asi podemos descartar torsion mediante una coordenada no entera, pero en nuestro resultado bastará el criterio de factorizacion.
 
 \subsection{Reconocer si la curva proviene de un subcuerpo}\label{subsec:definicionGenuina}
 
-Siguiendo el enfoque de Savoie~\cite[introduccion]{Savoie2025QiRank2}, diremos que una curva está \emph{genuinamente definida} sobre $K$ si no es isomorfa sobre $K$ a una curva definida sobre un subcuerpo propio. Para $K=\QQ(\omega)$ solo debemos descartar que provenga de $\QQ$. Tener un coeficiente no racional no basta: un cambio de variables podria eliminarlo.
+Siguiendo el enfoque de Savoie~\cite{Savoie2025QiRank2}, diremos que una curva está \emph{genuinamente definida} sobre $K$ si no es isomorfa sobre $K$ a una curva definida sobre un subcuerpo propio. Para $K=\QQ(\omega)$ solo debemos descartar que provenga de $\QQ$. Tener un coeficiente no racional no basta: un cambio de variables podria eliminarlo. En este capitulo veremos como nos aseguramos que nuestra familia de curvas lo cumpla. 
 
-\begin{prop}\label{prop:descenderAQ}
-Para $K=\QQ(\omega)$, la curva $E_d:y^2=x^3+d$ proviene de $\QQ$ si y solo si
-\[
-d\in\QQ^\times(K^\times)^6
-\quad\Longleftrightarrow\quad
-\frac d{\bar d}\in(K^\times)^6.
-\]
-En particular, si algun primo $\pp$ cumple
-\[
-v_\pp(d)\not\equiv v_{\bar\pp}(d)\pmod6,
-\]
-la curva está genuinamente definida sobre $K$.
+\begin{prop}\label{prop:genuinaDef}
+Para $K=\QQ(\omega)$, la curva $E_d:y^2=x^3+d$ proviene de $\QQ$ si y solo si $d$ es congruente a un racional módulo potencias sextas de $K$.
+
+En particular, si algun primo $\pp$ aparece en la factorizacion de $(d)$ con una potencia no multiplo de 6, y su conjugado $\bar\pp$ no, entonces la curva está genuinamente definida sobre $K$.
 \end{prop}
 \begin{proof}
-Una curva sobre $\QQ$ con $j=0$ admite un modelo $y^2=x^3+q$, con $q\in\QQ^\times$, asi que la primera equivalencia sale de la proposicion~\ref{prop:isomorfismosMordell}. Si $d=qu^6$, entonces $d/\bar d=(u/\bar u)^6$.
-
-Reciprocamente, si $d/\bar d=v^6$, tomando normas obtenemos $N(v)^6=1$, y como $N(v)>0$ resulta $N(v)=1$. Podemos escribir $v=u/\bar u$: basta tomar $u=1+v$ cuando $v\neq-1$, y $u=1+2\omega$ cuando $v=-1$. Entonces $d/u^6$ es fijo por conjugacion y pertenece a $\QQ$. Finalmente, una potencia sexta tiene todas sus valuaciones divisibles por $6$.
+Una curva sobre $\QQ$ con $j=0$ admite un modelo $y^2=x^3+q$, con $q\in\QQ^\times$, asi que la primera equivalencia sale de la proposicion~\ref{prop:isomorfismosMordell}. La segunda nos dice que, mirando sobre el primo bajo $\pp$, se cumple lo que queremos.
 \end{proof}
 
-Las congruencias que usaremos permiten aplicar este criterio sin hacer nuevas busquedas.
+Para trabajar con primos sobre cuerpos de numeros se suele elegir una congruencia que nos los determine salvo unidades, de forma que tendamos un unico representante para el ideal generado. 
 
-\begin{lemma}\label{lem:primosNoConjugados}
-Sean $\pi,\pi'\in\ZZ[\omega]$ primos congruentes a $4+3\omega$ modulo $6$. Si son asociados, son iguales; y $(\pi')\neq(\bar\pi)$.
-\end{lemma}
+\begin{definition*}
+Diremos que un primo $\pi$ de $\ZZ[\omega]$ es \emph{primario} si es congruente a $1$ modulo $3$.
+\end{definition*}
+
+\begin{lemma*}\label{lem:primosNoAsociados}
+Sean $\pi,\pi'$ primos primarios, entonces si son asociados son iguales.
+\end{lemma*}
 \begin{proof}
-Los seis elementos de $\OO_K^\times=\{\pm1,\pm\omega,\pm\omega^2\}$ tienen residuos distintos modulo $3$. Como $\pi\equiv\pi'\equiv1\pmod3$, una igualdad $\pi'=\varepsilon\pi$ fuerza $\varepsilon=1$. Si fuese $\pi'=\varepsilon\bar\pi$, tambien tendriamos $\varepsilon=1$. Pero modulo $2$ esto daria $\omega=\omega^2$, imposible en $\FF_4$.
+Los seis elementos de $\OO_K^\times=\{\pm1,\pm\omega,\pm\omega^2\}$ tienen residuos distintos modulo $3$. Como $\pi\equiv\pi'\equiv1\pmod3$, una igualdad $\pi'=\varepsilon\pi$ fuerza $\varepsilon=1$.
 \end{proof}
+
+Si queremos tambien asegurarnos que no sean conjugados entre si podemos agregar una condicion de congruencia módulo 2.
+
+\begin{lemma*}\label{lem:primosNoConjugados}
+Sean $\pi,\pi'$ primos primarios congruentes a $\omega$ módulo 2, entonces $(\pi')\neq(\bar\pi)$.
+\end{lemma*}
+\begin{proof}
+Supongamos que $(\pi')=(\bar\pi)$. Entonces deben ser iguales por el lema anterior, pero reduciendo módulo $2$ tenemos $\pi'\equiv\omega$ y $\bar\pi\equiv\bar\omega=\omega^2$, que son distintos.
+\end{proof}
+
+Juntaremos estos lemas para probar lo que queriamos. Todo este procedimiento es analogo al realizado por Savoie en~\cite{Savoie2025QiRank2}. 
 
 \begin{corollary}\label{cor:parametrosTorsionGenuina}
 Sean $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que $b-a,b,b+a$ sean primos congruentes a $4+3\omega$ modulo $6$. Entonces $E_{a,b}$ está genuinamente definida sobre $K$, su torsion es $\ZZ/3\ZZ$ y los puntos
@@ -665,7 +651,7 @@ P=(a^2-b^2,a(a^2-b^2)),\qquad[\omega]P
 son independientes. Si dos pares de parametros producen conjuntos distintos de ideales primos $\{(b-a),(b),(b+a)\}$, las curvas correspondientes no son isomorfas sobre $K$.
 \end{corollary}
 \begin{proof}
-El lema muestra que los tres primos son no asociados y que ninguno de sus conjugados divide $t=b(b-a)(b+a)$. En ellos $v_\pp(t)=1$, por lo que la proposicion~\ref{prop:torsionEt} da torsion $\ZZ/3\ZZ$. Para $d=t^2$ tenemos $v_\pp(d)=2$ y $v_{\bar\pp}(d)=0$, asi que aplicamos la proposicion~\ref{prop:descenderAQ}.
+El lema muestra que los tres primos son no asociados y que ninguno de sus conjugados divide $t=b(b-a)(b+a)$. En ellos $v_\pp(t)=1$, por lo que la proposicion~\ref{prop:torsionEt} da torsion $\ZZ/3\ZZ$. Para $d=t^2$ tenemos $v_\pp(d)=2$ y $v_{\bar\pp}(d)=0$, asi que aplicamos la proposicion~\ref{prop:genuinaDef}.
 
 El punto $P$ pertenece a la curva por $a^2=(a^2-b^2)+b^2$, y su coordenada $x$ no es cero. Por la descripcion de la torsion tiene orden infinito; la independencia se sigue de la proposicion~\ref{prop:omegaIndependencia}. Por ultimo, un primo que aparezca en un conjunto y no en el otro tiene valuacion $\pm1$ en el cociente de los parametros $t$, que por lo tanto no es un cubo. Aplicamos la proposicion~\ref{prop:isomorfismosMordell}.
 \end{proof}
@@ -873,7 +859,7 @@ F_T:y^2=x^3+A(T)x+B(T),\qquad A,B\in K[T],\qquad\Delta\not\equiv0.
 \]
 Tomemos el menor entero $m\geq0$ para el que
 \[
-\operatorname{gr}(A)\leq4m,\qquad\operatorname{gr}(B)\leq6m,
+\gr (A)\leq4m,\qquad\gr (B)\leq6m,
 \]
 omitiendo la desigualdad de un coeficiente que sea cero. Entonces el grado de los coeficientes permite reconocer dos casos utiles.
 
@@ -904,7 +890,7 @@ Las secciones tambien son curvas dentro de la superficie, y podemos relacionarla
 \begin{theorem}[Shioda--Tate]\label{theorem:ShiodaTate}
 Para una superficie eliptica sobre $\PP^1$ con seccion y al menos una fibra singular,
 \[
-\operatorname{rg}E(\bar K(T))=\rho-2-\sum_v(m_v-1).
+\rg E(\bar K(T))=\rho-2-\sum_v(m_v-1).
 \]
 \end{theorem}
 
@@ -976,7 +962,7 @@ En la otra direccion usamos Silverman, y para la torsion podemos decir algo incl
 \begin{corollary}\label{cor:datosEspecializados}
 Sea $E/K(T)$ una curva eliptica cuya superficie es non-split.
 \begin{enumerate}[label=\roman*.]
-    \item Si conocemos $r$ puntos independientes sobre $K(T)$, obtenemos $\operatorname{rg}E_t(K)\geq r$ para todos salvo finitos $t\in\PP^1(K)$.
+    \item Si conocemos $r$ puntos independientes sobre $K(T)$, obtenemos $\rg E_t(K)\geq r$ para todos salvo finitos $t\in\PP^1(K)$.
     \item Un punto de orden $n$ conserva su orden en toda fibra lisa.
     \item Una isogenia definida sobre $K(T)$ especializa, fuera de un conjunto finito de parametros, a una isogenia sobre $K$ del mismo grado. En particular, un nucleo generado por un punto racional de orden $n$ permite hacer descenso de grado $n$ en esas fibras.
 \end{enumerate}
@@ -1067,7 +1053,7 @@ Las cuatro clases son entonces independientes. Ademas, $F_3(\QQ)[3]=\langle Q\ra
 
 Si hubiese una relacion entera entre los $P_i$, al aplicar $\alpha$ todos sus coeficientes serian divisibles por $3$. Dividiendo esos coeficientes por $3$, la nueva suma seria un punto de $\langle Q\rangle$. La independencia de las cuatro imagenes obliga nuevamente a que los coeficientes sean divisibles por $3$ y a que ese punto sea $\OO$. Iterando, todos los coeficientes originales deben ser cero. Esto prueba tambien independencia modulo torsion, pues una relacion de torsion se convierte en una relacion cero al multiplicar por su orden.
 
-Concluimos que $\operatorname{rg}F_T(\QQ(T))\geq3$. Esta familia es non-split: por ejemplo, en las raices de $T^3-9$ el coeficiente $t(T)^2$ tiene orden $2$, asi que el modelo minimal tiene mala reduccion. Por especializacion, para todos salvo finitos parametros racionales obtenemos rango al menos $3$. No hemos calculado una cota superior: para afirmar que el rango es exactamente $3$ hay que completar el argumento con descenso.
+Concluimos que $\rg F_T(\QQ(T))\geq3$. Esta familia es non-split: por ejemplo, en las raices de $T^3-9$ el coeficiente $t(T)^2$ tiene orden $2$, asi que el modelo minimal tiene mala reduccion. Por especializacion, para todos salvo finitos parametros racionales obtenemos rango al menos $3$. No hemos calculado una cota superior: para afirmar que el rango es exactamente $3$ hay que completar el argumento con descenso.
 
 \subsection{Herramientas geometricas y el metodo de Elkies}
 
@@ -1106,7 +1092,7 @@ Para una superficie eliptica racional, $\rho=10$, por lo que Shioda--Tate da ran
 
 Para K3 definidas sobre $\QQ$ hay una restriccion adicional:
 \[
-\operatorname{rg}E(\QQ(T))\leq17,
+\rg E(\QQ(T))\leq17,
 \]
 y la cota se alcanza con el ejemplo de Elkies. La razon no es solamente $\rho\leq20$: alcanzar $18$ exigiria que todas las fibras fueran irreducibles y que los divisores necesarios estuviesen definidos sobre $\QQ$. Las restricciones aritmeticas sobre el discriminante del grupo de Néron--Severi y su reticulo hacen imposible esa combinacion. El argumento se explica en~\cite[seccion~13.12]{SchuttShioda2010} y~\cite[conferencia~II]{Elkies2007HighRank}.
 
@@ -1116,7 +1102,7 @@ Sobre cuerpos de numeros sigue valiendo la cota geometrica $18$ para K3. Existen
 
 Para las superficies sobre $\PP^1$ del criterio~\ref{prop:criterioK3}, con $m\geq1$, la cota general en caracteristica cero es
 \[
-\operatorname{rg}E(\bar K(T))\leq10m-2-\sum_v(m_v-1).
+\rg E(\bar K(T))\leq10m-2-\sum_v(m_v-1).
 \]
 Proviene de Shioda--Tate y de la desigualdad $\rho\leq h^{1,1}=10m$~\cite[secciones~4.10 y~6.10--6.11]{SchuttShioda2010}. Como $m$ puede crecer, esto no da un maximo absoluto para todas las superficies elipticas. No se conoce el maximo de los rangos de curvas elipticas non-split sobre $\QQ(T)$, ni si estos rangos están acotados. Los rangos altos construidos son cotas inferiores, no respuestas a ese problema~\cite{Elkies2007HighRank,Elkies2026K3Rank17}.
 
@@ -1145,11 +1131,11 @@ La ecuacion funcional determina la paridad del orden de anulacion. BSD, que rela
 \begin{conjecture}[Paridad]\label{conj:paridad}
 Para toda curva eliptica sobre un cuerpo de numeros,
 \[
-(-1)^{\operatorname{rg}E(K)}=W(E/K).
+(-1)^{\rg E(K)}=W(E/K).
 \]
 \end{conjecture}
 
-Por ejemplo, si ya probamos $2\leq\operatorname{rg}E(K)\leq3$, un root number $+1$ permite concluir rango $2$ suponiendo paridad; con signo $-1$ concluiriamos rango $3$. Zywina usa este criterio para elegir congruencias en su familia de rango $2$, y explica como otras congruencias darian rango $3$ bajo esta conjetura~\cite[seccion~1.1]{Zywina2025RankTwo}. Tener el signo correcto por si solo no determina el rango ni hace que el Selmer coincida con la imagen del descenso.
+Por ejemplo, si ya probamos $2\leq\rg E(K)\leq3$, un root number $+1$ permite concluir rango $2$ suponiendo paridad; con signo $-1$ concluiriamos rango $3$. Zywina usa este criterio para elegir congruencias en su familia de rango $2$, y explica como otras congruencias darian rango $3$ bajo esta conjetura~\cite[seccion~1.1]{Zywina2025RankTwo}. Tener el signo correcto por si solo no determina el rango ni hace que el Selmer coincida con la imagen del descenso.
 
 En nuestro caso $j=0$ y $K=\QQ(\omega)$, la proposicion~\ref{prop:omegaIndependencia} ya demuestra que el rango es par. Por lo tanto, si conseguimos una cota superior $3$ y un punto de orden infinito, el rango será $2$ sin suponer paridad. Es una ventaja concreta del cuerpo que elegimos.
 
@@ -1160,7 +1146,7 @@ Los calculos de la funcion $L$ pueden indicar que candidatos vale la pena estudi
 \begin{conjecture}[Birch y Swinnerton-Dyer]\label{conj:BSD}
 Para una curva eliptica $E/K$, el orden de anulacion de $L(E/K,s)$ en $s=1$ es
 \[
-\operatorname{ord}_{s=1}L(E/K,s)=\operatorname{rg}E(K).
+\operatorname{ord}_{s=1}L(E/K,s)=\rg E(K).
 \]
 \end{conjecture}
 
@@ -1192,20 +1178,20 @@ Por otra parte, se conjetura que $\Sha(E/K)$ es finito. Esto no significa que se
 Para una familia no isotrivial, la prediccion mas directamente relacionada con nuestro objetivo es que haya muchas fibras sin salto de rango. En particular, Zywina considera la siguiente forma debil~\cite[conjetura~1.1]{Zywina2025RankDoesNotJump}.
 
 \begin{conjecture}[Especializaciones sin salto de rango]\label{conj:noSalto}
-Sea $E/\QQ(T)$ con $j(E)\notin\QQ$, y sea $r=\operatorname{rg}E(\QQ(T))$. Hay infinitos $t\in\QQ$ con fibra lisa y $\operatorname{rg}E_t(\QQ)=r$.
+Sea $E/\QQ(T)$ con $j(E)\notin\QQ$, y sea $r=\rg E(\QQ(T))$. Hay infinitos $t\in\QQ$ con fibra lisa y $\rg E_t(\QQ)=r$.
 \end{conjecture}
 
 Si la suponemos, una familia no isotrivial con rango generico conocido ya produce infinitos ejemplos de ese rango. La conjetura no indica cuales parametros sirven; para encontrarlos seguimos usando signos, puntos y cotas del Selmer. La hipotesis sobre $j$ importa: no podemos aplicarla directamente a nuestra familia con $j=0$, ni trasladarla a otro cuerpo sin formular esa extension. La heuristica mas fuerte espera densidad positiva de fibras sin salto y que los rangos $r$ y $r+1$ concentren la densidad.
 
 Otra pregunta es conservar el rango al pasar de $K$ a una extension $L$. Para extensiones ciclicas de grado primo, se espera poder elegir una curva con
 \[
-\operatorname{rg}E(K)=\operatorname{rg}E(L)=1.
+\rg E(K)=\rg E(L)=1.
 \]
 Mazur y Rubin lo prueban suponiendo una consecuencia de la finitud de $\Sha$~\cite[teorema~1.13]{MazurRubin2010}. No conviene enunciar esta prediccion sin restricciones sobre $L/K$: su observacion~7.7 explica obstrucciones de paridad en ciertas extensiones no ciclicas.
 
 En el caso cuadratico tenemos una forma concreta de buscarla. Si $L=K(\sqrt D)$ y $E^{(D)}$ es el giro cuadratico, dado por $Dy^2=x^3+Ax+B$, entonces
 \[
-\operatorname{rg}E(L)=\operatorname{rg}E(K)+\operatorname{rg}E^{(D)}(K).
+\rg E(L)=\rg E(K)+\rg E^{(D)}(K).
 \]
 La igualdad sale separando los puntos, despues de tensorizar con $\QQ$, segun la conjugacion actue como $+1$ o $-1$; vease~\cite[ejercicio~10.16]{SilvermanAEC}. Para conservar el rango basta entonces construir $E$ con los puntos deseados y forzar rango $0$ en el giro. Zywina hace precisamente esto y demuestra, sin conjeturas, que para toda extension cuadratica hay infinitas curvas con rango $1$ en ambos cuerpos~\cite[teoremas~1.2 y~1.5]{Zywina2025RankStability}.
 
@@ -1380,7 +1366,7 @@ Dada una isogenia $\phi:E\to E'$ ciclica de grado $n$ y un punto $Q_0\in E'(K)[\
 \begin{proof}
 Como $Q_0$ tiene orden $n$, el divisor $n(Q_0)- n(\OO)$ (que seria $n$ veces el asociado al punto $Q_0$) es trivial en $\operatorname{Pic}^0(E')$ y por lo tanto es principal: existe $f$ con ese divisor en $K(E')^\times$ ($Q_0\in E'(K)$ asi que $f$ puede tomarse definida sobre $K$). La funcion asociada a un divisor estará definida salvo constantes. Veamos que, con la constante adecuada, podemos conseguir que $f\circ\phi=g^n$.
 
-Como $\phi$ es sobreyectiva, existe $P_0 \in E(\bar{K})$ con $\phi(P_0)=Q_0$ y las preimagenes de $Q_0$ serán $P_0 + R$ para los $R\in \operatorname{nu}(\phi)$. Entonces, el divisor 
+Como $\phi$ es sobreyectiva, existe $P_0 \in E(\bar{K})$ con $\phi(P_0)=Q_0$ y las preimagenes de $Q_0$ serán $P_0 + R$ para los $R\in \nuc (\phi)$. Entonces, el divisor 
 \[ 
 D = \sum_{R\in E[\phi]} (P_0 + R) - \sum_{R\in E[\phi]} (R) 
 \] 
@@ -1430,7 +1416,7 @@ que es exactamente lo que queriamos.
 
 Para definir $\alpha(Q_0)$ en $\KmodN$, como tenemos un cero de orden $n$, necesitaremos definirlo con un parametro local $t^n$ con el cual $f=c_n t^n + c_{n+1}t^{n+1}+\cdots$ y definimos $\alpha(Q_0) = [c_n] \in \KmodN$ ya que, si cambiamos de parametro local, el valor de $c_n$ cambiará solo por una potencia $n$-esima. \textbf{Falta ver pq coincide con $\delta(Q_0)$}. Para $\OO$ podriamos hacer lo mismo, pero como $\delta$ es un morfismo, lo asignará a la clase trivial en la cohomologia, que corresponde en nuestra identificacion con la clase del 1 en $\KmodN$.
 
-Finalmente, como probamos que $\alpha$ coincide, via $f$ y luego de identificaciones, con $\delta$, entonces será un morfismo; y por exactitud de la sucesion de Kummer su nucleo será $\operatorname{nu}(\delta)=\phi(E(K))$. Al cocientar obtenemos la inyeccion
+Finalmente, como probamos que $\alpha$ coincide, via $f$ y luego de identificaciones, con $\delta$, entonces será un morfismo; y por exactitud de la sucesion de Kummer su nucleo será $\nuc (\delta)=\phi(E(K))$. Al cocientar obtenemos la inyeccion
 \[
 \alpha:\frac{E'(K)}{\phi(E(K))} \hookrightarrow \KmodN.
 \]
@@ -1496,18 +1482,18 @@ Y considerando los mapas de restricción simultaneamente a todos los lugares ten
 
 Nuestro objetivo era conocer la imagen de $\delta$, o equivalentemente el nucleo de $\gamma$, y ya mencionamos que esto es equivalente a encontrar puntos racionales en espacios homogeneos, que es igualmente una pregunta dificil. Por otro lado, con el mismo razonamiento nos sirve calcular
 \[
-\operatorname{nu}\lp H^1(G_v,E[\phi])\to \operatorname{WC}(E/K_v)[\phi] \rp
+\nuc \lp H^1(G_v,E[\phi])\to \operatorname{WC}(E/K_v)[\phi] \rp
 \]
 y eso se consigue calculando puntos racionales en espacios homogeneos sobre cuerpos locales, que, gracias al lema de Hensel, se puede hacer en finitos pasos. Esto motiva las siguientes definiciones.
 
 \begin{definition}
 Dada una isogenia $\phi:E\to E'$ sobre $K$, el \emph{grupo de Selmer} asociado a $\phi$ (o $\phi$-Selmer) es el subgrupo de $H^1(G_K,E[\phi])$ definido por
 \[
-S^{(\phi)}(E/K) = \operatorname{nu} \lla H^1(G_K,E[\phi]) \to \displaystyle\prod_{v\in M_K} \operatorname{WC}(E/K_v) \rla,
+S^{(\phi)}(E/K) = \nuc  \lla H^1(G_K,E[\phi]) \to \displaystyle\prod_{v\in M_K} \operatorname{WC}(E/K_v) \rla,
 \]
 El \emph{grupo de Shafarévich-Tate} es el subgrupo de $\operatorname{WC}(E/K)$ dado por 
 \[
-\Sha (E/K) = \operatorname{nu} \lla \operatorname{WC}(E/K) \to \displaystyle\prod_{v\in M_K} \operatorname{WC}(E/K_v) \rla.
+\Sha (E/K) = \nuc  \lla \operatorname{WC}(E/K) \to \displaystyle\prod_{v\in M_K} \operatorname{WC}(E/K_v) \rla.
 \]
 \end{definition}
 
@@ -1630,7 +1616,7 @@ Las ventajas específicas de un grado primo $\ell$ son que el núcleo geométric
 
 Para el descenso por multiplicación, la sucesión~\eqref{eq:selmerSha} da en particular
 \[
-\operatorname{rg}E(K)
+\rg E(K)
 =\dim_{\FF_\ell}S^{(\ell)}(E/K)
 -\dim_{\FF_\ell}E(K)[\ell]
 -\dim_{\FF_\ell}\Sha(E/K)[\ell].
@@ -1643,7 +1629,7 @@ Para aplicar esto a una familia, conviene tener escrita la cota directamente en 
 Sea $\phi:E\to E'$ una isogenia de grado primo $\ell$, definida sobre el cuerpo de números $K$, y sea $\hat\phi$ su dual. Entonces
 \[
 \begin{aligned}
-\operatorname{rg}E(K)\leq{}&
+\rg E(K)\leq{}&
 \dim_{\FF_\ell}S^{(\phi)}(E/K)
 +\dim_{\FF_\ell}S^{(\hat\phi)}(E'/K)\\
 &-\dim_{\FF_\ell}E(K)[\phi]
@@ -1660,10 +1646,10 @@ El núcleo de $\phi$ sobre $E(K)[\ell]$ es $E(K)[\phi]$, así que
 =\dim_{\FF_\ell}E(K)[\ell]-\dim_{\FF_\ell}E(K)[\phi].
 \]
 Tomamos dimensiones en~\eqref{eq:cocientesIsogenias} y usamos que
-$\dim_{\FF_\ell}E(K)/\ell E(K)=\operatorname{rg}E(K)+\dim_{\FF_\ell}E(K)[\ell]$. Al cancelar los términos de $\ell$-torsión obtenemos
+$\dim_{\FF_\ell}E(K)/\ell E(K)=\rg E(K)+\dim_{\FF_\ell}E(K)[\ell]$. Al cancelar los términos de $\ell$-torsión obtenemos
 \[
 \begin{aligned}
-\operatorname{rg}E(K)={}&
+\rg E(K)={}&
 \dim_{\FF_\ell}\frac{E'(K)}{\phi(E(K))}
 +\dim_{\FF_\ell}\frac{E(K)}{\hat\phi(E'(K))}\\
 &-\dim_{\FF_\ell}E(K)[\phi]
@@ -2442,7 +2428,7 @@ S^{(\hat\phi)}(E'_t/K)=\im(\alpha)
 =\left\langle[(2t)^{-1}],\,[(b-a)(b+a)^2]\right\rangle
 \cong\FF_3^2.
 \]
-En consecuencia, $\Sha(E'_t/K)[\hat\phi]=0$ y $\operatorname{rg}E_t(K)=2$.
+En consecuencia, $\Sha(E'_t/K)[\hat\phi]=0$ y $\rg E_t(K)=2$.
 \end{theorem}
 
 \begin{proof}
@@ -2462,7 +2448,7 @@ También necesitamos la 3-torsión. El polinomio de división es $\psi_3(x)=3x(x
 \[
 \#\frac{E_t(K)}{3E_t(K)}=\frac{3^2\cdot3^2}{3}=3^3.
 \]
-Por Mordell--Weil, este orden también es $3^{\operatorname{rg}E_t(K)}\#E_t(K)[3]=3^{\operatorname{rg}E_t(K)+1}$, y el rango es $2$.
+Por Mordell--Weil, este orden también es $3^{\rg E_t(K)}\#E_t(K)[3]=3^{\rg E_t(K)+1}$, y el rango es $2$.
 \end{proof}
 
 Para presentar la familia podemos fijar $\delta=\omega$, como queríamos. El problema que queda para el capítulo siguiente es producir infinitos parámetros con estas congruencias y con los tres factores primos. El descenso anterior se aplica a cada elección que cumpla las hipótesis; la infinitud requiere además los resultados de distribución de primos.
