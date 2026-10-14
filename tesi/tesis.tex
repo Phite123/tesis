@@ -608,7 +608,7 @@ Solo quedan los tres grupos del enunciado, y los primeros dos ya los caracteriza
 
 \subsection{Reconocer si la curva proviene de un subcuerpo}\label{subsec:definicionGenuina}
 
-Siguiendo el enfoque de Savoie~\cite{Savoie2025QiRank2}, diremos que una curva está \emph{genuinamente definida} sobre $K$ si no es isomorfa sobre $K$ a una curva definida sobre un subcuerpo propio. Para $K=\QQ(\omega)$ solo debemos descartar que provenga de $\QQ$. Tener un coeficiente no racional no basta: un cambio de variables podria eliminarlo. En este capitulo veremos como nos aseguramos que nuestra familia de curvas lo cumpla. 
+Siguiendo el enfoque de Savoie~\cite{Savoie2025QiRank2}, diremos que una curva está \emph{genuinamente definida sobre $K$} si no es isomorfa sobre $K$ a una curva definida sobre un subcuerpo propio. Para $K=\QQ(\omega)$ solo debemos descartar que provenga de $\QQ$. Tener un coeficiente no racional no basta: un cambio de variables podria eliminarlo. En este capitulo veremos como nos aseguramos que nuestra familia de curvas lo cumpla. 
 
 \begin{prop}\label{prop:genuinaDef}
 Para $K=\QQ(\omega)$, la curva $E_d:y^2=x^3+d$ proviene de $\QQ$ si y solo si $d$ es congruente a un racional módulo potencias sextas de $K$.
@@ -644,16 +644,18 @@ Supongamos que $(\pi')=(\bar\pi)$. Entonces deben ser iguales por el lema anteri
 Juntaremos estos lemas para probar lo que queriamos. Todo este procedimiento es analogo al realizado por Savoie en~\cite{Savoie2025QiRank2}. 
 
 \begin{corollary}\label{cor:parametrosTorsionGenuina}
-Sean $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que $b-a,b,b+a$ sean primos congruentes a $4+3\omega$ modulo $6$. Entonces $E_{a,b}$ está genuinamente definida sobre $K$, su torsion es $\ZZ/3\ZZ$ y los puntos
+Sean $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que $b-a,b,b+a$ sean primos congruentes a $4+3\omega$ modulo $6$. Entonces $E_{a,b}: y^2 = x^3 + {(b(b-a)(b+a))}^2$ está genuinamente definida sobre $K$, su torsion es $\ZZ/3\ZZ$ y los puntos
 \[
 P=(a^2-b^2,a(a^2-b^2)),\qquad[\omega]P
 \]
-son independientes. Si dos pares de parametros producen conjuntos distintos de ideales primos $\{(b-a),(b),(b+a)\}$, las curvas correspondientes no son isomorfas sobre $K$.
+son independientes. Si dos pares de parametros $a,b$ producen conjuntos distintos de ideales primos $\{(b-a),(b),(b+a)\}$, las curvas correspondientes no son isomorfas sobre $K$.
 \end{corollary}
 \begin{proof}
-El lema muestra que los tres primos son no asociados y que ninguno de sus conjugados divide $t=b(b-a)(b+a)$. En ellos $v_\pp(t)=1$, por lo que la proposicion~\ref{prop:torsionEt} da torsion $\ZZ/3\ZZ$. Para $d=t^2$ tenemos $v_\pp(d)=2$ y $v_{\bar\pp}(d)=0$, asi que aplicamos la proposicion~\ref{prop:genuinaDef}.
-
-El punto $P$ pertenece a la curva por $a^2=(a^2-b^2)+b^2$, y su coordenada $x$ no es cero. Por la descripcion de la torsion tiene orden infinito; la independencia se sigue de la proposicion~\ref{prop:omegaIndependencia}. Por ultimo, un primo que aparezca en un conjunto y no en el otro tiene valuacion $\pm1$ en el cociente de los parametros $t$, que por lo tanto no es un cubo. Aplicamos la proposicion~\ref{prop:isomorfismosMordell}.
+Juntando los lemas mostramos que los tres primos son no asociados y que ninguno de sus conjugados divide $t=b(b-a)(b+a)$. Como para todos ellos vale $v_\pp(t)=1$, el valor de $t$ no puede ser un cubo ni 4 veces otro, por lo que la proposicion~\ref{prop:torsionEt} da torsion $\ZZ/3\ZZ$. Para $d=t^2$ tenemos $v_\pp(d)=2$ y $v_{\bar\pp}(d)=0$, asi que la proposicion~\ref{prop:genuinaDef} nos dice que debe estar genuinamente definida sobre $K$. El punto $P$ pertenece a la curva por: 
+\[
+a^2{(a^2-b^2)}^2= (a^2-b^2 +b^2) {(a^2-b^2)}^2 = {(a^2-b^2)}^3 + b^2{(a^2-b^2)}^2,
+\]
+y su coordenada $x$ no es cero. Como todos los puntos de torsion los conocemos, $P$ tiene orden infinito; y la independencia se sigue de la proposicion~\ref{prop:omegaIndependencia}. Por ultimo, para ver que dos distintas no son isomorfas miramos un primo que aparezca en un conjunto y no en el otro. Este tiene valuacion $\pm1$ en el cociente de los parametros $t$, por lo tanto no es un cubo y aplicamos la proposicion~\ref{prop:isomorfismosMordell} para concluir.
 \end{proof}
 
 \subsection{Popurrí}
@@ -663,32 +665,32 @@ Cuando tengamos una curva eliptica definida sobre $K$ nos van a interesar los pu
 \sigma(P) = (\sigma(x), \sigma(y)) \in E(\bar{K}).
 \]
 
-Esta accion la usaremos mas adelante para determinar cuando un punto está en $E(K)$, que serán los fijos por la accion; y tiene otra variedad de aplicaciones. Nos interesa en particular que, para isogenias definidas sobre $K$, su nucleo $E[\phi]$ será un $G_K$-modulo porque la accion de galois conmuta con la isogenia (es una funcion racional con coeficientes en $K$). Tambien, a una curva eliptica se le puede asociar una representacion de Galois utilizando esta accion sobre los grupos $E[l^m]$ para cada primo $l$, y esto lleva a una amplia teoria de representaciones asociadas a curvas elipticas, formas modulares y L-series. 
+Esta accion la usaremos mas adelante para determinar cuando un punto está en $E(K)$, que serán los fijos por la accion; y tiene otra variedad de aplicaciones. Nos interesara en particular que, para isogenias definidas sobre $K$, su nucleo $E[\phi]$ será un $G_K$-modulo porque la accion de galois conmuta con la isogenia (es una funcion racional con coeficientes en $K$). Tambien tiene muchas aplicaciones, la principal siendo que a una curva eliptica se le puede asociar una representacion de Galois utilizando esta accion sobre los grupos $E[l^m]$ para cada primo $l$, y esto lleva a una amplia teoria de representaciones asociadas a curvas elipticas, formas modulares y L-series. 
 
-Otra herramienta muy utilizada tambien en la geometria algebraica es el concepto de divisores: sumas formales indexadas, en este caso, por los puntos de la curva:
+Otra herramienta muy utilizada tambien en la geometria algebraica es el concepto de divisores: sumas formales indexadas, en este caso, por los puntos de la curva.
 \[
-D = \sum_{P\in E} n_P (P)
+D = \sum_{P\in E} n_P (P).
 \]
 
-Pidiendo soporte finito, estos forman el grupo de divisores de la curva $\operatorname{Div}(E)$. Cada divisor tendrá un grado que será la suma en $\ZZ$ de sus coeficientes $n_P$, cada funcion racional en la curva tiene un divisor asociado relacionado a sus raices y polos, y cocientando el grupo de divisores por el de asociados a funciones se obtiene el grupo de Picard denotado $\operatorname{Pic}(E)$; y el gran resultado sobre curvas elipticas es que $E\cong \operatorname{Pic}^0(E)$ el subgrupo de grado cero, que nos esta diciendo que si un divisor consta de una suma que corresponderia a $\OO$ entonces es principal.
+Pidiendo soporte finito, estos forman el grupo de divisores de la curva $\operatorname{Div}(E)$. Cada divisor tendrá un grado que será la suma en $\ZZ$ de sus coeficientes $n_P$, cada funcion racional en la curva tiene un divisor asociado relacionado a sus raices y polos, y cocientando el grupo de divisores por el de asociados a funciones se obtiene el grupo de Picard denotado $\operatorname{Pic}(E)$. El gran resultado sobre curvas elipticas es que $E\cong \operatorname{Pic}^0(E)$ el subgrupo de grado cero; que nos dice que si al ver a un divisor como una suma de puntos en la curva corresponde a $\OO$, entonces hay una funcion en la curva que tiene como raices o polos esos puntos con la multiplicidad en que aparecian, es decir el divisor es principal.
 
 Tambien es importante mencionar que existe el \emph{emparejamiento de Weil}, que, dado un $n$, es una funcion 
 \[
 e_n: E[n]\times E[n] \to \mu_n
 \]
-bilineal, alternada, no degenerada y compatible con la accion de Galois. Ademas este emparejamiento cumple muchas más propiedades, y contaremos las que vayamos a utilizar. 
+bilineal, alternada, no degenerada y compatible con la accion de Galois. Ademas este emparejamiento cumple muchas más propiedades, y algunas contaremos cuando las vayamos a utilizar. 
 
 De la misma manera, asociada a una isogenia $\phi$ de grado $n$ existe
 \[
 e_\phi: E[\phi]\times E'[\hat\phi] \to \mu_n
 \]
-que nos servirá para, cuando $E'[\hat\phi]$ sea ciclico y fijemos un generador $Q_0\in E'(K)$, dar un isomorfismo $E[\phi]\cong \mu_n$ compatible con Galois. Esto se aplica en particular a las isogenias de grado primo que usaremos. Esta identificacion puede describirse con funciones racionales especificas, y usaremos esto para el metodo para acotar el rango superiormente:
+que nos servirá para, cuando $E'[\hat\phi]$ sea ciclico y fijemos un generador $Q_0$, dar un isomorfismo $E[\phi]\cong \mu_n$ compatible con Galois. Esta identificacion puede describirse explicitamente con funciones racionales, y usaremos esto para el metodo para acotar el rango superiormente.
 
-Dado $Q_0\in E'[\hat\phi]$, sea $f\in K(E')^\times$ tal que $\operatorname{div}(f)=n(Q_0) - n(\OO)$ y que $f\circ \phi=g^n$ para una $g\in K(E)^\times$, entonces para un $R\in E[\phi]$ vale 
-\[
-e_\phi(R,Q_0) = \frac{g(P+R)}{g(P)}
-\]
-para cualquier $P$ donde este definido el cociente. Esto tiene sentido porque $g(P+R)^n = f(\phi(P+R)) = f(\phi(P)) = g(P)^n$ por estar $R\in E[\phi]$, entonces $g(P+R)/g(P) \in \mu_n$, y no depende de $P$. 
+% Dado $Q_0\in E'[\hat\phi]$, sea $f\in {K(E')}^\times$ tal que $\operatorname{div}(f)=n(Q_0) - n(\OO)$ y que $f\circ \phi=g^n$ para una $g\in K(E)^\times$, entonces para un $R\in E[\phi]$ vale 
+% \[
+% e_\phi(R,Q_0) = \frac{g(P+R)}{g(P)}
+% \]
+% para cualquier $P$ donde este definido el cociente. Esto tiene sentido porque $g(P+R)^n = f(\phi(P+R)) = f(\phi(P)) = g(P)^n$ por estar $R\in E[\phi]$, entonces $g(P+R)/g(P) \in \mu_n$, y no depende de $P$. 
 
 \section{Recapitulacion}
 
@@ -717,13 +719,13 @@ y el valor de $y(2\cdot P_1)$ es 1, por lo que obtuvimos un punto nuevo de la cu
 \[
 m= \frac{y(P_1)- y(2P_1)}{x(P_1)- x(2P_1)} = \frac{3-1}{2-0} = 1 \implies x(3P_1) = m^2-x(2P_1)-x(P_1) = 1-2 = -1
 \]
-y reemplazando en la ecuacion obtenemos ${y(3P_1)}^2 = {(-1)}^3+1 = 0$ por lo que encontramos el punto $(-1,0)$ de 2-torsion. Esto nos dice que el punto $(2,3)$ con el que empezamos era de orden 6. Haciendo otras cuentas simples podemos ver que esa es toda la torsion y más adelante veremos una forma de probar que el rango de esta curva es 0, pero si asumimos ahora que podemos hacer todo esto entonces tendriamos una prueba de que el unico caso no trivial de un cubo racional que al sumarle 1 es un cuadrado es el 8.
+y reemplazando en la ecuacion obtenemos ${y(3P_1)}^2 = {(-1)}^3+1 = 0$ por lo que encontramos el punto $(-1,0)$, necesariamente de 2-torsion. Esto nos dice que el punto $(2,3)$ con el que empezamos era de orden 6. Haciendo otras cuentas simples podemos ver que esa es toda la torsion y más adelante veremos una forma de probar que el rango de esta curva es 0, pero si asumimos ahora que podemos hacer todo esto entonces tendriamos una prueba de que: ``El unico caso no trivial de un cubo racional que al sumarle 1 es un cuadrado es el 8''.
 
 El caso de $P_2 = (-1,1)$ es distinto:
 \[
-x(2\cdot P_2) = {\lp \frac{3\cdot {(-1)}^2}{2\cdot 1} \rp}^2 - 2\cdot (-1) = {\lp \frac{3}{2} \rp}^2 + 2 = \frac{17}{4} \not\in \ZZ
+x(2\cdot P_2) = {\lp \frac{3\cdot {(-1)}^2}{2\cdot 1} \rp}^2 - 2\cdot (-1) = {\lp \frac{3}{2} \rp}^2 + 2 = \frac{17}{4}.
 \]
-Como vemos que el punto nuevo encontrado no es entero, por el teorema de Nagell-Lutz sabemos que no es de torsion, por lo cual podemos saber que la curva tendrá rango positivo, es decir infinitas soluciones, sin mas que haber encontrado un punto ``obvio'' y haberlo duplicado con la formula. Y no solo sabemos que existen infinitas soluciones, sino que tambien las podemos generar. Por ahora con unos simples calculos ya encontramos que
+Como vemos que el punto nuevo encontrado no es entero, por el teorema de Nagell-Lutz sabemos que no es de torsion, por lo cual podemos saber que la curva tendrá rango positivo, es decir infinitas soluciones, sin mas que haber encontrado un punto ``obvio'' y haberlo duplicado con la formula. Y no solo sabemos que existen infinitas soluciones, sino que tambien las podemos generar. Por ahora, con unos simples calculos ya encontramos que
 \[
 {\lp -\frac{71}{8} \rp}^2 = {\lp \frac{17}{4} \rp}^3 + 2,
 \]
@@ -740,7 +742,9 @@ pero usando los polinomios que mencionamos previamente podriamos calcular muy ra
 
 \chapter{Superficies elipticas}\label{cap:superficiesElipticas}
 
-En este capitulo presentaremos a las superficies elipticas de un modo orientado a la aplicacion que nos interesa: proveer familias de ejemplos de curvas elipticas con puntos independientes prefijados, que en particular tienen una cota inferior del rango, y con parametros que podamos controlar. Si queremos trabajar con curvas elipticas que cumplan una propiedad fija, lo natural es agregarles un parametro $T$ y codificar en él la informacion que querramos. La mejor referencia para comenzar con el tema puede ser el capitulo 3 del ``advanced'' de Silverman~\cite{SilvermanAdvanced}, y para seguir recomendamos el articulo por Schütt y Shioda~\cite{SchuttShioda2010}.
+En este capitulo presentaremos a las superficies elipticas de un modo orientado a la aplicacion que nos interesa: proveer familias de ejemplos de curvas elipticas con puntos independientes prefijados, que en particular tienen una cota inferior del rango, y con parametros que podamos controlar. 
+
+Si queremos trabajar con curvas elipticas que cumplan una propiedad fija, lo natural es agregarles un parametro $T$ y codificar en él la informacion que querramos. Lp que mas nos va a interesar es la seccion de los teoremas de especializacion, que nos dice que al especializar nuestro parametro en un elemento del cuerpo, la curva eliptica que queda cumple las propiedades deseadas. La mejor referencia para comenzar con el tema puede ser el capitulo 3 del ``advanced'' de Silverman~\cite{SilvermanAdvanced}, y para seguir recomendamos el articulo por Schütt y Shioda~\cite{SchuttShioda2010}.
 
 Por ejemplo, si nos interesa el caso de $j$-invariante igual a 0 nuestras curvas tendran la forma $y^2=x^3+d$; y si ademas queremos tener un punto de 3-torsion asegurado para el 3-descenso, entonces, notando que si $x=0$ queda $y^2 = d$ y esto puede tener dos soluciones, tenemos que la curva 
 \[
@@ -803,7 +807,7 @@ con las operaciones
 realizadas sobre las fibras, pues (casi todas) son curvas elipticas y entonces podemos sumar e invertir sobre ellas, y con elemento neutro $\sigma_\OO$, es el grupo abeliano de secciones de la superficie eliptica.
 \end{definition}
 
-Dos cosas que querriamos ahora son un analogo al teorema de Mordell-Weil, es decir que este grupo sea finitamente generado, y poder distinguir los casos triviales de los interesantes. Esto ultimo se refiere a que uno podria tener una curva eliptica definida sobre $K$ y decir que está definida sobre $K(\cc)$, o tambien tenerla sobre $K(\cc)$ pero que sea isomorfa a una definida sobre $K$, y ambos casos querriamos evitarlos para que la superficie realmente parametrice una familia de curvas elipticas ``distintas''. Es facil ver que esta condicion es equivalente a pedir que la superficie $\ee$ no sea de la forma $E_0 \times \cc$ para una curva eliptica $E_0$ definida sobre el cuerpo $K$, ya que en este caso todas las fibras serian $E_0$. La equivalencia de superficies que nos interesa aca es mediante mapas birracionales (racionales en ambas direcciones) que respeten el morfismo $\ee\to\cc$, y si $\ee \sim E_0 \times \cc$ se dice que la superficie es \emph{split}, y caso contrario \emph{non-split}.Resulta que en el caso de cuerpos arbitrarios estos dos elementos vienen de la mano:
+Dos cosas que querriamos ahora son un analogo al teorema de Mordell-Weil, es decir que este grupo sea finitamente generado, y poder distinguir los casos triviales de los interesantes. Esto ultimo se refiere a que uno podria tener una curva eliptica definida sobre $K$ y decir que está definida sobre $K(\cc)$, o tambien tenerla sobre $K(\cc)$ pero que sea isomorfa a una definida sobre $K$, y ambos casos querriamos evitarlos para que la superficie realmente parametrice una familia de curvas elipticas ``distintas''. Es facil ver que esta condicion es equivalente a pedir que la superficie $\ee$ no sea de la forma $E_0 \times \cc$ para una curva eliptica $E_0$ definida sobre el cuerpo $K$, ya que en este caso todas las fibras serian $E_0$. La equivalencia de superficies que nos interesa aca es mediante mapas birracionales (racionales en ambas direcciones) que respeten el morfismo $\ee\to\cc$. Si $\ee \sim E_0 \times \cc$ se dice que la superficie es \emph{split}, y caso contrario \emph{non-split}. Resulta que en el caso de cuerpos arbitrarios estos dos elementos vienen de la mano:
 
 \begin{theorem}[Mordell-Weil para cuerpos de funciones]
 Sea $\ee\to\cc$ una superficie eliptica definida sobre un cuerpo $K$. Si $\ee$ es non-split, entonces $\ee(\cc)$ es finitamente generado.
@@ -821,96 +825,57 @@ donde ambos grupos de los costados son finitamente generados.\footnote{Para escr
 
 La teoria de superficies elipticas a partir de este punto se pone mas tecnica, con metodos para estudiar las fibras de mala reduccion y clasificarlas, eliminar las singularidades de la superficie con herramientas de geometria algebraica, concluyendo con una clasificacion de superficies no-singulares. 
 
-\section{Superficies K3}\label{sec:superficiesK3}
+\section{Superficies elipticas racionales y K3}\label{sec:superficiesK3}
 
-Hasta ahora miramos superficies que vienen dadas como familias de curvas elipticas. Podemos ampliar el estudio a otras superficies donde tambien buscamos puntos racionales y curvas que nos ayuden a encontrarlos. Las superficies K3 son una clase especialmente interesante: algunas admiten una fibracion eliptica y permiten aplicar lo anterior, pero otras no admiten ninguna, ni siquiera ampliando el cuerpo. Esto no significa que toda superficie eliptica sea una K3.
+En esta seccion presentaremos una clasificacion de las superficies elipticas, hay herramientas para estudiar su rango y mas propiedades en cada caso que no presentaremos pero se pueden buscar, especialmente en el articulo de Schutt-Shioda~\cite{SchuttShioda2010}. Seguiremos la presentacion de Elkies~\cite{Elkies2007HighRank}, basada en el trabajo de Shioda~\cite{Shioda1990MordellWeil}.
 
-Un modo concreto de acercarnos a ellas es pasar de las cubicas planas a las cuarticas en el espacio proyectivo: toda superficie lisa definida por una ecuacion homogenea de grado $4$ en $\PP^3$ es una K3. Este es un ejemplo de como la geometria de las curvas elipticas se extiende a dimension dos, aunque no todas las K3 se presentan como cuarticas. Para la definicion general y otros modelos se puede consultar~\cite[seccion~12.1]{SchuttShioda2010}.
+Dada una familia $y^2=x^3+A(T)x+B(T)$, luego de eliminar denominadores y tomar $A,B \in K[T]$, sus grados (como polinomios) permiten clasificar la superficie. Para que esto tenga sentido necesitamos decir algo sobre modelos, porque podriamos tener muchas ecuaciones para una misma superficie. Esto se realiza solo para la clasificacion u otros motivos geometricos. Por ejemplo, el modelo minimal de nuestra superficie usa un $T^2$ que podria simplificarse a $T$, pero perderia la informacion aritmetica que nos interesa.
 
-\subsection*{Una K3 sin fibracion eliptica}
-
-Van Luijk da el siguiente ejemplo sobre $\QQ$~\cite[observacion~3.7]{vanLuijk2007PicardOne}:
+Para obtener una ecuacion de Weierstass minimal, debemos eliminar todo polinomio irreducible $q$ para el cual $q^4\mid A$ y $q^6\mid B$ con el mismo metodo que usabamos en curvas: el cambio $x=q^2x_1$, $y=q^3y_1$ divide los coeficientes por $q^4,q^6$ y el discriminante por $q^{12}$. Luego de esto tenemos que proyectivizar, es decir agregar el punto del infinito a nuestra recta de parametros. Para esto se define el numero $m$ como el menor entero no negativo tal que 
 \[
-w(x^3+y^3+z^3+x^2z+xw^2)
-=3x^2y^2-4x^2yz+x^2z^2+xy^2z+xyz^2-y^2z^2.
+\gr(A)\leq 4m,\qquad \gr(B)\leq 6m,
 \]
-Es una cuartica lisa cuyo grupo de divisores modulo equivalencia algebraica, llamado grupo de Néron--Severi, tiene rango $1$ incluso sobre $\bar\QQ$. Este rango se llama \emph{numero de Picard} y lo notaremos $\rho$. No es el rango de un grupo de puntos de la superficie: una K3 general no tiene una ley de grupo como las curvas elipticas.
-
-En este ejemplo las clases de divisores son multiplos de la seccion por un plano, cuya autointerseccion es $4$. Entonces una clase no nula tiene autointerseccion $4m^2>0$. Una fibracion eliptica necesitaria una clase de autointerseccion cero, pues dos fibras distintas no se cortan. Por eso esta K3 no admite una fibracion eliptica.
-
-Aun asi podemos encontrar puntos racionales con cuentas simples. Si ponemos $x=0$, $y=1$ y $z=t$, la ecuacion queda
+y con él se hace el cambio de variables
 \[
-w(1+t^3)=-t^2.
+X=\frac{x}{T^{2m}},\qquad Y=\frac{y}{T^{3m}}.
 \]
-Por lo tanto tenemos los puntos
-\[
-\left[0:1:t:\frac{-t^2}{1+t^3}\right],
-\qquad t\in\QQ,\quad t\neq-1.
-\]
-Son infinitos puntos distintos, pero todos están sobre una misma curva de la superficie. Esto no produce una fibracion ni prueba que los puntos racionales sean densos.
+Por la definicion de $m$ nos quedan polinomios en $s = 1/T$ y podemos evaluarlos en 0 para obtener el comportamiento en $T=\infty$. 
 
-Tambien podemos buscar curvas elipticas dentro de una K3 que no sea eliptica. Una seccion plana lisa de una cuartica tiene genero $3$; si conseguimos una seccion geometricamente irreducible con dos puntos dobles ordinarios y ninguna otra singularidad, su normalizacion tiene genero $1$. Si esta normalizacion tiene un punto racional, obtenemos una curva eliptica. Van Luijk aplica esta idea con planos bitangentes y obtiene un ejemplo de rango $3$~\cite[proposicion~3.5 y observacion~3.6]{vanLuijk2007PicardOne}. Asi, la superficie puede servir para construir curvas elipticas sin ser ella misma una familia eliptica. Para aplicar los teoremas de especializacion todavia necesitariamos organizar esas curvas en una familia.
-
-\subsection*{Cuando la K3 admite una fibracion eliptica}
-
-Si la superficie viene presentada por una ecuacion de Weierstrass, volvemos al caso que sabemos usar. Supongamos que ya tenemos un modelo simplificado sobre un cuerpo de caracteristica cero,
-\[
-F_T:y^2=x^3+A(T)x+B(T),\qquad A,B\in K[T],\qquad\Delta\not\equiv0.
-\]
-Tomemos el menor entero $m\geq0$ para el que
-\[
-\gr (A)\leq4m,\qquad\gr (B)\leq6m,
-\]
-omitiendo la desigualdad de un coeficiente que sea cero. Entonces el grado de los coeficientes permite reconocer dos casos utiles.
+Lo que nos faltaria es resolver los puntos singulares de la superficie, que se hace geometricamente mediante blow-ups, que no vamos a contar pero no hace falta tampoco. Una vez hecho esto tenemos el \emph{modelo minimal de Kodaira-Neron}, y la siguiente clasificacion:
 
 \begin{prop}\label{prop:criterioK3}
-Con el modelo anterior minimal, su superficie lisa, proyectiva y relativamente minimal es geometricamente racional si $m=1$, y es una K3 si $m=2$.
+Dado un modelo minimal, el entero $m$ determina los siguientes casos~\cite{SchuttShioda2010}:
+\begin{enumerate}
+    \item Si $m=0$, la curva es constante y $\ee$ es el producto de una curva eliptica por $\PP^1$.
+    \item Si $m=1$, $\ee$ es una superficie eliptica geometricamente racional.
+    \item Si $m=2$, $\ee$ es una K3 eliptica.
+    \item Si $m>2$, $\ee$ es una superficie propiamente eliptica, de dimension de Kodaira $1$.
+\end{enumerate}
 \end{prop}
 
-La hipotesis de minimalidad incluye el lugar infinito; aqui la damos por comprobada. El criterio está en~\cite[secciones~4.8--4.10 y~12.7]{SchuttShioda2010}.
+Para nuestra aplicacion, el caso $m=0$ no nos interesa ya que corresponde a una superficie split. El caso $m=1$ permite calcular el rango geometrico (que nos interesa para nuestro rango sobre $K(T)$) a partir de las fibras singulares y buscar generadores de los puntos resolviendo finitas identidades. Aqui \emph{geometricamente racional} significa birracional a $\PP^2$ sobre $\bar K$. Con $m=2$ podemos alcanzar rangos geometricos mayores y aprovechar distintas fibraciones elipticas\footnote{Dos fibraciones elipticas distintas serán dos formas de especializar en la superficie para obtener curvas elipticas, pero que no sean ``cambiar T por T+1'' sino realmente tener curvas diferentes.} sobre una misma K3. Ambos tienen igualmente cotas de maximo rango posible.
 
-Por ejemplo, en nuestra familia $y^2=x^3+(k^2-1)^2$ hagamos $k=T^2$. Queda
-\[
-F_T:y^2=x^3+(T^4-1)^2,\qquad
-P=(T^4-1,T^2(T^4-1)).
-\]
-Este modelo es minimal y el coeficiente tiene grado $8$, de modo que $m=2$ y tenemos una K3 eliptica. Conservamos la seccion $P$ y la de orden $3$ dada por $(0,T^4-1)$.
+El caso $m>2$ tambien permite construir familias de rango alto, pero no presenta esa posiblidad de tener mas de una fibracion eliptica. El rango que uno puede obtener en la superficie se reduce a medida que aumenta la cantidad de fibras singulares, y el metodo para deshacernos de ellas era el de cambiar la fibracion por una con menos, y por eso no se utilizan estas superficies para los metodos que queremos. 
 
-Para ver que $P$ no es de torsion alcanza especializar en $T=2$. Obtenemos
-\[
-F_2:y^2=x^3+225,\qquad P_2=(15,60),\qquad
-x(2P_2)=\left(\frac{3\cdot15^2}{2\cdot60}\right)^2-30=\frac{105}{64}.
-\]
-Si $P_2$ fuese de torsion, tambien lo seria $2P_2$, contradiciendo Nagell--Lutz. Una seccion de torsion especializa a un punto de torsion, por lo que $P$ tiene orden infinito. Este cambio de parametro nos dio una K3 con un punto independiente conocido; no prueba por si solo que el rango haya aumentado.
+No vamos a entrar en estos temas, pero en los articulos citados se encuentran las herramientas para trabajar con cada caso. Todavia no fueron aplicadas estas herramientas mas complejas en los tipos de resultados que nos interesan.
 
-\subsection*{Leer el rango en la superficie}
-
-Las secciones tambien son curvas dentro de la superficie, y podemos relacionarlas con las otras clases de divisores para obtener el rango. Para una fibra singular, sea $m_v$ su numero de componentes irreducibles sobre $\bar K$.
-
-\begin{theorem}[Shioda--Tate]\label{theorem:ShiodaTate}
-Para una superficie eliptica sobre $\PP^1$ con seccion y al menos una fibra singular,
-\[
-\rg E(\bar K(T))=\rho-2-\sum_v(m_v-1).
-\]
-\end{theorem}
-
-La demostracion está en~\cite[teorema~6.3 y corolario~6.13]{SchuttShioda2010}; tambien se resume en~\cite[seccion~1]{Shioda1992Remarks}. Los dos divisores que restamos primero son la seccion $\OO$ y una fibra. Cada componente adicional de una fibra reducible ocupa otro lugar que no corresponde a un punto independiente. Por eso buscamos superficies con $\rho$ grande y pocas componentes de este tipo.
-
-Esta formula calcula el rango sobre $\bar K(T)$. Para obtener puntos sobre $K(T)$ hay que verificar que las secciones estén definidas sobre $K$. Ademas, encontrar varias secciones no prueba su independencia: podemos comprobarla en una fibra o calcular la matriz del emparejamiento de alturas entre ellas. Un determinante no nulo certifica la independencia. En superficies, estas alturas se calculan mediante intersecciones de secciones y contribuciones de las fibras singulares; las formulas están en~\cite[seccion~11.8]{SchuttShioda2010}.
 
 \section{Teoremas de especializacion}\label{sec:especializacion}
 
-Vamos a comentar la recopilacion del apendice C, seccion 20, de Silverman~\cite{SilvermanAEC}, conservando tambien la version que usaremos para nuestra familia. En toda esta seccion $K$ es un cuerpo de numeros.
+Vamos a comentar la recopilacion del apendice C, seccion 20, de Silverman~\cite{SilvermanAEC}, conservando tambien la version que usaremos para nuestra familia.
 
 Recordemos que a nosotros nos interesa generar una familia de curvas elipticas con caracteristicas particulares de su grupo de Mordell-Weil, y que dijimos que ibamos a hacer esto via especializacion de una superficie eliptica. Hasta ahora vimos (comentamos) la construccion de ese grupo en el contexto de superficies elipticas y algunas de sus propiedades. Veamos ahora cuando esas propiedades se traspasan a las curvas que obtenemos.
 
-Si tenemos una superficie eliptica $\ee\to\cc$ y un punto $P\in E(K(\cc))$ en la curva eliptica asociada, habiamos definido que la seccion $\sigma_P:\cc\to\ee$ que notamos $t\mapsto P_t$ era el analogo a los puntos. Intuitivamente era como elegir en cada curva \emph{el mismo punto} a lo largo de la superficie. Dando vuelta esta asignacion podemos decir que cada $t\in\cc(K)$ con fibra lisa define un mapa de especializacion
+Si tenemos una superficie eliptica $\ee\to\cc$ y un punto $P\in E(K(\cc))$ en la curva eliptica asociada, habiamos definido que la seccion $\sigma_P:\cc\to\ee$ que notamos $t\mapsto P_t$ era el analogo a los puntos. Intuitivamente era como elegir en cada curva \emph{el mismo punto} a lo largo de la superficie. Dando vuelta esta asignacion podemos decir que cada $t\in\cc(K)$ cuya fibra sea no singular define un mapa de especializacion
 \[
 \sigma_t:E(K(\cc))\longrightarrow\ee_t(K),\qquad P\longmapsto P_t.
 \]
-En una ecuacion de Weierstrass no es mas que reemplazar el parametro por $t$, usando coordenadas proyectivas si aparecen polos. Es un morfismo de grupos por la definicion que dimos de suma de secciones.
+
+En una ecuacion de Weierstrass, eso no es mas que reemplazar el parametro $T$ por $t$, usando coordenadas proyectivas si aparecen polos. Es un morfismo de grupos por la definicion que dimos de suma de secciones.
 
 \subsection*{Conservar el grupo al especializar}
+
+El teorema de irreducibilidad de Hilbert nos decia que, dado un polinomio irreducible en dos variables, hay infinitas especializaciones en una de ellas que lo mantienen irreducible (como polinomio de una variable ahora). Algo similar a esto nos interesaría que ocurra con nuestras superficies elipticas: que las especializaciones sean curvas elipticas y que preserven sus relaciones algebraicas (es decir, el grupo de Mordell-Weil). 
 
 Primero podemos considerar familias con varios parametros independientes. Néron demostro que hay infinitas especializaciones que conservan todos los puntos y sus relaciones, usando una generalizacion del teorema de irreducibilidad de Hilbert.
 
@@ -922,9 +887,7 @@ Sea $E$ una curva eliptica sobre $K(T_1,\ldots,T_m)=K(\PP^m)$, con $m\geq1$. Hay
 es inyectivo.
 \end{theorem}
 
-Este es el teorema~20.1 de la recopilacion. Néron construyo familias con muchos puntos independientes y obtuvo, como aplicacion, infinitas curvas sobre $\QQ$ de rango al menos $10$~\cite[apendice C, corolario~20.1.1 y observacion~20.2]{SilvermanAEC}. Masser extendio y reforzo su resultado con metodos de trascendencia, como se comenta en la observacion~20.2.1.
-
-Para una familia sobre una curva podemos decir mas: bajo la siguiente hipotesis, las excepciones son finitas.
+Esto no nos basta para especializar en cualquier lado, como necesitamos poner condiciones al $t$ vamos a querer tener infinitos con ciertas congruencias (por ejemplo). Esto se puede arreglar aún usando el teorema anterior o simplemente ver el siguiente resultado de Silverman que nos da una condicion que es suficiente: las excepciones son finitas.
 
 \begin{theorem}[Silverman]\label{Especializacion}
 Sea $E/K(\cc)$ una curva eliptica con $j$-invariante no constante. El mapa
@@ -938,46 +901,51 @@ Esta es la version del teorema~20.3 del apendice C. La misma conclusion vale si 
 
 La forma de ver lo que queremos es que si tenemos $r$ puntos independientes en $E(K(\cc))$ entonces sus especializaciones serán independientes por inyectividad, ya que una combinacion que nos de $\OO$ podria traerse a la superficie. Similarmente se mantiene la torsion. En particular, el rango de las curvas es al menos el de la superficie fuera de esas excepciones.
 
-La demostracion utiliza la teoria de alturas: al crecer la altura de $t$, las alturas canonicas de los puntos especializados, normalizadas por esa altura, se aproximan a las de las secciones. Lo mismo ocurre con sus emparejamientos. Entonces la matriz de alturas de puntos independientes conserva determinante no nulo para $h(t)$ suficientemente grande, y se mantiene la independencia. Este es el criterio que vimos en la seccion de altura canonica. La torsion conserva su orden en las fibras lisas, como veremos enseguida. Finalmente, hay solo finitos $t\in\cc(K)$ de altura acotada y finitas fibras singulares. Los resultados de alturas que permiten este argumento se desarrollan en~\cite[cap.~III, seccion~11]{SilvermanAdvanced}.
+La demostracion utiliza la teoria de alturas: al crecer la altura de $t$, las alturas canonicas de los puntos especializados, normalizadas por esa altura, se aproximan a las de las secciones. Lo mismo ocurre con sus emparejamientos. Entonces la matriz de alturas de puntos independientes conserva determinante no nulo para $h(t)$ suficientemente grande, y se mantiene la independencia. 
 
-Cuando el rango de una especializacion es estrictamente mayor que el de la superficie se dice que hay un \emph{salto de rango}, pero sobre cuando ocurre esto no se sabe realmente mucho. Para familias no isotriviales sobre $\QQ$, se espera que las especializaciones de rango igual al generico o uno mayor tengan densidad total $1$, respecto a la altura del parametro. Ni siquiera se sabe en general si hay infinitas sin salto de rango. Zywina dio en 2025 el primer ejemplo no isotrivial donde se demuestra esa infinitud~\cite{Zywina2025RankDoesNotJump}, combinando especializacion con los metodos de descenso que veremos en el proximo capitulo.
-
-Hay una conjetura de Nagao que generaliza BSD al contexto de curvas elipticas sobre cuerpos de funciones, y está probada para superficies elipticas racionales por Rosen y Silverman~\cite[apendice C, observacion~20.4.1]{SilvermanAEC}.
+Cuando el rango de una especializacion es estrictamente mayor que el de la superficie se dice que hay un \emph{salto de rango}, pero sobre cuando ocurre esto no se sabe realmente mucho. Para familias no triviales sobre $\QQ$, se espera que las especializaciones de rango igual al generico o uno mayor tengan densidad total $1$, respecto a la altura del parametro. Ni siquiera se sabe en general si hay infinitas sin salto de rango. El prmier paper de Zywina da el primer ejemplo no isotrivial donde se demuestra esa infinitud~\cite{Zywina2025RankDoesNotJump} con los metodos que estamos contando.
 
 \subsection*{Que podemos llevarnos a las curvas}
 
-El teorema de especializacion se aplica tambien cuando la superficie es una K3 eliptica non-split: la curva generica sigue siendo una curva eliptica.
+Chequear la independencia de secciones en la superficie puede ser dificil, o al menos lo es mas que chequear independencia de los puntos en alguna especializacion, y la siguiente observacion nos dice que eso basta para obtener independencia en toda la superficie:
 
-A veces es mas facil verificar la independencia en una curva concreta que calcular alturas en el cuerpo de funciones. Para volver desde esa curva a la superficie basta la siguiente observacion.
-
-\begin{prop}\label{prop:independenciaUnaFibra}
-Sean $P_1,\ldots,P_r\in E(K(\cc))$. Si en una fibra lisa sus especializaciones son independientes modulo torsion, entonces los puntos originales tambien lo son.
-\end{prop}
+\begin{remark}\label{prop:independenciaUnaFibra}
+Sean $P_1,\ldots,P_r\in E(K(\cc))$. Si en una fibra no singular sus especializaciones son independientes modulo torsion, entonces los puntos originales tambien lo son.
+\end{remark}
 \begin{proof}
 Una relacion entre los $P_i$ que diese un punto de torsion produciria la misma relacion modulo torsion al especializar. La independencia en la fibra obliga a que todos sus coeficientes sean cero.
 \end{proof}
 
-En la otra direccion usamos Silverman, y para la torsion podemos decir algo incluso en cada fibra lisa.
+La torsion se conserva incluso en cada fibra no singular, y este resultado ``ya lo vimos''. Recordemos que, al reducir modulo primos, la torsion (de orden no divisible por la caracteristica del cuerpo residual) conserva su orden. La condicion que usamos es que ese orden sea invertible luego de reducir. Al especializar en $t\in\cc(K)$ (que para $\cc=\PP^1$ es como reducir modulo $T-t$), el cuerpo residual es $K$ y todo es invertible:
 
-\begin{corollary}\label{cor:datosEspecializados}
-Sea $E/K(T)$ una curva eliptica cuya superficie es non-split.
-\begin{enumerate}[label=\roman*.]
-    \item Si conocemos $r$ puntos independientes sobre $K(T)$, obtenemos $\rg E_t(K)\geq r$ para todos salvo finitos $t\in\PP^1(K)$.
-    \item Un punto de orden $n$ conserva su orden en toda fibra lisa.
-    \item Una isogenia definida sobre $K(T)$ especializa, fuera de un conjunto finito de parametros, a una isogenia sobre $K$ del mismo grado. En particular, un nucleo generado por un punto racional de orden $n$ permite hacer descenso de grado $n$ en esas fibras.
-\end{enumerate}
-\end{corollary}
-\begin{proof}
-La primera afirmacion es consecuencia de la inyectividad. Para la segunda aplicamos el argumento de reduccion de la proposicion~\ref{prop:reduccionBuena}, ahora en el lugar $T-t$: su cuerpo residual tiene caracteristica cero, por lo que la inyectividad vale para todo $n$~\cite[cap.~VII, proposicion~3.1]{SilvermanAEC}. Para la tercera, excluimos los parametros de mala reduccion de las dos curvas y aquellos donde las formulas del mapa degeneran. La isogenia y su nucleo se especializan con el mismo grado; en el caso de un nucleo racional tambien se ve directamente con las formulas de Vélu.
-\end{proof}
+\begin{remark}\label{prop:torsionEspecializacion}
+Sea $E/K(\cc)$ una curva eliptica. Para todo $t\in\cc(K)$ cuya fibra sea no singular, la especializacion es inyectiva sobre
+\[
+E(K(\cc))_{\rm tors}\longrightarrow\ee_t(K)_{\rm tors}.
+\]
+En particular, un punto de orden $n$ especializa a un punto de orden exactamente $n$.
+\end{remark}
 
-Para obtener rango \emph{exactamente} $r$ todavia necesitamos una cota superior en las fibras. Ese será el trabajo del descenso. Tampoco debemos confundir infinitos parametros con infinitas clases de isomorfismo: si $j(T)$ no es constante, sus valores ya dan infinitas clases; si $j$ es constante, como en nuestra familia, hay que distinguir los giros que aparecen. Para $y^2=x^3+b$ las clases de isomorfismo sobre $K$ se distinguen por $b\in K^\times/(K^\times)^6$.
+Notemos que puede haber más torsion, y para evitar esto vamos a tener que hacer un analisis de las curvas.
 
-En la practica, el procedimiento será construir secciones, certificar su independencia y especializar fuera de los parametros excepcionales. Luego imponemos las condiciones locales que den la cota superior buscada. El teorema de Silverman garantiza que las excepciones a la inyectividad son finitas, pero no nos da por si solo una lista de ellas.
+Para hacer descenso tambien necesitamos llevarnos la isogenia, no solo sus puntos del nucleo. Sus formulas son funciones racionales cuyos coeficientes pertenecen a $K(\cc)$; podemos especializarlos, pero debemos excluir los parametros donde las curvas sean singulares o las formulas degeneren. Igualmente vamos a tener el resultado que queremos:
+
+\begin{prop}\label{prop:isogeniasEspecializacion}
+Sean $E,E'$ curvas elipticas sobre $K(\cc)$ y sea $\phi:E\to E'$ una isogenia de grado $n\geq1$ definida sobre ese cuerpo. Para todos salvo finitos $t\in\cc(K)$, especializa a una isogenia
+\[
+\phi_t:\ee_t\longrightarrow\ee'_t
+\]
+definida sobre $K$ y de grado $n$. Si $\nuc(\phi)=\lc T_0\rc$ para un punto $T_0\in E(K(\cc))$ de orden $n$, entonces $\nuc(\phi_t)=\lc (T_0)_t\rc$.
+\end{prop}
+
+
 
 \section{Construir superficies elipticas de rango alto}\label{sec:construirRangoAlto}
 
-Para obtener una familia de rango al menos $r$ necesitamos $r$ puntos independientes sobre el cuerpo de funciones. Podemos comenzar por una ecuacion e intentar encontrar puntos, pero tambien podemos elegir la forma de los puntos y buscar los coeficientes que hagan que todos pertenezcan a la misma curva. Veamos primero esta segunda opcion con cuentas explicitas, y luego las herramientas geometricas que permiten llegar a rangos mayores.
+\textbf{borrar casi todo. Arrancar aclarando que no hay teoria para esta parte, pero varios truquitos ponele}
+
+
+Para obtener una familia de rango al menos $r$ necesitamos $r$ puntos independientes sobre $K(\cc)$. Podemos comenzar por una ecuacion e intentar encontrar puntos, pero tambien podemos elegir la forma de los puntos y buscar los coeficientes que hagan que todos pertenezcan a la misma curva. Veamos primero esta segunda opcion con cuentas explicitas, y luego las herramientas geometricas que permiten llegar a rangos mayores.
 
 \subsection{Construcciones mediante identidades}
 
@@ -2462,9 +2430,34 @@ Para presentar la familia podemos fijar $\delta=\omega$, como queríamos. El pro
 
 Esta será una seccion corta donde contaremos algunos resultados de combinatoria aditiva que nos permiten asegurar la existencia de primos del modo que nos interesa para asegurar que tendremos infinitos ejemplos de la curva que construimos. Estos tipos de resultados son los que se usan en los papers de Zywina, Savoie y demas, pero principalmente como una ``caja negra'' ya que provienen de otras areas de la teoria de números.
 
-\textbf{armar muchos ejemplos con mateo y marce}
 
 \section{sobre $\ZZ$ para introducir}
+
+LINEAR EQUATIONS IN PRIMES
+
+Conjetura generalizada de Hardy-Littlewood: para $\psi_i$ varias formas lineales afines (ie mas una cte)
+\[
+\{ n \in B_r \cap \ZZ^d: \psi_1(n), \cdots , \psi_t(n) \text{ son primos} \} = (1+ o_{asd}(1))(\text{cosas feas})
+\]
+
+Que me dice algo sobre cantidad de valores de $n$ donde consigo que la imagen de mis formas lineales sean todos primos. Ver examples en el primero de tao pags 7 y 8. Despues tiene muuuchas cosas buenas y consecuencias, pero no se si las conjeturas estan probadas o no.
+
+THE MOBIUS FUNCTION IS STRONGLY ORTHOGONAL TO NILSEQUENCES
+
+Aca prueba un par de conjeturas, pero no se bien que consecuencias tiene, no menciona nada de eso.
+
+THE PRIMES CONTAIN ARBITRARILY LONG POLYNOMIAL PROGRESSIONS
+
+Prueban: given any integer-valued polynomials $P_1,\ldots, P_k \in \ZZ[m]$ in one unknown $m$ with $P_1(0) = \cdots = P_k(0) = 0$ and any $\varepsilon > 0$, we show that there are infinitely many integers $x, n$ with $1 \leq n \leq x^\varepsilon$ such that $x + P_1(n),\ldots , x + P_k(n)$ are simultaneously prime.
+
+Viene de: Theorem $1.1$ (Polynomial Szemerédi theorem).[6] Let $A \subset \ZZ$ be a set of positive upper density, i.e. limsup $|A\cap[N]|/N > 0$. Then given any integer-valued polynomials $P_1,\ldots , P_k \in \ZZ[m]$ in one unknown m with $P_1(0) = \cdots= P_k(0) = 0$, A contains infinitely many progressions of the form $x + P_1(n), . . . , x + P_k(n)$ with
+$n > 0$.
+
+Y lo hacen poniendo $P$ en vez de $\ZZ$ en el de Szemeredi.
+
+THE QUANTITATIVE BEHAVIOUR OF POLYNOMIAL ORBITS ON NILMANIFOLDS
+
+
 
 \section{Sobre cuerpos de numeros}\label{sec:kai}
 
@@ -2473,7 +2466,7 @@ Para nuestro resultado necesitamos tres elementos primos en progresion aritmetic
 \begin{theorem}[Kai, caso de tres formas sobre $\QQ(\omega)$]\label{thm:kaiFormas}
 Sean
 \[
-\psi_i(U,V)=A_iU+B_iV+C_i\in\ZZ[\omega][U,V],
+\psi_i(U,V)=A_i U+B_i V+C_i\in\ZZ[\omega][U,V],
 \qquad i=1,2,3.
 \]
 Supongamos que las partes lineales son independientes dos a dos, es decir,
@@ -2528,6 +2521,164 @@ Esta es la forma de usar Kai como caja negra: escribir los factores como formas 
 
 
 
+
+% INICIO DE LA RECOPILACION TEMPORAL DEL CAPITULO 4
+\section{Recopilación final: patrones de primos para especializar}\label{sec:primosTemporal}\label{subsec:tmpResumenPrimos}
+
+Reunimos las herramientas que permiten especializar los factores de los coeficientes de una familia elíptica en primos con las condiciones necesarias para el descenso. No hay un único teorema que contenga todas estas aplicaciones: las restricciones sobre los parámetros, las congruencias y el tipo de primo forman parte de cada conclusión. El control del soporte es el vínculo con el descenso; véanse Stoll~\cite[\S1.1, teoremas~1.1--1.2]{Stoll2006Descent} y Schaefer--Stoll~\cite[\S4, lema~4.5 y proposición~4.6]{SchaeferStoll2004}. Producir los primos es un paso previo al cálculo local, no una afirmación de rango.
+
+Sobre $\QQ$, primo significa entero positivo primo. Sobre un cuerpo de números $K$, un elemento primo $\pi\in\OO_K$ genera un ideal primo no nulo; dos elementos son asociados si difieren por una unidad. Un ideal primo puede no ser principal, y $|N_{K/\QQ}(\pi)|$ puede ser una potencia de un primo racional. Las congruencias de los parámetros se incorporan antes de comprobar las hipótesis de los resultados siguientes.
+
+\paragraph{1. Sobre cualquier cuerpo: Kai, incluyendo la aproximación local.}
+Cuando los factores relevantes son afines, escribimos
+\[
+L_i(\boldsymbol{x})=\boldsymbol{a}_i\cdot\boldsymbol{x}+c_i
+\in\OO_K[X_1,\ldots,X_d],\qquad 1\leq i\leq r.
+\]
+Suponemos que las partes lineales son no nulas e independientes dos a dos sobre $K$, y que
+\begin{equation}\label{eq:tmpAdmisibilidadK}
+\text{para todo ideal primo }\pp,\quad
+\exists\boldsymbol{x}_{\pp}\in(\OO_K/\pp)^d:
+\quad\prod_iL_i(\boldsymbol{x}_{\pp})\neq0.
+\end{equation}
+Entonces hay infinitos parámetros con todos los valores elementos primos. Si $n=[K:\QQ]$, en cajas de tamaño $N$ de una base integral se obtienen $\gg N^{nd}/(\log N)^r$ soluciones. Para imponer signos en los lugares reales se necesita una región de volumen positivo compatible con ellos; sobre $\QQ$ basta una dirección $\boldsymbol{v}$ con $\boldsymbol{a}_i\cdot\boldsymbol{v}>0$ para todo $i$.
+
+Son los teoremas~1.1 y~12.1 y la observación~12.3 de Kai~\cite{Kai2026Patrones}, que extienden a $K$ el resultado de Green--Tao--Ziegler. Incluyen la producción de primos en clases residuales reducidas y de patrones afines sobre $\QQ$. También se pueden exigir normas racionales primas: los ideales de grado residual mayor que~1 aportan una cantidad despreciable. Esto no permite fijar arbitrariamente coordenadas de los parámetros.
+
+Para aplicarlo, se introducen las congruencias mediante $\boldsymbol{x}=\boldsymbol{x}_0+M\boldsymbol{y}$, con $M\in\OO_K\setminus\{0\}$, y se repite \eqref{eq:tmpAdmisibilidadK}. La comprobación es finita: fuera de los ideales donde alguna parte lineal se anula al reducir, cada factor elimina un hiperplano; si $N(\pp)>r$, esos hiperplanos no cubren todo el espacio residual. El conteo permite excluir ceros de polinomios no nulos en las coordenadas enteras, pues tienen $O(N^{nd-1})$ puntos.
+
+Si $S$ es un conjunto finito de ideales primos y $e_1,\ldots,e_r\in\OO_K[S^{-1}]$ son distintos, el teorema~13.1 y la proposición~13.2 de Kai permiten aproximar pares locales $(\lambda_{\pp},\mu_{\pp})\in K_{\pp}^2$ para $\pp\in S$, controlar $\lambda/\mu$ en los lugares arquimedianos y conseguir que todos los $\lambda-e_i\mu$ sean primos no asociados en $\OO_K[S^{-1}]$. Fuera de $S$, cada uno tiene exactamente un factor primo, con exponente~1; en $S$ puede tener otros factores.
+
+La proposición~13.3 da una variante directamente en el parámetro: para datos $T_{\pp}\in K_{\pp}\setminus\{e_1,\ldots,e_r\}$, se obtiene $T\in K$ tan próximo a ellos como se quiera, totalmente positivo y arbitrariamente grande en todos los valores absolutos arquimedianos, con ideales distintos $\pp_i\notin S$ tales que
+\[
+v_{\pp_i}(T-e_i)=1,\qquad
+v_{\mathfrak q}(T-e_i)\leq0
+\quad(\mathfrak q\notin S\cup\{\pp_i\}).
+\]
+Además, si $L/K$ es cíclica y no ramifica fuera de $S$,
+\[
+\operatorname{inv}_{\pp_i}(L/K,T-e_i)
+=-\sum_{\pp\in S}\operatorname{inv}_{\pp}(L/K,T_{\pp}-e_i).
+\]
+Aquí $\operatorname{inv}_v(L/K,z)$ es el invariante local del álgebra cíclica definida por $z$ y un carácter fiel fijo de $\operatorname{Gal}(L/K)$. Si la suma es cero, $\pp_i$ se descompone completamente en $L$. Las valuaciones negativas siguen permitiendo denominadores, que deben incluirse en el análisis del modelo elíptico.
+
+\paragraph{2. Sobre cualquier cuerpo: constelaciones relativas con dilatación entera.}
+Sea $A$ un conjunto de elementos primos de $\OO_K$ de densidad relativa superior positiva: la proporción de elementos de $A$ entre los primos de cajas crecientes de una base integral tiene límite superior positivo. Para cualquier conjunto finito $\mathcal V\subset\OO_K$, existen
+\[
+\beta+k\mathcal V\subset A,\qquad
+\beta\in\OO_K,\quad k\in\ZZ_{>0},
+\]
+sin pares de asociados. Es el teorema~1.4 de Kai, Mimura, Munemasa, Seki y Yoshino, \href{https://arxiv.org/abs/2012.15669v2}{\emph{Constellations in prime elements of number fields}}. Contiene las progresiones de Green--Tao y las constelaciones gaussianas de Tao. Una clase reducida módulo un ideal no nulo tiene la densidad requerida, por el teorema de Mitsui en la formulación de Kai~\cite[\S6]{Kai2026Patrones}.
+
+No es un caso particular del bloque anterior: admite un subconjunto denso arbitrario y exige una dilatación en $\ZZ$. Si $[K:\QQ]>1$, para elementos distintos $v_i$ las aplicaciones
+\[
+\psi_i(\beta,k)=\beta+kv_i,\qquad
+(\beta,k)\in\OO_K\oplus\ZZ
+\]
+satisfacen $\psi_i(\operatorname{nu}(\psi_j))=\ZZ(v_i-v_j)$ para $i\neq j$. Este subgrupo tiene rango~1 e índice infinito en $\OO_K$, y falla la condición de conúcleo finito de la versión $\ZZ$-lineal del teorema~12.1 de Kai; véase su observación~12.4.
+
+El teorema~1.6 del mismo artículo sobre constelaciones trata los casos cuadráticos: si
+\[
+F(X,Y)=AX^2+BXY+CY^2,\quad \mcd(A,B,C)=1,
+\]
+su discriminante $B^2-4AC$ no es cuadrado y $F$ no es definida negativa, entonces, para cualquier $\mathcal V\subset\ZZ^2$ finito, existen $\boldsymbol{u}\in\ZZ^2$ y $k\in\ZZ_{>0}$ tales que todos los $F(\boldsymbol{u}+k\boldsymbol{v})$, con $\boldsymbol{v}\in\mathcal V$, son primos racionales distintos. Incluye formas de cuerpos cuadráticos reales e imaginarios; las congruencias adicionales no forman parte automática de este último enunciado.
+
+\paragraph{3. Descomposición de primos: Chebotarev sobre \texorpdfstring{$K$}{K} y Frei--Tinková sobre \texorpdfstring{$\QQ$}{Q}.}
+Para una extensión de Galois finita $L/K$ y una clase de conjugación $C$, Chebotarev produce infinitos ideales primos no ramificados con $\operatorname{Frob}_{\pp}(L/K)=C$. Para obtener generadores $\pi\equiv c\pmod{\mathfrak m}$, con $c\in\OO_K\setminus\{0\}$ coprimo con $\mathfrak m$, se pide además la clase de rayos del ideal $(c)$. Las dos condiciones deben coincidir en la intersección de $L$ con el cuerpo de clases de rayos; los signos se incorporan a la parte infinita del módulo. Fuente: Milne, \href{https://www.jmilne.org/math/CourseNotes/CFT.pdf}{\emph{Class Field Theory}}, versión~4.03, teoremas~V.2.5 y~V.3.23, pp.~156 y~164.
+
+Sobre $\QQ$ se pueden relacionar aditivamente los primos y prescribir por separado sus Frobenius. Sean $L_i(\boldsymbol{x})=\boldsymbol{a}_i\cdot\boldsymbol{x}+c_i\in\ZZ[\boldsymbol{x}]$ con partes lineales no nulas, no proporcionales dos a dos, sin divisor primo fijo para $\prod_iL_i$ y con una dirección $\boldsymbol{v}$ en la que todas las $\boldsymbol{a}_i\cdot\boldsymbol{v}$ sean positivas. Sean $F_i/\QQ$ extensiones de Galois finitas y $C_i$ clases de conjugación. Tomamos $D$ múltiplo de los conductores de las subextensiones abelianas máximas $F_i^{\rm ab}$. Si existe $\boldsymbol{x}_0\pmod D$ tal que todos los $L_i(\boldsymbol{x}_0)$ son unidades módulo $D$ y
+\[
+\left(\zeta_D\longmapsto\zeta_D^{L_i(\boldsymbol{x}_0)}\right)
+\big|_{F_i^{\rm ab}}=C_i\big|_{F_i^{\rm ab}},
+\]
+hay infinitos parámetros con valores $p_i=L_i(\boldsymbol{x})$ primos distintos, no ramificados en $F_i$, y $\operatorname{Frob}_{p_i}(F_i/\QQ)=C_i$. Es el corolario~1.6 de Frei--Tinková, \href{https://arxiv.org/abs/2408.17441v3}{\emph{Linear constellations in primes with arithmetic restrictions}}, incondicional.
+
+Esta última herramienta amplía el resultado afín sobre $\QQ$, pero no tiene por cuerpo base un $K$ arbitrario. Para símbolos de residuos de elementos fijos se aplica Chebotarev a la extensión de Kummer correspondiente: si $\ell$ es primo, $\mu_\ell\subset K$ y $d_j\in K^\times$ son fijos, usamos $K(\sqrt[\ell]{d_1},\ldots,\sqrt[\ell]{d_s})$, excluyendo los lugares sobre $\ell$ y los soportes de los $d_j$. Los símbolos prescritos deben respetar las relaciones entre sus clases en $K^\times/K^{\times\ell}$. Los símbolos entre dos primos que varían no quedan prescritos automáticamente.
+
+\paragraph{4. Sobre \texorpdfstring{$\QQ$}{Q}: patrones polinomiales de Tao--Ziegler.}
+Para producir $x+P_i(\boldsymbol{m})$ primos hay dos versiones complementarias.
+\begin{enumerate}
+\item Si $P_i\in\ZZ[m]$ son distintos y $P_i(0)=0$, existen infinitos patrones $x+P_i(m)$, con $m>0$, dentro de cualquier subconjunto de primos de densidad relativa superior positiva. Es el teorema~1.3 de \href{https://arxiv.org/abs/math/0610050}{\emph{The primes contain arbitrarily long polynomial progressions}}. Se puede tomar la clase $c\pmod M$ si $\mcd(c,M)=1$, y exigir $D\mid m$ sustituyendo $P_i(m)$ por $P_i(Dm)$. La demostración transfiere a los primos el teorema polinomial de Szemerédi.
+
+\item Si $P_i\in\ZZ[m_1,\ldots,m_s]$ tienen grado a lo sumo $d\geq1$, sus partes homogéneas de grado $d$ son distintas dos a dos y, para cada primo $p$, existe $(x,\boldsymbol{m})$ módulo $p$ con $\prod_i(x+P_i(\boldsymbol{m}))\neq0$, existen infinitos patrones simultáneamente primos. No se exige $P_i(0)=0$. Es el corolario~1.5, procedente del conteo del teorema~1.4, de \href{https://arxiv.org/abs/1603.07817}{\emph{Polynomial patterns in the primes}}.
+\end{enumerate}
+La primera versión admite $P_i=0,m^2,m^2+m$, cuyas partes principales no son todas distintas. La segunda admite $0,m^2+1,2m^2$: para el test local sirven $(x,m)=(1,1)$ módulo~2 y $(1,0)$ módulo cualquier primo impar. Estos ejemplos muestran por qué conservamos ambas. Sustituir en Kai una diferencia libre por $m^2$ impone una condición que su conteo afín no controla.
+
+En una variable, con $d=\max_i\operatorname{gr}P_i=\operatorname{gr}(P_i-P_j)$ para $i\neq j$, Matthiesen, Teräväinen y Wang, \href{https://arxiv.org/abs/2405.12190v2}{\emph{Quantitative asymptotics for polynomial patterns in the primes}}, teorema~1.1, mejoran el conteo: el promedio normalizado ponderado por von Mangoldt en $1\leq x\leq N^d$, $1\leq m\leq N$ tiene como término principal el producto de factores locales, positivo bajo la admisibilidad, y error $O_A((\log N)^{-A})$ para cualquier $A>0$. En ese artículo se usa $\Lambda(z)=\log p$ si $|z|=p^j$, $j\geq1$, y $0$ en otro caso; por tanto, para obtener primos positivos también se controla el signo de los valores. Su conclusión para casi todas las traslaciones, corolario~1.4, es en promedio y no fija una traslación elegida previamente.
+
+Como aplicación a coeficientes elípticos, Zywina~\cite[teorema~1.2 y \S4]{Zywina2025RankTwo} utiliza los primos $m,m+16n^2,m+25n^2$, todos $11\pmod{24}$, en
+\[
+y^2=x^3-5(m+16n^2)x^2+4(m+16n^2)(m+25n^2)x.
+\]
+La primera versión produce el patrón; el descenso es el argumento adicional que determina el rango.
+
+\paragraph{5. Resultados especiales que tampoco quedan absorbidos.}
+Las formas de coeficientes de la tabla producen infinitos primos bajo las condiciones indicadas. Que una expresión sea una norma no basta para aplicar Kai: las restricciones de sus coordenadas pueden dejar un conjunto de densidad cero en el espacio de parámetros.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}p{0.25\linewidth}p{0.70\linewidth}@{}}
+\raggedright \textbf{Fuente} & \textbf{Aplicación e hipótesis}\\
+\hline
+\raggedright \href{https://arxiv.org/abs/math/9811185}{Friedlander e Iwaniec}, teorema~1 &
+Infinitos primos $u^2+v^4$ con $u,v>0$: la norma gaussiana $N(u+iv^2)$ tiene una coordenada cuadrada. Las restricciones a progresiones fijas requieren positividad del factor local, como se explica en la p.~947.\\
+\raggedright \href{https://ora.ox.ac.uk/objects/uuid:f9bbed32-c170-427e-b683-8fd72a426827/files/m98f5c889f0f41496bdbd5f3cfca2b711}{Heath-Brown y Moroz}, teorema~1 &
+Para una forma cúbica binaria entera e irreducible $F$, se obtienen valores primos de $f(U,V)=\gamma_0^{-1}F(u_0+MU,v_0+MV)$ si $f$ tiene coeficientes enteros, es primitivo y no tiene divisor primo fijo. Se toman $M>0$, $u_0,v_0\in\ZZ$ y $\gamma_0>0$ igual al contenido. Para que $F$ mismo sea primo se necesita $\gamma_0=1$.\\
+\raggedright \href{https://arxiv.org/abs/2504.20289}{Fuchs, Hsu, Rickards, Schindler y Stange}, teorema~1.1 &
+Aplicación a $\QQ(\omega)$: hay infinitos primos $p=x^2-xy+y^2+2$ con $\mcd(x,y)=1$ y $p\equiv c\pmod M$, si $\mcd(M,6)=\mcd(c,M)=\mcd(c-2,M)=1$. Por ejemplo, se puede pedir $p\equiv1\pmod5$.\\
+\raggedright \href{https://arxiv.org/abs/1507.05080}{Maynard}, teoremas~1.1--1.2 &
+Si $\theta$ es un entero algebraico de grado $n$, $K=\QQ(\theta)$, $1\leq k<n$ y $n\geq4k$, la forma $N_{K/\QQ}(x_1+x_2\theta+\cdots+x_{n-k}\theta^{n-k-1})$ toma infinitos valores primos. Basta $n\geq22k/7$ si $\theta=\sqrt[n]{a}$, $a\in\ZZ$ y $X^n-a$ es irreducible.\\
+\end{tabular}
+\end{center}
+
+Para mezclar factores primos y condiciones de norma se conserva el teorema~1.2 de Bienvenu, \href{https://arxiv.org/abs/1511.07317}{\emph{Asymptotics for some polynomial patterns in the primes}}.
+
+Sean $\psi_1,\ldots,\psi_{r+s}$ formas afines enteras con partes lineales no nulas, no proporcionales dos a dos, y $f_{r+1},\ldots,f_{r+s}$ formas cuadráticas binarias positivas. Se piden $\psi_1,\ldots,\psi_r$ primos y $\psi_j=f_j(u_j,v_j)$ para $j>r$, en una región donde todos los valores crezcan positivamente. La condición local es que sean positivos los factores
+\[
+\beta_p=\lim_{a\to\infty}\frac{1}{p^{ad}}
+\sum_{\boldsymbol{x}\bmod p^a}
+\prod_{i=1}^r\Lambda_p(\psi_i(\boldsymbol{x}))
+\prod_{j=r+1}^{r+s}\frac{\rho_{f_j,\psi_j(\boldsymbol{x})}(p^a)}{p^a},
+\]
+donde $d$ es el número de parámetros, $\Lambda_p(z)=p/(p-1)$ si $p\nmid z$ y $0$ en caso contrario, y $\rho_{f,b}(p^a)$ cuenta las soluciones de $f(u,v)\equiv b\pmod{p^a}$. El producto de esos factores converge y, si todos son positivos, el conteo ponderado tiene término principal positivo. Así se obtienen infinitos parámetros; no se exige que los valores representados por las formas cuadráticas también sean primos.
+
+Para imponer una ecuación entre muchos coeficientes primos, una versión con cota explícita es el teorema~1.1 de Yamagishi, \href{https://arxiv.org/abs/2105.12435}{\emph{Diophantine equations in primes: density of prime points on affine hypersurfaces}}. Si $F\in\ZZ[X_1,\ldots,X_n]$ es homogéneo de grado $d\geq2$, $F=0$ tiene un punto no singular en $(0,1)^n$ y uno en $(\ZZ_p^\times)^n$ para cada primo $p$, y
+\[
+n-\dim V_F^*\geq2^8 3^4 5^2d^3(2d-1)^2 4^d,\qquad
+V_F^*=\{\boldsymbol{z}\in\CC^n:\nabla F(\boldsymbol{z})=0\},
+\]
+entonces hay infinitas soluciones con todas las coordenadas primas. La cota muestra que se necesitan muchas variables. Para sistemas con distintos grados, la referencia complementaria es su \href{https://arxiv.org/abs/1703.03332}{\emph{Prime solutions to polynomial equations in many variables and differing degrees}}, teorema~1.2; ese resultado requiere comprobar las condiciones de rango de cada grupo de grados y no se deduce de la cota escrita para una sola ecuación.
+
+Hay dos alternativas si el descenso tolera conclusiones más débiles. Maynard, \href{https://arxiv.org/abs/1311.4600}{\emph{Small gaps between primes}}, proposiciones~4.2--4.3, demuestra que para cada $m$ existe $k_0(m)$ tal que toda tupla de enteros distintos $h_1,\ldots,h_k$, con $k\geq k_0(m)$ y sin divisor primo fijo de $\prod_i(n+h_i)$, tiene infinitos $n$ con al menos $m$ valores primos. Algún subconjunto de $m$ índices se repite infinitamente, pero no se elige de antemano. Iwaniec, \href{https://doi.org/10.1007/BF01578070}{\emph{Almost-primes represented by quadratic polynomials}}, teorema de la p.~172, produce infinitos $n^2+1$ con a lo sumo dos factores primos, contados con multiplicidad.
+
+Finalmente, Skorobogatov--Sofos, \href{https://arxiv.org/abs/2005.02998v3}{\emph{Schinzel Hypothesis on average and rational points}}, teorema~1.2, permite variar los coeficientes. Fijados grados $d_i>0$, $M\geq1$, $n_0$ y polinomios $Q_i$ de grado a lo sumo $d_i$ con $\mcd(M,\prod_iQ_i(n_0))=1$, para el $100\%$ de las tuplas $P_i$ de grados $d_i$, coeficientes principales positivos, $P_i\equiv Q_i\pmod M$ y sin divisor primo fijo del producto, ordenadas por altura de coeficientes, existe un $n\equiv n_0\pmod M$ con todos los $P_i(n)$ primos distintos. Esto produce nuevas elecciones de coeficientes; no afirma infinitas especializaciones para una tupla fija.
+
+\paragraph{Cómo pasar de los resultados a infinitos ejemplos.}
+Primero se escriben las condiciones concretas del descenso y se incorporan al patrón. Después se certifican la primalidad y los datos locales de cada candidato. La garantía de continuar la búsqueda depende de la herramienta:
+\begin{enumerate}
+\item En los conteos afines se excluyen los primos anteriores y las degeneraciones, comprobando que los conjuntos descartados tengan orden menor que el término principal. Otra opción es imponer que todos los factores sean unidades en los ideales ya usados, mediante nuevas congruencias compatibles, y aplicar el teorema con ese módulo fijo.
+\item En las versiones relativas se quitan del conjunto denso los primos anteriores; sobre $K$, también sus asociados, que tienen densidad cero en las cajas. Para hacer crecer el parámetro polinomial de Tao--Ziegler se sustituye $P_i(m)$ por $P_i(Dm)$ con $D$ creciente.
+\item Para la constelación cuadrática, se aplica el resultado a más de $|\mathcal F|$ copias trasladadas disjuntas del patrón, donde $\mathcal F$ es el conjunto de valores primos ya usados. Como todos los valores obtenidos son distintos, alguna copia evita $\mathcal F$.
+\end{enumerate}
+Los resultados especiales con conteo de valores primos permiten superar cualquier cota de valores anteriores. Al enumerar parámetros se deben recorrer cajas crecientes, sin fijar coordenadas que el teorema necesita libres. La infinitud garantiza que la búsqueda exhaustiva encuentra otro ejemplo; no da necesariamente una cota práctica pequeña para encontrarlo.
+
+Para nuestra familia sobre $K=\QQ(\omega)$, con $\omega^2+\omega+1=0$, se toman
+\[
+c=4+3\omega,\qquad a=6U,\qquad b=c+6V,
+\qquad t=b(b-a)(b+a).
+\]
+Las formas $c+6(V-U),c+6V,c+6(V+U)$ tienen determinantes $-36,-72,-36$. En los ideales sobre $6$, $c$ es una unidad porque $N(c)=13$; en los demás, $U=0$, $V=(1-c)/6$ da valores~1. Kai permite luego excluir $U=0$ y las coincidencias por unidades, que aquí son finitas. Alternativamente, el teorema relativo aplicado a los primos $\pi\equiv c\pmod6$ y al patrón $\{-6,0,6\}$ produce $b-6k,b,b+6k$ primos no asociados con $k>0$ entero, conservando $a=6k\in\ZZ$.
+
+Para repetir sin reutilizar ideales, registramos los usados en $\mathcal F$, tomamos $M=6\prod_{\mathfrak q\in\mathcal F}\pi_{\mathfrak q}$, con $(\pi_{\mathfrak q})=\mathfrak q$, y elegimos $c_{\mathcal F}\equiv c\pmod6$, $c_{\mathcal F}\equiv1\pmod{\mathfrak q}$ para $\mathfrak q\in\mathcal F$. Esto es posible porque $\ZZ[\omega]$ es principal y los ideales usados no dividen $6$. Se buscan $a=MU$, $b=c_{\mathcal F}+MV$; el mismo test local permite repetir el proceso. Cada etapa usa un módulo fijo, sin afirmar uniformidad mientras ese módulo crece.
+
+Infinitos parámetros todavía no significan infinitas curvas. Para $E_t:y^2=x^3+t^2$, un isomorfismo sobre $K$ obliga a que $(t'/t)^2$ sea una sexta potencia y, por tanto, a que $t'/t$ sea un cubo. Sus valuaciones deben ser múltiplos de~3. Si los nuevos productos $t$ tienen tres ideales primos distintos, todos de exponente~1 y con soporte disjunto de los anteriores, una valuación de $t'/t$ es $-1$, lo que impide el isomorfismo. En otras familias hay que comprobar su propio criterio de isomorfismo, además del descenso.
+
+\paragraph{Alcance conjetural.}
+La hipótesis H de Schinzel predice infinitos valores simultáneamente primos de polinomios no constantes, irreducibles en $\ZZ[T]$, con coeficientes principales positivos y sin divisor primo fijo del producto. Dickson es el caso de varios factores lineales en una variable; Bateman--Horn añade una predicción de conteo. Son conjeturas, como distingue la introducción de Skorobogatov--Sofos. En particular, los teoremas anteriores no permiten fijar una diferencia arbitraria entre todos los primos del patrón.
+
+
+% FIN DE LA RECOPILACION TEMPORAL DEL CAPITULO 4
 
 \chapter{Familia de curvas elipticas con \texorpdfstring{$j=0$}{j=0} sobre \texorpdfstring{$\QQ(\omega)$}{Q(omega)} de rango 2}
 \label{cap:result}
