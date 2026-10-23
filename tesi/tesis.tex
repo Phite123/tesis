@@ -1,6 +1,5 @@
-\documentclass[12pt, a4paper]{report}
+\documentclass[a4paper]{book}
 
-% --- Paquetes básicos ---
 \usepackage[utf8]{inputenc}
 \usepackage[T2A,T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -14,7 +13,8 @@
 \usepackage{enumitem}
 \usepackage{stmaryrd}
 \usepackage{comment}
-\usepackage{graphicx} % <--- AGREGADO: Necesario para la imagen uba2.jpg
+\usepackage{booktabs}
+\usepackage{graphicx} 
 \usepackage[colorlinks=true, linkcolor=blue]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{babel,positioning,arrows.meta,calc}
@@ -44,6 +44,8 @@
 \renewcommand{\proofname}{Demostración}
 
 % --- Comandos personalizados ---
+\newcommand{\nbd}{\nobreakdash}
+
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\im}{Im}
@@ -189,8 +191,10 @@ Usaremos la notacion habitual de teoria de numeros algebraica, que resumimos a c
 
 Para nuestro caso particular de interes fijamos $\omega=(-1+\sqrt{-3})/2$, de modo que $\omega^2+\omega+1=0$. Usaremos una curva en especifico, pero la iremos presentando con mas o menos generalidad para simplificar la notacion. $E_d:y^2=x^3+d$ será la mas general, llamada curva de Mordell; luego, para asegurarnos el punto de 3-torsion $(0,t)$, tomaremos $d=t^2$ y la llamaremos $E_t:y^2=x^3+t^2$; despues usaremos $t=k^2-1$, con el cual tenemos un punto libre sobre el cuerpo de funciones, y la curva será $E_k:y^2=x^3+(k^2-1)^2$; finalmente escribiremos $k=a/b$ y, tras el cambio $(x,y)\mapsto(b^2x,b^3y)$, tendremos
 \[
-E_{a,b}:y^2=x^3+{\lp b(a-b)(a+b)\rp}^2.
+E_{a,b}:y^2=x^3+{\lp (b-a)b(b+a)\rp}^2.
 \]
+En el modelo con coeficientes enteros usaremos $t=(b-a)b(b+a)$. El signo no cambia la ecuacion, que depende de $t^2$, y determina cual de los dos puntos $(0,\pm t)$ llamamos $T_0=(0,t)$.
+
 El subindice indica la parametrizacion que estamos usando, siempre con coeficiente no nulo. 
 
 \newpage
@@ -243,7 +247,7 @@ Un hecho muy importante sobre este grupo es el siguiente:
 El grupo $(E(K),+)$ es finitamente generado.
 \end{theorem*}
 
-La demostracion de este teorema consta principalmente de dos partes: dar una altura\footnote{Una altura es una funcion que nos de valores en $\RR_{\geq 0}$ para cada punto, que cumpla (entre otras cosas) que la cantidad de puntos con altura menor a una constante sea finita. El ejemplo canonico para $\QQ$ es $H(a/b) =\max \{ |a| , |b|\}$ para $a/b$ irreducible, y la de la curva no es muy distinta.} para cada punto de la curva que controle el crecimiento al duplicarlo, salvo un error acotado, y probar que el conjunto $E(K)/2E(K)$ es finito via el metodo de descenso que veremos en mas detalle en el capitulo \ref{cap:selmer}. Como el grupo es finitamente generado, y usando el teorema de estructura, nos queda:
+La demostracion de este teorema consta principalmente de dos partes: dar una altura\footnote{Una altura es una funcion que nos de valores en $\RR_{\geq 0}$ para cada punto, que cumpla (entre otras cosas) que la cantidad de puntos con altura menor a una constante sea finita. El ejemplo canonico para $\QQ$ es $H(a/b) =\max \lla |a| , |b|\rla$ para $a/b$ irreducible, y la de la curva no es muy distinta.} para cada punto de la curva que controle el crecimiento al duplicarlo, salvo un error acotado, y probar que el conjunto $E(K)/2E(K)$ es finito via el metodo de descenso que veremos en mas detalle en el capitulo \ref{cap:selmer}. Como el grupo es finitamente generado, y usando el teorema de estructura, nos queda:
 \[
 E(K) \cong T \oplus \ZZ^r
 \]
@@ -362,14 +366,14 @@ De esta forma obtuvimos el duplicado de un punto mediante funciones racionales e
 \end{array}
 \] 
 \[ \psi_3=3x^4+6Ax^2+12Bx-A^2, \] 
-\[ \psi_4= 4y\left( x^6+5Ax^4+20Bx^3-5A^2x^2-4ABx-A^3-8B^2 \right), \] 
+\[ \psi_4= 4y\lp x^6+5Ax^4+20Bx^3-5A^2x^2-4ABx-A^3-8B^2 \rp, \] 
 \[ \psi_{2m+1} = \psi_{m+2}\psi_m^3-\psi_{m-1}\psi_{m+1}^3, \] 
-\[ \psi_{2m} = \frac{\psi_m}{2y} \left( \psi_{m+2}\psi_{m-1}^2-\psi_{m-2}\psi_{m+1}^2 \right), \] 
+\[ \psi_{2m} = \frac{\psi_m}{2y} \lp \psi_{m+2}\psi_{m-1}^2-\psi_{m-2}\psi_{m+1}^2 \rp, \] 
 \[ \phi_n=x\psi_n^2-\psi_{n+1}\psi_{n-1} \] 
 
 tales que si $\psi_n(P)\neq0$ se tiene 
 \[ 
-[n]P= \left( \frac{\phi_n(P)}{{\psi_n(P)}^2}, \frac{\psi_{2n}(P)}{2{\psi_n(P)}^4} \right). 
+[n]P= \lp \frac{\phi_n(P)}{{\psi_n(P)}^2}, \frac{\psi_{2n}(P)}{2{\psi_n(P)}^4} \rp. 
 \] 
 \end{theorem*} 
 
@@ -485,8 +489,8 @@ Mas generalmente, basta que el subgrupo finito que queremos tomar como nucleo se
 Para calcularla, escribimos $E:y^2=x^3+Ax+B$ y $G=\lc T_0\rc$. Las formulas de Vélu dan, fuera del nucleo,
 \[
 \begin{aligned}
-X(P)&=x(P)+\sum_{Q\in G\setminus\{\OO\}}\lp x(P+Q)-x(Q)\rp,\\
-Y(P)&=y(P)+\sum_{Q\in G\setminus\{\OO\}}\lp y(P+Q)-y(Q)\rp.
+X(P)&=x(P)+\sum_{Q\in G\setminus\lla\OO\rla}\lp x(P+Q)-x(Q)\rp,\\
+Y(P)&=y(P)+\sum_{Q\in G\setminus\lla\OO\rla}\lp y(P+Q)-y(Q)\rp.
 \end{aligned}
 \]
 Estas funciones definen $\phi(P)=(X(P),Y(P))$. Una presentacion breve de las formulas, incluyendo los coeficientes de la curva cociente, está en las notas de Sutherland~\cite{Sutherland2023Isogenias}.
@@ -496,13 +500,13 @@ Asociada a una isogenia $\phi:E\to E'$ tendremos su isogenia dual $\hat\phi:E'\t
 En particular, dos curvas isogenas sobre $K$ tienen el mismo rango: al pasar a las partes libres y tensorizar con $\QQ$, la isogenia tiene inversa $\hat\phi/\gr (\phi)$. Por eso en el caso general podremos calcular el rango usando cualquiera de las dos curvas del descenso. 
 
 \begin{example}\label{ej:veluTres}
-Tomemos la familia $E_t:y^2=x^3+t^2$, con $t\neq0$. El punto $T_0=(0,t)$ tiene orden $3$, y entonces $G=\{\OO,T_0,-T_0\}$. Como $x(T_0)=0$ se simplifican muchas cuentas.
+Tomemos la familia $E_t:y^2=x^3+t^2$, con $t\neq0$. El punto $T_0=(0,t)$ tiene orden $3$, y entonces $G=\lla\OO,T_0,-T_0\rla$. Como $x(T_0)=0$ se simplifican muchas cuentas.
 
 Para $P=(x,y)$ fuera de $G$, las pendientes de las rectas por $P$ y $\pm T_0$ son $(y\mp t)/x$, de donde
 \[
 x(P\pm T_0)=\frac{{(y\mp t)}^2}{x^2}-x,
 \qquad
-y(P\pm T_0)=\frac{y\mp t}{x}\bigl(x-x(P\pm T_0)\bigr)-y.
+y(P\pm T_0)=\frac{y\mp t}{x}\lp x-x(P\pm T_0)\rp-y.
 \]
 Usando la formulas de Velú y la ecuacion de la curva, las coordenadas de la imagen de $P$, que seran $(X,Y)$ nos quedan
 \begin{multline*}
@@ -519,7 +523,7 @@ X=x+x(P+T_0)+x(P-T_0)=x+\frac{{(y- t)}^2}{x^2}-x+\frac{{(y + t)}^2}{x^2}-x =\\= 
 
 Entonces nos quedó
 \[
-\phi(x,y)=\left(\frac{x^3+4t^2}{x^2},\frac{y(x^3-8t^2)}{x^3}\right).
+\phi(x,y)=\lp\frac{x^3+4t^2}{x^2},\frac{y(x^3-8t^2)}{x^3}\rp.
 \]
 
 Finalmente, para saber la curva imagen, veamos
@@ -527,7 +531,7 @@ Finalmente, para saber la curva imagen, veamos
 Y^2-X^3 = \frac{y^2{(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \frac{(x^3+t^2){(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \\ =\frac{(x^9-15x^6t^2+48x^3t^4+64t^6)-(x^9 +12x^6 t^2 + 48 x^3 t^4 + 64t^6)}{x^6}=-27t^2.
 \end{multline*}
 
-Asi construimos una isogenia de grado $3$ hacia $E'_t:Y^2=X^3-27t^2$, con nucleo $\{\OO,(0,t),(0,-t)\}$.
+Asi construimos una isogenia de grado $3$ hacia $E'_t:Y^2=X^3-27t^2$, con nucleo $\lla\OO,(0,t),(0,-t)\rla$.
 \end{example}
 
 \subsection{Curvas con \texorpdfstring{$j=0$}{j=0}}
@@ -629,7 +633,7 @@ Diremos que un primo $\pi$ de $\ZZ[\omega]$ es \emph{primario} si es congruente 
 Sean $\pi,\pi'$ primos primarios, entonces si son asociados son iguales.
 \end{lemma*}
 \begin{proof}
-Los seis elementos de $\OO_K^\times=\{\pm1,\pm\omega,\pm\omega^2\}$ tienen residuos distintos modulo $3$. Como $\pi\equiv\pi'\equiv1\pmod3$, una igualdad $\pi'=\varepsilon\pi$ fuerza $\varepsilon=1$.
+Los seis elementos de $\OO_K^\times=\lla\pm1,\pm\omega,\pm\omega^2\rla$ tienen residuos distintos modulo $3$. Como $\pi\equiv\pi'\equiv1\pmod3$, una igualdad $\pi'=\varepsilon\pi$ fuerza $\varepsilon=1$.
 \end{proof}
 
 Si queremos tambien asegurarnos que no sean conjugados entre si podemos agregar una condicion de congruencia módulo 2.
@@ -644,14 +648,14 @@ Supongamos que $(\pi')=(\bar\pi)$. Entonces deben ser iguales por el lema anteri
 Juntaremos estos lemas para probar lo que queriamos. Todo este procedimiento es analogo al realizado por Savoie en~\cite{Savoie2025QiRank2}. 
 
 \begin{corollary}\label{cor:parametrosTorsionGenuina}
-Sean $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que $b-a,b,b+a$ sean primos congruentes a $4+3\omega$ modulo $6$. Entonces $E_{a,b}: y^2 = x^3 + {(b(b-a)(b+a))}^2$ está genuinamente definida sobre $K$, su torsion es $\ZZ/3\ZZ$ y los puntos
+Sean $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que $b-a,b,b+a$ sean primos congruentes a $4+3\omega$ modulo $6$. Entonces $E_{a,b}: y^2 = x^3 + {((b-a)b(b+a))}^2$ está genuinamente definida sobre $K$, su torsion es $\ZZ/3\ZZ$ y los puntos
 \[
 P=(a^2-b^2,a(a^2-b^2)),\qquad[\omega]P
 \]
-son independientes. Si dos pares de parametros $a,b$ producen conjuntos distintos de ideales primos $\{(b-a),(b),(b+a)\}$, las curvas correspondientes no son isomorfas sobre $K$.
+son independientes. Si dos pares de parametros $a,b$ producen conjuntos distintos de ideales primos $\lla(b-a),(b),(b+a)\rla$, las curvas correspondientes no son isomorfas sobre $K$.
 \end{corollary}
 \begin{proof}
-Juntando los lemas mostramos que los tres primos son no asociados y que ninguno de sus conjugados divide $t=b(b-a)(b+a)$. Como para todos ellos vale $v_\pp(t)=1$, el valor de $t$ no puede ser un cubo ni 4 veces otro, por lo que la proposicion~\ref{prop:torsionEt} da torsion $\ZZ/3\ZZ$. Para $d=t^2$ tenemos $v_\pp(d)=2$ y $v_{\bar\pp}(d)=0$, asi que la proposicion~\ref{prop:genuinaDef} nos dice que debe estar genuinamente definida sobre $K$. El punto $P$ pertenece a la curva por: 
+Juntando los lemas mostramos que los tres primos son no asociados y que ninguno de sus conjugados divide $t=(b-a)b(b+a)$. Como para todos ellos vale $v_\pp(t)=1$, el valor de $t$ no puede ser un cubo ni 4 veces otro, por lo que la proposicion~\ref{prop:torsionEt} da torsion $\ZZ/3\ZZ$. Para $d=t^2$ tenemos $v_\pp(d)=2$ y $v_{\bar\pp}(d)=0$, asi que la proposicion~\ref{prop:genuinaDef} nos dice que debe estar genuinamente definida sobre $K$. El punto $P$ pertenece a la curva por: 
 \[
 a^2{(a^2-b^2)}^2= (a^2-b^2 +b^2) {(a^2-b^2)}^2 = {(a^2-b^2)}^3 + b^2{(a^2-b^2)}^2,
 \]
@@ -680,17 +684,17 @@ e_n: E[n]\times E[n] \to \mu_n
 \]
 bilineal, alternada, no degenerada y compatible con la accion de Galois. Ademas este emparejamiento cumple muchas más propiedades, y algunas contaremos cuando las vayamos a utilizar. 
 
-De la misma manera, asociada a una isogenia $\phi$ de grado $n$ existe
+De la misma manera, asociada a la dual de una isogenia $\phi$ de grado $n$ existe
 \[
-e_\phi: E[\phi]\times E'[\hat\phi] \to \mu_n
+e_{\hat\phi}: E'[\hat\phi]\times E[\phi] \to \mu_n
 \]
-que nos servirá para, cuando $E'[\hat\phi]$ sea ciclico y fijemos un generador $Q_0$, dar un isomorfismo $E[\phi]\cong \mu_n$ compatible con Galois. Esta identificacion puede describirse explicitamente con funciones racionales, y usaremos esto para el metodo para acotar el rango superiormente.
+que nos servirá para, cuando $E[\phi]$ sea ciclico y fijemos un generador $Q_0$, dar un isomorfismo $E'[\hat\phi]\cong \mu_n$ compatible con Galois. Esta identificacion puede describirse explicitamente con funciones racionales, y usaremos esto para el metodo para acotar el rango superiormente.
 
-% Dado $Q_0\in E'[\hat\phi]$, sea $f\in {K(E')}^\times$ tal que $\operatorname{div}(f)=n(Q_0) - n(\OO)$ y que $f\circ \phi=g^n$ para una $g\in K(E)^\times$, entonces para un $R\in E[\phi]$ vale 
+% Dado $Q_0\in E[\phi]$, sea $f\in {K(E)}^\times$ tal que $\operatorname{div}(f)=n(Q_0) - n(\OO)$ y que $f\circ \hat\phi=g^n$ para una $g\in K(E')^\times$, entonces para un $R\in E'[\hat\phi]$ vale 
 % \[
-% e_\phi(R,Q_0) = \frac{g(P+R)}{g(P)}
+% e_{\hat\phi}(R,Q_0) = \frac{g(P+R)}{g(P)}
 % \]
-% para cualquier $P$ donde este definido el cociente. Esto tiene sentido porque $g(P+R)^n = f(\phi(P+R)) = f(\phi(P)) = g(P)^n$ por estar $R\in E[\phi]$, entonces $g(P+R)/g(P) \in \mu_n$, y no depende de $P$. 
+% para cualquier $P$ donde este definido el cociente. Esto tiene sentido porque $g(P+R)^n = f(\hat\phi(P+R)) = f(\hat\phi(P)) = g(P)^n$ por estar $R\in E'[\hat\phi]$, entonces $g(P+R)/g(P) \in \mu_n$, y no depende de $P$. 
 
 \section{Recapitulacion}
 
@@ -772,7 +776,7 @@ Tambien es posible querer tener más parametros, pero pensando tambien en querer
 
 Otra forma de definir superficies elipticas (la que usaremos finalmente) es considerar el $t$ como una variable más y ver el conjunto
 \[
-\ee = \{ (x,y,t)\in K^3 : y^2=x^3+A(t)x+B(t) \}
+\ee = \lla (x,y,t)\in K^3 : y^2=x^3+A(t)x+B(t) \rla
 \]
 que es una subvariedad de dimension dos de $K^3$ (es decir una superficie) formada por una familia de curvas elipticas. Nuevamente esto no basta y nos faltan muchos detalles tecnicos sobre los puntos de discriminante cero y los polos de las funciones; y tambien de nuevo se puede considerar $t\in \cc$ y ver $\ee \subseteq K^2\times \cc$.
 
@@ -794,7 +798,7 @@ Esta nocion de superficie eliptica es equivalente a la de una curva eliptica def
 \begin{definition}[Grupo de secciones]\label{SeccionesSuperficie}
 El conjunto
 \[
-\ee(\cc) = \{ \text{secciones } \sigma:\cc\to\ee \}
+\ee(\cc) = \lla \text{secciones } \sigma:\cc\to\ee \rla
 \]
 con las operaciones
 \[
@@ -916,7 +920,7 @@ Sean $P_1,\ldots,P_r\in E(K(\cc))$. Si en una fibra no singular sus especializac
 Una relacion entre los $P_i$ que diese un punto de torsion produciria la misma relacion modulo torsion al especializar. La independencia en la fibra obliga a que todos sus coeficientes sean cero.
 \end{proof}
 
-La torsion se conserva incluso en cada fibra no singular, y este resultado ``ya lo vimos''. Recordemos que, al reducir modulo primos, la torsion (de orden no divisible por la caracteristica del cuerpo residual) conserva su orden. La condicion que usamos es que ese orden sea invertible luego de reducir. Al especializar en $t\in\cc(K)$ (que para $\cc=\PP^1$ es como reducir modulo $T-t$), el cuerpo residual es $K$ y todo es invertible:
+La torsion se conserva incluso en cada fibra no singular, y este resultado ``ya lo vimos''. Recordemos que, en el capitulo 1 vimos que al reducir modulo primos, la torsion (de orden no divisible por la caracteristica del cuerpo residual) conserva su orden. Este resultado vale para todo cuerpo, y aca lo usaremos para $K(\cc)$. La condicion que usamos es que ese orden sea invertible luego de reducir. Al especializar en $t\in\cc(K)$ (que para $\cc=\PP^1$ es como reducir modulo $T-t$), el cuerpo residual es $K$ y todo es invertible:
 
 \begin{remark}\label{prop:torsionEspecializacion}
 Sea $E/K(\cc)$ una curva eliptica. Para todo $t\in\cc(K)$ cuya fibra sea no singular, la especializacion es inyectiva sobre
@@ -935,114 +939,103 @@ Sean $E,E'$ curvas elipticas sobre $K(\cc)$ y sea $\phi:E\to E'$ una isogenia de
 \[
 \phi_t:\ee_t\longrightarrow\ee'_t
 \]
-definida sobre $K$ y de grado $n$. Si $\nuc(\phi)=\lc T_0\rc$ para un punto $T_0\in E(K(\cc))$ de orden $n$, entonces $\nuc(\phi_t)=\lc (T_0)_t\rc$.
+definida sobre $K$ y de grado $n$. Si $\nuc(\phi)=\lc T_0\rc$ para un punto $T_0\in E(K(\cc))$ de orden $n$, entonces $\nuc(\phi_t)=\lc {(T_0)}_t\rc$.
 \end{prop}
+
+La demostracion no la presentaremos, pero es nuevamente excluir finitos parametros por todo lo que podria reducir mal o bajar el grado, y en los lugares restantes es un mapa racional que manda el neutro al neutro, entonces es morfismo y respeta la ley de grupo. 
+
+\begin{example}
+En nuestra familia sobre $K=\QQ(\omega)$ tenemos
+\[
+E_k:y^2=x^3+{(k^2-1)}^2,\qquad
+E'_k:y^2=x^3-27{(k^2-1)}^2.
+\]
+Y la isogenia proveniente de cocientar por el generador de la 3-torsion, tomando $t=k^2-1$, queda, fuera del nucleo,
+\[
+\phi_k(x,y)=\lp
+\frac{x^3+4{(k^2-1)}^2}{x^2},
+\frac{y\lp x^3-8{(k^2-1)}^2\rp}{x^3}
+\rp.
+\]
+
+Lo que probamos es que, para cada $k_0\in K$ con $k_0\neq\pm 1$, basta reemplazar $k$ por $k_0$: obtenemos una isogenia de grado $3$ con nucleo $\lc(0,k_0^2-1)\rc$. Los valores $k_0=\pm1$ se excluyen porque ambas curvas son singulares. Tambien tendriamos que excluir los denominadores de la isogenia en $x$, pero no excluyen otros parametros porque los puntos con $x=0$ forman, junto con $\OO$, el nucleo y se envian a $\OO$ (Vélu nos da la formula en todos los puntos fuera del nucleo).
+\end{example}
 
 
 
 \section{Construir superficies elipticas de rango alto}\label{sec:construirRangoAlto}
 
-\textbf{borrar casi todo. Arrancar aclarando que no hay teoria para esta parte, pero varios truquitos ponele}
+Lo primero para mencionar en esta seccion es que no hay una teoria para obtener relaciones entre los parametros. Hay diversas maneras de obtenerlos contadas (o no) a lo largo de la bibliografia, y presentaremos algunas como ejemplos.
 
+Recordemos que queremos $r$ puntos independientes sobre $K(\cc)$. Podemos elegir la forma de los puntos y buscar los coeficientes que hagan que todos pertenezcan a la misma curva.
 
-Para obtener una familia de rango al menos $r$ necesitamos $r$ puntos independientes sobre $K(\cc)$. Podemos comenzar por una ecuacion e intentar encontrar puntos, pero tambien podemos elegir la forma de los puntos y buscar los coeficientes que hagan que todos pertenezcan a la misma curva. Veamos primero esta segunda opcion con cuentas explicitas, y luego las herramientas geometricas que permiten llegar a rangos mayores.
+La que utilizamos para nuestras curvas fue muy simple: primero determinamos la forma necesaria para $j$-invariante 0 y un punto de 3-torsion: $y^2 = x^3+t^2$ y luego determinamos $t$ para tener un punto libre. La idea de poner $x=t$ fue arbitraria, pero nos dio una opcion posible: como quedó $y^2=t^2(t+1)$ solo hizo falta que $t+1$ sea un cuadrado. De esta forma, con $t=k^2-1$ conseguimos tener el punto $(t,t\sqrt{t+1})$ en la curva (y definido en el cuerpo). 
+
+Veamos construcciones mas complejas.
 
 \subsection{Construcciones mediante identidades}
 
-En nuestra familia $y^2=x^3+t^2$ queremos que varias diferencias $y_i^2-x_i^3$ sean el mismo cuadrado. Choudhry y Zargar~\cite[ecuaciones~(12)--(13)]{ChoudhryZargar2016} construyen tres puntos de este modo. Reescribamos sus formulas para ver la identidad que las hace funcionar.
+Otra construccion para $j=0$ la dan Choudhry y Zargar~\cite{ChoudhryZargar2016} con la siguiente idea: En nuestra familia $y^2=x^3+t^2$ (los autores escriben $k$ en lugar de $t$) queremos que varias diferencias $v_i^2-u_i^3$ sean el mismo cuadrado. Reescribamos sus formulas para ver la identidad que las hace funcionar.
 
 Para parametros $a,b,c$, pongamos
 \[
 \begin{aligned}
-D&=a^6+b^6+c^6-2a^3b^3-2a^3c^3-2b^3c^3,\\
-R&=-8(a^3+b^3-c^3)(a^3+c^3-b^3)(b^3+c^3-a^3),\\
-q_a&=D-4a^3(a^3-b^3-c^3),
+s&=a^6+b^6+c^6-2(a^3b^3+a^3c^3+b^3c^3),\\
+r&=-8(a^3+b^3-c^3)(a^3+c^3-b^3)(b^3+c^3-a^3),
 \end{aligned}
 \]
-y definamos $q_b,q_c$ intercambiando ciclicamente $a,b,c$. La cuenta que necesitamos es
+y vamos a dar 3 puntos independientes en la curva 
 \[
-q_a^2-D^2=a^3R,
+E:y^2=x^3+{(rs)}^2.
 \]
-y las otras dos se obtienen por simetria. Multiplicando por $R^2$ vemos que la curva
-\[
-E:y^2=x^3+(RD)^2
-\]
-contiene los puntos $(aR,Rq_a)$, $(bR,Rq_b)$ y $(cR,Rq_c)$, siempre que $RD\neq0$. Asi una misma identidad nos da los coeficientes y los tres puntos, conservando ademas el punto de orden $3$.
 
-Para quedarnos con una superficie sobre $\PP^1$, fijamos $a=1$, $b=2$, $c=T$. Entonces
+Con $q_a=d-4a^3(a^3-b^3-c^3)$ y $q_b,q_c$ intercambiando ciclicamente $a,b,c$ nos quedan $q_a^2-d^2=a^3r$, y entonces multiplicando por $r^2$ tenemos 
+\[
+{(q_a r)}^2-{(rs)}^2={(ar)}^3
+\]
+para cada uno de los $a, b, c$ tenemos un punto independiente (salvo que especialicemos especialmente mal) dandonos rango al menos 3.
+
+Para quedarnos con una superficie sobre $\PP^1$, podemos fijar $a=1$, $b=2$, $c=T$. Entonces
 \[
 \begin{aligned}
-R(T)&=-8(9-T^3)(T^3-7)(T^3+7),\\
-D(T)&=T^6-18T^3+49,\qquad t(T)=R(T)D(T),\\
-F_T&:y^2=x^3+t(T)^2,
+&r(T) =-8(9-T^3)(T^3-7)(T^3+7),\\
+&s(T) =T^6-18T^3+49,\\
+&E_T  :y^2=x^3+{(r(T)s(T))}^2,
 \end{aligned}
 \]
 y las secciones son
 \[
 \begin{aligned}
-P_1&=(R,R(D+4T^3+28)),\\
-P_2&=(2R,R(D+32T^3-224)),\\
-P_3&=(TR,R(D-4T^3(T^3-9))).
+P_1&=(r,r(s+4T^3+28)),\\
+P_2&=(2r,r(s+32T^3-224)),\\
+P_3&=(Tr,r(s-4T^3(T^3-9))).
 \end{aligned}
 \]
-La ecuacion ya está construida. Falta comprobar la independencia, y para ello usaremos una sola fibra, como en la proposicion~\ref{prop:independenciaUnaFibra}.
 
-En $T=3$ tenemos $R=97920$, $D=292$ y $t_0=28592640$. Los puntos quedan
-\[
-\begin{aligned}
-P_1&=(97920,41909760),\\
-P_2&=(195840,91261440),\\
-P_3&=(293760,-161763840)
-\end{aligned}
-\qquad\text{en}\qquad y^2=x^3+t_0^2.
-\]
-Los autores verifican la independencia calculando el regulador. Aca podemos usar el morfismo de 3-descenso que desarrollaremos en el capitulo~\ref{cap:selmer}, tambien descrito en~\cite[definicion~1.3 y proposicion~1.4]{CohenPazuki2009}:
-\[
-\alpha:F_3(\QQ)\longrightarrow\QmodT,\qquad
-\alpha(x,y)=[y-t_0],
-\]
-con $\alpha(\OO)=[1]$ y $\alpha(0,t_0)=[(2t_0)^{-1}]$. Para $Q=(0,-t_0)$, de orden $3$, y los tres puntos anteriores, las imagenes tienen representantes
-\[
-\begin{array}{c|rrrr}
- &Q&P_1&P_2&P_3\\ \hline
-\alpha&57185280&13317120&62668800&-190356480
-\end{array}
-\]
-donde quitamos el signo de $\alpha(Q)$ porque $-1$ es un cubo. Tomando las valuaciones en $2,3,17,73$, modulo $3$, obtenemos la matriz
-\[
-\begin{pmatrix}
-1&1&2&1\\
-2&2&2&1\\
-1&2&1&1\\
-1&0&0&0
-\end{pmatrix},\qquad \det=1.
-\]
-Las cuatro clases son entonces independientes. Ademas, $F_3(\QQ)[3]=\langle Q\rangle$: el polinomio de division es $3x(x^3+4t_0^2)$, y $-4t_0^2$ no es un cubo racional porque su valuacion en $73$ es $2$.
+Despues de esto se prueba independencia de los puntos especializando en una fibra como $T=3$. Podriamos haber utilizado casi cualquier especializacion para $a$ y $b$, o tambien una relacion entre ellos y $c$ de forma que quede una curva $\cc$ de parametros. 
 
-Si hubiese una relacion entera entre los $P_i$, al aplicar $\alpha$ todos sus coeficientes serian divisibles por $3$. Dividiendo esos coeficientes por $3$, la nueva suma seria un punto de $\langle Q\rangle$. La independencia de las cuatro imagenes obliga nuevamente a que los coeficientes sean divisibles por $3$ y a que ese punto sea $\OO$. Iterando, todos los coeficientes originales deben ser cero. Esto prueba tambien independencia modulo torsion, pues una relacion de torsion se convierte en una relacion cero al multiplicar por su orden.
-
-Concluimos que $\rg F_T(\QQ(T))\geq3$. Esta familia es non-split: por ejemplo, en las raices de $T^3-9$ el coeficiente $t(T)^2$ tiene orden $2$, asi que el modelo minimal tiene mala reduccion. Por especializacion, para todos salvo finitos parametros racionales obtenemos rango al menos $3$. No hemos calculado una cota superior: para afirmar que el rango es exactamente $3$ hay que completar el argumento con descenso.
+Para haber aplicado el metodo del descenso en esta superficie tendriamos que controlar los primos que dividen al discriminante
+\[
+\Delta(T)=-2^{16}3^3 \lco(9-T^3)(T^3-7)(T^3+7)(T^6-18T^3+49)\rco ^4,
+\]
+pero con esta especializacion no va a ser posible. Otra opcion es la de considerar $c=a+b$ para que se cancelen los factores de grado $3$ y $6$, donde los factores irreducibles son a lo sumo cuadraticos y se puede pasar a los siguientes pasos. Queda para otro momento.
 
 \subsection{Herramientas geometricas y el metodo de Elkies}
 
-Las identidades anteriores son faciles de verificar una vez encontradas, pero buscar muchas a la vez produce sistemas grandes. Las superficies K3 permiten organizar esa busqueda con la geometria. La referencia expositiva principal es~\cite[conferencias~II y~III]{Elkies2007HighRank}; las formulas completas de su ejemplo de rango $17$ están en~\cite{Elkies2026K3Rank17}.
+Las identidades anteriores son faciles de verificar una vez encontradas, pero buscar muchas a la vez produce sistemas grandes. Las superficies K3 permiten organizar esa busqueda con herramientas procedientes de la geometria que no llegamos a presentar. Contaremos el proceso solo para mencionar que existe y los elementos usados. La referencia expositiva principal es~\cite{Elkies2007HighRank}; las formulas completas de su ejemplo de rango $17$ están en~\cite{Elkies2026K3Rank17}.
 
 \begin{enumerate}
-    \item \emph{Elegir la geometria que permita el rango buscado.} Por Shioda--Tate necesitamos un grupo de Néron--Severi grande y pocas componentes de fibras reducibles. Elkies usa reticulos, es decir grupos libres con una forma bilineal, para elegir las intersecciones que deberian tener los divisores y las secciones. Esto impone restricciones antes de buscar los coeficientes de una ecuacion.
+    \item \emph{Elegir la geometria que permita el rango buscado.} Asociado a la superficie existe el grupo de Neron-Severi, que depende de las intersecciones de las curvas por ella, y su rango libre nos da una cota para el de $E(\bar{K}(T))$. Entonces necesitamos un grupo de Néron-Severi grande y pocas componentes de fibras reducibles. Elkies elige las intersecciones que deberian tener los divisores y las secciones usando reticulos. Esto impone restricciones antes de buscar los coeficientes de una ecuacion.
     \item \emph{Encontrar una superficie definida sobre el cuerpo deseado.} Ciertas familias de K3 con esos divisores se parametrizan por curvas modulares o de Shimura. Buscar puntos racionales en ellas permite escoger una superficie sobre $\QQ$. Todavia hay que comprobar que las secciones que interesan tambien estén definidas sobre $\QQ$.
-    \item \emph{Cambiar la fibracion si conviene.} Una misma K3 puede admitir distintas fibraciones elipticas, con distintos rangos. El grupo de Néron--Severi no cambia, pero si cambian las fibras reducibles y, con ellas, la cantidad que restamos en Shioda--Tate. Esto permite partir de una ecuacion facil de construir y buscar otra fibracion que deje mas rango para las secciones.
-    \item \emph{Recuperar las ecuaciones y comprobarlas.} Las intersecciones elegidas se traducen en condiciones polinomiales para los coeficientes de la superficie y de sus puntos. Elkies combina busquedas modulo un primo, levantamientos $p$-adicos y reconstruccion racional. Al final las identidades deben verificarse exactamente, y la independencia se certifica con la matriz de alturas.
+    \item \emph{Cambiar la fibracion si conviene.} Una misma K3 puede admitir distintas fibraciones elipticas, y la cota del rango de la superficie depende de ellas. Esto permite partir de una ecuacion facil de construir y buscar otra fibracion que deje mas rango para las secciones. Un metodo utilizado comunmente para esto es el \emph{cambio de base}.
+    \item \emph{Recuperar las ecuaciones y comprobarlas.} Las intersecciones elegidas se traducen en condiciones polinomiales para los coeficientes de la superficie y de sus puntos. Elkies combina busquedas modulo un primo, levantamientos $p$-adicos y reconstruccion racional. Al encontrar candidatos se verifican las condiciones y la independencia de los puntos.
 \end{enumerate}
 
-En el ejemplo de~\cite[teorema~4 y seccion~2.2]{Elkies2026K3Rank17} se dan $17$ secciones y una matriz de alturas de determinante $948$. Esa cuenta certifica el rango al menos $17$; la cota superior para K3 sobre $\QQ$ que veremos enseguida lo hace exacto.
+En el ejemplo de~\cite{Elkies2026K3Rank17} se dan $17$ secciones independientes, que es lo maximo para una superficie K3 sobre $\QQ$. 
 
-Otra herramienta es el \emph{cambio de base}. Si encontramos una curva sobre la superficie que corta la fibra generica en dos puntos, podemos pasar a ese recubrimiento de la base y convertirla en una seccion. En coordenadas, muchas veces se trata de imponer que cierta funcion del parametro sea un cuadrado. Hay que comprobar que la nueva seccion sea independiente de las anteriores y que la nueva curva de parametros tenga suficientes puntos racionales. Si tiene genero cero y un punto racional podemos parametrizarla; si tiene genero uno, nos sirve cuando tiene rango positivo.
+Otra herramienta es el \emph{cambio de base}, que dada una condicion geometrica especifica, se puede realizar para convertir una curva en una seccion nueva, aumentando asi el rango. El ejemplo de hacer~$t\mapsto k^2-1$ es un caso de esto, donde ``agregamos $\sqrt{t+1}$ al cuerpo''. Asi Elkies obtiene, a partir de la K3 de rango $17$, cambios de base con rango al menos $18$ sobre $\QQ(T)$. Las nuevas superficies ya no son K3.
 
-Asi Elkies obtiene, a partir de la K3 de rango $17$, cambios de base con rango al menos $18$ sobre $\QQ(T)$ y con rango al menos $19$ sobre el cuerpo de funciones de una curva eliptica de rango positivo~\cite[teorema~3]{Elkies2026K3Rank17}. En el segundo caso tambien hay infinitas especializaciones racionales. Las nuevas superficies ya no son K3.
-
-Finalmente, si buscamos una fibra de rango especialmente grande, podemos ordenar los parametros segun sumas construidas con los cardinales $\#E_t(\FF_p)$. La heuristica de Mestre, motivada por Birch y Swinnerton-Dyer, orienta esta busqueda, pero no prueba una cota inferior del rango. Los candidatos deben terminar con puntos independientes certificados~\cite[conferencia~III]{Elkies2007HighRank}. Para nuestro objetivo de rango fijo, en cambio, lo central será conservar los puntos construidos y ajustar la cota superior por descenso.
-
-Tambien es importante mencionar que a partir de este tipo de resultados es que se empiezan a buscar superficies de rango alto y aquellas especializaciones donde crece lo maximo posible para encontrar curvas de rango alto. Hasta la salida del libro de Silverman~\cite[cap.~III, seccion~11]{SilvermanAdvanced} se habian encontrado sobre $\QQ$ familias de rango $13$ por Nagao, y curvas de rango al menos $21$ por Nagao y Kouya. Hoy las construcciones a partir de K3 llegan a las familias de rangos al menos $18$ y $19$ que acabamos de comentar, aunque estas ya no son K3. Por otra parte, el record conocido para curvas sobre $\QQ$ es rango al menos $31$, de Alpöge y Howell~\cite{DujellaRankRecords}; esa curva no proviene de la fibracion de Elkies~\cite[introduccion]{Elkies2026K3Rank17}. La busqueda de superficies con muchas secciones y de curvas con muchos puntos independientes sigue abierta:
+Tambien es importante mencionar que, historicamente, a partir de este tipo de resultados es que se empiezan a buscar superficies de rango alto y aquellas especializaciones donde crece lo maximo posible para encontrar curvas de rango alto. Hasta la salida del libro de Silverman~\cite{SilvermanAdvanced} se habian encontrado sobre $\QQ$ familias de rango $13$ por Nagao, y curvas de rango al menos $21$ por Nagao y Kouya. Hoy las construcciones a partir de K3 llegan a rango al menos $18$ de Elkies y el record conocido para curvas sobre $\QQ$ es rango al menos $31$, de Alpöge y Howell~\cite{DujellaRankRecords}; esa curva no proviene de la misma superficie y fibracion de Elkies~\cite{Elkies2026K3Rank17}, sino que de otra K3 con rango 17. La busqueda de superficies con muchas secciones y de curvas con muchos puntos independientes sigue abierta:
 
 \epigraph{
 And the quest continues!
@@ -1050,150 +1043,55 @@ And the quest continues!
 Silverman
 }
 
-\section{Limitaciones}\label{sec:limitacionesSuperficies}
+\section{Otras herramientas}\label{sec:conjeturasSuperficies}
 
-Las cotas dependen de que superficies permitamos y del cuerpo sobre el que pedimos las secciones. En particular, ``superficie eliptica racional'' significa una superficie geometricamente birracional a $\PP^2$; no significa simplemente que su ecuacion esté definida sobre $\QQ$.
-
-\subsection*{Cotas geometricas y cuerpo de definicion}
-
-Para una superficie eliptica racional, $\rho=10$, por lo que Shioda--Tate da rango geometrico a lo sumo $8$. Para una K3 en caracteristica cero tenemos $\rho\leq20$, y por lo tanto rango geometrico a lo sumo $18$. En ambos casos las fibras reducibles pueden reducir estas cotas. Las pruebas se encuentran en~\cite[secciones~6.10--6.11,~8 y~12.2]{SchuttShioda2010}.
-
-Para K3 definidas sobre $\QQ$ hay una restriccion adicional:
-\[
-\rg E(\QQ(T))\leq17,
-\]
-y la cota se alcanza con el ejemplo de Elkies. La razon no es solamente $\rho\leq20$: alcanzar $18$ exigiria que todas las fibras fueran irreducibles y que los divisores necesarios estuviesen definidos sobre $\QQ$. Las restricciones aritmeticas sobre el discriminante del grupo de Néron--Severi y su reticulo hacen imposible esa combinacion. El argumento se explica en~\cite[seccion~13.12]{SchuttShioda2010} y~\cite[conferencia~II]{Elkies2007HighRank}.
-
-Sobre cuerpos de numeros sigue valiendo la cota geometrica $18$ para K3. Existen ejemplos que la alcanzan sobre algun cuerpo de numeros: las superficies de rango geometrico $18$ de~\cite[seccion~13.8]{SchuttShioda2010} y sus generadores se definen sobre una extension finita. Esto no afirma que el rango $18$ pueda alcanzarse sobre cualquier cuerpo prefijado; las secciones pueden requerir ampliar ese cuerpo.
-
-\subsection*{Que ocurre al permitir superficies mas generales}
-
-Para las superficies sobre $\PP^1$ del criterio~\ref{prop:criterioK3}, con $m\geq1$, la cota general en caracteristica cero es
-\[
-\rg E(\bar K(T))\leq10m-2-\sum_v(m_v-1).
-\]
-Proviene de Shioda--Tate y de la desigualdad $\rho\leq h^{1,1}=10m$~\cite[secciones~4.10 y~6.10--6.11]{SchuttShioda2010}. Como $m$ puede crecer, esto no da un maximo absoluto para todas las superficies elipticas. No se conoce el maximo de los rangos de curvas elipticas non-split sobre $\QQ(T)$, ni si estos rangos están acotados. Los rangos altos construidos son cotas inferiores, no respuestas a ese problema~\cite{Elkies2007HighRank,Elkies2026K3Rank17}.
-
-Por lo tanto, permitir superficies elipticas mas generales \emph{si} puede dar nuevas familias de curvas elipticas, como los cambios de base anteriores. Lo que se pierde es parte del control geometrico disponible para las K3. Si cambiamos tambien las fibras por curvas de genero mayor que uno, sus especializaciones ya no son curvas elipticas. Y si lo que tiene genero mayor que uno es la curva de parametros $\cc$, el teorema de Faltings deja solo finitos valores en $\cc(K)$ para un cuerpo de numeros fijo. Por eso, para producir infinitas curvas sobre $K$, nos interesan especialmente las bases racionales o las curvas elipticas de rango positivo.
-
-Finalmente, una cota para el rango de la superficie no es una cota para los rangos de sus fibras. En una especializacion pueden aparecer puntos que no provienen de secciones: la K3 de rango $17$ de Elkies tiene una fibra de rango al menos $28$~\cite[teorema~2]{Elkies2026K3Rank17}. El mismo cuidado vale sobre cualquier cuerpo de numeros. Para demostrar rango exacto en las curvas resultantes seguiremos necesitando una cota superior que se aplique a esas fibras.
-
-\section{Conjeturas para orientar la construccion}\label{sec:conjeturas}
-
-Al buscar una familia podemos usar conjeturas para elegir parametros y anticipar que cuentas deberian funcionar. Si las suponemos, tambien obtenemos conclusiones condicionales sobre el rango. Conviene separar ambos usos: una conjetura puede orientar una construccion cuya demostracion final termine siendo incondicional, como ocurre en los trabajos de Zywina.
+Como al seleccionar una familia de curvas con cierta cantidad de puntos independientes aún no tenemos la certeza de que vamos a poder acotar su rango superiormente, podemos orientar la contruccion con conjeturas suponiendo que, de ser cierto lo que afirmen, son mas herramientas para tener en cuenta. Es importante mencionar que, el uso de estas es para orientar la construccion, pero la demostracion posterior de que la familia cumpla es independiente. Tambien presentaremos herramientas relacionadas con el rango para calcularlo o relacionarlo con demas elementos.
 
 \subsection*{El root number y la paridad}
 
-Antes de hacer un descenso, podemos comprobar si los parametros elegidos son compatibles con la paridad del rango que buscamos. El \emph{root number} es un signo $W(E/K)\in\{1,-1\}$ que aparece en la ecuacion funcional de la funcion $L$ completada:
-\[
-\Lambda(E/K,s)=W(E/K)\Lambda(E/K,2-s).
-\]
-Sobre un cuerpo de numeros general, la continuacion analitica y esta ecuacion forman parte de las propiedades esperadas de la funcion $L$; sobre $\QQ$ y para nuestras curvas con multiplicacion compleja son teoremas~\cite[apendice C, teorema~16.1]{SilvermanAEC}. El signo se calcula como un producto de factores locales
-\[
-W(E/K)=\prod_{v\in M_K}W_v(E).
-\]
-Los lugares de buena reduccion aportan $1$, y cada lugar real o complejo aporta $-1$. En reduccion multiplicativa el factor es $-1$ si es escindida y $1$ si no lo es. En reduccion aditiva hay formulas locales, con especial cuidado en los primos sobre $2$ y $3$; veanse~\cite[apendice C, seccion~16]{SilvermanAEC} y las cuentas de~\cite[lema~2.2]{Zywina2025RankDoesNotJump}.
-
-La ecuacion funcional determina la paridad del orden de anulacion. BSD, que relaciona ese orden con el rango, lleva a la siguiente prediccion.
+El \emph{root number} es un signo $W(E/K)\in\lla1,-1\rla$ que se relaciona con diversas conjeturas (y teoremas), una de los cuales lo relaciona con la paridad del rango:
 
 \begin{conjecture}[Paridad]\label{conj:paridad}
 Para toda curva eliptica sobre un cuerpo de numeros,
 \[
-(-1)^{\rg E(K)}=W(E/K).
+{(-1)}^{\rg E(K)}=W(E/K).
 \]
 \end{conjecture}
 
-Por ejemplo, si ya probamos $2\leq\rg E(K)\leq3$, un root number $+1$ permite concluir rango $2$ suponiendo paridad; con signo $-1$ concluiriamos rango $3$. Zywina usa este criterio para elegir congruencias en su familia de rango $2$, y explica como otras congruencias darian rango $3$ bajo esta conjetura~\cite[seccion~1.1]{Zywina2025RankTwo}. Tener el signo correcto por si solo no determina el rango ni hace que el Selmer coincida con la imagen del descenso.
-
-En nuestro caso $j=0$ y $K=\QQ(\omega)$, la proposicion~\ref{prop:omegaIndependencia} ya demuestra que el rango es par. Por lo tanto, si conseguimos una cota superior $3$ y un punto de orden infinito, el rango será $2$ sin suponer paridad. Es una ventaja concreta del cuerpo que elegimos.
-
-\subsection*{BSD y la informacion analitica}
-
-Los calculos de la funcion $L$ pueden indicar que candidatos vale la pena estudiar por descenso. La parte de BSD que usaremos para interpretarlos es la siguiente.
-
-\begin{conjecture}[Birch y Swinnerton-Dyer]\label{conj:BSD}
-Para una curva eliptica $E/K$, el orden de anulacion de $L(E/K,s)$ en $s=1$ es
+El signo se puede calcular como un producto de factores locales
 \[
-\operatorname{ord}_{s=1}L(E/K,s)=\rg E(K).
+W(E/K)=\prod_{v\in M_K}W_v(E).
 \]
-\end{conjecture}
+Los lugares de buena reduccion aportan $1$, y cada lugar real o complejo aporta $-1$. En reduccion multiplicativa el factor es $-1$ si es split y $1$ si no lo es. En reduccion aditiva hay formulas locales, con especial cuidado en los primos sobre $2$ y $3$; veanse~\cite[apendice C, seccion~16]{SilvermanAEC}.
 
-Por ejemplo, bajo BSD, demostrar $L(E/K,1)\neq0$ da rango $0$, mientras que $L(E/K,1)=0$ y $L'(E/K,1)\neq0$ da rango $1$. Si conocemos dos puntos independientes, demostrar $L''(E/K,1)\neq0$ bastaria para obtener rango $2$ suponiendo BSD. Una aproximacion numerica muy pequeña no prueba una anulacion exacta: para una conclusion condicional rigurosa hay que certificar las cotas de error o justificar el orden de anulacion por otro metodo.
+Una forma de utilizar esto se ve en~\cite{Zywina2025RankTwo} donde, por tener rango entre 2 y 3, busca una familia de parametros para rango 2 que garantice $W(E/K)=1$.
 
-La version refinada de BSD relaciona el primer coeficiente no nulo con las alturas de una base del grupo libre, la torsion, el orden de $\Sha$ y factores locales llamados numeros de Tamagawa~\cite[apendice C, conjetura~16.5]{SilvermanAEC}. Puede servir para predecir si falta un punto independiente o si el exceso que vemos en el Selmer proviene de $\Sha$; esa prediccion todavia debe comprobarse.
+\subsection*{Estabilidad en extensiones cuadraticas}
 
-\subsection*{Numeros de Tamagawa y el exceso del Selmer}
-
-El numero de Tamagawa en un primo $\pp$ tiene una descripcion util para calcularlo. Tomamos un modelo de Weierstrass minimal en $\pp$ y llamamos $E_0(K_\pp)$ al subgrupo de puntos que reducen a puntos no singulares. Entonces
-\[
-c_\pp(E)=[E(K_\pp):E_0(K_\pp)].
-\]
-En buena reduccion vale $1$. Para los demas primos, el algoritmo de Tate obtiene $c_\pp$ a partir del modelo minimal y de unas pruebas de valuaciones y factorizacion en el cuerpo residual~\cite[cap.~IV, algoritmo~9.4]{SilvermanAdvanced}. En reduccion multiplicativa escindida vale $v_\pp(\Delta_{\min})$.
-
-Para nuestra ecuacion $E_t:y^2=x^3+t^2$, si $\pp\nmid6$ y $v_\pp(t)=1$, el modelo es minimal, $v_\pp(\Delta)=4$ y el algoritmo da tipo IV. Escribiendo $t=\pi t'$, la prueba residual es si $(t')^2$ es un cuadrado; por lo tanto $c_\pp(E_t)=3$. Asi, los tres primos de $t$ que usaremos aportan $3$ cada uno. Los lugares sobre $2$ y $3$ se calculan aparte.
-
-Estos factores tambien intervienen en formulas demostradas que comparan los Selmer de una isogenia y su dual. Por ejemplo, para la 2-isogenia con ambos nucleos racionales que usa Zywina,
-\[
-\frac{\#S^{(\phi)}(E/K)}{\#S^{(\hat\phi)}(E'/K)}
-=\prod_{v\in M_K}\frac{\#\bigl(E'(K_v)/\phi(E(K_v))\bigr)}2,
-\]
-y para $\pp\nmid2$ el factor local es $c_\pp(E')/c_\pp(E)$~\cite[lema~2.1]{Zywina2025RankStability}. Esto ayuda a diseñar condiciones locales que reduzcan ambos Selmer. La formula es incondicional; no estamos suponiendo BSD al usarla.
-
-Por otra parte, se conjetura que $\Sha(E/K)$ es finito. Esto no significa que sea trivial. La sucesion~\eqref{eq:selmerSha} explica por que un Selmer puede dar una cota mayor que el rango real. Si suponemos finita la parte de $\Sha$ de orden potencia de un primo $\ell$, los descensos sucesivos por $\ell,\ell^2,\ldots$ permiten, en principio, eliminar ese exceso y determinar el rango, combinandolos con busqueda de puntos~\cite[pp.~15--16]{Stoll2006Descent}. El trabajo computacional puede seguir siendo grande. Para construir familias, nos interesa mas imponer condiciones que hagan cerrar ya el primer descenso, como en~\cite[seccion~1]{SchaeferStoll2004}.
-
-\subsection*{Estabilidad al especializar y al extender el cuerpo}
-
-Para una familia no isotrivial, la prediccion mas directamente relacionada con nuestro objetivo es que haya muchas fibras sin salto de rango. En particular, Zywina considera la siguiente forma debil~\cite[conjetura~1.1]{Zywina2025RankDoesNotJump}.
-
-\begin{conjecture}[Especializaciones sin salto de rango]\label{conj:noSalto}
-Sea $E/\QQ(T)$ con $j(E)\notin\QQ$, y sea $r=\rg E(\QQ(T))$. Hay infinitos $t\in\QQ$ con fibra lisa y $\rg E_t(\QQ)=r$.
-\end{conjecture}
-
-Si la suponemos, una familia no isotrivial con rango generico conocido ya produce infinitos ejemplos de ese rango. La conjetura no indica cuales parametros sirven; para encontrarlos seguimos usando signos, puntos y cotas del Selmer. La hipotesis sobre $j$ importa: no podemos aplicarla directamente a nuestra familia con $j=0$, ni trasladarla a otro cuerpo sin formular esa extension. La heuristica mas fuerte espera densidad positiva de fibras sin salto y que los rangos $r$ y $r+1$ concentren la densidad.
-
-Otra pregunta es conservar el rango al pasar de $K$ a una extension $L$. Para extensiones ciclicas de grado primo, se espera poder elegir una curva con
-\[
-\rg E(K)=\rg E(L)=1.
-\]
-Mazur y Rubin lo prueban suponiendo una consecuencia de la finitud de $\Sha$~\cite[teorema~1.13]{MazurRubin2010}. No conviene enunciar esta prediccion sin restricciones sobre $L/K$: su observacion~7.7 explica obstrucciones de paridad en ciertas extensiones no ciclicas.
-
-En el caso cuadratico tenemos una forma concreta de buscarla. Si $L=K(\sqrt D)$ y $E^{(D)}$ es el giro cuadratico, dado por $Dy^2=x^3+Ax+B$, entonces
+Si tenemos una curva $E:y^2=x^3+Ax+B$ y su ``twist cuadratico por $D$'' que es la curva $E^{(D)}: Dy^2=x^3+Ax+B$, llamada asi por ser isomorfa a la original sobre $L=K(\sqrt D)$, tenemos una relacion entre los rangos:
 \[
 \rg E(L)=\rg E(K)+\rg E^{(D)}(K).
 \]
-La igualdad sale separando los puntos, despues de tensorizar con $\QQ$, segun la conjugacion actue como $+1$ o $-1$; vease~\cite[ejercicio~10.16]{SilvermanAEC}. Para conservar el rango basta entonces construir $E$ con los puntos deseados y forzar rango $0$ en el giro. Zywina hace precisamente esto y demuestra, sin conjeturas, que para toda extension cuadratica hay infinitas curvas con rango $1$ en ambos cuerpos~\cite[teoremas~1.2 y~1.5]{Zywina2025RankStability}.
 
-\subsection*{Minimalismo, giros y eleccion de parametros}
+Podemos usar esta herramienta para, una vez probado el rango de dos de ellas, obtener el tercero. Zywina usa este hecho junto con su familia de curvas de rango 1 sobre $E(L)$ para dar otro contraejemplo de problema 10 de Hilbert.
 
-La conjetura minimalista predice que una curva tipica tenga el menor rango compatible con su paridad; sobre $\QQ$, se espera que las curvas de rango $0$ y las de rango $1$ tengan densidad $1/2$ al ordenarlas por altura. Es una prediccion sobre el conjunto que se está contando: no se puede trasladar sin mas a una familia donde ya impusimos puntos independientes o multiplicacion compleja~\cite[introduccion]{Zywina2025RankStability}.
 
-La conjetura de Goldfeld hace una prediccion analoga dentro de los giros cuadraticos de una curva fija sobre $\QQ$: ordenando los discriminantes fundamentales $D$ por $|D|$, la mitad de los giros tendria rango analitico $0$ y la mitad rango analitico $1$~\cite[conjetura~1.1]{KrizLi2017Goldfeld}. Bajo BSD, estos son sus rangos algebraicos. Esto orienta la busqueda de giros de rango $0$, utiles para la estabilidad anterior. No predice un reparto entre rangos $0$ y $1$ para nuestras curvas sobre $\QQ(\omega)$, cuyo rango es par.
-
-Cuando el descenso exige que varios polinomios tomen valores primos, tambien aparecen conjeturas sobre primos. La hipotesis H de Schinzel predice valores simultaneamente primos para polinomios distintos e irreducibles en $\ZZ[T]$, con coeficientes principales positivos, siempre que ningun primo divida su producto para todos los enteros $T$. Bateman--Horn predice ademas su frecuencia. Podemos usarlas para explorar modelos cuyos discriminantes tienen factores no lineales, despues de comprobar las obstrucciones locales. Kai resume estas conjeturas al comienzo de~\cite{Kai2026Patrones}; Zywina menciona ejemplos condicionales de este tipo en~\cite[seccion~1.1]{Zywina2025RankDoesNotJump}. Para los tres factores lineales de nuestra construccion usaremos un teorema de Kai, de modo que la infinitud no dependerá de estas conjeturas.
-
-La conjetura de Nagao, mencionada en la seccion~\ref{sec:especializacion}, relaciona el rango generico con promedios de los recuentos modulo primos. Motiva usar esos recuentos para ordenar candidatos, como en la busqueda de Mestre; truncar el promedio no certifica un rango.
-
-Finalmente, la hipotesis generalizada de Riemann (GRH) puede intervenir al calcular grupos de clases y unidades necesarios para un descenso. Por ejemplo, \texttt{bnfcertify} permite certificar sin GRH los calculos de PARI/GP~\cite{PARINumberFields}. Si la certificacion no se hizo, la cota que depende de esos datos sigue siendo condicional. Para $\QQ(\omega)$ conocemos directamente el grupo de clases y las unidades, asi que nuestras cuentas no necesitan esta hipotesis.
-
-\subsection*{Recapitulacion practica}
-
-Para explorar una familia, primero fijamos los puntos que daran la cota inferior. Calculamos el root number para orientar las congruencias, usamos la funcion $L$ para priorizar ejemplos y probamos las condiciones locales del descenso. Si las cotas coinciden, el resultado queda demostrado; si solo coinciden usando BSD o paridad, indicamos esa hipotesis. Para producir infinitos ejemplos falta ademas justificar la existencia de parametros admisibles y distinguir sus clases de isomorfismo. Las conjeturas ayudan a elegir una construccion, pero cada una responde a una parte diferente del problema.
 
 \chapter{Metodo de descenso y grupo de Selmer}\label{cap:selmer}
 
 
 En este capitulo presentaremos la forma de obtener una cota superior para el rango, conocida como metodo del descenso. La idea es encontrar un morfismo inyectivo que salga de los puntos independientes de la curva y que podamos controlar su imagen en el grupo que caiga. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Aca daremos un ejemplo puntual de 3-descenso para motivar y tambien porque es el que será usado despues.
 
-Supongamos que tenemos una curva de la forma $E_t: y^2=x^3+t^2$ con coordenadas en $\ZZ$ para hacer mas facil. Podemos pasar restando el $t^2$ y factorizar y nos queda 
+Supongamos que tenemos una curva de la forma $E_t: y^2=x^3+t^2$ con coordenadas en $\ZZ$ para hacer mas facil. Podemos pasar restando el $t^2$, factorizar y nos queda 
 \[
 (y-t)(y+t) = x^3.
 \]
-Escrito de este modo, para encontrar un punto en la curva nos hace falta encontrar dos numeros a distancia $2t$ cuyo producto sea un cubo. Si estos numeros los escribimos, separando su parte cubica, como $au^3$ y $bv^3$ con $a,b$ libres de potencias cubicas\footnote{Aca estamos usando que la factorizacion es unica en $\ZZ$. Cuando trabajemos con el anillo de enteros de un cuerpo de numeros esto no siempre ocurre, y mas bien es la excepcion.}, entonces solo necesitamos que $ab$ sea un cubo. Por esto tiene sentido ver los elementos $a$ y $b$ en $\QmodT$, y que su producto sea 1 nos dice que podemos quedarnos con $a$, y $b$ será el inverso; y no nos olvidemos que $au^3 - a^{-1}v^3 = -2t$. Para trabajar en $\QmodT$ necesitamos homogeneizar la ecuacion y nos queda:
+Escrito de este modo, para encontrar un punto en la curva nos hace falta encontrar dos numeros a distancia $2t$ cuyo producto sea un cubo. Si estos numeros $y-t$ e $y+t$ los escribimos, separando su parte cubica, como $au^3$ y $bv^3$ con $a,b$ libres de potencias cubicas\footnote{Aca estamos usando que la factorizacion es unica en $\ZZ$. Cuando trabajemos con el anillo de enteros de un cuerpo de numeros esto no siempre ocurre, y mas bien es la excepcion.}, entonces solo necesitamos que $ab$ sea un cubo; sin olvidarnos que $au^3 - bv^3 = -2t$. Por esto tiene sentido ver los elementos $a$ y $b$ en $\QmodT$, y que allí su producto sea 1 nos dice que podemos quedarnos con $a$, y despejar $b$ como su inverso. Para trabajar en $\QmodT$ con coeficientes en $\ZZ$ podemos homogeneizar la ecuacion y nos queda:
 \[
 C_a: aU^3 - a^{-1}V^3 + 2tW^3 = 0
 \]
 
-Ahora, si tenemos un punto $P=(x_0,y_0)$ con $x_0\neq0$ en la curva, eligiendo $U=u$ y $V=v$ como arriba, y $W=1$, tendremos una solucion en $C_a(\QQ)$. Multiplicando las tres coordenadas por un denominador comun obtenemos una solucion entera no nula, porque la ecuacion es homogenea. Lo interesante es que podemos ir para el otro lado tambien: si tenemos un punto $(U:V:W)$ de $C_a$ con $W\neq0$, entonces eligiendo
+Vamos a tener una relacion entre los puntos en $K$ de la curva y las curvas $C_a$ que tengan una solucion en $K$. Si tenemos un punto $P=(x_0,y_0)$ con $x_0\neq0$ en la curva, escribiendo $y_0-t = au^3$ e $y_0+t=a^{-1} v^3$ y poniendo $U=u$ y $V=v$ y $W=1$ en $C_a$ tendremos una solucion en $C_a(\QQ)$. Multiplicando las tres coordenadas por un denominador comun obtenemos una solucion entera no nula (donde los denominadores de $u$ y $v$ van a parar al $W$), porque la ecuacion es homogenea. Lo interesante es que podemos ir para el otro lado tambien: si tenemos un punto $(U:V:W)$ de $C_a$ con $W\neq0$, entonces eligiendo
 \[
 \begin{array}{cc}
 x_0=\frac{UV}{W^2},
@@ -1201,26 +1099,26 @@ x_0=\frac{UV}{W^2},
 y_0=\frac{aU^3+a^{-1}V^3}{2W^3}
 \end{array}
 \]
-tenemos que $(x_0,y_0)$ pertenece a $E_t(\QQ)$ y, si $U\neq0$, cumple $[y_0-t]=[a]$. Al definir el morfismo de descenso incluiremos tambien los puntos excepcionales: el espacio homogeneo tiene puntos racionales si y solo si $[a]$ está en su imagen. Esto se comprueba en~\eqref{eq:clasePuntoFamilia}, con el cambio de signo $Y=-V$.
+tenemos que $(x_0,y_0)$ pertenece a $E_t(\QQ)$ y, si $U\neq0$, cumple $[y_0-t]=[a]$. Esta relacion entre los puntos de $E_t(\QQ)$ de una clase especifica en $\QmodT$ y las soluciones racionales a la ecuacion homogenea $C_a$ es la que usaremos para definir el \emph{morfismo de descenso}, cuya imagen nos ayudará a acotar el rango del grupo de Mordell-Weil de la curva.
 
-En todo este razonamiento quedan muchas cosas para analizar que veremos en este capitulo: la asignacion de $E_t(\QQ)\to\QmodT$ que vale $(x_0,y_0)\mapsto[y_0-t]$, completada en los puntos excepcionales, es un morfismo; su nucleo es la imagen de una isogenia y tiene indice finito. Al cocientar por él obtenemos una inyeccion en un grupo finito. Con todo eso tendremos una cota superior para el rango, y con una forma de chequear si $C_a$ tiene una solucion entera no nula podremos hacerla efectiva.
+En todo este razonamiento quedan muchas cosas para analizar que veremos en este capitulo: la asignacion de $E_t(\QQ)\to\QmodT$ que vale $(x_0,y_0)\mapsto[y_0-t]$, completada en los puntos excepcionales, es un morfismo cuyo nucleo es la imagen de una isogenia y tiene indice finito. Al cocientar por este obtenemos una inyeccion en un grupo finito, y eso nos da una cota superior para el rango, que podremos hacerla efectiva con una forma de chequear si $C_a$ tiene una solucion entera no nula.
 
-Este capitulo se basará en los VIII y X del libro de Silverman~\cite{SilvermanAEC}, donde se desarrolla y se dan un ejemplo de 2-descenso. La generalizacion a cuerpos de numeros donde $\OO_K$ es un dominio de factorizacion unica es directa.
+Este capitulo se basará en los VIII y X del libro de Silverman~\cite{SilvermanAEC}, donde tambien se da un ejemplo de 2-descenso. Tambien se menciona allí que la generalizacion a cuerpos de numeros donde $\OO_K$ es un dominio de factorizacion unica es directa.
 
-Para ver el paso de la teoria al calculo, las notas de Stoll~\cite{Stoll2006Descent} presentan el grupo de Selmer y la construccion de sus espacios de cubrimiento. El trabajo de Schaefer y Stoll~\cite{SchaeferStoll2004} desarrolla el $p$-descenso sobre cuerpos de numeros, reduciendolo a calculos con unidades, grupos de clases e imagenes locales, e incluye ejemplos completos. Para el descenso mediante una isogenia de grado $3$, Cohen y Pazuki~\cite{CohenPazuki2009} dan formulas explicitas y criterios de solubilidad de las cubicas asociadas.
-
-La aplicacion que nos interesa es controlar estos calculos en una familia para obtener infinitas curvas de rango fijo. En esa direccion, Koymans y Pagano~\cite{KoymansPagano2025} combinan 2-descenso y combinatoria aditiva para construir curvas sin crecimiento de rango en ciertas extensiones; Zywina~\cite{Zywina2025RankDoesNotJump} combina descenso y especializacion para controlar los saltos; y Savoie~\cite{Savoie2025QiRank2}, junto con el calculo de Selmer de~\cite{KlingSavoie2025}, desarrolla un procedimiento particularmente cercano al que seguiremos. Nuestro caso usará 3-descenso sobre $\QQ(\omega)$.
+La aplicacion que nos interesa es controlar estos calculos en una familia de curvas via condiciones de congruencia sobre ciertos primos (impuestas a posteriori) que nos bastaran para calcular el grupo de Selmer de cada curva, para luego obtener infinitas de rango fijo. En esa direccion aparecieron en los ultimos años muchos resultados: Koymans y Pagano~\cite{KoymansPagano2025} combinan 2-descenso y combinatoria aditiva para construir curvas sin crecimiento de rango en ciertas extensiones; Zywina tiene una serie de resultados combinando descenso y especializacion de superficies para dar infinitas curvas de cada rango entre 0 y 4 sobre todo cuerpo de numeros; y Savoie~\cite{Savoie2025QiRank2} obtiene una familia de curvas de rango 2 y $j$-invariante igual a 1728 sobre $\QQ(i)$ usando 2-descenso, cuyo procedimiento adaptaremos a nuestro caso: una familia de rango 2 y $j$-invariante igual a 0 sobre $\QQ(\omega)$ usando 3-descenso.
 
 
-\section{Teoria del selmer y morfismo de descenso}
+\section{Teoria de Selmer y morfismo de descenso}
 
 En la introduccion utilizamos una curva especifica que nos permitia encontrar mas facilmente la conexion entre un punto racional y los elementos de $\QmodT$, pero para que esta asignacion cumpla las propiedades que queriamos, secretamente estabamos usando que teniamos una isogenia de grado 3 a traves del punto de 3-torsion. Vamos a mostrar como se hace esto en general con una isogenia de grado $n$ (y $n$ será el grado de la isogenia en toda la seccion).
 
-\subsection*{Sucesion exacta de Kummer}
+\subsection{Sucesion exacta de Kummer}
 
-Supongamos que tenemos una curva $E$ con una isogenia $\phi:E\to E'$. Junto con la sucesion exacta corta 
+Supongamos que tenemos una curva $E$ con una isogenia $\phi:E\to E'$. Para que las cuentas se hagan sobre $E$, aplicaremos el descenso a la dual $\hat\phi:E'\to E$: asi el morfismo saldra de $E(K)$ y su nucleo sera $\hat\phi(E'(K))$. Toda isogenia tiene una dual del mismo grado, asi que podemos aplicar a ella la misma construccion.
+
+Junto con la sucesion exacta corta 
 \[
-0 \longrightarrow E[\phi] \longrightarrow E(\bar{K}) \overset{\phi}{\longrightarrow} E'(\bar{K}) \longrightarrow 0
+0 \longrightarrow E'[\hat\phi] \longrightarrow E'(\bar{K}) \overset{\hat\phi}{\longrightarrow} E(\bar{K}) \longrightarrow 0
 \]
 vamos a tener una sucesion exacta larga tomando cohomologia de Galois (todos estos grupos son $G_K$-módulos):
 \begin{center}
@@ -1233,23 +1131,23 @@ vamos a tener una sucesion exacta larga tomando cohomologia de Galois (todos est
 
 % Segunda fila: la construimos primero para evitar superposiciones
 \node (Hkernel)
-    {$H^1(G_K,E[\phi])$};
+    {$H^1(G_K,E'[\hat\phi])$};
 
 \node[right=1cm of Hkernel] (HE)
-    {$H^1(G_K,E)$};
+    {$H^1(G_K,E')$};
 
 \node[right=1cm of HE] (HEp)
-    {$H^1(G_K,E')\cdots$};
+    {$H^1(G_K,E)\cdots$};
 
 % Primera fila: cada grupo exactamente encima de su H^1
 \node[above=1.2cm of Hkernel] (kernel)
-    {$E(K)[\phi]$};
+    {$E'(K)[\hat\phi]$};
 
 \node[above=1.2cm of HE] (E)
-    {$E(K)$};
+    {$E'(K)$};
 
 \node[above=1.2cm of HEp] (Ep)
-    {$E'(K)$};
+    {$E(K)$};
 
 \node[left=1cm of kernel] (zero)
     {$0$};
@@ -1257,11 +1155,11 @@ vamos a tener una sucesion exacta larga tomando cohomologia de Galois (todos est
 % Flechas de la primera fila
 \draw[->] (zero) -- (kernel);
 \draw[->] (kernel) -- (E);
-\draw[->] (E) -- node[above] {$\phi$} (Ep);
+\draw[->] (E) -- node[above] {$\hat\phi$} (Ep);
 
 % Flechas de la segunda fila
 \draw[->] (Hkernel) -- (HE);
-\draw[->] (HE) -- node[above] {$\phi$} (HEp);
+\draw[->] (HE) -- node[above] {$\hat\phi$} (HEp);
 
 % Puntos para la flecha delta
 \coordinate (Rtop) at ([xshift=0.8cm]Ep.east);
@@ -1282,20 +1180,20 @@ vamos a tener una sucesion exacta larga tomando cohomologia de Galois (todos est
 \end{tikzpicture}
 }
 \end{center}
-y tomando de la mitad obtenemos la \emph{sucesion exacta de Kummer de $E/K$}, que usaremos para el descenso:
+y tomando de la mitad obtenemos la \emph{sucesion exacta de Kummer para $\hat\phi$}, que usaremos para el descenso:
 \[
-0 \longrightarrow \frac{E'(K)}{\phi(E(K))} \overset{\delta}{\longrightarrow} H^1(G_K,E[\phi]) \overset{\gamma}{\longrightarrow} H^1(G_K,E)[\phi] \longrightarrow 0
+0 \longrightarrow \frac{E(K)}{\hat\phi(E'(K))} \overset{\delta}{\longrightarrow} H^1(G_K,E'[\hat\phi]) \overset{\gamma}{\longrightarrow} H^1(G_K,E')[\hat\phi] \longrightarrow 0
 \]
 
 Rapidamente queremos identificar el segundo y el tercer grupo con otros que conozcamos mejor y podamos controlar, y tambien entender los morfismos. 
 
-\subsection*{Isomorfismo para $H^1(G_K,E[\phi])$}
+\subsection*{Isomorfismo para $H^1(G_K,E'[\hat\phi])$}
 
-Para el segundo grupo vamos a hacerlo en el caso particular donde $E[\phi]$ sea ciclico y $K$-racional, que podemos obtener simplemente cocientando por el grupo generado por un punto de $n$-torsion (recordemos que una isogenia queda determinada por su nucleo). Si $\phi$ es de grado $n$ y $\mu_n \subset K$ entonces quedará $E[\phi] \cong \mu_n$ y podemos dar un isomorfismo explicito usando el emparejamiento de Weil. Un teorema de Kummer nos dice que
+Para el segundo grupo vamos a hacerlo en el caso particular donde $E[\phi]$ sea ciclico y $K$-racional, que podemos obtener simplemente cocientando por el grupo generado por un punto de $n$-torsion (recordemos que una isogenia queda determinada por su nucleo). Si $\phi$ es de grado $n$ y $\mu_n \subset K$ entonces quedará $E'[\hat\phi] \cong \mu_n$ y podemos dar un isomorfismo explicito usando el emparejamiento de Weil con un generador $Q_0\in E(K)[\phi]$. Un teorema de Kummer nos dice que
 \[
 H^1(G_K,\mu_n) \cong \KmodN,
 \]
-que será la identificacion que usaremos para el descenso.
+y esta será la identificacion que usaremos para el descenso.
 
 \subsection*{Grupo de Weil-Châtelet}
 
@@ -1303,7 +1201,9 @@ Para el tercer grupo, la identificacion se consigue asociando espacios homogeneo
 
 Nuevamente para no introducir demasiada teoria mencionaremos que asociado a cada curva eliptica existe el grupo de Weil-Châtelet $\operatorname{WC}(E/K)$ de clases de equivalencia de espacios homogeneos sobre $E$. Estos ultimos constan de una curva $\cc/K$ junto con una accion de $E$ en $\cc$ definida sobre $K$ simplemente transitiva. Lo importante sobre estos es que, dado un punto $P\in \cc$, tenemos un isomorfismo con $E$ definido sobre $K(P)$ (adjuntar a $K$ las coordenadas de $P$); y esto nos dice que, si $\cc$ tiene un punto $K$-racional entonces está en la clase trivial de $\operatorname{WC}(E/K)$, que es lo que nos interesa calcular. Tambien tenemos el teorema que nos dice que existe una biyeccion entre $\operatorname{WC}(E/K)$ y $H^1(G_K,E)$ para poder reemplazar uno de los terminos de la sucesion. 
 
-Para calcular estos espacios homogeneos vamos a elegir un punto $Q_0\in E'(K)[\hat\phi]$ que genere el nucleo de la isogenia dual (que tambien será ciclico) y tenemos que encontrar una funcion racional $f \in K(E')^\times$ tal que 
+En la sucesion que estamos usando aparece $\operatorname{WC}(E'/K)$: los espacios homogeneos llevan una accion de $E'$, aunque los construimos con funciones sobre $E$.
+
+Para calcular estos espacios homogeneos vamos a elegir un punto $Q_0\in E(K)[\phi]$ que genere el nucleo de $\phi$ (que tambien será ciclico) y tenemos que encontrar una funcion racional $f \in {K(E)}^\times$ tal que 
 \[
 \operatorname{div}(f) = n(Q_0) - n(\OO).
 \]
@@ -1311,51 +1211,71 @@ Con esto, el espacio homogeneo asociado a $a\in\KmodN$ será (el modelo proyecti
 \[
 f(Q) = az^n.
 \]
-Notemos que está evaluada en $Q \in E'$, entonces esto puede traducirse a variables $x$ e $y$ con la ecuacion de la curva $E'$ (cuidado, no es la de $E$). No olvidemos que $f=g/h$ era una funcion racional, por lo que si nos interesan ecuaciones polinomicas terminariamos obteniendo
+Notemos que está evaluada en $Q \in E$, entonces esto puede traducirse a variables $x$ e $y$ con la ecuacion de la curva $E$ (cuidado, no es la de $E'$). No olvidemos que $f=g/h$ era una funcion racional, por lo que si nos interesan ecuaciones polinomicas terminariamos obteniendo
 \[
 \begin{cases}
-y^2 = x^3 +A'x + B'  \\
-g(x,y)=az^nh(x,y).
+y^2 = x^3 +Ax + B  \\
+g(x,y)=az^n h(x,y).
 \end{cases}
 \]
 
-\textbf{Decir como calcular los esp homogeneos.}
+\subsection{Como calcular los espacios homogeneos}
 
+Lo primero que nos falta del procedimiento anterior es calcular la funcion $f$. Esto se puede hacer con las mismas rectas que usamos para sumar puntos. Escribamos $Q_0=(r,s)$ y calculemos $Q_0,2Q_0,\ldots,nQ_0=\OO$. Para cada punto intermedio $R=jQ_0$, llamemos $\ell_R(x,y)=0$ a la recta que pasa por $R$ y $Q_0$, o a la tangente si son iguales. Tomamos la funcion
+\[
+h_R(x,y)=
+\begin{cases}
+\displaystyle\frac{\ell_R(x,y)}{x-x(R+Q_0)} & R+Q_0\neq\OO,\\[6pt]
+x-r & R+Q_0=\OO.
+\end{cases}
+\]
+En el primer caso, la recta del numerador corta a la curva en $R,Q_0,-R-Q_0$, y la vertical del denominador en $R+Q_0,-R-Q_0$. En el segundo, $R=-Q_0$ y usamos directamente la vertical por estos dos puntos. En ambos casos nos queda
+\[
+\operatorname{div}(h_R)=(R)+(Q_0)-(R+Q_0)-(\OO).
+\]
+Ahora multiplicamos estas funciones:
+\[
+f=\prod_{j=1}^{n-1}h_{jQ_0}.
+\]
+Al sumar sus divisores se cancelan los puntos intermedios y, como $nQ_0=\OO$, queda exactamente $n(Q_0)-n(\OO)$. Asi obtenemos $f$ con cuentas de la ley del grupo. Estas son las cuentas en las que se basa el algoritmo de Miller; una version optimizada está en~\cite[cap.~XI, teorema~8.1]{SilvermanAEC}.
 
+Con $f$ calculada, elegimos un representante $a\in K^\times$ de la clase que queremos estudiar y ponemos $f(x,y)=az^n$ junto con la ecuacion de la curva $E$. Luego manipulando algebraicamente se puede simplificar y, en los casos mas simples, se puede llegar a una sola formula donde solo cambiando el parametro $a$ tenemos todos los espacios homogeneos. Esto es lo que sucede tanto en los casos de 2-descenso como 3-descenso.
 
-\subsection*{Morfismo de descenso}
+En nuestra familia la tangente en $(0,t)$ es $y=t$, asi que usamos $f=y-t$. Recordemos que esta funcion vive sobre $E_t$, por lo que corresponde al descenso para $\hat\phi:E'_t\to E_t$ (segun la convencion de trabajar con funciones sobre $E_t$). La simplificacion de $f=az^3$ es justamente la que hicimos al principio del capitulo para obtener la cubica $C_a$.
 
-Ahora nos falta analizar el morfismo $\delta$, haciendo la identificacion de su codominio con $\KmodN$. Para lo que lo estamos usando unicamente necesitariamos saber que existe un morfismo inyectivo que sale del cociente de los puntos y que su imagen coincide con el nucleo de $\gamma$ y asi podremos acotarla, es decir, no necesitamos calcularlo explicitamente. Igualmente vamos a presentarlo ya que saber la imagen de los elementos que tenemos (como los puntos de torsion y libres con que hayamos partido) nos ayuda a saber en que espacios concentrarnos para descartar. Antes de comenzar con la teoria general notemos que, en el caso de la introduccion, encontramos un morfismo que cumplia lo que necesitabamos, con el que incluso nos pudimos armar el espacio homogeneo, y fue simplemente de la estructura de la curva. Esto puede ser la solucion en muchos casos para evitar esta parte, pero presentaremos el caso general.
+\subsection{Morfismo de descenso}
+
+Ahora nos falta analizar el morfismo $\delta$, haciendo la identificacion de su codominio con $\KmodN$. Para lo que lo estamos usando unicamente necesitariamos saber que existe un morfismo inyectivo que sale del cociente de los puntos y que su imagen coincide con el nucleo de $\gamma$ y asi podremos acotarla, es decir, no necesitamos calcularlo explicitamente. Igualmente vamos a presentarlo ya que saber la imagen de los elementos que tenemos (como los puntos de torsion y libres con que hayamos partido) nos ayuda a saber que espacios descartar. Antes de comenzar con la teoria general notemos que, en el caso de la introduccion, encontramos un morfismo que cumplia lo que necesitabamos, con el que incluso nos pudimos armar el espacio homogeneo, y fue simplemente de la estructura de la curva. ``Encontrar un morfismo a ojo'' puede ser la solucion en muchos casos para evitar esta parte, pero presentaremos el caso general.
 
 \begin{lemma}\label{lemma:funcionDescenso}
-Dada una isogenia $\phi:E\to E'$ ciclica de grado $n$ y un punto $Q_0\in E'(K)[\hat\phi]$ generador del nucleo de $\hat{\phi}$, existe una funcion $f\in K(E')^\times$ tal que $\operatorname{div}(f)=n(Q_0)-n(\OO)$ que puede normalizarse para que $f\circ\phi=g^n$ para alguna $g\in K(E)^\times$.
+Dada una isogenia $\hat\phi:E'\to E$ ciclica de grado $n$ y un punto $Q_0\in E(K)[\phi]$ generador del nucleo de $\phi$, existe una funcion $f\in K(E)^\times$ tal que $\operatorname{div}(f)=n(Q_0)-n(\OO)$ que puede normalizarse para que $f\circ\hat\phi=g^n$ para alguna $g\in K(E')^\times$.
 \end{lemma}
 
 \begin{proof}
-Como $Q_0$ tiene orden $n$, el divisor $n(Q_0)- n(\OO)$ (que seria $n$ veces el asociado al punto $Q_0$) es trivial en $\operatorname{Pic}^0(E')$ y por lo tanto es principal: existe $f$ con ese divisor en $K(E')^\times$ ($Q_0\in E'(K)$ asi que $f$ puede tomarse definida sobre $K$). La funcion asociada a un divisor estará definida salvo constantes. Veamos que, con la constante adecuada, podemos conseguir que $f\circ\phi=g^n$.
+Como $Q_0$ tiene orden $n$, el divisor $n(Q_0)- n(\OO)$ (que seria $n$ veces el asociado al punto $Q_0$) es trivial en $\operatorname{Pic}^0(E)$ y por lo tanto es principal: existe $f$ con ese divisor en $K(E)^\times$ ($Q_0\in E(K)$ asi que $f$ puede tomarse definida sobre $K$). La funcion asociada a un divisor estará definida salvo constantes. Veamos que, con la constante adecuada, podemos conseguir que $f\circ\hat\phi=g^n$.
 
-Como $\phi$ es sobreyectiva, existe $P_0 \in E(\bar{K})$ con $\phi(P_0)=Q_0$ y las preimagenes de $Q_0$ serán $P_0 + R$ para los $R\in \nuc (\phi)$. Entonces, el divisor 
+Como $\hat\phi$ es sobreyectiva, existe $P_0 \in E'(\bar{K})$ con $\hat\phi(P_0)=Q_0$ y las preimagenes de $Q_0$ serán $P_0 + R$ para los $R\in \nuc (\hat\phi)$. Entonces, el divisor 
 \[ 
-D = \sum_{R\in E[\phi]} (P_0 + R) - \sum_{R\in E[\phi]} (R) 
+D = \sum_{R\in E'[\hat\phi]} (P_0 + R) - \sum_{R\in E'[\hat\phi]} (R) 
 \] 
-es tal que $D = \phi^*((Q_0)-(\OO))$. Viendo $D$ en $\operatorname{Pic}^0(E)$ (como puntos por ser $\cong E$) se cancelan los $R$ y queda $nP_0$, pero $[n]P_0 = \hat{\phi}(Q_0) = \OO$ en $E$ y entonces existe $g \in K(E)^\times$ con $\operatorname{div}(g) = D$ ($g$ está definida sobre $K$ porque $D$ lo está). Ahora como $\operatorname{div}(f)= n((Q_0)-(\OO))$ tenemos
+es tal que $D = \hat\phi^*((Q_0)-(\OO))$. Viendo $D$ en $\operatorname{Pic}^0(E')$ (como puntos por ser $\cong E'$) se cancelan los $R$ y queda $nP_0$, pero $[n]P_0 = \phi(Q_0) = \OO$ en $E'$ y entonces existe $g \in K(E')^\times$ con $\operatorname{div}(g) = D$ ($g$ está definida sobre $K$ porque $D$ lo está). Ahora como $\operatorname{div}(f)= n((Q_0)-(\OO))$ tenemos
 \[
-\operatorname{div}(f \circ \phi)=\phi^*(n((Q_0)-(\OO)))=n D=n\ \operatorname{div}(g)=\operatorname{div}(g^n).
+\operatorname{div}(f \circ \hat\phi)=\hat\phi^*(n((Q_0)-(\OO)))=n D=n\ \operatorname{div}(g)=\operatorname{div}(g^n).
 \]
 
-Como tienen los mismos divisores, $f\circ\phi = \lambda g^n$ para algun $\lambda \in K^\times$, y tomando $\lambda^{-1}f$ nos queda
+Como tienen los mismos divisores, $f\circ\hat\phi = \lambda g^n$ para algun $\lambda \in K^\times$, y tomando $\lambda^{-1}f$ nos queda
 \[
-f\circ\phi = g^n.
+f\circ\hat\phi = g^n.
 \]
 \end{proof}
 
-La $f$ del lema nos permitirá dar una descripcion explicita de $\delta$, donde para puntos $P\in E'(K)$ distintos a $\OO$ y $Q_0$ valdrá $\delta(P)=f(P) \mod {(K^\times)}^n$. Para $\OO$, por ser morfismo, debe caer en la clase trivial ($f$ tendría un polo en $\OO$, por eso no está definida); y en $Q_0$ la definimos como el valor de su coeficiente principal $c$ ($f$ tiene un cero en $Q_0$). Juntemos esto en un resultado y demostremoslo abajo:
+La $f$ del lema nos permitirá dar una descripcion explicita de $\delta$, donde para puntos $P\in E(K)$ distintos a $\OO$ y $Q_0$ valdrá $\delta(P)=f(P) \mod {(K^\times)}^n$. Para $\OO$, por ser morfismo, debe caer en la clase trivial ($f$ tendría un polo en $\OO$, por eso no está definida); y en $Q_0$ la definimos como el valor de su coeficiente principal $c$ ($f$ tiene un cero en $Q_0$). Juntemos esto en un resultado y demostremoslo abajo:
 
 \begin{theorem}[Morfismo de descenso]\label{thm:morfismoDescenso}
 Sea $f$ la funcion del Lema~\ref{lemma:funcionDescenso}. El mapa
 \[
 \begin{array}{crcl}
-\alpha:&E'(K) & \longrightarrow & \KmodN \\
+\alpha:&E(K) & \longrightarrow & \KmodN \\
 &P & \longmapsto &
 \begin{cases}
 [1] & \text{ si } P=\OO, \\
@@ -1364,37 +1284,45 @@ Sea $f$ la funcion del Lema~\ref{lemma:funcionDescenso}. El mapa
 \end{cases}
 \end{array}
 \]
-está bien definido, es un morfismo, su nucleo es $\phi(E(K))$ y, cocientando por él, corresponde al morfismo $\delta$ de la sucesion de Kummer luego de hacer la identificacion $H^1(G_K, E[\phi])$ con $\KmodN$ usando el emparejamiento de Weil con $Q_0$.
+está bien definido, es un morfismo, su nucleo es $\hat\phi(E'(K))$ y, cocientando por él, corresponde al morfismo $\delta$ de la sucesion de Kummer luego de hacer la identificacion $H^1(G_K, E'[\hat\phi])$ con $\KmodN$ usando el emparejamiento de Weil con $Q_0$.
 \end{theorem}
 
 \begin{proof}
-Veamos la evaluacion $f(Q)$ para un $Q \neq Q_0,\OO$. Podemos tomar una de sus preimagenes $P\in E(\bar{K})$ y $g(P)$ será una raiz $n$-esima. Para ver la clase de $f(Q)$ via el isomorfismo en $\KmodN$ nos basta ver como actua un $\sigma \in G_K$ en $g(P)$, es decir, 
+Veamos la evaluacion $f(Q)$ para un $Q \neq Q_0,\OO$. Podemos tomar una de sus preimagenes $P\in E'(\bar{K})$ y $g(P)$ será una raiz $n$-esima. Para ver la clase de $f(Q)$ via el isomorfismo en $\KmodN$ nos basta ver como actua un $\sigma \in G_K$ en $g(P)$, es decir, 
 \[
 \sigma \mapsto \frac{\sigma(g(P))}{g(P)}.
 \]
-Veremos que este cociclo, luego de las identificaciones, es igual a $\delta(Q)$. Su definicion es $\delta(Q) = (\sigma \mapsto \sigma(P)-P)$ para un $P\in E(\bar{K})$ tal que $\phi(P)=Q$. Es facil ver que toma valores en $E[\phi]$ pues $\sigma(Q) = Q$ y $\sigma$ conmuta con $\phi$. Cuando identificamos $E[\phi]\cong \mu_n$ a traves del emparejamiento de Weil con el $Q_0$, nos queda 
+Veremos que este cociclo, luego de las identificaciones, es igual a $\delta(Q)$. Su definicion es $\delta(Q) = (\sigma \mapsto \sigma(P)-P)$ para un $P\in E'(\bar{K})$ tal que $\hat\phi(P)=Q$. Es facil ver que toma valores en $E'[\hat\phi]$ pues $\sigma(Q) = Q$ y $\sigma$ conmuta con $\hat\phi$. Cuando identificamos $E'[\hat\phi]\cong \mu_n$ a traves del emparejamiento de Weil con el $Q_0$, nos queda 
 \[
-\delta(Q) = (\sigma \mapsto e_{\phi}(\sigma(P)-P,Q_0)).
+\delta(Q) = (\sigma \mapsto e_{\hat\phi}(\sigma(P)-P,Q_0)).
 \]
-Ahora, si llamamos $R=\sigma(P)-P \in E[\phi]$, por la identificacion del emparejamiento de Weil con funciones racionales nos queda que 
+Ahora, si llamamos $R=\sigma(P)-P \in E'[\hat\phi]$, por la identificacion del emparejamiento de Weil con funciones racionales nos queda que 
 \[
-e_{\phi}(\sigma(P)-P, Q_0) = \frac{g(P+R)}{g(P)} = \frac{g(\sigma(P))}{g(P)} = \frac{\sigma(g(P))}{g(P)},
+e_{\hat\phi}(\sigma(P)-P, Q_0) = \frac{g(P+R)}{g(P)} = \frac{g(\sigma(P))}{g(P)} = \frac{\sigma(g(P))}{g(P)},
 \]
 que es exactamente lo que queriamos. 
 
-Para definir $\alpha(Q_0)$ en $\KmodN$, como tenemos un cero de orden $n$, necesitaremos definirlo con un parametro local $t^n$ con el cual $f=c_n t^n + c_{n+1}t^{n+1}+\cdots$ y definimos $\alpha(Q_0) = [c_n] \in \KmodN$ ya que, si cambiamos de parametro local, el valor de $c_n$ cambiará solo por una potencia $n$-esima. \textbf{Falta ver pq coincide con $\delta(Q_0)$}. Para $\OO$ podriamos hacer lo mismo, pero como $\delta$ es un morfismo, lo asignará a la clase trivial en la cohomologia, que corresponde en nuestra identificacion con la clase del 1 en $\KmodN$.
-
-Finalmente, como probamos que $\alpha$ coincide, via $f$ y luego de identificaciones, con $\delta$, entonces será un morfismo; y por exactitud de la sucesion de Kummer su nucleo será $\nuc (\delta)=\phi(E(K))$. Al cocientar obtenemos la inyeccion
+Para definir $\alpha(Q_0)$ en $\KmodN$, como tenemos un cero de orden $n$, necesitaremos un parametro local $t\in K(E)$ en $Q_0$, con el cual $f=c_n t^n + c_{n+1}t^{n+1}+\cdots$ y definimos $\alpha(Q_0) = [c_n] \in \KmodN$ ya que, si cambiamos de parametro local, el valor de $c_n$ cambiará solo por una potencia $n$-esima. Para ver que coincide con $\delta(Q_0)$, tomemos una preimagen $P_0$ de $Q_0$ y pongamos $h=g/(t\circ\hat\phi)\in K(E')$. Como $h^n=(f/t^n)\circ\hat\phi$, el cociente $h$ no tiene polos ni raices en las preimagenes de $Q_0$, y ${h(P_0)}^n=c_n$. Ademas, $t\circ\hat\phi$ no cambia al trasladar por un punto de $E'[\hat\phi]$, asi que la identidad anterior se puede evaluar usando $h$ y nos da
 \[
-\alpha:\frac{E'(K)}{\phi(E(K))} \hookrightarrow \KmodN.
+e_{\hat\phi}(\sigma(P_0)-P_0,Q_0)
+=\frac{h(\sigma(P_0))}{h(P_0)}
+=\frac{\sigma(h(P_0))}{h(P_0)}.
+\]
+Este es exactamente el cociclo de Kummer de la raiz $h(P_0)$ de $c_n$, por lo que $\delta(Q_0)$ corresponde a $[c_n]=\alpha(Q_0)$.
+
+Para $\OO$ podriamos hacer lo mismo, pero como $\delta$ es un morfismo, lo asignará a la clase trivial en la cohomologia, que corresponde en nuestra identificacion con la clase del 1 en $\KmodN$.
+
+Finalmente, como probamos que $\alpha$ coincide, via $f$ y luego de identificaciones, con $\delta$, entonces será un morfismo; y por exactitud de la sucesion de Kummer su nucleo será $\nuc (\delta)=\hat\phi(E'(K))$. Al cocientar obtenemos la inyeccion
+\[
+\alpha:\frac{E(K)}{\hat\phi(E'(K))} \hookrightarrow \KmodN.
 \]
 \end{proof}
 
-\subsection*{Grupos de Selmer y Sha}
+\subsection{Grupos de Selmer y Sha}
 
-El siguiente paso es reemplazar el termino $\KmodN$ por un grupo finito y el $\operatorname{WC}(E/K)$ para que siga siendo una sucesion exacta, y esto se logra con consideraciones locales. Volviendo a la secuencia de Kummer, uno puede considerar un lugar $v\in M_K$ y todos los objetos correspondientes: extender $v$ a $\bar{K}$ para fijar una inclusion de $\bar{K} \subseteq \bar{K_v}$ y un grupo de descomposicion $G_v \subseteq G_K$ para fijar su accion en $E(\bar{K_v})$ y $E'(\bar{K_v})$; y asi armar la siguiente sucesion:
+El siguiente paso es reemplazar el termino $\KmodN$ por un subgrupo finito y el $\operatorname{WC}(E'/K)$ para que siga siendo una sucesion exacta, y esto se logra con consideraciones locales. Volviendo a la secuencia de Kummer, uno puede considerar un lugar $v\in M_K$ y todos los objetos correspondientes: extender $v$ a $\bar{K}$ para fijar una inclusion de $\bar{K} \subseteq \bar{K_v}$ y un grupo de descomposicion $G_v \subseteq G_K$ para fijar su accion en $E'(\bar{K_v})$ y $E(\bar{K_v})$; y asi armar la siguiente sucesion:
 \[
-0 \longrightarrow \frac{E'(K_v)}{\phi(E(K_v))} \overset{\delta}{\longrightarrow} H^1(G_v,E[\phi]){\longrightarrow} \operatorname{WC}(E/K_v)[\phi] \longrightarrow 0
+0 \longrightarrow \frac{E(K_v)}{\hat\phi(E'(K_v))} \overset{\delta}{\longrightarrow} H^1(G_v,E'[\hat\phi]){\longrightarrow} \operatorname{WC}(E'/K_v)[\hat\phi] \longrightarrow 0
 \]
 
 Y considerando los mapas de restricción simultaneamente a todos los lugares tenemos el siguiente diagrama conmutativo:
@@ -1408,19 +1336,19 @@ Y considerando los mapas de restricción simultaneamente a todos los lugares ten
 
 % Primera fila
 \node (z1) at (0,1.6) {$0$};
-\node (A1) at (3.1,1.6) {$E'(K)/\phi(E(K))$};
-\node (B1) at (7.5,1.6) {$H^1(G_K,E[\phi])$};
-\node (C1) at (11.6,1.6) {$\operatorname{WC}(E/K)[\phi]$};
+\node (A1) at (3.1,1.6) {$E(K)/\hat\phi(E'(K))$};
+\node (B1) at (7.5,1.6) {$H^1(G_K,E'[\hat\phi])$};
+\node (C1) at (11.6,1.6) {$\operatorname{WC}(E'/K)[\hat\phi]$};
 \node (z2) at (14.3,1.6) {$0$};
 
 % Segunda fila
 \node (z3) at (0,0.2) {$0$};
 \node (A2) at (3.1,0)
-    {$\displaystyle\prod_{v\in M_K} E'(K_v)/\phi(E(K_v))$};
+    {$\displaystyle\prod_{v\in M_K} E(K_v)/\hat\phi(E'(K_v))$};
 \node (B2) at (7.5,0)
-    {$\displaystyle\prod_{v\in M_K} H^1(G_v,E[\phi])$};
+    {$\displaystyle\prod_{v\in M_K} H^1(G_v,E'[\hat\phi])$};
 \node (C2) at (11.6,0)
-    {$\displaystyle\prod_{v\in M_K} \operatorname{WC}(E/K_v)[\phi]$};
+    {$\displaystyle\prod_{v\in M_K} \operatorname{WC}(E'/K_v)[\hat\phi]$};
 \node (z4) at (14.3,0.2) {$0$};
 
 % Flechas horizontales: primera fila
@@ -1450,33 +1378,31 @@ Y considerando los mapas de restricción simultaneamente a todos los lugares ten
 
 Nuestro objetivo era conocer la imagen de $\delta$, o equivalentemente el nucleo de $\gamma$, y ya mencionamos que esto es equivalente a encontrar puntos racionales en espacios homogeneos, que es igualmente una pregunta dificil. Por otro lado, con el mismo razonamiento nos sirve calcular
 \[
-\nuc \lp H^1(G_v,E[\phi])\to \operatorname{WC}(E/K_v)[\phi] \rp
+\nuc \lp H^1(G_v,E'[\hat\phi])\to \operatorname{WC}(E'/K_v)[\hat\phi] \rp
 \]
 y eso se consigue calculando puntos racionales en espacios homogeneos sobre cuerpos locales, que, gracias al lema de Hensel, se puede hacer en finitos pasos. Esto motiva las siguientes definiciones.
 
 \begin{definition}
-Dada una isogenia $\phi:E\to E'$ sobre $K$, el \emph{grupo de Selmer} asociado a $\phi$ (o $\phi$-Selmer) es el subgrupo de $H^1(G_K,E[\phi])$ definido por
+Dada una isogenia $\hat\phi:E'\to E$ sobre $K$, el \emph{grupo de Selmer} asociado a $\hat\phi$ (o $\hat\phi$-Selmer) es el subgrupo de $H^1(G_K,E'[\hat\phi])$ definido por
 \[
-S^{(\phi)}(E/K) = \nuc  \lla H^1(G_K,E[\phi]) \to \displaystyle\prod_{v\in M_K} \operatorname{WC}(E/K_v) \rla,
+S^{(\hat\phi)}(E'/K) = \nuc  \lla H^1(G_K,E'[\hat\phi]) \to \displaystyle\prod_{v\in M_K} \operatorname{WC}(E'/K_v) \rla,
 \]
-El \emph{grupo de Shafarévich-Tate} es el subgrupo de $\operatorname{WC}(E/K)$ dado por 
+El \emph{grupo de Shafarévich-Tate} (o Sha por el caracter $\Sha$) es el subgrupo de $\operatorname{WC}(E/K)$ dado por 
 \[
 \Sha (E/K) = \nuc  \lla \operatorname{WC}(E/K) \to \displaystyle\prod_{v\in M_K} \operatorname{WC}(E/K_v) \rla.
 \]
 \end{definition}
 
+En la notacion $S^{(\hat\phi)}(E'/K)$ aparece $E'$ porque es el dominio de $\hat\phi$; el cociente de puntos que buscamos y las funciones que evaluamos estan sobre $E$. Aplicando la misma definicion a $\phi$ obtenemos $S^{(\phi)}(E/K)$~\cite[cap.~X, seccion~4]{SilvermanAEC}.
+
 Y se sigue del diagrama que tenemos la sucesion exacta
 \begin{equation}\label{eq:selmerSha}
-0 \longrightarrow \frac{E'(K)}{\phi(E(K))} 
-\longrightarrow S^{(\phi)}(E/K)
-\longrightarrow \Sha (E/K)[\phi] \longrightarrow 0
+0 \longrightarrow \frac{E(K)}{\hat\phi(E'(K))} 
+\longrightarrow S^{(\hat\phi)}(E'/K)
+\longrightarrow \Sha (E'/K)[\hat\phi] \longrightarrow 0
 \end{equation}
 
-Esta sucesión explica qué información podemos perder al trabajar solamente con condiciones locales. El \emph{principio local-global} para un espacio homogéneo $C$ afirmaría que tener puntos en todos los $K_v$ alcanza para tener un punto en $K$. Una dirección es inmediata: un punto global da puntos en todas las completaciones. La otra puede fallar. Como la clase de $C$ en $\operatorname{WC}(E/K)$ es trivial exactamente cuando $C(K)\neq\varnothing$, los elementos no nulos de $\Sha(E/K)$ son precisamente las clases de espacios homogéneos para $E$ que tienen puntos en todos los lugares, pero ninguno global. En este sentido, $\Sha$ mide cuánto falla el principio local-global para esos espacios~\cite[cap.~X, observación~4.1.2 y teorema~4.2]{SilvermanAEC}.
-
-Para nuestro cálculo, esto significa que el Selmer puede ser más grande que la imagen del descenso: el cociente entre ambos es $\Sha(E/K)[\phi]$. Una clase con imagen no nula en este último grupo no se puede descartar buscando otra obstrucción local, porque ya pasó todas esas pruebas. Un ejemplo clásico de este fenómeno es la cúbica de Selmer $3X^3+4Y^3+5Z^3=0$, que tiene puntos en todas las completaciones de $\QQ$ y ninguno en $\QQ$; véase~\cite[cap.~X, observación~4.11]{SilvermanAEC}. No hay que confundir una clase no trivial del Selmer con una clase no trivial de $\Sha$: la primera todavía puede venir de un punto racional de la curva elíptica.
-
-Se conjetura que $\Sha(E/K)$ es finito~\cite[cap.~X, conjetura~4.13]{SilvermanAEC}. Para los argumentos que siguen no necesitaremos suponerlo: la sucesión~\eqref{eq:selmerSha} y las cotas que obtengamos del Selmer son incondicionales.
+Esta sucesion era el objetivo principal de este capitulo. Como el primer grupo es un $\ZZ/n\ZZ$-módulo, solo precisamos ver la imagen de los generadores en el grupo de Selmer, y si tenemos la suerte de que la componente del Sha es trivial vamos a obtener nuestra cota. Tambien explica la informacion que podriamos perder en este proceso: si el Sha no es trivial no vamos a obtener la cota (y no hay forma efectiva de calcular el orden del Sha), y esto explica la falla del principio local-global en curvas elipticas. Los elementos no nulos de $\Sha(E'/K)$ son precisamente las clases de espacios homogéneos para $E'$ que tienen puntos en todos los lugares, pero ninguno global.
 
 Ahora lo que nos motiva todas estas definiciones es que vale lo siguiente:
 
@@ -1487,34 +1413,35 @@ El grupo de Selmer es finito.
 Este teorema lo vamos a demostrar usando primero las identificaciones que hicimos antes, para verlo como subgrupo de $\KmodN$. Para esto veamos:
 
 \begin{prop}
-Al identificar $H^1(G_K,E[\phi]) \cong \KmodN$ el grupo de Selmer es
+Al identificar $H^1(G_K,E'[\hat\phi]) \cong \KmodN$ el grupo de Selmer es
 \[
-S^{(\phi)}(E/K) = \lla [a] \in \KmodN : [a]_v \in \im(\alpha_v), \forall v\in M_K \rla
+S^{(\hat\phi)}(E'/K) = \lla [a] \in \KmodN : {[a]}_v \in \im(\alpha_v), \forall v\in M_K \rla
 \]
-donde $\alpha_v$ es el mismo morfismo de descenso pero sobre $K_v$ y $[a]_v$ es la clase de $a$ en $K_v^\times/(K_v^\times)^n$, usando la inclusion $K\hookrightarrow K_v$. 
+donde $\alpha_v$ es el mismo morfismo de descenso pero sobre $K_v$ y ${[a]}_v$ es la clase de $a$ en $K_v^\times/{(K_v^\times)}^n$, usando la inclusion $K\hookrightarrow K_v$. 
 \end{prop}
 
-Por definicion una clase $\xi \in H^1(G_K,E[\phi])$ esta en el Selmer si y solo si todas sus restricciones locales $\xi_v$ estan en el nucleo de $H^1(G_v,E[\phi]) \to \operatorname{WC}(E/K_v)[\phi]$, eso corresponde por exactitud a la imagen de $\delta_v$, que luego de las identificaciones son los mapas $\alpha_v$.
+Por definicion una clase $\xi \in H^1(G_K,E'[\hat\phi])$ esta en el Selmer si y solo si todas sus restricciones locales $\xi_v$ estan en el nucleo de $H^1(G_v,E'[\hat\phi]) \to \operatorname{WC}(E'/K_v)[\hat\phi]$, eso corresponde por exactitud a la imagen de $\delta_v$, que luego de las identificaciones son los mapas $\alpha_v$.
 
 Definamos tambien ahora el subconjunto de lugares donde podemos tener problemas de reduccion: 
 \[
 S:=M_K^\infty \cup \lla v: v(n)>0 \rla \cup \lla v: \text{E tiene mala reduccion en $v$} \rla.
 \]
+Las curvas isogenas tienen buena reduccion en los mismos lugares, asi que podemos definir $S$ usando $E$~\cite[cap.~VII, corolario~7.2]{SilvermanAEC}.
 Este conjunto es finito, y veremos que fuera de $S$ la valuacion de los elementos del grupo de Selmer es divisible por $n$, incluyendolo de esta forma en el conjunto finito
 \[
 K(S,n) := \lla [a] \in \KmodN : v(a)\equiv 0 \mod n \text{ para todo lugar } v \notin S \rla.
 \]
 
-Ahora probemos estas dos cosas para concluir el teorema:
+Ahora probemos estos dos lemas para concluir el teorema:
 
 \begin{lemma}
 Sea $v\in M_K$ tal que $v\notin S$ y $a\in K_v^\times$ representa una clase de $\im(\alpha_v)$. Entonces $v(a) \equiv 0 \mod n$. 
 \end{lemma}
 
 \begin{proof}
-Recordemos que $\alpha_v(Q) \equiv f(Q) \mod {(K_v^\times)}^n$ para todo punto $Q\in E'(K_v)$ distinto de $Q_0$ y $\OO$. 
+Recordemos que $\alpha_v(Q) \equiv f(Q) \mod {(K_v^\times)}^n$ para todo punto $Q\in E(K_v)$ distinto de $Q_0$ y $\OO$. 
 
-Como vimos en el primer capitulo, si $v \nmid n$ entonces la $n$-torsion se preserva al reducir modulo $v$, lo que nos asegura que $\bar{Q_0} \neq \bar{\OO}$ y que $f$ sigue teniendo cero y polo en $Q_0$ y $\OO$. Si $Q$ reduce a $\bar{Q} \neq Q_0,\OO$ entonces $f(Q)$ es una unidad y $v(f(Q))=0$; si $Q$ reduce a $\bar{Q_0}$ entonces tomando un parametro local $t$ (es decir $f=c_n t^n + c_{n+1} t^{n+1}\cdots$ alrededor de $Q_0$) nos queda $v(f(Q_0))=v(c_n) +n v(t(Q_0))$, y que el coeficiente principal sea una potencia $n$-esima en la reduccion nos lo podemos asegurar por la normalizacion $f\circ \phi = g^n$; y si reduce a $\bar{\OO}$ es el mismo argumento pero con $f = c_{-n} t^{-n} + c_{-n+1} t^{-n+1} \cdots$. 
+Como vimos en el primer capitulo, si $v \nmid n$ entonces la $n$-torsion se preserva al reducir modulo $v$, lo que nos asegura que $\bar{Q_0} \neq \bar{\OO}$ y que $f$ sigue teniendo cero y polo en $Q_0$ y $\OO$. Si $Q$ reduce a $\bar{Q} \neq Q_0,\OO$ entonces $f(Q)$ es una unidad y $v(f(Q))=0$; si $Q$ reduce a $\bar{Q_0}$ entonces tomando un parametro local $t$ (es decir $f=c_n t^n + c_{n+1} t^{n+1}\cdots$ alrededor de $Q_0$) nos queda $v(f(Q_0))=v(c_n) +n v(t(Q_0))$, y que el coeficiente principal sea una potencia $n$-esima en la reduccion nos lo podemos asegurar por la normalizacion $f\circ \hat\phi = g^n$; y si reduce a $\bar{\OO}$ es el mismo argumento pero con $f = c_{-n} t^{-n} + c_{-n+1} t^{-n+1} \cdots$. 
 \end{proof}
 
 \begin{lemma}
@@ -1528,20 +1455,20 @@ Ahora, si $[a]\in K(S,n)$, como $v(a)\equiv 0 \mod n$ para todo $v\notin S$ ento
 \[
 K(S,n) \to \operatorname{Cl}(\OO_{K,S})[n], \ [a]\mapsto [\aaa]
 \]
-esta bien definido. Miremos su nucleo: si $1=[\aaa]$ entonces $\aaa=(b)$ y $(b^n) = (a)$. Como generan el mismo ideal tenemos que $a/b^n \in \OO_{K,S}^\times$, y el nucleo será $\OO_{K,S}^\times / {(\OO_{K,S}^\times)}^n$. Juntando todo tenemos la sucesion exacta
+esta bien definido. Miremos su nucleo: si $1=[\aaa]$ entonces $\aaa=(b)$ y $(b^n) = (a)$. Como generan el mismo ideal tenemos que $a/b^n \in \OO_{K,S}^\times$, y con eso el nucleo del morfismo será $\OO_{K,S}^\times / {(\OO_{K,S}^\times)}^n$. Juntando todo tenemos la sucesion exacta
 \[
 1 \to \frac{\OO_{K,S}^\times}{ {(\OO_{K,S}^\times)}^n} \to K(S,n)\to \operatorname{Cl}(\OO_{K,S})[n] \to 1,
 \]
 donde los dos de los costados son finitos ($\OO_{K,S}^\times$ es finitamente generado por el teorema de Dirichlet), y entonces el del medio tambien lo es.
 \end{proof}
 
-La elección concreta de representantes, especialmente simple cuando $\OO_K$ es un dominio de factorización única, se desarrolla en la sección~\ref{sec:espaciosLocales}.
+La elección concreta de representantes para $K(S,n)$, especialmente simple cuando $\OO_K$ es un dominio de factorización única, la desarrollaremos mas adelante.
 
-Juntando estos dos resultados tenemos la demostracion del teorema porque vimos que $S^{(\phi)}(E/K) \subseteq K(S,n) $ y este ultimo es finito.
+Juntando estos dos resultados tenemos la demostracion del teorema porque vimos que $S^{(\hat\phi)}(E'/K) \subseteq K(S,n) $ y este ultimo es finito.
 
-\subsection*{Calculo del grupo de Mordell-Weil}
+\subsection{Calculo del grupo de Mordell-Weil}
 
-Para calcular el grupo de Mordell-Weil de una curva $E$ nos interesa calcular $E(K) / nE(K)$, pero lo que hicimos solo nos da $E'(K) / \phi (E(K))$, que no basta. La solucion es trabajar tambien con la isogenia dual, que vimos que era calculable a partir de la original: una vez que se tienen generadores para ambos $E(K) / \hat{\phi} (E'(K))$ y $E'(K) / \phi (E(K))$ se obtiene lo deseado utilizando la siguiente sucesion exacta:
+Para calcular el grupo de Mordell-Weil de una curva $E$ nos interesa calcular $E(K) / nE(K)$, pero lo que hicimos solo nos da $E(K) / \hat\phi (E'(K))$, que no basta. La solucion es trabajar tambien con la isogenia dual (en este caso $\phi$), que vimos que era calculable a partir de la original: una vez que se tienen generadores para ambos $E(K) / \hat{\phi} (E'(K))$ y $E'(K) / \phi (E(K))$ se obtiene lo deseado utilizando la siguiente sucesion exacta:
 
 \begin{equation}\label{eq:cocientesIsogenias}
 1 \to \frac{E'(K)[\hat\phi]}{\phi(E(K)[n])} \to
@@ -1554,7 +1481,7 @@ De la sucesion se puede ver que, si conseguimos encontrar generadores o simpleme
 
 Todos los grupos de esta sucesión son anulados por $n$, porque $\hat\phi\phi=[n]$ y $\phi\hat\phi=[n]$. Cuando $n=\ell$ es primo, son espacios vectoriales sobre $\FF_\ell$ y podemos trabajar con dimensiones. Para $n$ compuesto, en general solamente son módulos sobre $\ZZ/n\ZZ$.
 
-Entonces el resumen del procedimiento sería el siguiente: encontrar (o armar la curva a partir de) una isogenia con un nucleo ciclico, que comunmente se obtiene a partir de un punto de torsion; identificar el espacio homogeneo asociado a la isogenia, armando la $f$ del lema~\ref{lemma:funcionDescenso}; calcular la lista de lugares de mala reduccion y encontrar representantes para el conjunto $K(S,n)$; en él, identificar que valores serán imagen de los puntos que tenemos e intentar descartar los demas con argumentos locales o de la estructura de grupo. Haremos énfasis en lo último en la sección~\ref{sec:espaciosLocales}.
+Entonces el resumen del procedimiento sería el siguiente: encontrar (o armar la curva a partir de) una isogenia con un nucleo ciclico, que comunmente se obtiene a partir de un punto de torsion; identificar el espacio homogeneo asociado a la isogenia, armando la $f$ del lema~\ref{lemma:funcionDescenso}; calcular la lista de lugares de mala reduccion y encontrar representantes para el conjunto $K(S,n)$; en él, identificar qué valores serán imagen de los puntos que tenemos e intentar descartar los demas con argumentos locales o aprovechandonos de la estructura de grupo. Nos queda contar como se hacen efectivos ciertos pasos.
 
 \subsection*{Caso particular: descenso primo}
 
@@ -1562,7 +1489,8 @@ Como nos interesa construir infinitas curvas de rango fijo, usaremos el descenso
 
 Si nos interesa una curva en particular, también podemos intentar mejorar la cota combinando descensos de distintos grados o haciendo descensos de orden potencia de un primo. Como comentamos previamente, esto puede ser necesario cuando $\Sha(E/K)[m]$ no es trivial y el grupo de Selmer da una cota que no es óptima para el orden de $E(K)/mE(K)$.
 
-Hay una descomposición que permite separar los factores coprimos y concentrar las cuentas en un primo por vez~\cite[pp.~15--16]{Stoll2006Descent}:
+Hay una descomposición que permite separar los factores coprimos y concentrar las cuentas en un primo por vez~\cite{Stoll2006Descent}:
+
 \begin{prop}\label{prop:selmerCoprimos}
 Si $m$ y $r$ son enteros positivos coprimos, entonces
 \[
@@ -1570,28 +1498,19 @@ S^{(mr)}(E/K)\cong S^{(m)}(E/K)\times S^{(r)}(E/K).
 \]
 \end{prop}
 
-\begin{proof}
-El mapa $E[mr]\to E[m]\times E[r]$ dado por $R\mapsto([r]R,[m]R)$ es un isomorfismo de módulos de Galois. Por lo tanto también descompone el grupo de cohomología. Bajo este isomorfismo, la clase de Kummer de un punto $P$ se transforma en sus clases módulo $m$ y módulo $r$. Esto vale tanto sobre $K$ como sobre cada $K_v$, y el teorema chino del resto da
-\[
-E(K_v)/mrE(K_v)\cong E(K_v)/mE(K_v)\times E(K_v)/rE(K_v).
-\]
-Así, las condiciones locales se separan en las de los dos Selmer, lo que prueba la afirmación.
-\end{proof}
+En consecuencia, calcular un Selmer de multiplicación se reduce a calcular los correspondientes a potencias de primos. Puede ser necesario tambien calcular un $\ell^2$-descenso en ciertos casos, Silverman explica estos descensos sucesivos en~\cite[cap.~X, observación~4.11 y proposición~4.12]{SilvermanAEC}.
 
-En consecuencia, calcular un Selmer de multiplicación se reduce a calcular los correspondientes a potencias de primos. El primer paso natural es el descenso por $\ell$, pero no siempre es el último: un $\ell^2$-descenso puede dar restricciones nuevas sobre las clases que sobrevivieron al primero. Silverman explica estos descensos sucesivos en~\cite[cap.~X, observación~4.11 y proposición~4.12]{SilvermanAEC}; también pueden verse~\cite[pp.~15--16]{Stoll2006Descent} y~\cite[\S1]{SchaeferStoll2004}.
+Las ventajas específicas de un grado primo $\ell$ son que el núcleo de la isogenia es cíclico, y que sus cocientes y el Selmer son espacios vectoriales sobre $\FF_\ell$. Esto permite contar dimensiones, escribir condiciones lineales en los exponentes y comparar subespacios. 
 
-Las ventajas específicas de un grado primo $\ell$ son que el núcleo geométrico de la isogenia es cíclico, y que sus cocientes y Selmer son espacios vectoriales sobre $\FF_\ell$. Esto permite contar dimensiones, escribir condiciones lineales en los exponentes y comparar subespacios. 
-
-Para el descenso por multiplicación, la sucesión~\eqref{eq:selmerSha} da en particular
+En particular, de la sucesión tenemos:
 \[
 \rg E(K)
 =\dim_{\FF_\ell}S^{(\ell)}(E/K)
 -\dim_{\FF_\ell}E(K)[\ell]
 -\dim_{\FF_\ell}\Sha(E/K)[\ell].
 \]
-Por eso un primo pequeño suele ser un buen punto de partida para acotar el rango. Si trabajamos mediante una isogenia de grado $\ell$, debemos combinarla con su dual usando~\eqref{eq:cocientesIsogenias}.
 
-Para aplicar esto a una familia, conviene tener escrita la cota directamente en términos de los dos Selmer. Así sabemos qué dimensiones necesitamos obtener con las condiciones locales. La siguiente proposición se deduce de la sucesión anterior; véanse también~\cite[cap.~X, observación~4.7]{SilvermanAEC} y~\cite[\S9]{SchaeferStoll2004}. Savoie usa esta cuenta para isogenias de grado $2$ en~\cite[\S3.1]{Savoie2025QiRank2}.
+Para aplicar esto a una familia en el caso de tener el Selmer de cada isogenia, usaremos lo siguiente:
 
 \begin{prop}\label{prop:cotaRangoSelmerIsogenias}
 Sea $\phi:E\to E'$ una isogenia de grado primo $\ell$, definida sobre el cuerpo de números $K$, y sea $\hat\phi$ su dual. Entonces
@@ -1604,7 +1523,7 @@ Sea $\phi:E\to E'$ una isogenia de grado primo $\ell$, definida sobre el cuerpo 
 -\dim_{\FF_\ell}E'(K)[\hat\phi].
 \end{aligned}
 \]
-En particular, si los dos núcleos están formados por puntos definidos sobre $K$, los dos últimos términos suman $2$.
+En particular, si los dos núcleos están formados por puntos definidos sobre $K$, los dos últimos términos son un $-2$.
 \end{prop}
 
 \begin{proof}
@@ -1624,21 +1543,20 @@ $\dim_{\FF_\ell}E(K)/\ell E(K)=\rg E(K)+\dim_{\FF_\ell}E(K)[\ell]$. Al cancelar 
 -\dim_{\FF_\ell}E'(K)[\hat\phi].
 \end{aligned}
 \]
-Cada uno de esos cocientes se inyecta en su grupo de Selmer por~\eqref{eq:selmerSha}, lo que da la desigualdad.
+Cada uno de los cocientes se inyecta en su grupo de Selmer, lo que da la desigualdad.
 \end{proof}
 
-Por ejemplo, si ambos núcleos son racionales y conocemos $r$ puntos independientes en cada curva de una familia, alcanza con imponer condiciones que hagan que la suma de las dimensiones de los dos Selmer sea a lo sumo $r+2$. La proposición da rango a lo sumo $r$, y los puntos conocidos dan la desigualdad contraria. Este es un objetivo concreto para las cuentas locales: no hace falta resolver todas las ecuaciones de los espacios homogéneos, sino obtener suficientes restricciones independientes. Para concluir que hay infinitos ejemplos, todavía debemos demostrar que las condiciones elegidas se cumplen para infinitos miembros no isomorfos de la familia.
-
+Por ejemplo, si ambos núcleos son racionales y conocemos $r$ puntos independientes en cada curva de una familia, alcanza con imponer condiciones que hagan que la suma de las dimensiones de los dos Selmer sea a lo sumo $r+2$. La proposición da rango a lo sumo $r$, y los puntos conocidos dan la desigualdad contraria. Este es un objetivo concreto para las cuentas locales: no hace falta resolver todas las ecuaciones de los espacios homogéneos, sino obtener suficientes restricciones independientes.
 
 \section{Espacios homogéneos asociados y obstrucciones locales}\label{sec:espaciosLocales}
 
 Lo que nos quedó de la sección anterior es ``descartar espacios homogéneos''. Por la condición de
 \[
-[a]\in S^{(\phi)}(E/K)\iff C_a(K_v)\neq\varnothing\text{ para todo }v\in M_K,
+[a]\in S^{(\hat\phi)}(E'/K)\iff C_a(K_v)\neq\varnothing\text{ para todo }v\in M_K,
 \]
 si encontramos un lugar donde el espacio homogeneo no tiene puntos, ya podemos descartarlo del grupo de selmer. 
 
-Cuando $n=\ell$ es primo, el Selmer es un $\FF_\ell$-subespacio de $K(S,\ell)$. Si una clase queda descartada, también quedan descartadas todas sus potencias con exponentes $1,\ldots,\ell-1$: cualquiera de ellas genera la misma recta. La clase trivial sí permanece. Para $n$ compuesto solo podemos afirmar lo mismo para exponentes coprimos con $n$.
+Cuando $n=\ell$ es primo, el Selmer es un $\FF_\ell$-subespacio de $K(S,\ell)$. Si una clase queda descartada, también queda descartado su subespacio generado, es decir todas sus potencias con exponentes $1,\ldots,\ell-1$. La clase trivial sí permanece.
 
 \subsection{Elegir los representantes}
 
@@ -1647,8 +1565,8 @@ El primer paso es determinar una forma de representar $K(S,n)$. Si el numero de 
 \begin{prop}\label{prop:representantesClaseUno}
 Supongamos que $\OO_K$ tiene número de clases $1$. Sean $\pp_1,\ldots,\pp_s$ los lugares finitos de $S$, elijamos generadores $\pp_i=(\pi_i)$ y un conjunto $U$ de representantes de $\OO_K^\times/(\OO_K^\times)^n$. Entonces un conjunto de representantes de $K(S,n)$ es
 \[
-\left\{\varepsilon\pi_1^{e_1}\cdots\pi_s^{e_s}:
-\varepsilon\in U,\quad 0\leq e_i<n\right\}.
+\lla\varepsilon\pi_1^{e_1}\cdots\pi_s^{e_s}:
+\varepsilon\in U,\quad 0\leq e_i<n\rla.
 \]
 \end{prop}
 
@@ -1656,97 +1574,56 @@ Supongamos que $\OO_K$ tiene número de clases $1$. Sean $\pp_1,\ldots,\pp_s$ lo
 Como $\OO_K$ es un dominio de factorización única, podemos factorizar cualquier $a\in K^\times$ como una unidad por un producto de elementos primos, permitiendo exponentes negativos. Si $[a]\in K(S,n)$, los exponentes de los primos fuera de $S$ son múltiplos de $n$, así que podemos eliminarlos dividiendo por una potencia $n$-ésima. Podemos hacer lo mismo con los múltiplos de $n$ en los exponentes de los $\pi_i$, y reducir la unidad módulo potencias $n$-ésimas. Esto da la expresión del enunciado. Dos expresiones de esa forma representan la misma clase solamente si sus exponentes coinciden y sus unidades representan la misma clase.
 \end{proof}
 
-Si el número de clases no es $1$, la dificultad está en que las $S$-unidades pueden no representar todas las clases de $K(S,n)$. Para trabajar con familias de rango fijo sobre un mismo cuerpo, nos interesa mantener pequeña la lista de candidatos y reutilizar las cuentas del cuerpo. Por eso ampliaremos $S$ solo lo necesario para representar las clases que faltan. El cálculo de $\operatorname{Cl}(\OO_K)$ sirve para toda la familia; los primos auxiliares también pueden reutilizarse, siempre que verifiquemos la condición sobre la $n$-torsión que explicamos a continuación para cada conjunto $S$.
-
-Recordemos la sucesión exacta de la sección anterior, que también se usa en la demostración del teorema~1.1 de~\cite{Stoll2006Descent}, pp.~4--5, y en~\cite[\S5]{SchaeferStoll2004}:
+Recordemos la sucesión exacta de la sección anterior:
 \[
 1\longrightarrow\frac{\OO_{K,S}^\times}{(\OO_{K,S}^\times)^n}
 \longrightarrow K(S,n)\longrightarrow \operatorname{Cl}(\OO_{K,S})[n]
 \longrightarrow1.
 \]
-Si $\operatorname{Cl}(\OO_{K,S})[n]=0$, alcanza con calcular las $S$-unidades módulo potencias $n$-ésimas. Cuando no es trivial, basta agrandar $S$ para que esas clases se vuelvan principales. No necesitamos hacer principal todo el grupo de clases: la sucesión muestra que solo interviene su $[n]$. Después recuperamos los representantes de $K(S,n)$ mediante condiciones sobre sus valuaciones.
 
-Esto funciona porque, al invertir un primo, su clase deja de aportar al grupo de clases. Más precisamente, si añadimos los primos $\mathfrak q_1,\ldots,\mathfrak q_h$ y llamamos $S'$ al nuevo conjunto, tenemos
+Cuando $\operatorname{Cl}(\OO_{K,S})[n]$ no es trivial, basta agrandar $S$ para que esas clases se vuelvan principales. Esto funciona porque si añadimos los primos $\mathfrak q_1,\ldots,\mathfrak q_h$ a $S$ y llamamos $S'$ al nuevo conjunto, tenemos
 \[
 \operatorname{Cl}(\OO_{K,S'})\cong
-\frac{\operatorname{Cl}(\OO_{K,S})}{\langle[\mathfrak q_1],\ldots,[\mathfrak q_h]\rangle}.
+\frac{\operatorname{Cl}(\OO_{K,S})}{\lc[\mathfrak q_1],\ldots,[\mathfrak q_h]\rc}.
 \]
-En efecto, los ideales de $\OO_{K,S'}$ se representan por ideales de $\OO_{K,S}$, y una clase se vuelve principal al localizar si y solo si se puede representar por un producto de potencias de los primos añadidos. Por eso nos alcanza con elegirlos de modo que
+En efecto, los ideales de $\OO_{K,S'}$ se representan por ideales de $\OO_{K,S}$, y una clase se vuelve principal al localizar si y solo si se puede representar por un producto de potencias de los primos añadidos. Por eso, si los elegimos de modo que
 \[
 \operatorname{Cl}(\OO_{K,S})[n]\subseteq
-\langle[\mathfrak q_1],\ldots,[\mathfrak q_h]\rangle.
+\lc[\mathfrak q_1],\ldots,[\mathfrak q_h]\rc,
 \]
-Con esa condición, toda clase de $K(S,n)$ tiene un representante que es una $S'$-unidad. Para verlo, si $[b]\in K(S,n)$, escribimos $(b)=\aaa^n$ en $\OO_{K,S}$. La clase de $\aaa$ pertenece a $\operatorname{Cl}(\OO_{K,S})[n]$, así que al pasar a $\OO_{K,S'}$ tenemos $\aaa\OO_{K,S'}=(c)$ para algún $c\in K^\times$. Entonces $b/c^n$ es una $S'$-unidad y representa la misma clase que $b$.
-
-Hay que distinguir esto de afirmar que las $S'$-unidades representan todo $K(S',n)$. El nuevo grupo de clases todavía puede tener $n$-torsión: por ejemplo, si el original es $\ZZ/9\ZZ$ y $n=3$, al dividir por su $[3]$ queda $\ZZ/3\ZZ$. Lo que probamos es suficiente para nuestro cálculo: todas las clases del $K(S,n)$ original están entre las $S'$-unidades módulo potencias $n$-ésimas.
-
-Para llevarlo a una cuenta concreta, podemos seguir estos pasos:
-\begin{enumerate}
-    \item Calculamos $\operatorname{Cl}(\OO_{K,S})$ como el cociente de $\operatorname{Cl}(\OO_K)$ por las clases de los primos que ya están en $S$, y encontramos generadores de su $[n]$. Añadimos primos solo hasta que el subgrupo generado por sus clases contenga esos generadores.
-    \item Calculamos generadores $\varepsilon_1,\ldots,\varepsilon_d$ de las $S'$-unidades, incluyendo las unidades de $\OO_K$. Las clases de
-    \[
-    \varepsilon_1^{e_1}\cdots\varepsilon_d^{e_d},
-    \qquad 0\leq e_j<n,
-    \]
-    recorren las $S'$-unidades módulo potencias $n$-ésimas y contienen representantes de todo $K(S,n)$. Si los generadores elegidos tienen relaciones, la lista puede contener repeticiones.
-    \item Para recuperar $K(S,n)$, conservamos exactamente los exponentes que satisfacen
-    \[
-    \sum_{j=1}^d e_jv_{\mathfrak q}(\varepsilon_j)\equiv0\pmod n
-    \qquad\text{para cada }\mathfrak q\in S'\setminus S.
-    \]
-    Cuando $n=\ell$ es primo, esto es un sistema lineal sobre $\FF_\ell$: podemos calcular su núcleo antes de listar los representantes.
-\end{enumerate}
-
-El último paso recupera exactamente $K(S,n)$: una $S'$-unidad tiene valuación cero fuera de $S'$, y las congruencias imponen que las valuaciones en $S'\setminus S$ sean múltiplos de $n$. Así, cada clase que conservamos pertenece a $K(S,n)$, y por el argumento anterior ninguna de sus clases falta en la lista. Además, multiplicar un representante por una potencia $n$-ésima no cambia estas congruencias.
-
-Para implementar el segundo paso, no necesitamos que cada primo de $S'$ sea principal en $\OO_K$. Si $\pp_1,\ldots,\pp_s$ son sus primos finitos, calculamos las relaciones enteras
-\[
-c_1[\pp_1]+\cdots+c_s[\pp_s]=0
-\quad\text{en }\operatorname{Cl}(\OO_K).
-\]
-Para una base del grupo de relaciones, buscamos generadores $\eta$ de los ideales principales $\pp_1^{c_1}\cdots\pp_s^{c_s}=(\eta)$. Esos $\eta$, junto con los generadores de $\OO_K^\times$, generan las $S'$-unidades. En efecto, las valuaciones de cualquier $S'$-unidad dan una de esas relaciones; al dividir por el producto correspondiente de los $\eta$, queda una unidad de $\OO_K$. Así, las cuentas necesarias son el grupo de clases, relaciones entre sus elementos y generadores de ideales principales.
-
-Por ejemplo, supongamos que $n=3$ y que $\operatorname{Cl}(\OO_{K,S})$ es cíclico de orden $3$, generado por la clase de un primo $\mathfrak q$ fuera de $S$. Escribimos $\mathfrak q^3=(a)$ como ideales de $\OO_{K,S}$. Al añadir $\mathfrak q$, el elemento $a$ pasa a ser una $S'$-unidad, pero su valuación en $\mathfrak q$ es $3$. Por lo tanto, sus clases $[a]$ y $[a^2]$ sobreviven a la congruencia del tercer paso: son precisamente clases que las $S$-unidades originales no representaban. No debemos eliminar un generador solo porque tenga valuación no nula en un primo añadido; lo que importa es su valuación módulo $n$.
-
-Una vez recuperado $K(S,n)$, hacemos las pruebas locales en los lugares de $S$, como antes. También podemos aplicar directamente las pruebas locales a la lista de $S'$-unidades, pero en ese caso hay que conservar las condiciones locales en todos los lugares de $S'$, incluidos los añadidos. La ampliación cambia la lista de candidatos, no el Selmer que buscamos.
+toda clase de $K(S,n)$ tiene un representante que es una $S'$-unidad (aca no afirmamos nada sobre $K(S',n)$). Para verlo, si $[b]\in K(S,n)$, escribimos $(b)=\aaa^n$ en $\OO_{K,S}$. La clase de $\aaa$ pertenece a $\operatorname{Cl}(\OO_{K,S})[n]$, así que al pasar a $\OO_{K,S'}$ tenemos $\aaa\OO_{K,S'}=(c)$ para algún $c\in K^\times$. Entonces $b/c^n$ es una $S'$-unidad y representa la misma clase que $b$.
 
 Si preferimos no ampliar $S$, la sucesión exacta da otra opción: para cada clase de $\operatorname{Cl}(\OO_{K,S})[n]$ elegimos un ideal $\aaa$, encontramos $a$ con $\aaa^n=(a)$ en $\OO_{K,S}$ y multiplicamos esos $a$ por representantes de las $S$-unidades módulo potencias $n$-ésimas.
 
 \begin{example}\label{ej:representantesEisenstein}
-En nuestro caso $K=\QQ(\omega)$, con $\omega^2+\omega+1=0$, el anillo $\OO_K=\ZZ[\omega]$ es un dominio de factorizacion unica. Las unidades son $\{\pm1,\pm\omega,\pm\omega^2\}$ y, módulo cubos, podemos representarlas por $1,\omega,\omega^2$.
+En nuestro caso $K=\QQ(\omega)$, con $\omega^2+\omega+1=0$, el anillo $\OO_K=\ZZ[\omega]$ es un dominio de factorizacion unica. Las unidades son $\lla\pm1,\pm\omega,\pm\omega^2\rla$ y, módulo cubos, podemos representarlas por $1,\omega,\omega^2$. Como el unico lugar arquimedeano de $K$ es complejo y $\CC^\times/{(\CC^\times)}^3$ es trivial, no aporta clases a $K(S,n)$.
 
-Tomemos en nuestra curva $t=b(b-a)(b+a)$ y supongamos que sus tres factores son primos, no asociados entre sí y que no dividen a $6$. El discriminante es $-432t^4$, asi que podemos tomar como lugares finitos de $S$ los primos
+Tomemos en nuestra curva $t=(b-a)b(b+a)$ y supongamos que sus tres factores son primos, no asociados entre sí y que no dividen a $6$. El discriminante es $-432t^4$, asi que podemos tomar como lugares finitos de $S$ los primos
 \[
-(2),\quad (1-\omega),\quad (b-a),\quad (b),\quad (b+a).
+(1-\omega),\quad (2),\quad (b-a),\quad (b),\quad (b+a),
 \]
+donde $(1-\omega)$ es el primo sobre $3$.
 
-Los representantes de $K(S,3)$ son entonces
+Los representantes de nuestro $K(S,3)$ son entonces
 \[
 u=\omega^{e_\omega}{(1-\omega)}^{e_\lambda}2^{e_2}
-(b-a)^{e_-}b^{e_0}(b+a)^{e_+},\qquad e_i\in\{0,1,2\}.
+{(b-a)}^{e_-} b^{e_0} {(b+a)}^{e_+},\qquad e_i\in\lla0,1,2\rla.
 \]
-Son $3^6$ clases, es decir, un espacio vectorial de dimensión $6$. Como los puntos conocidos nos darán dos clases independientes, buscamos cuatro restricciones lineales independientes para reducir los candidatos a dimensión $2$. El generador $[\omega]$ viene del cociente de las unidades globales
-\[
-\OO_K^\times/(\OO_K^\times)^3
-=\{[1],[\omega],[\omega^2]\}.
-\]
-El lugar arquimediano de este cuerpo es complejo, y allí todo número no nulo tiene raíz cúbica: $\CC^\times/(\CC^\times)^3$ es trivial. Por eso ese lugar no aporta un generador ni una condición que descarte clases. Aunque el número de lugares arquimedianos interviene en el rango del grupo de unidades por el teorema de Dirichlet, $\omega$ pertenece a su parte de torsión; en nuestro cuerpo el rango de las unidades es $0$.
+Son $3^6$ clases, es decir, un espacio vectorial de dimensión $6$. Como los puntos conocidos nos darán dos clases independientes, buscamos cuatro restricciones lineales independientes para reducir los candidatos a dimensión $2$. 
 \end{example}
 
 \subsection{De la clase a una ecuación}
 
 Para descartar una clase necesitamos una ecuación donde podamos hacer las cuentas. Lo importante es encontrar una forma de escribir los espacios homogéneos en la que la clase aparezca como un parámetro: así hacemos la construcción una sola vez y después cambiamos ese parámetro para recorrer los candidatos.
 
-Con la función de descenso $f$ de la sección anterior esto ya se puede hacer. Si $f=g/h$ sobre $E':y^2=x^3+A'x+B'$, imponer que $f(x,y)$ tenga clase $[u]$ nos lleva al sistema
+Con la función de descenso $f$ de la sección anterior esto ya se puede hacer. Si $f=g/h$ sobre $E:y^2=x^3+Ax+B$, imponer que $f(x,y)$ tenga clase $[u]$ nos lleva al sistema
 \[
 \begin{cases}
-y^2=x^3+A'x+B',\\
-g(x,y)=uz^nh(x,y).
+y^2=x^3+Ax+B,\\
+g(x,y)=uz^n h(x,y).
 \end{cases}
 \]
-Son dos ecuaciones en tres variables: su intersección describe una curva en el espacio afín. Fijados $E'$ y $f$, el único dato que cambiamos es $u$. Además, si reemplazamos $u$ por $us^n$, el cambio $z\mapsto z/s$ identifica las dos ecuaciones, como corresponde a representantes de una misma clase.
-
-Este sistema es un punto de partida. Al despejar o sustituir variables podemos encontrar una ecuación más fácil de reducir módulo un primo. Si quitamos denominadores, trabajamos primero donde $h\neq0$ y luego tomamos el modelo proyectivo suave del cubrimiento: los puntos que aparecen al poner un denominador igual a cero no se pueden aceptar sin revisar que pertenezcan a ese modelo. También tenemos que recuperar los puntos que quedaron fuera de las coordenadas afines, en particular los del infinito.
+Son dos ecuaciones en tres variables: su intersección describe una curva en el espacio afín. Fijados $E$ y $f$, el único dato que cambiamos es $u$. Además, si reemplazamos $u$ por $us^n$, el cambio $z\mapsto z/s$ identifica las dos ecuaciones, como corresponde a representantes de una misma clase.
 
 En nuestro ejemplo, la forma de simplificar la ecuación sale directamente de
 \[
@@ -1756,17 +1633,15 @@ Como explicamos al principio del capítulo, buscamos dos números a distancia $2
 \begin{equation}\label{eq:cubicaDescenso}
 C_u:\quad uX^3+u^{-1}Y^3+2tZ^3=0.
 \end{equation}
-La ventaja es que ya eliminamos $x$ e $y$ y nos queda una cúbica homogénea con tres términos. Para una curva fija, $t$ queda fijo y $u$ recorre los representantes de las clases; cambiar $t$ sería cambiar la curva elíptica. También se ve directamente cómo cambiar de representante: las ecuaciones de $C_u$ y $C_{us^3}$ se identifican mediante $(X:Y:Z)\mapsto(X/s:sY:Z)$.
+Para una curva fija, $t$ queda fijo y $u$ recorre los representantes de las clases; cambiar $t$ sería cambiar la curva elíptica. En las cuentas de esta familia seguiremos con $K=\QQ(\omega)$ y $t\in\OO_K\setminus\lla0\rla$. 
 
-En las cuentas de esta familia seguiremos con $K=\QQ(\omega)$ y $t\in\OO_K\setminus\{0\}$. Recordemos solamente la orientación: el descenso dado por $y-t$ corresponde a $\hat\phi:E'_t\to E_t$, donde $E'_t:y^2=x^3-27t^2$. Más desarrollo de las ecuaciones de 3-descenso y de su solubilidad local puede encontrarse en~\cite[teorema~3.1 y \S\S5--6]{CohenPazuki2009}.
-
-Según el grado del descenso, convienen distintos tipos de ecuaciones. Por ejemplo, para los elementos del Selmer del descenso por multiplicación por $2$, $3$ y $4$ se usan, respectivamente, modelos $y^2=g(x)$ con $g$ de grado $4$, cúbicas en $\PP^2$ e intersecciones de dos cuádricas en $\PP^3$.\footnote{Véase M. Stoll, \emph{Descent on elliptic curves}, \S1.2, después de la proposición~1.4, p.~10 de la versión de 2006.} En este último caso la curva tiene grado $4$, aunque sus ecuaciones tengan grado $2$. Para un descenso por isogenia, partimos de su función $f$ y buscamos la presentación más conveniente; el grado de la isogenia por sí solo no determina el grado de las ecuaciones que escribamos.
+Según el grado del descenso, convienen distintos tipos de ecuaciones. Por ejemplo, para los elementos del Selmer del descenso por multiplicación por $2$, $3$ y $4$ se usan, respectivamente, modelos $y^2=g(x)$ con $g$ de grado $4$, cúbicas en $\PP^2$ e intersecciones de dos cuádricas en $\PP^3$~\cite{Stoll2006Descent}.
 
 \subsection{Las herramientas locales}
 
-Cuando reduzcamos localmente, la primera forma de descartar soluciones es comparar las valuaciones de los términos. Tendremos ecuaciones de la forma $AX^n+BY^n+CZ^n=0$ o mas generales (mas sumandos o variables con distinto grado), y el siguiente lema o su adaptacion al caso que tengamos, será nuestra principal herramienta para descartar candidatos. La idea principal es que si las clases de los sumandos son distintas, no podremos hacer que los términos de menor valuación se cancelen. 
+Cuando reduzcamos localmente, la primera forma de descartar soluciones es comparar las valuaciones de los términos. Tendremos ecuaciones de la forma $AX^n+BY^n+CZ^n=0$ o mas generales (mas sumandos o variables con distinto grado), y el siguiente lema o su adaptacion al caso que se tenga, será nuestra principal herramienta para descartar candidatos. Es la idea del descenso infinito formalizado por Fermat.
 
-\begin{lemma}[El mínimo de las valuaciones]\label{lem:minimoValuaciones}
+\begin{lemma}\label{lem:minimoValuaciones}
 Sean $A,B,C\in K$, no todos cero, tales que $A+B+C=0$. Para cualquier primo $\pp$ de $\OO_K$, el mínimo de $v_\pp(A),v_\pp(B),v_\pp(C)$ se alcanza al menos dos veces, con la convención $v_\pp(0)=+\infty$.
 \end{lemma}
 
@@ -1774,13 +1649,13 @@ Sean $A,B,C\in K$, no todos cero, tales que $A+B+C=0$. Para cualquier primo $\pp
 Supongamos que $A$ es el único término de valuación mínima. Dividiendo por $A$ tenemos $1+B/A+C/A=0$. Las otras dos fracciones tienen valuación positiva en $\pp$, así que reducen a cero. Al reducir la igualdad queda $1=0$, una contradicción.
 \end{proof}
 
-El argumento es el mismo en $K_\pp$. Por lo tanto, si las valuaciones hacen imposible la ecuación, descartamos también las soluciones locales, que es lo que necesitamos para el Selmer. No hace falta que $\pp$ sea principal: estamos usando la valuación asociada al ideal primo.
+El argumento es el mismo en $K_\pp$. Entonces, si las valuaciones hacen imposible la ecuación, descartamos también la posibilidad de soluciones locales en ese primo, que es lo que necesitamos para el Selmer. No hace falta que $\pp$ sea principal: estamos usando la valuación asociada al ideal primo.
 
-Si las valuaciones no alcanzan, podemos reducir las ecuaciones módulo $\pp$, o módulo alguna de sus potencias. Para una ecuación homogénea primero normalizamos las coordenadas: dividimos por una de valuación mínima. Así todas quedan en el anillo de enteros $\OO_{K_\pp}$ y al menos una es una unidad. Llamaremos \emph{primitiva} a una terna con esa propiedad. Si la ecuación tiene coeficientes en $\OO_K$ y no hay soluciones primitivas módulo $\pp^m$, tampoco puede haber un punto sobre $K_\pp$.
+Mas generalmente, si tenemos una ecuacion en $K_\pp$ podemos cancelar denominadores llevando sus coeficientes a $\OO_{K_\pp}$ con uno de ellos siendo una unidad, ahi reducir modulo $\pp$ (o alguna potencia), y sabemos que si no hay soluciones módulo $\pp^m$, no puede haber en $K_\pp$.
 
-Para ir en sentido contrario usaremos Hensel: una solución módulo $\pp$ se levanta al anillo de enteros local $\OO_{K_\pp}$ si alguna derivada parcial no se anula. En nuestras ecuaciones, fijamos dos coordenadas y corregimos la tercera~\cite[ejercicio~10.12(a)--(b)]{SilvermanAEC}.
+Para ir en sentido contrario usaremos Hensel: una solución módulo $\pp$ se levanta al anillo de enteros local $\OO_{K_\pp}$ si alguna derivada parcial no se anula. En nuestras ecuaciones, fijamos dos coordenadas y corregimos la tercera.
 
-\begin{lemma}[Hensel para las ecuaciones de descenso]\label{lem:henselSimple}
+\begin{lemma*}[Hensel en este caso]\label{lem:henselSimple}
 Sean $A,B,C\in\OO_K$, $n\geq2$ y $\pp$ un ideal primo no nulo de $\OO_K$. Si $x_0,y_0,z_0\in\OO_K$ cumplen
 \[
 Ax_0^n+By_0^n+Cz_0^n\equiv0\pmod\pp,
@@ -1791,34 +1666,31 @@ entonces existe $x\in\OO_{K_\pp}$, con $x\equiv x_0\pmod\pp$, tal que
 Ax^n+By_0^n+Cz_0^n=0.
 \]
 Así obtenemos un punto $(x:y_0:z_0)$ sobre $K_\pp$. Lo mismo vale intercambiando las variables.
-\end{lemma}
+\end{lemma*}
 
 \begin{proof}
-Fijamos $y_0,z_0$ y ponemos $h(T)=AT^n+By_0^n+Cz_0^n$. Tenemos $h(x_0)\equiv0\pmod\pp$ y $h'(x_0)=nAx_0^{n-1}\not\equiv0\pmod\pp$. Si $x_j\equiv x_0\pmod\pp$ resuelve la congruencia módulo $\pp^j$, para $c\in\pp^j$ tenemos
+Fijamos $y_0,z_0$ y definimos el polinomio $h(T)=AT^n+By_0^n+Cz_0^n$. Tenemos $h(x_0)\equiv0\pmod\pp$ y $h'(x_0)=nAx_0^{n-1}\not\equiv0\pmod\pp$. Con esto nos armaremos $x_j$ en cada potencia $\pp^j$ de modo que, como $\OO_{K_\pp}$ es completo y cada coordenada que agregamos tiene menor modulo ($\pp$-adico), la sucesion converge a un $x$ que cumple $h(x)=0$.
+
+Definimos $x_1=x_0+c_1$ tal que $c_1 \equiv 0 \pmod\pp$ y queda 
 \[
-h(x_j+c)\equiv h(x_j)+c\,h'(x_j)\pmod{\pp^{j+1}}.
+h(x_1)=h(x_0+c_1)\equiv h(x_0)+c_1h'(x_0)\pmod{\pp^2}
 \]
-Como $h'(x_j)$ es invertible módulo $\pp^{j+1}$, elegimos $c$ para que el lado derecho sea cero. Repitiendo, las correcciones tienen valuación cada vez mayor y las soluciones convergen en $\OO_{K_\pp}$ a la raíz buscada. Su reducción es $x_0\neq0$, así que el punto es no nulo.
+porque todos los terminos intermedios serán divisibles por $\pp^2$. Para tener $h(x_1) \equiv 0 \pmod{\pp^2}$ elegimos
+\[
+c_1=-\frac{h(x_0)}{h'(x_0)}.
+\]
+Como $h'(x_0)$ es una unidad y $h(x_0)\equiv 0 \pmod \pp$, el $c_1$ cumple lo que queriamos. 
+
+Luego buscamos $x_2=x_1+c_2$, con $c_2\equiv0\pmod{\pp^2}$ tal que la congruencia valga módulo $\pp^3$. La misma cuenta nos deja
+\[
+h(x_1+c_2)\equiv h(x_1)+c_2h'(x_1)\pmod{\pp^3}.
+\]
+Como $x_1\equiv x_0\pmod\pp$, la derivada sigue siendo una unidad. Por eso elegimos $c_2=-h(x_1)/h'(x_1)$, que es divisible por $\pp^2$, y ponemos $x_2=x_1+c_2$. Asi obtenemos $h(x_2)\equiv0\pmod{\pp^3}$. Siguiendo con esta lógica tenemos el valor de $x \pmod{\pp^j}$ para todo $j$, que nos determina univocamente $x\in \OO_{K_\pp}$. Por continuidad de $h$, tenemos $h(x)=0$. Ademas, $x\equiv x_0\pmod\pp$, asi que $(x:y_0:z_0)$ es el punto no nulo que buscabamos.
 \end{proof}
-
-Para nuestras cúbicas, si $\pp\nmid3$, basta que una coordenada y su coeficiente sean no nulos módulo $\pp$. El argumento también vale con coeficientes en $\OO_{K_\pp}$.
-
-En particular, si $\eta\in\OO_{K_\pp}^{\times}$ y $\pp\nmid n$, aplicamos el lema a $X^n-\eta Z^n=0$ con $Z=1$. Obtenemos
-\begin{equation}\label{eq:potenciasLocales}
-\eta\in(K_\pp^\times)^n
-\iff\overline\eta\text{ es una potencia $n$-ésima en }(\OO_K/\pp)^\times,
-\end{equation}
-donde $\overline\eta$ es la reducción módulo $\pp$. La otra implicación sale reduciendo una raíz local. Así, para decidir si una unidad es un cubo local, alcanza con probarlo en el cuerpo residual cuando $\pp\nmid3$.
-
-Cuando $\pp\mid n$, la derivada puede anularse módulo $\pp$ y la primera congruencia ya no basta para aplicar el lema. Una versión más precisa dice que, para $h\in\OO_{K_\pp}[T]$, alcanza encontrar $a_0\in\OO_{K_\pp}$ con
-\[
-v_\pp(h(a_0))>2v_\pp(h'(a_0)).
-\]
-Puede consultarse~\cite[ejercicio~10.12]{SilvermanAEC}. Para nuestro 3-descenso esto explica por qué el primo $(1-\omega)$ sobre $3$ necesita más cuidado: que una congruencia tenga solución no garantiza por sí solo que haya un punto local.
 
 \subsection{Símbolos de residuos y relaciones lineales}\label{subsec:simbolosResiduos}
 
-En las ecuaciones de descenso aparece una y otra vez la misma pregunta: si cierta unidad es un cuadrado, un cubo o, en general, una potencia módulo un primo. Los símbolos de residuos permiten guardar esa información de forma multiplicativa. Así, cuando el candidato es un producto de generadores, podemos calcular el símbolo de cada generador una sola vez y después trabajar solamente con sus exponentes. Para todo lo relacionado al tema seguiremos el libro de Lemmermeyer~\cite{Lemmermeyer2000}.
+En las ecuaciones de descenso aparece una y otra vez la misma pregunta: si cierta unidad es un cuadrado, un cubo o, en general, una potencia módulo un primo. Los símbolos de residuos permiten guardar esa información de forma multiplicativa. Así, cuando el candidato es un producto de generadores, podemos calcular el símbolo de cada generador una sola vez y después trabajar solamente con sus exponentes. Para todo lo relacionado al tema se puede buscar en libro de Lemmermeyer~\cite{Lemmermeyer2000}.
 
 Supongamos que $\mu_n\subset K$ y que $\pp\nmid n$. Como las raíces $n$-ésimas de la unidad siguen siendo distintas al reducir, $n$ divide a $N(\pp)-1$. Si $\beta\in\OO_K$ es coprimo con $\pp$, definimos el símbolo de residuo $n$-ésimo por
 \[
@@ -1840,18 +1712,17 @@ Para $\alpha,\beta$ de valuación cero en $\pp$ y $j\in\ZZ$, tenemos
 El símbolo depende solamente del residuo módulo $\pp$, y
 \[
 \leg{\alpha}{\pp}_n=1
-\iff\overline\alpha\in\big((\OO_K/\pp)^\times\big)^n
-\iff\alpha\in(K_\pp^\times)^n.
+\iff\overline\alpha\in\lp(\OO_K/\pp)^\times\rp^n
+\iff\alpha\in{(K_\pp^\times)}^n.
 \]
 \end{prop}
 
 \begin{proof}
-La multiplicatividad y la invariancia por congruencias salen de la definición. Si escribimos $\overline\alpha=g^j$ para un generador del grupo cíclico $(\OO_K/\pp)^\times$, entonces $\overline\alpha^{(N(\pp)-1)/n}=1$ equivale a $n\mid j$, que es justamente ser una potencia $n$-ésima. La última equivalencia es~\eqref{eq:potenciasLocales}.
+La multiplicatividad y la invariancia por congruencias salen de la definición. Si escribimos $\overline\alpha=g^j$ para un generador del grupo cíclico $(\OO_K/\pp)^\times$, entonces $\overline\alpha^{(N(\pp)-1)/n}=1$ equivale a $n\mid j$, que es justamente ser una potencia $n$-ésima. La ultima equivalencia es directa de usar Hensel con $T^n-\alpha$.
 \end{proof}
 
-Una aplicación útil es reemplazar numeradores usando relaciones aditivas como usaremos con $(b-a)+(b+a)=2b$. Es el tipo de cálculos que aparecen en~\cite{Savoie2025QiRank2}.
+La otra herramienta principal de estos simbolos es una ley de reciprocidad, de las que existen especificas para cada $n$. La famosa ``reciprocidad cuadratica'' de Euler nos permite dar vuelta el simbolo cuadratico de dos primos cambiando de signo solo si ambos son congruentes a $3$ módulo 4. En nuestro caso usaremos bastante la reciprocidad cubica de $\ZZ[\omega]$ que se puede encontrar (como todas) en~\cite{Lemmermeyer2000}.
 
-Para intercambiar numerador y denominador necesitamos además una ley de reciprocidad; ese intercambio no es una propiedad automática de los símbolos. En nuestro caso usaremos la siguiente, cuya demostración puede verse en~\cite[\S7.2, pp.~212--216]{Lemmermeyer2000}.
 \begin{theorem}[Reciprocidad cúbica]\label{thm:reciprocidadCubica}
 Sean $\beta,\gamma\in\ZZ[\omega]$ coprimos entre sí y congruentes a $1$ o $-1$ módulo $3$. Entonces
 \[
@@ -1859,567 +1730,310 @@ Sean $\beta,\gamma\in\ZZ[\omega]$ coprimos entre sí y congruentes a $1$ o $-1$ 
 \]
 \end{theorem}
 
-Usaremos la convención de llamar \emph{primarios} a los elementos congruentes a $-1$ módulo $3$. El enunciado también admite los congruentes a $1$, porque $-1$ es un cubo. Otros cambios por unidades sí pueden cambiar el símbolo en el numerador y hay que conservar ese factor. 
+Cada símbolo cúbico vale $1$, $\omega$ u $\omega^2$, que podemos resumir en un valor en $\FF_3$ correspondiente a la potencia de $\omega$, y organizar la informacion de cada clase del Selmer en una matriz sobre ese cuerpo, como hacen Kling y Savoie en~\cite{KlingSavoie2025} para 2-descenso en $\QQ(i)$. Esto es perfectamente replicable en nuestro caso pero nos quedaremos con el analisis de una sola familia para llegar al resultado.
 
-Finalmente, cada símbolo cúbico vale $1$, $\omega$ o $\omega^2$. Al multiplicarlos, sumamos sus exponentes módulo $3$. Así podemos convertir una condición local en una ecuación sobre los exponentes del candidato.
-\begin{lemma}\label{lem:simbolosLineales}
-En $K=\QQ(\omega)$, sea $\pp\nmid3$ y sean $g_1,\ldots,g_s\in K^\times$ unidades en $\pp$. Escribamos
+\section{Nuestro caso particular}
+
+\subsection{El morfismo para el 3-descenso}\label{sec:descensoFamilia}
+
+Vamos a presentar el morfismo que usaremos para $E_t$ para el 3\nbd-descenso. Trabajaremos por ahora con $t\in\OO_K$ y las curvas
 \[
-\cub{g_j}{\pp}=\omega^{m_j},\qquad m_j\in\{0,1,2\}.
+E_t:y^2=x^3+t^2,\qquad E'_t:y^2=x^3-27t^2.
 \]
-Para un candidato $u=g_1^{e_1}\cdots g_s^{e_s}$, con $e_j\in\{0,1,2\}$, tenemos
+
+Supondremos $t\neq0$ y haremos el descenso en la direccion $\hat\phi:E'_t\to E_t$ porque el morfismo se evalua sobre $E_t$, que conocemos mejor, y la escritura como $(y-t)(y+t)=x^3$ nos permite ver directamente la cuenta necesitamos. Tambien porque en nuestro cuerpo las dos curvas son isomorfas ($-27={(1+2\omega)}^6$ es una potencia sexta), y entonces sus grupos de Selmer tambien lo serán:
 \[
-\cub{u}{\pp}=1
-\iff m_1e_1+\cdots+m_se_s\equiv0\pmod3.
+S^{(\phi)}(E_t/K)\cong S^{(\hat\phi)}(E'_t/K),
 \]
-\end{lemma}
+y bastará calcular uno solo. Esto es especifico del caso que elegimos, tomada la idea del otro caso puntual donde ocurre esto, que es el que hace Savoie~\cite{Savoie2025QiRank2}.
 
-\begin{proof}
-Por multiplicatividad,
+\begin{prop}\label{prop:descensoFamilia}
+El mapa $\alpha:E_t(K)\to \KmodT$ dado por
 \[
-\cub{u}{\pp}=\prod_j\cub{g_j}{\pp}^{e_j}
-=\omega^{m_1e_1+\cdots+m_se_s},
+\alpha(x,y)=[y-t],\qquad
+\alpha(\OO)=[1],\qquad \alpha(T_0)=[{(2t)}^{-1}]
 \]
-que vale $1$ si y solo si el exponente es múltiplo de $3$.
-\end{proof}
-
-Por ejemplo, si $u=g_1^{e_1}g_2^{e_2}$ y los símbolos de los dos generadores son $\omega$ y $\omega^2$, la condición es $e_1+2e_2\equiv0\pmod3$, es decir, $e_1=e_2$ módulo $3$.
-
-Esto da una idea para generalizar el procedimiento: reunir las condiciones en una matriz sobre $\FF_3$ y resolver el sistema de exponentes. Si las clases de los generadores son independientes, cada condición lineal independiente reduce en uno la dimensión de los candidatos. Kling y Savoie desarrollan esta organización mediante matrices y grafos para 2-descenso sobre $\QQ(i)$~\cite[\S5]{KlingSavoie2025}, y Savoie la aplica a su familia en~\cite[teorema~3.3]{Savoie2025QiRank2}. En nuestro caso usaremos las relaciones concretas que necesitemos, sin desarrollar un algoritmo matricial general.
-
-Para aplicar el lema hay que partir de la condición que dé la ecuación local. Si $\pp\mid u$, primero separamos su potencia y aplicamos símbolos a las unidades que quedan. Los primos sobre $3$ requieren un análisis aparte.
-
-\subsection*{Descartar clases en nuestro caso particular}
-
-Retomemos $K=\QQ(\omega)$ y $t=b(b-a)(b+a)$, con los tres factores primos, no asociados y coprimos con $6$. Partimos de las $3^6$ clases de $K(S,3)$ del ejemplo~\ref{ej:representantesEisenstein}. Cada condición local reducirá el espacio de candidatos.
-
-Multiplicando~\eqref{eq:cubicaDescenso} por $u$, trabajaremos con
-\begin{equation}\label{eq:cubicaIntegral}
-u^2X^3+Y^3+2tuZ^3=0.
-\end{equation}
-En cada primo podemos elegir un representante con $v_\pp(u)\in\{0,1,2\}$, de modo que los coeficientes sean enteros localmente.
-
-\subsubsection*{Eliminar el primo sobre 3}\label{ej:eliminarLambda}
-
-Primero eliminamos de $u$ los primos que no dividen a $2t$. Esto quitará el generador $[1-\omega]$.
-
-\begin{lemma}\label{lem:soporteCubico}
-Si $v_\pp(2t)=0$ y $C_u(K_\pp)\neq\varnothing$, entonces $v_\pp(u)\equiv0\pmod3$.
-\end{lemma}
-
-\begin{proof}
-Tomemos un representante con $v_\pp(u)=r\in\{0,1,2\}$. Las valuaciones de los sumandos no nulos de~\eqref{eq:cubicaIntegral} son
-\[
-2r+3v_\pp(X),\qquad 3v_\pp(Y),\qquad r+3v_\pp(Z).
-\]
-Si $r=1$ o $r=2$, tienen residuos distintos módulo $3$. Por lo tanto no pueden alcanzar el mínimo dos veces, contradiciendo el lema~\ref{lem:minimoValuaciones}.
-\end{proof}
-
-Como $(1-\omega)\nmid2t$, el lema obliga a $e_\lambda=0$. Queda el espacio
-\begin{equation}\label{eq:espacioCandidatosFamilia}
-V_t=\left\langle[\omega],[2],[b-a],[b],[b+a]\right\rangle
-\subset K^\times/(K^\times)^3,
-\end{equation}
-de dimensión $5$ sobre $\FF_3$, con $3^5$ clases. La independencia de los generadores se ve en las valuaciones de los cuatro primos y en la clase de la unidad $\omega$.
-
-Esta condición es necesaria; no afirma todavía que todas las clases restantes tengan puntos en el completado del primo sobre $3$.
-
-\subsubsection*{Criterio para los primos de 2t}
-
-Los primos que quedan dividen a $2t$ una sola vez. La siguiente tabla reúne los tres valores posibles de $v_\pp(u)$ y servirá para todos ellos.
-
-\begin{prop}\label{prop:criterioLocalCubico}
-Sea $\pp\nmid3$ un primo tal que $v_\pp(2t)=1$. Tomemos un generador $\pi$ de $\pp$ y escribamos $2t=\pi\eta$ y $u=\pi^r\varepsilon$, con $v_\pp(\eta)=v_\pp(\varepsilon)=0$ y $r\in\{0,1,2\}$. Entonces $C_u(K_\pp)\neq\varnothing$ si y solo si se cumple la condición de la fila correspondiente:
-\[
-\begin{array}{c|c}
-r&\text{condición en }(\OO_K/\pp)^\times\\ \hline
-0&\overline\varepsilon\text{ es un cubo}\\
-1&\overline{\eta\varepsilon^{-1}}\text{ es un cubo}\\
-2&\overline{\eta\varepsilon}\text{ es un cubo}.
-\end{array}
-\]
+es el morfismo de descenso de $\hat\phi$. Su núcleo es $\hat\phi(E'_t(K))$ y su imagen está contenida en $K(S,3)$, tomando $S$ formado por el lugar complejo y los primos de $6t$. Para los parametros de nuestra familia este es el grupo de~\eqref{eq:kstres}.
 \end{prop}
 
 \begin{proof}
-Tomemos una solución con coordenadas enteras y primitivas. La ecuación es
-\[
-\pi^{2r}\varepsilon^2X^3+Y^3+
-\pi^{r+1}\eta\varepsilon Z^3=0.
-\]
-Si $r=0$, la reducción da $\varepsilon^2X^3+Y^3\equiv0\pmod\pp$. Si $X$ e $Y$ fueran divisibles por $\pi$, $Z$ sería una unidad y el tercer término tendría valuación $1$, mientras los otros tendrían valuación al menos $3$. Esto es imposible. Por lo tanto $X$ e $Y$ son unidades y $-\overline\varepsilon^2$ es un cubo. Como $-1$ es un cubo y trabajamos módulo cubos, esto equivale a que $\overline\varepsilon$ sea un cubo.
+Una posible demostracion es la que dimos por encima en el inicio del capitulo, que se basa en que aislamos un $x^3$ en la ecuacion. Le faltarían detalles pero es completamente valida, aunque aca vamos a dar otra demostracion ``menos sacada de la galera''.
 
-Si $r=1$, primero obtenemos $Y=\pi Y_1$. Dividiendo por $\pi^2$ queda
+La función $f=y-t$ tiene divisor $3(T_0)-3(\OO)$. En $E'_t: y^2=x^3-27t^2$, obtenemos
+\[
+f\circ\hat\phi=\lp\frac{y-9t}{3x}\rp^3.
+\]
+Por el teorema~\ref{thm:morfismoDescenso}, da el morfismo y el núcleo indicados. 
+
+Para el valor en el punto $T_0$ podemos tomar $x$ como parámetro local, escribir $y-t=x^3/(y+t)$ y reemplazando $y=t$ nos queda una serie cuyo coeficiente principal es ${(2t)}^{-1}$. Finalmente, por lo que vimos, el conjunto $S$ tiene a los primos de mala reduccion (los que dividen al discriminante $-432t^4$), el orden de la isogenia y los lugares infinitos; que es lo que dice la proposicion. 
+\end{proof}
+
+\subsubsection*{Usar los puntos conocidos}
+
+Para facilitar el descarte de clases en el grupo de Selmer, algo importante es ver que clases ya tenemos representadas por los puntos que conocemos.
+
+\begin{example}\label{ej:clasesConocidasFamilia}
+En nuestro caso, las clases de los puntos $T_0$ y $P$ son
+\[
+\alpha(T_0)=[{(2t)}^{-1}]=[{(2t)}^2],\qquad
+\alpha(P)=[(b-a){(b+a)}^2],
+\]
+pues $y(P)-t= -a(b-a)(b+a)-b(b-a)(b+a) =-(b-a){(b+a)}^2$ y $-1$ es un cubo. El punto $[\omega]P$ da la misma clase que $P$, porque tiene la misma coordenada $y$, y esto no es un problema: los puntos asociados por el morfismo $[\omega]$ estan relacionados en el cociente $E(K)/\hat\phi (E'(K))$ de donde sale $\alpha$.
+
+En las coordenadas de los exponentes $(e_\omega,e_2,e_-,e_0,e_+)$, que son base del espacio vectorial sobre $\FF_3$, tenemos
+\[
+\alpha(T_0)\longleftrightarrow(0,2,2,2,2),\quad \text{ y } \quad
+\alpha(P)\longleftrightarrow(0,0,1,0,2),
+\]
+cuyas clases son visiblemente independientes. Este isomorfirmo para el descenso es el que aparece en~\cite{KlingSavoie2025}, permite su enfoque matricial y simplifica la presentacion.
+\end{example}
+
+\subsection{Condiciones para descartar}
+
+En toda esta seccion haremos las cuentas que precisamos para descartar las clases en el grupo de Selmer. Recordemos que $t=(b-a)b(b+a)$, con los tres factores primos, no asociados y coprimos con $6$. El grupo que tenemos es 
+\begin{equation}\label{eq:kstres}
+K(S,3) = \lla u= \omega^{e_\omega}{(1-\omega)}^{e_\lambda}2^{e_2} {(b-a)}^{e_-} b^{e_0} {(b+a)}^{e_+}, e_i\in\lla0,1,2\rla \rla,
+\end{equation}
+y nuestra ecuacion de descenso será 
+\begin{equation}\label{eq:cubicaIntegral}
+u^2 X^3 + Y^3 + 2tu Z^3=0,
+\end{equation}
+donde multiplicamos por $u$ la que teniamos por conveniencia.
+
+Recordemos que ahora nuestro objetivo es probar que, para ciertas clases $u$, existe algun primo $\pp$ para el cual la ecuacion de descenso no tiene soluciones en $K_\pp$. Con esto descartamos a $u$ del Selmer. En cada primo podemos elegir un $u\in \QmodT$ con $v_\pp(u)\in\lla 0,1,2 \rla$, de modo que los coeficientes sean enteros localmente.
+
+\subsubsection*{Eliminar el primo sobre 3}\label{ej:eliminarLambda}
+
+Primero eliminamos de $u$ el $1-\omega$, porque no divide a $2t$. Nuestro $\pp$ será $(1-\omega)$, con lo que tenemos $v_\pp(2t)=0$ y $v_\pp(u)=e_\lambda$. Vamos a usar el lema~\ref{lem:minimoValuaciones}, ya que las valuaciones de cada termino de~\eqref{eq:cubicaIntegral} son
+\[
+2e_\lambda+3v_\pp(X),\qquad 3v_\pp(Y),\qquad e_\lambda+3v_\pp(Z).
+\]
+Si $e_\lambda=1$ o $2$ los residuos serán distintos y el minimo se alcanza una sola vez, por lo que solo nos queda $e_\lambda=0$.
+
+\subsubsection*{Criterio para los primos de 2t}
+
+Los primos que quedan son $2, b-a, b$ y $b+a$, y cada uno aparece una sola vez en $2t$. Con ese criterio vamos a dar una forma de escribir $u$ al reducir modulo $\pp$: si $\pi$ es un generador del ideal $\pp$ entonces escribimos
+\[
+2t=\pi\eta, \quad u=\pi^r\varepsilon \text{ para } r\in\lla0,1,2\rla,
+\]
+donde $\eta$ y $\varepsilon$ son la parte que no contiene $\pp$. Por esto ultimo podemos reducir $\overline{\eta}$ y $\overline{\varepsilon}$ modulo ${(\OO_K/\pp)}^\times$ y ver el valor que toman en el simbolo cubico. Si asumimos que tenemos una solucion con coordenadas enteras y primitivas tendriamos entonces que
+\[
+\pi^{2r}\varepsilon^2X^3+Y^3+\pi^{r+1}\eta\varepsilon Z^3=0.
+\]
+
+Veamos primero el caso $r=0$. La reduccion da ${\overline\varepsilon}^2 X^3+Y^3 \equiv 0 \pmod\pp$. No pueden ser ambos $X$ e $Y$ divisibles por $\pp$ porque en ese caso $Z$ tendria que ser la unidad, y volviendo a la ecuacion original las valuaciones de los terminos quedarian 3, 3 y 1, haciendo imposible que sumen 0. Entonces, como ambos $X$ e $Y$ son unidades (para que valga la ecuacion reducida) entonces el ${\overline\varepsilon}^2$ debe ser un cubo en ${(\OO_K/\pp)}^\times$, o lo mismo $\overline\varepsilon$.
+
+Con esta misma logica para los otros dos casos obtenemos:
+
+\begin{prop}\label{prop:criterioLocalCubico}
+Con la notacion de arriba vale que $C_u(K_\pp)\neq\varnothing$ si y solo si se cumple la condición de la fila correspondiente:
+\[
+\begin{tabular}{c|c}
+r & Condición en $\lp\OO_K/\pp\rp^\times$ \\
+\midrule
+$0$ & $\overline{\varepsilon}$ es un cubo \\
+$1$ & $\overline{\eta\varepsilon^{-1}}$ es un cubo \\
+$2$ & $\overline{\eta\varepsilon}$ es un cubo \\
+\end{tabular}
+\]
+
+\end{prop}
+
+\begin{proof}
+El caso $r=0$ lo vimos arriba. Si $r=1$, como queda $Y^3\equiv 0 \pmod\pp$, podemos escribir $Y=\pi Y_1$ y eliminar de toda la ecuacion un $\pi^2$ para obtener 
 \[
 \varepsilon^2X^3+\pi Y_1^3+\eta\varepsilon Z^3=0.
 \]
-Como la terna original era primitiva, $X$ o $Z$ es una unidad, y al reducir vemos que ambos lo son. Entonces $(X/Z)^3\equiv-\eta\varepsilon^{-1}\pmod\pp$.
+Como la terna original era primitiva, ahora reduciendo vemos que tanto $X$ como $Z$ son unidades, y de ${(X/Z)}^3\equiv - \overline{\eta \varepsilon^{-1}}\pmod\pp$ obtenemos la condicion de la tabla.
 
 Si $r=2$, también $Y=\pi Y_1$, y al dividir por $\pi^3$ obtenemos
 \[
 \pi\varepsilon^2X^3+Y_1^3+\eta\varepsilon Z^3=0.
 \]
-Si $Z$ fuera divisible por $\pi$, también lo sería $Y_1$; $X$ sería una unidad y el primer término tendría valuación $1$, frente a valuaciones al menos $3$ de los otros dos. Por lo tanto $Z$ es una unidad y $(Y_1/Z)^3\equiv-\eta\varepsilon\pmod\pp$. Esto prueba las condiciones necesarias.
+Si $Z$ fuera divisible por $\pi$, también lo sería $Y_1$; $X$ sería una unidad y el primer término tendría valuación $1$, frente a valuaciones al menos $3$ de los otros dos. Por lo tanto $Z$ es una unidad y ${(Y_1/Z)}^3\equiv - \overline{\eta\varepsilon}\pmod\pp$.
 
-Para la suficiencia, en el caso $r=0$ ponemos $X=1,Z=0$ y buscamos $Y^3=-\varepsilon^2$. En el caso $r=1$ ponemos $Y_1=0,Z=1$ y buscamos $X^3=-\eta\varepsilon^{-1}$. En el caso $r=2$ ponemos $X=0,Z=1$ y buscamos $Y_1^3=-\eta\varepsilon$. Todas son ecuaciones de raíz cúbica de una unidad, y las condiciones del enunciado permiten aplicar~\eqref{eq:potenciasLocales}, porque $\pp\nmid3$.
+Para ver que es suficiente basta seguir el desarrollo en el otro sentido. Por ejemplo para $r=0$ y un $y^3=-\varepsilon^2$ (como tiene solucion al reducir, por Hensel tiene solucion en $K_\pp$) ponemos $X=1$, $Y=y$, $Z=0$ y cumple la ecuacion.
 \end{proof}
 
-Para un primo de $t$, escribimos $t=\pi t'$ y usamos $\eta=2t'$. Para el primo $2$, usamos $\pi=2$ y $\eta=t$.
+\begin{remark}
+Podemos incorporar $r$ en la cuenta y escribir las tres condiciones de la tabla con una sola ecuacion:
+\[
+C_u(K_\pp)\neq\varnothing \iff \cub{\varepsilon}{\pp}=\cub{\eta}{\pp}^{r}.
+\]
+Para $r=0$ el simbolo de $\varepsilon$ debe ser $1$; para $r=1$ debe ser igual al de $\eta$; y para $r=2$ debe ser su inverso, que coincide con su cuadrado porque los valores del simbolo son raices cubicas de la unidad.
+\end{remark}
+
 
 \subsubsection*{Imponer la condición en 2}\label{ej:criterioPrimoDos}
 
-Supongamos además que los tres factores de $t$ son congruentes a un mismo $\delta\neq0$ módulo $2$. Como $\OO_K/(2)\cong\FF_4$, todos los cubos no nulos son $1$ y
+Supongamos además que los tres factores de $t$ son congruentes a un mismo $\delta\neq 0$ módulo $2$. Condiciones como esta se ven seguido en los trabajos previos, y veremos a continuacion que nos facilitan el razonamiento rapidamente.
+
+Como $\OO_K/(2)\cong\FF_4$, para todo $\delta\neq 0$ tenemos $\delta^3 = 1$ y entonces
 \[
-t=b(b-a)(b+a)\equiv\delta^3=1\pmod2.
+t=(b-a)b(b+a)\equiv\delta^3=1\pmod2.
 \]
-Escribamos $u=2^{e_2}\varepsilon$. En las tres filas de la proposición~\ref{prop:criterioLocalCubico}, la condición equivale a $\overline\varepsilon=1$. Por lo tanto, para $[u]\in V_t$,
-\begin{equation}\label{eq:condicionLocalDos}
-C_u(K_{(2)})\neq\varnothing
-\iff \omega^{e_\omega}\delta^{e_-+e_0+e_+}=1
-\quad\text{en }\FF_4^\times.
-\end{equation}
-Si $\delta=\omega^d$, queda la relación
+En la notacion de la proposicion esto nos dice que $\eta = 1$, con lo que para cualquier $r$ (que es $e_2$) queremos que $\overline\varepsilon$ sea un cubo, y el unico posible es el $1$. Recordemos que en este caso $\varepsilon=\omega^{e_\omega} {(b-a)}^{e_-} b^{e_0} {(b+a)}^{e_+}$ (ya eliminamos $1-\omega$ de las clases) y reduciendo modulo 2 queda 
 \[
-e_\omega+d(e_-+e_0+e_+)\equiv0\pmod3.
-\]
-Esta determina $e_\omega$ a partir de los otros exponentes. El subespacio que sobrevive tiene dimensión $4$ y $3^4$ clases; lo denotaremos $V_{t,2}$. Hasta acá obtuvimos
-\[
-K(S,3)\supset V_t\supset V_{t,2},
-\qquad 6\longrightarrow5\longrightarrow4
-\quad\text{en dimensiones}.
+1= \omega^{e_\omega}\delta^{e_- + e_0 + e_+}.
 \]
 
-\subsubsection*{Continuar con un primo de t}\label{ej:descarteFamilia}
+Con esto vamos a probar que $e_\omega$ queda determinado por los exponentes del resto de los primos, con lo que vamos a reducir la dimension una vez mas.
 
-Para ver el siguiente descarte con números concretos, tomemos $a=6$ y $b=4+3\omega$. Los factores
-\[
-b-a=-2+3\omega,\qquad b=4+3\omega,\qquad b+a=10+3\omega
-\]
-tienen normas primas $19,13,79$, son no asociados y congruentes a $4+3\omega$ módulo $6$. Aquí $\delta=\omega$, así que ya estamos restringidos a
-\[
-e_\omega+e_-+e_0+e_+\equiv0\pmod3.
-\]
+\subsection{Símbolos para los primos de $t$}
 
-Tomemos $\pp=(b-a)=(-2+3\omega)$ y $t' = b(b+a)$. En $\OO_K/\pp\cong\FF_{19}$ tenemos
+Para poder aplicar la reciprocidad cubica a los tres primos vamos a imponer que sean congruentes a $\pm 1$ módulo 3, y que tengan todos la misma clase. Esto fuerza a que $a\equiv 0 \pmod 6$, ya que recordemos que habiamos fijado la misma clase $\delta$ módulo 2.
+
+\subsubsection*{Símbolos entre los factores}
+
+Para cada $\pi\in\lla b-a,b,b+a\rla$, la reciprocidad cubica da
 \[
-\omega\equiv7,\qquad b\equiv6,\qquad b+a\equiv12,\qquad 2t'\equiv11.
-\]
-Para calcular los símbolos elevamos a $(19-1)/3=6$:
-\[
-7^6\equiv1,\qquad 2^6\equiv7,\qquad
-6^6\equiv11,\qquad12^6\equiv1,\qquad11^6\equiv1\pmod{19}.
-\]
-Como $11\equiv\omega^2$, esto da
-\[
-\cub{\omega}{\pp}=1,\quad
-\cub{2}{\pp}=\omega,\quad
-\cub{b}{\pp}=\omega^2,\quad
-\cub{b+a}{\pp}=1,\quad
-\cub{2t'}{\pp}=1.
+\cub{2}{\pi}=\cub{\pi}{2}\equiv\pi^{(4-1)/3}\equiv\delta\pmod2.
 \]
 
-Escribamos $u=(b-a)^{e_-}\varepsilon$. Como $2t'$ es un cubo módulo $\pp$, las tres filas del criterio local equivalen a $\cub{\varepsilon}{\pp}=1$. Por multiplicatividad,
+Los simbolos entre nuestros primos van a estar relacionados. Para ver esto fijemos uno de ellos y llamemoslo
 \[
-\cub{\varepsilon}{\pp}=\omega^{e_2+2e_0},
-\qquad
-C_u(K_\pp)\neq\varnothing\iff e_2=e_0\pmod3.
+\rho:=\cub{b}{b-a}=\cub{b-a}{b}.
 \]
-Esta restricción es independiente de la obtenida en $2$. Quedan $3^3$ clases, dadas por
+La congruencia $b+a\equiv2b\pmod{b-a}$ da
 \[
-e_\omega=-e_--e_0-e_+,\qquad e_2=e_0
-\quad\text{en }\FF_3.
+\cub{b+a}{b-a}=\cub{2}{b-a}\cub{b}{b-a}=\delta\rho.
 \]
-
-En particular, $[2]$ y $[2]^2$ estaban en $V_{t,2}$, pero quedan descartadas porque $e_2\neq e_0$. Para $[2]$, la solubilidad en $2$ también se ve levantando por Hensel la raíz $X\equiv1$ de $X^3+t$ y tomando $Y=0,Z=1$. Pasar esa prueba no evitó la obstrucción en el primo de norma $19$.
-
-Así, para estos parámetros, pasamos sucesivamente de dimensiones $6$ a $5$, $4$ y $3$. Todavía tenemos un subespacio que contiene al Selmer; las condiciones restantes y los puntos conocidos permitirán terminar el cálculo más adelante.
-
-\subsection{Usar los puntos conocidos para terminar el cálculo}
-
-No siempre hace falta estudiar por separado cada candidato en cada lugar. Si $n=\ell$ es primo, podemos ver $K(S,\ell)$ como un espacio vectorial sobre $\FF_\ell$. Los puntos racionales que conocemos generan un subespacio $W$ contenido en la imagen del descenso. Por otro lado, las condiciones locales dan un subespacio $V$ que contiene al Selmer. Si las condiciones utilizadas son solo necesarias, sigue siendo válida la cadena
-\begin{equation}\label{eq:encajeSelmer}
-W\subseteq\im(\alpha)\subseteq S^{(\phi)}(E/K)\subseteq V.
-\end{equation}
-Si $\dim W=\dim V$, todos coinciden y el cálculo está terminado. No necesitamos entonces comprobar los lugares que faltan: las clases que sobrevivieron ya están representadas por puntos globales. Para usar este argumento, $V$ debe ser un subespacio que contenga a todos los candidatos posibles; no basta con una lista obtenida de una búsqueda incompleta.
-
-\begin{example}[Las clases que ya tenemos]\label{ej:clasesConocidasFamilia}
-Para $t=b(b-a)(b+a)$ tenemos los puntos
+Por otro lado, $b+a\equiv-(b-a)\pmod b$ y $-1$ es un cubo, asi que
 \[
-T_0=(0,t),\qquad P=(a^2-b^2,\ a(a^2-b^2))
-\quad\text{en }E_t(K).
+\cub{b+a}{b}=\cub{b-a}{b}=\rho.
 \]
-Sus clases son
+Y dar vuelta los simbolos es lo mismo por reciprocidad.
+
+\subsubsection*{Los símbolos de la unidad}\label{subsec:simbolosOmega}
+
+Para los simbolos que faltan escribimos
 \[
-\alpha(T_0)=[(2t)^{-1}]=[(2t)^2],\qquad
-\alpha(P)=[(b-a)(b+a)^2],
+\cub{\omega}{b-a}=\omega^{k_-},\qquad
+\cub{\omega}{b}=\omega^{k_0},\qquad
+\cub{\omega}{b+a}=\omega^{k_+}.
 \]
-pues $y(P)-t=(a-b)(a+b)^2$ y $-1$ es un cubo. En las coordenadas $(e_\omega,e_2,e_-,e_0,e_+)$ de $V_t$, corresponden a
+Estos exponentes se definen como $\cub{\omega}{\pi}=\omega^{(N(\pi)-1)/3}$; entonces, por la ley del paralelogramo, tenemos
 \[
-(0,2,2,2,2),\qquad (0,0,1,0,2).
+k_-+k_0+k_+ \equiv\frac{N(b-a)+N(b)+N(b+a)-3}{3}=\frac{3N(b)+2N(a)-3}{3}\equiv0\pmod3.
 \]
-Son independientes: la coordenada de $2$ obliga primero a que el coeficiente del primer vector sea cero, y luego la de $b-a$ hace lo mismo con el segundo. Por lo tanto, si las condiciones locales reducen el espacio de candidatos a dimensión $2$, tendremos calculados tanto la imagen como el Selmer de este descenso.
+Donde la ultima congruencia sale de que $N(b)\equiv1\pmod3$ por ser $b\equiv \pm 1 \pmod3$ y $N(a)\equiv0\pmod9$ porque $a \equiv0\pmod3$.
 
-Esto no sustituye el cálculo del rango: para pasar de un cociente por isogenia al rango hay que usar también la isogenia dual y la contribución de la torsión, como explicamos antes. Tampoco estamos suponiendo acá que $P$ tenga orden infinito; eso se justificará al estudiar la familia.
-\end{example}
+\subsection{Relaciones entre los simbolos}
 
-El procedimiento explica por qué nos interesan parámetros con pocos factores primos y con congruencias elegidas de antemano: los factores determinan los generadores posibles, y las congruencias permiten imponer relaciones entre sus exponentes. Esta forma de organizar el descenso aparece en~\cite[\S3]{Savoie2025QiRank2}, para 2-descenso sobre $\QQ(i)$, y en~\cite[lema~2.4]{Zywina2025RankDoesNotJump}, mediante valuaciones y congruencias sobre $\QQ$. Aquí la aplicaremos a las cúbicas de nuestra familia. Para más ejemplos completos de descarte local por 2-isogenias puede verse~\cite[cap.~X, \S6, proposición~6.2]{SilvermanAEC}.
+Vamos a juntar los simbolos que definimos y el criterio de la proposicion.
 
-\subsection{Recapitulación: cómo hacer el descarte local}\label{subsec:recapLocales}
-
-Juntando lo anterior, el procedimiento que vamos a usar es el siguiente:
-\begin{enumerate}
-    \item Fijar la isogenia y la función de descenso, indicando sobre cuál de las dos curvas se evalúa. En nuestra familia, $\alpha(x,y)=[y-t]$ corresponde a $\hat\phi:E'_t\to E_t$.
-    \item Elegir $S$ con los lugares arquimedianos, los primos del grado y los de mala reducción. Escribir representantes de $K(S,n)$; si el número de clases es $1$, usar unidades módulo potencias y elementos primos, como en la proposición~\ref{prop:representantesClaseUno}. En el caso general, combinar las $S$-unidades con los generadores de $\aaa^n$ para las clases de $\operatorname{Cl}(\OO_{K,S})[n]$.
-    \item Construir el modelo proyectivo del espacio asociado. Para nuestras curvas usamos~\eqref{eq:cubicaDescenso}, o~\eqref{eq:cubicaIntegral} para comparar valuaciones. Revisar también el infinito.
-    \item Empezar por las condiciones más sencillas. En nuestro 3-descenso, el lema~\ref{lem:soporteCubico} elimina los exponentes de los primos que no dividen a $2t$ y lleva de $K(S,3)$ al espacio $V_t$ de~\eqref{eq:espacioCandidatosFamilia}.
-    \item En cada primo que se estudie, normalizar las coordenadas localmente y combinar el mínimo de las valuaciones con congruencias. Si $\pp\nmid3$ y $v_\pp(2t)=1$, aplicar directamente la tabla de la proposición~\ref{prop:criterioLocalCubico}; para $2$ en nuestra familia, usar~\eqref{eq:condicionLocalDos}. Una obstrucción descarta la clase.
-    \item Para afirmar solubilidad local, exhibir un punto o justificar el levantamiento con Hensel. Una solución singular módulo $\pp$ por sí sola no permite concluir. Si se quiere calcular exactamente el Selmer, comprobar todos los lugares de $S$, salvo que el paso siguiente ya cierre el cálculo.
-    \item Comparar los candidatos restantes con las clases de los puntos conocidos. Si ambos subespacios tienen la misma dimensión, usar~\eqref{eq:encajeSelmer}. Si no, conservar la cota obtenida y distinguirla de un cálculo exacto del Selmer o de la imagen del descenso.
-\end{enumerate}
-
-En la siguiente sección aplicaremos estas herramientas a los tres primos $b-a,b,b+a$ y convertiremos las condiciones de ser cubo en relaciones entre los exponentes de $u$. Las cuentas generales ya están hechas; lo que queda es aprovechar la relación entre esos tres primos para conseguir suficientes restricciones.
-
-
-\section{El morfismo para el 3-descenso y el cuerpo $\QQ(\omega)$}\label{sec:descensoFamilia}
-
-Ahora vamos a hacer las cuentas de nuestra familia. Las herramientas generales ya están: queremos usarlas para imponer suficientes restricciones sobre los exponentes de $u$ y dejar solamente las clases de los puntos que conocemos. Habrá varias cuentas de símbolos, porque son las que justifican la cota. Quien quiera aplicar el resultado puede pasar a las condiciones de la sección~\ref{sec:condicionesFamilia} y a la recapitulación final; acá conservaremos las identidades que las producen.
-
-Trabajaremos en $K=\QQ(\omega)$ con $t\in\OO_K\setminus\{0\}$ y
+Para $b-a$ tenemos
 \[
-E_t:y^2=x^3+t^2,\qquad E'_t:y^2=x^3-27t^2.
-\]
-La isogenia $\phi:E_t\to E'_t$ tiene núcleo generado por $T_0=(0,t)$, y haremos el descenso para su dual $\hat\phi:E'_t\to E_t$. En coordenadas, fuera de sus núcleos,
-\[
-\phi(x,y)=\left(\frac{x^3+4t^2}{x^2},\frac{y(x^3-8t^2)}{x^3}\right),
-\qquad
-\hat\phi(x,y)=\left(\frac{x^3-108t^2}{9x^2},\frac{y(x^3+216t^2)}{27x^3}\right).
-\]
-Estas fórmulas también permiten comprobar directamente la normalización de la función que elegimos por la factorización $(y-t)(y+t)=x^3$.
-
-\begin{prop}\label{prop:descensoFamilia}
-El mapa $\alpha:E_t(K)\to K^\times/(K^\times)^3$ dado por
-\[
-\alpha(x,y)=[y-t],\qquad
-\alpha(\OO)=[1],\qquad \alpha(T_0)=[(2t)^{-1}]
-\]
-es el morfismo de descenso de $\hat\phi$. Su núcleo es $\hat\phi(E'_t(K))$ y su imagen está contenida en el subgrupo generado por $[\omega]$ y las clases de los elementos primos que dividen a $2t$.
-\end{prop}
-
-\begin{proof}
-La función $f=y-t$ tiene divisor $3(T_0)-3(\OO)$. En $E'_t$, usando $y^2=x^3-27t^2$, obtenemos
-\[
-f\circ\hat\phi
-=\frac{y(x^3+216t^2)-27tx^3}{27x^3}
-=\left(\frac{y-9t}{3x}\right)^3.
-\]
-Por el teorema~\ref{thm:morfismoDescenso}, da el morfismo y el núcleo indicados. En $T_0$ podemos tomar $x$ como parámetro local y escribir $y-t=x^3/(y+t)$, cuyo coeficiente principal es $(2t)^{-1}$. Finalmente, el lema~\ref{lem:soporteCubico} obliga a que las valuaciones fuera de los primos de $2t$ sean múltiplos de $3$; la factorización única en $\OO_K$ da la descripción de la imagen.
-\end{proof}
-
-Tomar $y+t$ daría las clases inversas y la misma información. Mantendremos $y-t$ para conservar la notación de las cuentas anteriores.
-
-Recordemos también el paso entre puntos y ecuaciones. Si $y-t=uz^3\neq0$, entonces $y+t=u^{-1}w^3$ con $w=x/z$, y $(z:-w:1)$ pertenece a la cúbica $C_u$ de~\eqref{eq:cubicaDescenso}. En sentido contrario, un punto $(X:Y:Z)$ con $Z\neq0$ da
-\[
-x=-\frac{XY}{Z^2},\qquad
-y=\frac{uX^3-u^{-1}Y^3}{2Z^3},
-\qquad y-t=u(X/Z)^3.
-\]
-Si $X=0$, el punto obtenido es $T_0$ y la ecuación de $C_u$ obliga a $[u]=[(2t)^{-1}]$, así que también coincide con el valor excepcional de $\alpha$. Si $Z=0$, queda $(Y/X)^3=-u^2$ y $[u]=[1]$. Recíprocamente, $C_1$ contiene $(1:-1:0)$ y $C_{(2t)^{-1}}$ contiene $(0:-1:1)$. Con esto quedan incluidos los puntos excepcionales y tenemos
-\begin{equation}\label{eq:clasePuntoFamilia}
-[u]\in\im(\alpha)\iff C_u(K)\neq\varnothing.
-\end{equation}
-
-Para el resto de la sección tomaremos
-\begin{equation}\label{eq:hipotesisFamilia}
-t=b(b-a)(b+a),\qquad a\equiv0\pmod6,\qquad b\equiv\pm1\pmod3,
-\end{equation}
-con $a,b\in\OO_K$ y los tres factores primos, no asociados entre sí y coprimos con $6$. Así son primarios salvo signo y tienen una misma clase no nula módulo $2$. Llamaremos $\delta\in\{1,\omega,\omega^2\}$ a la raíz de la unidad que representa esa clase. Más adelante elegiremos $\delta\neq1$.
-
-Por lo obtenido en «\nameref{ej:eliminarLambda}», todo candidato al Selmer tiene un representante
-\[
-u=\omega^{e_\omega}2^{e_2}(b-a)^{e_-}b^{e_0}(b+a)^{e_+},
-\qquad e_i\in\{0,1,2\}.
-\]
-Nos alcanza con estudiar primero los primos de $2t$. El lugar sobre $3$ ya permitió eliminar un generador, pero no estamos afirmando todavía que los candidatos restantes tengan puntos allí; cerraremos ese paso comparándolos con los puntos globales conocidos.
-
-\subsection{Reunir los tres casos locales}
-
-La tabla de la proposición~\ref{prop:criterioLocalCubico} puede escribirse con una sola identidad de símbolos. Esto será lo que evite repetir el argumento de valuaciones en cada primo.
-\begin{prop}\label{prop:casos_r}
-Sea $\pp=(\pi)\nmid6$ con $v_\pp(t)=1$, y escribamos $t=\pi t'$ y $u=\pi^r v$, donde $r\in\{0,1,2\}$ y $v_\pp(t')=v_\pp(v)=0$. Entonces
-\begin{equation}\label{eq:criterioSimboloCubico}
-C_u(K_\pp)\neq\varnothing
-\iff\cub{v}{\pp}=\cub{2t'}{\pp}^{r}.
-\end{equation}
-\end{prop}
-
-\begin{proof}
-Para $r=0$ la tabla pide $\cub{v}{\pp}=1$. Para $r=1$ pide $\cub{2t'v^{-1}}{\pp}=1$, o sea $\cub{v}{\pp}=\cub{2t'}{\pp}$. Para $r=2$ pide $\cub{2t'v}{\pp}=1$, que equivale a $\cub{v}{\pp}=\cub{2t'}{\pp}^{-1}=\cub{2t'}{\pp}^2$. Son exactamente las tres especializaciones de~\eqref{eq:criterioSimboloCubico}.
-\end{proof}
-
-\subsection{Símbolos entre los factores}
-
-Si nos paramos en uno de los tres primos de $t$, el $t'$ será el producto de los otros dos. Por eso necesitamos calcular símbolos como
-\[
-\begin{array}{ccc}
-\cub{2}{b-a}, &
-\cub{b+a}{b-a}, &
-\cub{\omega}{b-a}
-\end{array}
-\]
-donde usaremos las reglas de la subsección~\ref{subsec:simbolosResiduos} y la reciprocidad cúbica del teorema~\ref{thm:reciprocidadCubica}. Para cada $\pi\in\{b-a,b,b+a\}$, como $2\equiv-1\pmod3$ y $\pi\equiv\pm1\pmod3$, tenemos
-\[
-\cub{2}{\pi}=\cub{\pi}{2}
-\equiv\pi^{(4-1)/3}\equiv\delta\pmod2.
-\]
-La reducción identifica $\mu_3$ con $\FF_4^\times$, de modo que la igualdad de residuos da $\cub{2}{\pi}=\delta$ como raíces de la unidad.
-
-Ahora veamos los simbolos entre nuestros elementos, fijando alguno de ellos como referencia, calculando el resto en funcion de él y usando que
-\[
-(b-a) + (b+a) = 2b
+r=e_-,\qquad \eta=2b(b+a),\qquad \varepsilon=\omega^{e_\omega}2^{e_2}b^{e_0}{(b+a)}^{e_+}.
 \]
 
-Entonces sea
+Entonces, la condicion $\cub{\eta}{b-a}^{e_-}=\cub{\varepsilon}{b-a}$ queda
 \[
-\rho := \cub{b}{b-a} = \cub{b-a}{b}
+{\cub{2}{b-a}}^{e_-} {\cub{b}{b-a}}^{e_-} {\cub{b+a}{b-a}}^{e_-} = {\cub{\omega}{b-a}}^{e_\omega} {\cub{2}{b-a}}^{e_2} {\cub{b}{b-a}}^{e_0} {\cub{b+a}{b-a}}^{e_+} 
+\]
+\[
+\delta^{e_-} \rho^{e_-} {(\delta\rho)}^{e_-} = \omega^{k_- e_\omega} \delta^{e_2} \rho^{e_0} {(\delta\rho)}^{e_+}
+\]
+\[
+{(\delta\rho)}^{2e_-} =\omega^{k_-e_\omega}\delta^{e_2+e_+}\rho^{e_0+e_+}.
 \]
 
-Luego
+Para $b$ tenemos
 \[
-\cub{b+a}{b-a} = \cub{(b+a) + (b-a)}{b-a} = \cub{2b}{b-a} = \delta \rho
+r=e_0,\qquad \eta=2(b-a)(b+a),\qquad
+\varepsilon=\omega^{e_\omega}2^{e_2}{(b-a)}^{e_-}{(b+a)}^{e_+},
 \]
-
-Y usando nuevamente que $-1$ es un cubo y la reciprocidad tenemos
+y el criterio nos da
 \[
-\cub{b+a}{b} = \cub{b-a}{b} = \rho
-\]
-
-\subsection{Los símbolos de la unidad}\label{subsec:simbolosOmega}
-
-Ahora unicamente nos faltan los simbolos
-\[
-\cub{\omega}{b-a}, \cub{\omega}{b}, \cub{\omega}{b+a}
-\]
-que unicamente dependen de la clase de cada uno de los primos módulo 9 ya que su valor será 
-\[
-\cub{\omega}{\pp} = \omega^{\frac{N(\pp)-1}{3}}
-\]
-
-Estos valores no son independientes: satisfacen
-\[
-\cub{\omega}{b-a}\cub{\omega}{b}\cub{\omega}{b+a} = 1
-\]
-
-ya que es igual a
-\[
-\omega^{\frac{N(b-a)+N(b)+N(b+a)-3}{3}} = 
-\omega^{\frac{N(b)+2N(b)+2N(a)-3}{3}} = 
-\omega^{\frac{3N(b)+2N(a)-3}{3}} = 1
-\]
-
-donde usamos la ley del paralelogramo ($N(b-a)+N(b+a) = 2(N(b)+N(a))$), que $a\equiv 0 \mod 3$ para que los tres elementos en progresion aritmetica tengan la misma clase módulo 3, y que $b\equiv \pm 1 \mod 3$ asi que $N(b)\equiv 1\mod 3$ y entonces $3N(b)\equiv 3 \mod 9$, para llegar a que el exponente de $\omega$ es multiplo de 3.
-
-Para fijar notacion pongamos
-\[
-\begin{array}{ccc}
-\cub{\omega}{b-a} = \omega^{k_-} &
-\cub{\omega}{b} = \omega^{k_0} &
-\cub{\omega}{b+a} = \omega^{k_+}
-\end{array}
-\]
-de modo que $k_-+k_0+k_+\equiv0\pmod3$. Todos los exponentes de las raíces de la unidad se entenderán a partir de ahora en $\FF_3$.
-
-Ya tenemos los símbolos necesarios en función de $\delta$, los $k$ y $\rho$. No hará falta calcular $\rho$ ni imponerle un valor: las cuentas siguientes mostrarán por qué se cancela en las restricciones finales.
-
-\subsection{Primo $b-a$}
-Acá $r=e_-$, $t'=b(b+a)$ y $v=u/(b-a)^{e_-}$. Por multiplicatividad,
-\[
-\begin{aligned}
-\cub{v}{b-a}
-&=\cub{\omega}{b-a}^{e_\omega}\cub{2}{b-a}^{e_2}
-\cub{b}{b-a}^{e_0}\cub{b+a}{b-a}^{e_+}\\
-&=\omega^{k_-e_\omega}\delta^{e_2}\rho^{e_0}(\delta\rho)^{e_+},\\
-\cub{2t'}{b-a}&=\delta\rho(\delta\rho)=(\delta\rho)^2.
-\end{aligned}
-\]
-Para $e_-=0,1,2$, el lado derecho de~\eqref{eq:criterioSimboloCubico} es, respectivamente, $1,(\delta\rho)^2,\delta\rho$. Las tres condiciones quedan reunidas en
-\begin{equation}\label{eq:condicionMenos}
-(\delta\rho)^{2e_-}
-=\omega^{k_-e_\omega}\delta^{e_2+e_+}\rho^{e_0+e_+}.
-\end{equation}
-
-\subsection{Primo $b$}
-Ahora $r=e_0$, $t'=(b-a)(b+a)$ y $v=u/b^{e_0}$. Los dos símbolos del criterio son
-\[
-\begin{aligned}
-\cub{v}{b}
-&=\cub{\omega}{b}^{e_\omega}\cub{2}{b}^{e_2}
-\cub{b-a}{b}^{e_-}\cub{b+a}{b}^{e_+}
-=\omega^{k_0e_\omega}\delta^{e_2}\rho^{e_-+e_+},\\
-\cub{2t'}{b}&=\delta\rho^2.
-\end{aligned}
-\]
-Para $e_0=0,1,2$ obtenemos, respectivamente, los valores $1,\delta\rho^2,\delta^2\rho$. Por lo tanto,
-\begin{equation}\label{eq:condicionCentro}
-(\delta\rho^2)^{e_0}
+{(\delta\rho^2)}^{e_0}
 =\omega^{k_0e_\omega}\delta^{e_2}\rho^{e_-+e_+}.
-\end{equation}
-
-\subsection{Primo $b+a$}
-En este caso $r=e_+$, $t'=b(b-a)$ y $v=u/(b+a)^{e_+}$. Usando reciprocidad para los símbolos que tienen $b+a$ en el denominador,
-\[
-\begin{aligned}
-\cub{v}{b+a}
-&=\cub{\omega}{b+a}^{e_\omega}\cub{2}{b+a}^{e_2}
-\cub{b-a}{b+a}^{e_-}\cub{b}{b+a}^{e_0}\\
-&=\omega^{k_+e_\omega}\delta^{e_2}(\delta\rho)^{e_-}\rho^{e_0},\\
-\cub{2t'}{b+a}&=\delta\rho(\delta\rho)=(\delta\rho)^2.
-\end{aligned}
 \]
-Los valores para $e_+=0,1,2$ vuelven a ser $1,(\delta\rho)^2,\delta\rho$. Obtenemos
-\begin{equation}\label{eq:condicionMas}
-(\delta\rho)^{2e_+}
-=\omega^{k_+e_\omega}\delta^{e_2+e_-}\rho^{e_0+e_-}.
-\end{equation}
 
-\subsection{Primo $2$}
-El primo $(2)$ también está cubierto por la proposición~\ref{prop:criterioLocalCubico}. Conservemos las reducciones concretas para ver cómo aparece la condición de~\eqref{eq:condicionLocalDos}. Tenemos
+Y para $b+a$ nos queda
 \[
-t\equiv\delta^3=1\pmod2,\qquad
-u=2^{e_2}v,\qquad
-v\equiv\omega^{e_\omega}\delta^{e_-+e_0+e_+}\pmod2.
+r=e_+,\qquad \eta=2(b-a)b,\qquad \varepsilon=\omega^{e_\omega}2^{e_2}{(b-a)}^{e_-}b^{e_0},
 \]
-Normalizamos $X,Y,Z\in\OO_{K_{(2)}}$ para que al menos una coordenada sea unidad y partimos de
+y la condicion es
 \[
-2^{2e_2}v^2X^3+Y^3+2^{e_2+1}tvZ^3=0.
+{(\delta\rho)}^{2e_+} =\omega^{k_+e_\omega}\delta^{e_2+e_-}\rho^{e_0+e_-}.
 \]
-Para $e_2=1,2$ necesariamente $Y=2Y_1$. Dividiendo por $4$ y por $8$, respectivamente, obtenemos las siguientes cuentas:
-\[
-\begin{array}{c|c|c}
-e_2&\text{ecuación antes de reducir}&\text{condición módulo }2\\ \hline
-0&v^2X^3+Y^3+2tvZ^3=0&(Y/X)^3=-v^2\\
-1&v^2X^3+2Y_1^3+tvZ^3=0&(X/Z)^3=-v^{-1}\\
-2&2v^2X^3+Y_1^3+tvZ^3=0&(Y_1/Z)^3=-v
-\end{array}
-\]
-Las divisiones de la última columna están justificadas: para $e_2=0$, $X,Y$ son unidades, pues de otro modo el término con $Z$ tendría valuación mínima única; para $e_2=1$, la primitividad obliga a que $X$ o $Z$ sea unidad y la reducción obliga a que lo sean ambos; para $e_2=2$, si $Z$ no fuera unidad tampoco lo sería $Y_1$, y el término con $X$ tendría valuación mínima única. Son los argumentos de la proposición~\ref{prop:criterioLocalCubico}.
 
-Como $\FF_4^\times$ tiene orden $3$, los cubos de sus elementos son $1$. Cada fila equivale entonces a $v\equiv1\pmod2$. La suficiencia se obtiene por Hensel, tal como vimos en «\nameref{ej:criterioPrimoDos}». Así, la condición común es
-\begin{equation}\label{eq:condicionDosFamilia}
-\omega^{e_\omega}\delta^{e_-+e_0+e_+}=1.
-\end{equation}
+\subsection{Restricciones sobre los exponentes}
 
-\section{Condiciones}\label{sec:condicionesFamilia}
-Manteniendo las hipótesis~\eqref{eq:hipotesisFamilia}, las cuentas en $b-a,b,b+a$ y $2$ nos dejaron las siguientes restricciones para toda clase del Selmer:
-\begin{enumerate}[label=(\alph*)]
-    \item ${(\delta \rho)}^{2e_-}= \omega^{k_- e_\omega} \delta^{e_2+e_+}\rho^{e_0+e_+}$
-    \item ${(\delta \rho^2)}^{e_0}= \omega^{k_0 e_\omega} \delta^{e_2}\rho^{e_-+e_+}$
-    \item ${(\delta \rho)}^{2e_+} = \omega^{k_+e_\omega}\delta^{e_2+e_-}\rho^{e_0+e_-}$
-    \item $\omega^{e_\omega}\delta^{e_- + e_0 + e_+} = 1$
-    \item $k_- + k_0 + k_+ \equiv 0 \mod 3$
+Vamos a combinar las tres condiciones anteriores con la que obtuvimos en $2$ para reducir los candidatos. Ya sabemos que $e_\lambda=0$; reunamos las ecuaciones que tenemos hasta ahora:
+\begin{enumerate}[label=(\alph*),ref=\alph*]
+    \item\label{eq:a} ${(\delta\rho)}^{2e_-}=\omega^{k_-e_\omega}\delta^{e_2+e_+}\rho^{e_0+e_+}$.
+    \item\label{eq:b} ${(\delta\rho^2)}^{e_0}=\omega^{k_0e_\omega}\delta^{e_2}\rho^{e_-+e_+}$.
+    \item\label{eq:c} ${(\delta\rho)}^{2e_+}=\omega^{k_+e_\omega}\delta^{e_2+e_-}\rho^{e_0+e_-}$.
+    \item\label{eq:d} $\omega^{e_\omega}\delta^{e_-+e_0+e_+}=1$.
+    \item\label{eq:e} $k_-+k_0+k_+\equiv0\pmod3$.
 \end{enumerate}
-Aquí $\delta$ representa la clase común de los primos módulo $2$, $\rho=\cub{b}{b-a}$ y los $k$ vienen de sus normas módulo $9$. La última igualdad es una relación entre esos datos, no una condición adicional sobre $u$.
 
-Vayamos viendo qué podemos obtener de ellas. Nuestro objetivo es reducir a dimensión $2$ el espacio de candidatos; elegiremos $\delta\neq1$, pero no necesitaremos ninguna condición adicional sobre $\rho$ ni sobre los $k$.
+\subsubsection*{Eliminar la unidad y elegir $\delta$}
 
-\subsection{$e_\omega=0$}
+Multiplicando~\eqref{eq:a},~\eqref{eq:b} y~\eqref{eq:c}, desaparece el factor de $\omega$ por~\eqref{eq:e} y usamos $\delta^3=1$ para obtener
+\[
+\delta^{2e_-+e_0+2e_+}\rho^{2(e_-+e_0+e_+)}
+=\delta^{e_-+e_+}\rho^{2(e_-+e_0+e_+)}.
+\]
+Cancelando los factores comunes queda $\delta^{e_-+e_0+e_+}=1$. Si juntamos esto con la condicion~\eqref{eq:d} obtenemos $\omega^{e_\omega}=1$, es decir, $e_\omega=0$, como habiamos prometido mas arriba.
 
-Viendo el cociente entre $(a)$ y $(c)$ obtenemos
-\[
-{(\delta\rho)}^{2(e_- - e_+)} = \omega^{(k_- - k_+)e_\omega} \delta^{e_+-e_-} \rho^{e_+ - e_-}
-\]
-\[
-{(\delta\rho)}^{2(e_- - e_+)} = \omega^{(k_- - k_+)e_\omega} {(\delta\rho)}^{e_+ - e_-}
-\]
-y como $\rho$ y $\delta$ son potencias de $\omega$, al pasar dividiendo aparecen cubos y nos queda
-\[
-\omega^{(k_- - k_+)e_\omega} = 1
-\]
-o lo que es lo mismo: $(k_- - k_+)e_\omega\equiv0\pmod3$. Si $k_-\not\equiv k_+\pmod3$, esto obliga a $e_\omega=0$.
+Si $\delta=1$, la igualdad que nos quedo no impone ninguna restriccion sobre la suma de los exponentes. Por eso elegiremos $\delta\in\lla\omega,\omega^2\rla$: como tiene orden $3$, nos da $e_-+e_0+e_+=0$ en $\FF_3$.
 
-Si $k_-\equiv k_+\pmod3$, entonces por $(e)$ también $k_-\equiv k_0\pmod3$. Al dividir $(a)$ por $(b)$ se cancelan por lo tanto los factores que contienen $e_\omega$:
+\subsubsection*{La relación entre $e_2$ y $e_0$}
+
+Volviendo a~\eqref{eq:a} con $e_\omega=0$, tenemos
 \[
-{\delta}^{2e_- - e_0}{\rho}^{2e_- - 2e_0} = \delta^{e_+} \rho^{e_0 - e_-}
+\delta^{2e_--e_+-e_2}
+=\rho^{e_0+e_+-2e_-}=1.
 \]
-Nuevamente se cancelan los factores de $\rho$, cuyos exponentes difieren en un múltiplo de $3$, y nos queda
+El ultimo exponente es congruente a $-3e_-$ modulo $3$, porque $e_-+e_0+e_+=0$. Por lo mismo tenemos $2e_--e_+-e_2 \equiv e_0-e_2 \pmod 3$, asi que $\delta^{e_0-e_2}=1$ y, por nuestra eleccion de $\delta\neq 1$, resulta $e_2=e_0$.
+
+\subsection{Recapitulacion}
+
+Entonces obtuvimos, ademas de $e_\lambda=0$, los siguientes:
 \[
-{\delta}^{2e_- - e_0-e_+} = 1
-\]
-\[
-{\delta}^{e_- + e_0 + e_+} = 1
-\]
-Por $(d)$ esto implica $\omega^{e_\omega}=1$, y nuevamente
-\[
-e_\omega = 0
+e_\omega=0,\qquad e_-+e_0+e_+=0,\qquad e_2=e_0 \quad\text{en }\FF_3.
 \]
 
-\subsection{$\delta \neq 1$}
-
-Ahora $(d)$ quedó $\delta^{e_-+e_0+e_+}=1$. Si $\delta=1$, esta igualdad no da ninguna restricción nueva. Por eso elegimos $\delta\in\{\omega,\omega^2\}$: cualquiera de las dos tiene orden $3$ y obliga a
-\[
-e_-+e_0+e_+\equiv0\pmod3.
-\]
-Esta elección explica para qué pedimos una clase no trivial módulo $2$: nos permite eliminar una dimensión más.
-
-\subsection{$e_2 = e_0$}
-
-Volviendo a $(a)$ con  $e_\omega = 0$, $e_- + e_0 + e_+ = 0$ y $\delta\neq 1$ tenemos
-\[
-{(\delta \rho)}^{2e_-}= \omega^{k_- e_\omega} \delta^{e_2+e_+}\rho^{e_0+e_+}
-\]
-\[
-\delta^{2e_- - e_+ - e_2 } = \rho^{e_0 + e_+ - 2e_-}
-\]
-\[
-\delta^{e_0 - e_2} = 1
-\]
-Esto obliga a $e_0=e_2$ en $\FF_3$. El valor de $\rho$ desapareció porque su exponente es $e_0+e_+-2e_-=-3e_-$ módulo $3$.
-
-\section{Conclusión}\label{sec:conclusionDescenso}
-
-Tenemos que todo representante $u=\omega^{e_\omega}2^{e_2}(b-a)^{e_-}b^{e_0}(b+a)^{e_+}$ de una clase del Selmer debe cumplir
-\begin{equation}\label{eq:restriccionesFinales}
-e_\omega=0,\qquad e_-+e_0+e_+=0,\qquad e_2=e_0
-\quad\text{en }\FF_3.
-\end{equation}
-Una vez elegidos $e_-$ y $e_+$ quedan determinados todos los demás. Por lo tanto, el espacio de candidatos tiene dimensión $2$. Esto vale para cualquiera de las elecciones $\delta=\omega$ o $\omega^2$, independientemente del valor de $\rho$.
-
-Las clases de los puntos conocidos, calculadas en el ejemplo~\ref{ej:clasesConocidasFamilia}, tienen vectores
-\[
-\alpha(T_0):\ (0,2,2,2,2),\qquad
-\alpha(P):\ (0,0,1,0,2),
-\]
-en el orden $(e_\omega,e_2,e_-,e_0,e_+)$. Ambas cumplen~\eqref{eq:restriccionesFinales} y son independientes, como se ve primero en la coordenada de $2$ y luego en la de $b-a$. Entonces generan todo el espacio que sobrevivió. Por~\eqref{eq:encajeSelmer}, este espacio coincide tanto con la imagen como con el Selmer. En particular, no falta comprobar otro lugar para cerrar el cálculo: las clases que quedan ya vienen de puntos globales.
+Por ejemplo, podemos determinar $e_-$ y $e_+$ y el resto de los exponentes quedan determinados. Con esto probamos que el grupo de Selmer es de dimension (a lo sumo) 2 sobre $\FF_3$. Juntemos todo en el resultado de lo que nos interesaba probar en esta seccion:
 
 \begin{theorem}\label{thm:selmerFamilia}
-Sean $a,b\in\ZZ[\omega]$ tales que $a\equiv0\pmod6$, $b\equiv\pm1\pmod3$ y los elementos $b-a,b,b+a$ sean primos no asociados entre sí y coprimos con $6$. Supongamos además que $b\equiv\delta\pmod2$ con $\delta\in\{\omega,\omega^2\}$, y pongamos $t=b(b-a)(b+a)$. Entonces
+Sean $a,b\in\ZZ[\omega]$ tales que $b-a,b$ y $b+a$ sean primos no asociados entre sí y congruentes con $\pm 1$ módulo 3 y $\delta$ módulo 2 para un $\delta\in\lla\omega,\omega^2\rla$, y pongamos $t=(b-a)b(b+a)$. Entonces
 \[
 S^{(\hat\phi)}(E'_t/K)=\im(\alpha)
-=\left\langle[(2t)^{-1}],\,[(b-a)(b+a)^2]\right\rangle
+=\lc[(2t)^{-1}],\,[(b-a){(b+a)}^2]\rc
 \cong\FF_3^2.
 \]
 En consecuencia, $\Sha(E'_t/K)[\hat\phi]=0$ y $\rg E_t(K)=2$.
 \end{theorem}
 
 \begin{proof}
-La igualdad de la imagen y el Selmer es lo que acabamos de probar; la afirmación sobre $\Sha$ se sigue de~\eqref{eq:selmerSha}. Para obtener el rango todavía debemos combinar los cocientes de las dos isogenias.
+Las restricciones que encontramos dejan un espacio de dimension 2 y la imagen de los puntos que tenemos nos lo realiza. La afirmacion sobre $\Sha$ se sigue de la sucesion exacta corta. Por el isomorfismo entre los grupos de Selmer y por el hecho de que los nucleos de las isogenias estan definidos sobre $K$, la cota que probamos del rango de la curva en~\ref{prop:cotaRangoSelmerIsogenias} nos queda:
+\[
+\rg E_t(K)\leq2+2-1-1=2,
+\]
+que junto con los dos puntos independientes tenemos la igualdad. 
 
-Tomemos $s=1+2\omega$, de modo que $s^2=-3$ y $s^6=-27$. El cambio
-\[
-\iota:E_t\longrightarrow E'_t,\qquad (x,y)\longmapsto(s^2x,s^3y)
-\]
-es un isomorfismo sobre $K$. Además, $\iota$ lleva $\langle T_0\rangle$ al núcleo de $\hat\phi$, que está formado por $\OO$ y $(0,\pm3st)$. Así, $\phi$ y $\hat\phi\circ\iota$ tienen el mismo núcleo. Por la unicidad de la isogenia cociente, recordada en el capítulo~\ref{cap:mw}, difieren por un isomorfismo de sus curvas de llegada. Sus cocientes de puntos racionales tienen entonces el mismo orden:
-\[
-\#\frac{E'_t(K)}{\phi(E_t(K))}
-=\#\frac{E_t(K)}{\hat\phi(E'_t(K))}=3^2.
-\]
 
-También necesitamos la 3-torsión. El polinomio de división es $\psi_3(x)=3x(x^3+4t^2)$. Si $x\neq0$ fuera la coordenada de un punto de orden $3$, tendríamos $x^3=-4t^2$. Pero en cualquiera de los tres primos de $t$ el lado derecho tiene valuación $2$, y no puede ser un cubo. Por lo tanto $E_t(K)[3]=\langle T_0\rangle$ y $\phi(E_t(K)[3])=0$. Como $\#E'_t(K)[\hat\phi]=3$, la sucesión~\eqref{eq:cocientesIsogenias} da
-\[
-\#\frac{E_t(K)}{3E_t(K)}=\frac{3^2\cdot3^2}{3}=3^3.
-\]
-Por Mordell--Weil, este orden también es $3^{\rg E_t(K)}\#E_t(K)[3]=3^{\rg E_t(K)+1}$, y el rango es $2$.
+
+Por otro lado, $t$ tiene valuacion $1$ en cada uno de sus tres primos, asi que la proposicion~\ref{prop:torsionEt} da torsion $\ZZ/3\ZZ$. El punto $P=(a^2-b^2,a(a^2-b^2))$ tiene coordenada $x\neq0$, de modo que no es de torsion. Por la proposicion~\ref{prop:omegaIndependencia}, $P$ y $[\omega]P$ son independientes y dan rango al menos $2$. Por lo tanto el rango es exactamente $2$.
 \end{proof}
 
-Para presentar la familia podemos fijar $\delta=\omega$, como queríamos. El problema que queda para el capítulo siguiente es producir infinitos parámetros con estas congruencias y con los tres factores primos. El descenso anterior se aplica a cada elección que cumpla las hipótesis; la infinitud requiere además los resultados de distribución de primos.
+Para completar la presentacion de la curva comentemos que la torsion es necesariamente $\ZZ/3\ZZ$ por la proposicion~\ref{prop:torsionEt} y que $t$ visto módulo cubos no es ni 1 ni 4, si se quiere por su valuacion 1 en el primo $b$. Tambien que podemos fijar $\delta=\omega$ y $b\equiv 1 \pmod 3$ para elegir algun  caso de los posibles, y entonces los primos $b-a,b$ y $b+a$ quedan congruentes a $4+3\omega$ módulo 6.
+
+Ahora, una vez que nos aseguramos que estas curvas tienen rango exactamente 2, vamos a querer probar que hay infinitas de ellas. Para esto vamos a ver que existen infinitos primos en $\OO_K$ con las condiciones que impusimos.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2437,7 +2051,7 @@ LINEAR EQUATIONS IN PRIMES
 
 Conjetura generalizada de Hardy-Littlewood: para $\psi_i$ varias formas lineales afines (ie mas una cte)
 \[
-\{ n \in B_r \cap \ZZ^d: \psi_1(n), \cdots , \psi_t(n) \text{ son primos} \} = (1+ o_{asd}(1))(\text{cosas feas})
+\lla n \in B_r \cap \ZZ^d: \psi_1(n), \cdots , \psi_t(n) \text{ son primos} \rla = (1+ o_{asd}(1))(\text{cosas feas})
 \]
 
 Que me dice algo sobre cantidad de valores de $n$ donde consigo que la imagen de mis formas lineales sean todos primos. Ver examples en el primero de tao pags 7 y 8. Despues tiene muuuchas cosas buenas y consecuencias, pero no se si las conjeturas estan probadas o no.
@@ -2545,15 +2159,15 @@ Entonces hay infinitos parámetros con todos los valores elementos primos. Si $n
 
 Son los teoremas~1.1 y~12.1 y la observación~12.3 de Kai~\cite{Kai2026Patrones}, que extienden a $K$ el resultado de Green--Tao--Ziegler. Incluyen la producción de primos en clases residuales reducidas y de patrones afines sobre $\QQ$. También se pueden exigir normas racionales primas: los ideales de grado residual mayor que~1 aportan una cantidad despreciable. Esto no permite fijar arbitrariamente coordenadas de los parámetros.
 
-Para aplicarlo, se introducen las congruencias mediante $\boldsymbol{x}=\boldsymbol{x}_0+M\boldsymbol{y}$, con $M\in\OO_K\setminus\{0\}$, y se repite \eqref{eq:tmpAdmisibilidadK}. La comprobación es finita: fuera de los ideales donde alguna parte lineal se anula al reducir, cada factor elimina un hiperplano; si $N(\pp)>r$, esos hiperplanos no cubren todo el espacio residual. El conteo permite excluir ceros de polinomios no nulos en las coordenadas enteras, pues tienen $O(N^{nd-1})$ puntos.
+Para aplicarlo, se introducen las congruencias mediante $\boldsymbol{x}=\boldsymbol{x}_0+M\boldsymbol{y}$, con $M\in\OO_K\setminus\lla0\rla$, y se repite \eqref{eq:tmpAdmisibilidadK}. La comprobación es finita: fuera de los ideales donde alguna parte lineal se anula al reducir, cada factor elimina un hiperplano; si $N(\pp)>r$, esos hiperplanos no cubren todo el espacio residual. El conteo permite excluir ceros de polinomios no nulos en las coordenadas enteras, pues tienen $O(N^{nd-1})$ puntos.
 
 Si $S$ es un conjunto finito de ideales primos y $e_1,\ldots,e_r\in\OO_K[S^{-1}]$ son distintos, el teorema~13.1 y la proposición~13.2 de Kai permiten aproximar pares locales $(\lambda_{\pp},\mu_{\pp})\in K_{\pp}^2$ para $\pp\in S$, controlar $\lambda/\mu$ en los lugares arquimedianos y conseguir que todos los $\lambda-e_i\mu$ sean primos no asociados en $\OO_K[S^{-1}]$. Fuera de $S$, cada uno tiene exactamente un factor primo, con exponente~1; en $S$ puede tener otros factores.
 
-La proposición~13.3 da una variante directamente en el parámetro: para datos $T_{\pp}\in K_{\pp}\setminus\{e_1,\ldots,e_r\}$, se obtiene $T\in K$ tan próximo a ellos como se quiera, totalmente positivo y arbitrariamente grande en todos los valores absolutos arquimedianos, con ideales distintos $\pp_i\notin S$ tales que
+La proposición~13.3 da una variante directamente en el parámetro: para datos $T_{\pp}\in K_{\pp}\setminus\lla e_1,\ldots,e_r\rla$, se obtiene $T\in K$ tan próximo a ellos como se quiera, totalmente positivo y arbitrariamente grande en todos los valores absolutos arquimedianos, con ideales distintos $\pp_i\notin S$ tales que
 \[
 v_{\pp_i}(T-e_i)=1,\qquad
 v_{\mathfrak q}(T-e_i)\leq0
-\quad(\mathfrak q\notin S\cup\{\pp_i\}).
+\quad(\mathfrak q\notin S\cup\lla\pp_i\rla).
 \]
 Además, si $L/K$ es cíclica y no ramifica fuera de $S$,
 \[
@@ -2575,7 +2189,7 @@ No es un caso particular del bloque anterior: admite un subconjunto denso arbitr
 \psi_i(\beta,k)=\beta+kv_i,\qquad
 (\beta,k)\in\OO_K\oplus\ZZ
 \]
-satisfacen $\psi_i(\operatorname{nu}(\psi_j))=\ZZ(v_i-v_j)$ para $i\neq j$. Este subgrupo tiene rango~1 e índice infinito en $\OO_K$, y falla la condición de conúcleo finito de la versión $\ZZ$-lineal del teorema~12.1 de Kai; véase su observación~12.4.
+satisfacen $\psi_i(\nuc(\psi_j))=\ZZ(v_i-v_j)$ para $i\neq j$. Este subgrupo tiene rango~1 e índice infinito en $\OO_K$, y falla la condición de conúcleo finito de la versión $\ZZ$-lineal del teorema~12.1 de Kai; véase su observación~12.4.
 
 El teorema~1.6 del mismo artículo sobre constelaciones trata los casos cuadráticos: si
 \[
@@ -2584,11 +2198,11 @@ F(X,Y)=AX^2+BXY+CY^2,\quad \mcd(A,B,C)=1,
 su discriminante $B^2-4AC$ no es cuadrado y $F$ no es definida negativa, entonces, para cualquier $\mathcal V\subset\ZZ^2$ finito, existen $\boldsymbol{u}\in\ZZ^2$ y $k\in\ZZ_{>0}$ tales que todos los $F(\boldsymbol{u}+k\boldsymbol{v})$, con $\boldsymbol{v}\in\mathcal V$, son primos racionales distintos. Incluye formas de cuerpos cuadráticos reales e imaginarios; las congruencias adicionales no forman parte automática de este último enunciado.
 
 \paragraph{3. Descomposición de primos: Chebotarev sobre \texorpdfstring{$K$}{K} y Frei--Tinková sobre \texorpdfstring{$\QQ$}{Q}.}
-Para una extensión de Galois finita $L/K$ y una clase de conjugación $C$, Chebotarev produce infinitos ideales primos no ramificados con $\operatorname{Frob}_{\pp}(L/K)=C$. Para obtener generadores $\pi\equiv c\pmod{\mathfrak m}$, con $c\in\OO_K\setminus\{0\}$ coprimo con $\mathfrak m$, se pide además la clase de rayos del ideal $(c)$. Las dos condiciones deben coincidir en la intersección de $L$ con el cuerpo de clases de rayos; los signos se incorporan a la parte infinita del módulo. Fuente: Milne, \href{https://www.jmilne.org/math/CourseNotes/CFT.pdf}{\emph{Class Field Theory}}, versión~4.03, teoremas~V.2.5 y~V.3.23, pp.~156 y~164.
+Para una extensión de Galois finita $L/K$ y una clase de conjugación $C$, Chebotarev produce infinitos ideales primos no ramificados con $\operatorname{Frob}_{\pp}(L/K)=C$. Para obtener generadores $\pi\equiv c\pmod{\mathfrak m}$, con $c\in\OO_K\setminus\lla0\rla$ coprimo con $\mathfrak m$, se pide además la clase de rayos del ideal $(c)$. Las dos condiciones deben coincidir en la intersección de $L$ con el cuerpo de clases de rayos; los signos se incorporan a la parte infinita del módulo. Fuente: Milne, \href{https://www.jmilne.org/math/CourseNotes/CFT.pdf}{\emph{Class Field Theory}}, versión~4.03, teoremas~V.2.5 y~V.3.23, pp.~156 y~164.
 
 Sobre $\QQ$ se pueden relacionar aditivamente los primos y prescribir por separado sus Frobenius. Sean $L_i(\boldsymbol{x})=\boldsymbol{a}_i\cdot\boldsymbol{x}+c_i\in\ZZ[\boldsymbol{x}]$ con partes lineales no nulas, no proporcionales dos a dos, sin divisor primo fijo para $\prod_iL_i$ y con una dirección $\boldsymbol{v}$ en la que todas las $\boldsymbol{a}_i\cdot\boldsymbol{v}$ sean positivas. Sean $F_i/\QQ$ extensiones de Galois finitas y $C_i$ clases de conjugación. Tomamos $D$ múltiplo de los conductores de las subextensiones abelianas máximas $F_i^{\rm ab}$. Si existe $\boldsymbol{x}_0\pmod D$ tal que todos los $L_i(\boldsymbol{x}_0)$ son unidades módulo $D$ y
 \[
-\left(\zeta_D\longmapsto\zeta_D^{L_i(\boldsymbol{x}_0)}\right)
+\lp\zeta_D\longmapsto\zeta_D^{L_i(\boldsymbol{x}_0)}\rp
 \big|_{F_i^{\rm ab}}=C_i\big|_{F_i^{\rm ab}},
 \]
 hay infinitos parámetros con valores $p_i=L_i(\boldsymbol{x})$ primos distintos, no ramificados en $F_i$, y $\operatorname{Frob}_{p_i}(F_i/\QQ)=C_i$. Es el corolario~1.6 de Frei--Tinková, \href{https://arxiv.org/abs/2408.17441v3}{\emph{Linear constellations in primes with arithmetic restrictions}}, incondicional.
@@ -2604,7 +2218,7 @@ Para producir $x+P_i(\boldsymbol{m})$ primos hay dos versiones complementarias.
 \end{enumerate}
 La primera versión admite $P_i=0,m^2,m^2+m$, cuyas partes principales no son todas distintas. La segunda admite $0,m^2+1,2m^2$: para el test local sirven $(x,m)=(1,1)$ módulo~2 y $(1,0)$ módulo cualquier primo impar. Estos ejemplos muestran por qué conservamos ambas. Sustituir en Kai una diferencia libre por $m^2$ impone una condición que su conteo afín no controla.
 
-En una variable, con $d=\max_i\operatorname{gr}P_i=\operatorname{gr}(P_i-P_j)$ para $i\neq j$, Matthiesen, Teräväinen y Wang, \href{https://arxiv.org/abs/2405.12190v2}{\emph{Quantitative asymptotics for polynomial patterns in the primes}}, teorema~1.1, mejoran el conteo: el promedio normalizado ponderado por von Mangoldt en $1\leq x\leq N^d$, $1\leq m\leq N$ tiene como término principal el producto de factores locales, positivo bajo la admisibilidad, y error $O_A((\log N)^{-A})$ para cualquier $A>0$. En ese artículo se usa $\Lambda(z)=\log p$ si $|z|=p^j$, $j\geq1$, y $0$ en otro caso; por tanto, para obtener primos positivos también se controla el signo de los valores. Su conclusión para casi todas las traslaciones, corolario~1.4, es en promedio y no fija una traslación elegida previamente.
+En una variable, con $d=\max_i\gr P_i=\gr(P_i-P_j)$ para $i\neq j$, Matthiesen, Teräväinen y Wang, \href{https://arxiv.org/abs/2405.12190v2}{\emph{Quantitative asymptotics for polynomial patterns in the primes}}, teorema~1.1, mejoran el conteo: el promedio normalizado ponderado por von Mangoldt en $1\leq x\leq N^d$, $1\leq m\leq N$ tiene como término principal el producto de factores locales, positivo bajo la admisibilidad, y error $O_A((\log N)^{-A})$ para cualquier $A>0$. En ese artículo se usa $\Lambda(z)=\log p$ si $|z|=p^j$, $j\geq1$, y $0$ en otro caso; por tanto, para obtener primos positivos también se controla el signo de los valores. Su conclusión para casi todas las traslaciones, corolario~1.4, es en promedio y no fija una traslación elegida previamente.
 
 Como aplicación a coeficientes elípticos, Zywina~\cite[teorema~1.2 y \S4]{Zywina2025RankTwo} utiliza los primos $m,m+16n^2,m+25n^2$, todos $11\pmod{24}$, en
 \[
@@ -2646,7 +2260,7 @@ donde $d$ es el número de parámetros, $\Lambda_p(z)=p/(p-1)$ si $p\nmid z$ y $
 Para imponer una ecuación entre muchos coeficientes primos, una versión con cota explícita es el teorema~1.1 de Yamagishi, \href{https://arxiv.org/abs/2105.12435}{\emph{Diophantine equations in primes: density of prime points on affine hypersurfaces}}. Si $F\in\ZZ[X_1,\ldots,X_n]$ es homogéneo de grado $d\geq2$, $F=0$ tiene un punto no singular en $(0,1)^n$ y uno en $(\ZZ_p^\times)^n$ para cada primo $p$, y
 \[
 n-\dim V_F^*\geq2^8 3^4 5^2d^3(2d-1)^2 4^d,\qquad
-V_F^*=\{\boldsymbol{z}\in\CC^n:\nabla F(\boldsymbol{z})=0\},
+V_F^*=\lla\boldsymbol{z}\in\CC^n:\nabla F(\boldsymbol{z})=0\rla,
 \]
 entonces hay infinitas soluciones con todas las coordenadas primas. La cota muestra que se necesitan muchas variables. Para sistemas con distintos grados, la referencia complementaria es su \href{https://arxiv.org/abs/1703.03332}{\emph{Prime solutions to polynomial equations in many variables and differing degrees}}, teorema~1.2; ese resultado requiere comprobar las condiciones de rango de cada grupo de grados y no se deduce de la cota escrita para una sola ecuación.
 
@@ -2666,9 +2280,9 @@ Los resultados especiales con conteo de valores primos permiten superar cualquie
 Para nuestra familia sobre $K=\QQ(\omega)$, con $\omega^2+\omega+1=0$, se toman
 \[
 c=4+3\omega,\qquad a=6U,\qquad b=c+6V,
-\qquad t=b(b-a)(b+a).
+\qquad t=(b-a)b(b+a).
 \]
-Las formas $c+6(V-U),c+6V,c+6(V+U)$ tienen determinantes $-36,-72,-36$. En los ideales sobre $6$, $c$ es una unidad porque $N(c)=13$; en los demás, $U=0$, $V=(1-c)/6$ da valores~1. Kai permite luego excluir $U=0$ y las coincidencias por unidades, que aquí son finitas. Alternativamente, el teorema relativo aplicado a los primos $\pi\equiv c\pmod6$ y al patrón $\{-6,0,6\}$ produce $b-6k,b,b+6k$ primos no asociados con $k>0$ entero, conservando $a=6k\in\ZZ$.
+Las formas $c+6(V-U),c+6V,c+6(V+U)$ tienen determinantes $-36,-72,-36$. En los ideales sobre $6$, $c$ es una unidad porque $N(c)=13$; en los demás, $U=0$, $V=(1-c)/6$ da valores~1. Kai permite luego excluir $U=0$ y las coincidencias por unidades, que aquí son finitas. Alternativamente, el teorema relativo aplicado a los primos $\pi\equiv c\pmod6$ y al patrón $\lla-6,0,6\rla$ produce $b-6k,b,b+6k$ primos no asociados con $k>0$ entero, conservando $a=6k\in\ZZ$.
 
 Para repetir sin reutilizar ideales, registramos los usados en $\mathcal F$, tomamos $M=6\prod_{\mathfrak q\in\mathcal F}\pi_{\mathfrak q}$, con $(\pi_{\mathfrak q})=\mathfrak q$, y elegimos $c_{\mathcal F}\equiv c\pmod6$, $c_{\mathcal F}\equiv1\pmod{\mathfrak q}$ para $\mathfrak q\in\mathcal F$. Esto es posible porque $\ZZ[\omega]$ es principal y los ideales usados no dividen $6$. Se buscan $a=MU$, $b=c_{\mathcal F}+MV$; el mismo test local permite repetir el proceso. Cada etapa usa un módulo fijo, sin afirmar uniformidad mientras ese módulo crece.
 
@@ -2690,13 +2304,13 @@ Reunamos los resultados anteriores para $K=\QQ(\omega)$. La eleccion $t=k^2-1$ n
 \begin{prop}\label{prop:laprop}
 Sean $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que $b-a,b,b+a$ sean elementos primos congruentes a $4+3\omega$ modulo $6$. Entonces la curva
 \[
-E_{a,b}:y^2=x^3+\bigl(b(a-b)(a+b)\bigr)^2
+E_{a,b}:y^2=x^3+\lp (b-a)b(b+a)\rp^2
 \]
 está genuinamente definida sobre $K$ y
 \[
 E_{a,b}(K)\cong\ZZ/3\ZZ\oplus\ZZ^2.
 \]
-Su torsion está generada por $T_0=(0,t)$, con $t=b(b-a)(b+a)$, y los puntos
+Su torsion está generada por $T_0=(0,t)$, con $t=(b-a)b(b+a)$, y los puntos
 \[
 P=(a^2-b^2,a(a^2-b^2)),\qquad[\omega]P
 \]
@@ -2738,8 +2352,8 @@ Para obtener otros ejemplos basta seguir estos pasos:
 \begin{enumerate}
     \item Elegir $U,V\in\ZZ[\omega]$, con $U\neq0$, y poner $a=6U$, $b=4+3\omega+6V$.
     \item Comprobar que $b-a,b,b+a$ sean primos. En esta clase de congruencia basta comprobar que sus normas sean numeros primos: no pueden generar un primo inerte, pues el lema~\ref{lem:primosNoConjugados} excluye los ideales fijos por conjugacion.
-    \item Escribir $t=b(b-a)(b+a)$ y la curva $E_{a,b}$. El punto $T_0=(0,t)$ genera la torsion, y $P,[\omega]P$ dan los dos puntos independientes indicados.
-    \item Para evitar repeticiones, registrar el conjunto $\{(b-a),(b),(b+a)\}$ y pedir que la nueva terna tenga algun ideal primo nuevo. Si queremos evitar todos los anteriores, usar las congruencias de la proposicion~\ref{prop:kaiFamilia}.
+    \item Escribir $t=(b-a)b(b+a)$ y la curva $E_{a,b}$. El punto $T_0=(0,t)$ genera la torsion, y $P,[\omega]P$ dan los dos puntos independientes indicados.
+    \item Para evitar repeticiones, registrar el conjunto $\lla(b-a),(b),(b+a)\rla$ y pedir que la nueva terna tenga algun ideal primo nuevo. Si queremos evitar todos los anteriores, usar las congruencias de la proposicion~\ref{prop:kaiFamilia}.
 \end{enumerate}
 
 El descenso certifica el rango de cada ejemplo y Kai garantiza que la construccion puede continuar indefinidamente. No necesitamos ninguna de las conjeturas de la seccion~\ref{sec:conjeturas}.
