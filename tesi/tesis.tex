@@ -2028,23 +2028,40 @@ Para completar la presentación de la curva comentemos que la torsión es necesa
 Ahora, una vez que nos aseguramos que estas curvas tienen rango exactamente 2, vamos a querer probar que hay infinitas de ellas. Para esto vamos a ver que existen infinitos primos en $\OO_K$ con las condiciones que impusimos.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \chapter{Teoremas de distribución de primos}\label{cap:primos}
 
-Esta será una sección corta donde contaremos algunos resultados de combinatoria aditiva que nos permiten asegurar la existencia de primos del modo que nos interesa para asegurar que tendremos infinitos ejemplos de la curva que construimos. Estos tipos de resultados son los que se usan en los papers de Zywina, Savoie y demás, pero principalmente como una ``caja negra'' ya que provienen de otras áreas de la teoría de números.
+Esta será una sección corta donde contaremos algunos resultados de combinatoria aditiva que nos permiten asegurar la existencia de infinitos primos que tengan la forma que nos interesa para asegurar la parte de la infinitud de los ejemplos de las curvas que construimos. Estos tipos de resultados son los que se usan en los papers de Zywina, Savoie y demás, pero principalmente como una ``caja negra'' ya que provienen de otras áreas de la teoría de números.
+
+\section{Patrones lineales}
+
+Un punto de partida para esta seccion puede ser el teorema de Dirichlet que nos dice:
+
+\begin{theorem*}[Dirichlet, 1837]
+Dados $a,b\in\ZZ$ coprimos, existen infinitos primos congruente a $a$ módulo $b$.
+\end{theorem*}
+
+En otras palabras, este resultado nos dice que la forma lineal afin $a+ n b$ representa infinitos primos moviendonos en $n$. La pregunta que surge naturalmente de esto es:
+
+\begin{conjecture*}[Dickson, 1904]
+Dadas formas lineales afines distintas $a_i +b_i n$ tales que $a_i$ es coprimo con $b_i$ para todo $i$ y que para todo primo $p$ exista un valor de $n$ donde todas sean coprimas con $p$, entonces existen infinitos enteros $n$ para los cuales $a_i+b_i n$ es primo para todo $i$.
+\end{conjecture*}
+
+Esta conjetura sigue evidentemente abierta, ya que por ejemplo las formas lineales $n$ y $n+2$ cumplen las hipotesis y Dickson predice que entonces existen infinitos primos gemelos. Pero es un gran punto de partida para el desarrollo de mucha teoria posterior y existen muchos casos probados de esta conjetura. 
+
+Antes de continuar, es importante mencionar que existen muchas versiones cuantitativas tanto de las conjeturas como de los resultados. Principalmente está la de Hardy-Littlewood que da un estimado de la cantidad de primos que se pueden representar con desplazamientos fijos admisibles (como si para Dickson fuese $b_i=1$ para todo $i$), y generalizaciones. No nos interesan \emph{por ahora} estos resultados, nos conformamos con la existencia.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{sobre \texorpdfstring{$\ZZ$}{Z} para introducir}
