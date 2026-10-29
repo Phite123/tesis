@@ -71,34 +71,39 @@
 
 \newcommand{\Sha}{\text{\fontencoding{T2A}\selectfont\CYRSH}}
 
-\newcommand{\QmodD}{\QQ^\times / {(\QQ^\times)}^2}
-\newcommand{\QmodT}{\QQ^\times / {(\QQ^\times)}^3}
-\newcommand{\QmodN}{\QQ^\times / {(\QQ^\times)}^n}
-\newcommand{\KmodD}{K^\times / {(K^\times)}^2}
-\newcommand{\KmodT}{K^\times / {(K^\times)}^3}
-\newcommand{\KmodN}{K^\times / {(K^\times)}^n}
+\newcommand{\QmodD}{\QQ^\times/{(\QQ^\times)}^2}
+\newcommand{\QmodT}{\QQ^\times/{(\QQ^\times)}^3}
+\newcommand{\QmodN}{\QQ^\times/{(\QQ^\times)}^n}
+\newcommand{\KmodD}{K^\times/{(K^\times)}^2}
+\newcommand{\KmodT}{K^\times/{(K^\times)}^3}
+\newcommand{\KmodN}{K^\times/{(K^\times)}^n}
 
 \newcommand{\mat}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \end{pmatrix}}
 \newcommand{\minmat}[4]{\left(\begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix}\right)}
-\newcommand{\qexp}{e^{2\pi i z}}
+\newcommand{\qexp}{e^{2\pi{}iz}}
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
 \newcommand{\cub}[2]{\left(\frac{#1}{#2}\right)_3}
 
-\newcommand{\lp}{\left(}
-\newcommand{\rp}{\right)}
+\newcommand{\lp}{\left\lparen}
+\newcommand{\rp}{\right\rparen}
 \newcommand{\lb}{\left|}
 \newcommand{\rb}{\right|}
 \newcommand{\lc}{\left<}
 \newcommand{\rc}{\right>}
-\newcommand{\lco}{\left[}
-\newcommand{\rco}{\right]}
-\newcommand{\lla}{\left\{}
-\newcommand{\rla}{\right\}}
+\newcommand{\lco}{\left\lbrack}
+\newcommand{\rco}{\right\rbrack}
+\newcommand{\lla}{\left\lbrace}
+\newcommand{\rla}{\right\rbrace}
 
 
 % --- Configuración de hyperref ---
 \hypersetup{
     colorlinks=true, linkcolor=blue, citecolor=magenta, urlcolor=cyan
+}
+
+% --- Encabezados: solo el nombre del capítulo ---
+\renewcommand{\chaptermark}[1]{%
+    \markboth{\MakeUppercase{#1}}{}%
 }
 
 % --- Inicio del Documento ---
@@ -141,14 +146,14 @@
 
     \vspace{1.5cm}
 
-    \noindent \textbf{Director} \ \ Dr. Martín Mereb
+    \noindent \textbf{Director} \ \ Dr.\ Martín Mereb
 
     \vspace{3cm}
 
     \rightline{\today}
 
     % Restauramos los márgenes globales (3cm) para el resto del documento
-    \restoregeometry
+    \restoregeometry{}
 \end{titlepage}
 % --- FIN CARÁTULA ---
 
@@ -170,7 +175,7 @@ El objetivo de esta tesis es recopilar la teoría necesaria para la construcció
 
 El grupo abeliano de puntos racionales de una curva elíptica $E$ sobre un cuerpo de números $K$ es finitamente generado, y podemos considerar su parte de torsión y el rango de su parte libre. 
 
-Nos enfocaremos en el rango, que es un valor del que se sabe mucho menos que la torsión, y es componente de muchas conjeturas famosas. De las preguntas principales sobre él algunas son: el rango máximo que puede alcanzar una curva definida sobre $\QQ$, con el récord actual de rango al menos $32$ por Elkies, Klagsbrun y Li~\cite{DujellaRankRecords}, o el máximo dado un grupo de torsión fijo, ver~\cite{ElkiesKlagsbrun2020}; qué valores de rango aparecen infinitas veces, con una heurística por Park, Poonen, Voight y Wood~\cite{ParkPoonenVoightWood2019} que predice infinitas curvas de cada rango hasta $20$ y solo finitas de rango mayor que $21$, dejando abierto el caso $21$; muchas conjeturas que lo relacionan con otros invariantes de la curva, siendo la más famosa la de Birch y Swinnerton-Dyer; y la de dar familias \emph{explícitas} de curvas de un rango fijo, que recién en el último tiempo se comenzaron a obtener ejemplos gracias a una inteligente combinación de resultados ya conocidos. Hay también resultados de densidad, como el de Bhargava y Shankar que nos dice que el rango promedio es menor a $3/2$, cota que se fue mejorando hasta el óptimo $1/2$ dentro de los tantos resultados publicados por OpenAI.
+Nos enfocaremos en el rango, que es un valor del que se sabe mucho menos que la torsión, y es componente de muchas conjeturas famosas. De las preguntas principales sobre él algunas son: el rango máximo que puede alcanzar una curva definida sobre $\QQ$, con el récord actual de rango al menos $32$ por Elkies, Klagsbrun y Li~\cite{DujellaRankRecords}, o el máximo dado un grupo de torsión fijo, ver~\cite{ElkiesKlagsbrun2020}; qué valores de rango aparecen infinitas veces, con una heurística por Park, Poonen, Voight y Wood~\cite{ParkPoonenVoightWood2019} que predice infinitas curvas de cada rango hasta $20$ y solo finitas de rango mayor que $21$, dejando abierto el caso $21$; muchas conjeturas que lo relacionan con otros invariantes de la curva, siendo la más famosa la de Birch y Swinnerton-Dyer; y la de dar familias \emph{explícitas} de curvas de un rango fijo, que recién en el último tiempo se comenzaron a obtener ejemplos gracias a una inteligente combinación de resultados ya conocidos. Hay también resultados de densidad, como el de Bhargava y Shankar que nos dice que el rango promedio es menor a $3/2$, cota que se fue mejorando hasta el óptimo $1/2$ dentro de los tantos resultados publicados por OpenAI\@.
 
 Un resultado conocido de Silverman nos da una forma de construir infinitas curvas sobre $\QQ$ de rango al menos $r$ vía especializaciones de una curva elíptica definida sobre $\QQ(T)$. Usando el método del descenso, que previamente se usaba sólo en casos particulares, junto con resultados de combinatoria aditiva para aplicarlo a toda una familia, se encontró una forma de acotar superiormente el rango. Logrando que la cota superior sea igual a la inferior obtenemos una familia de curvas de un rango fijo. El mejor resultado hasta la fecha es el de Zywina~\cite{Zywina2026SmallRank} que da ejemplos de curvas de rango $r$ para todo $0\leq r \leq 4$ y sobre cualquier cuerpo de números. 
 
@@ -179,7 +184,7 @@ También surge el interés de resultados análogos fijando cierta condición par
 
 \subsection*{Estructura de la tesis y notación}
 
-La estructura de la tesis será la siguiente: en el capítulo 1 reuniremos resultados generales sobre curvas elípticas que vayamos a usar más adelante; el capítulo 2 presenta las herramientas que nos permiten obtener un mínimo para el rango, que son las superficies elípticas y los teoremas de especialización para bajar propiedades de ellas a las curvas elípticas; el tercero se encarga de la cota superior via el método de descenso y el grupo de Selmer, junto con el desarrollo de la teoría para hacerla computable y ejemplos; en el cuarto incluiremos resultados de distribución de primos, que provienen de otro área y por lo tanto usaremos como ``caja negra'', pero que son principales para la generación de infinitos ejemplos que cumplan nuestras condiciones; y finalmente en el último capítulo reuniremos las aplicaciones, con desarrollos que se fueron presentando como ejemplos a lo largo de la tesis, para presentar un resultado nuevo. 
+La estructura de la tesis será la siguiente: en el capítulo 1 reuniremos resultados generales sobre curvas elípticas que vayamos a usar más adelante; el capítulo 2 presenta las herramientas que nos permiten obtener un mínimo para el rango, que son las superficies elípticas y los teoremas de especialización para bajar propiedades de ellas a las curvas elípticas; el tercero se encarga de la cota superior vía el método de descenso y el grupo de Selmer, junto con el desarrollo de la teoría para hacerla computable y ejemplos; en el cuarto incluiremos resultados de distribución de primos, que provienen de otro área y por lo tanto usaremos como ``caja negra'', pero que son principales para la generación de infinitos ejemplos que cumplan nuestras condiciones; y finalmente en el último capítulo reuniremos las aplicaciones, con desarrollos que se fueron presentando como ejemplos a lo largo de la tesis, para presentar un resultado nuevo. 
 
 Antes de empezar, fijemos la notación que usaremos. A lo largo de la tesis trabajaremos mayormente con cuerpos de números (extensiones finitas de $\QQ$) y los denotaremos $K$; y, aunque muchos resultados se pueden extender a cuerpos arbitrarios, otros tantos no, y no haremos mención en cada caso. El grupo de puntos de una curva elíptica $E$ sobre $K$, por ser un grupo abeliano finitamente generado, lo escribiremos
 \[
@@ -187,7 +192,7 @@ E(K)\cong T\oplus\ZZ^r,
 \]
 donde $T$ es el grupo de torsión y $r=\rg E(K)$ es el rango.
 
-Usaremos la notación habitual de teoría de números algebraica, que resumimos a continuación: Denotaremos $\OO_K$ al anillo de enteros, $\bar K$ a una clausura algebraica y $G_K=\operatorname{Gal}(\bar K/K)$ al grupo absoluto de Galois del cuerpo $K$. El grupo $E[n]$ contiene todos los puntos anulados por $[n]$ sobre $\bar K$, mientras que $E(K)[n]$ contiene solo los definidos sobre $K$; la misma convención vale para el nucleo de cualquier isogenia $\phi$. Los lugares de $K$ forman el conjunto $M_K$. Para un lugar $v$, $K_v$ es la completación respecto a la valuación de $v$; si es finito y corresponde al ideal primo $\pp$, también escribiremos $K_\pp$ y usaremos la valuación $v_\pp$, con $v_\pp(0)=+\infty$.
+Usaremos la notación habitual de teoría de números algebraica, que resumimos a continuación: Denotaremos $\OO_K$ al anillo de enteros, $\bar K$ a una clausura algebraica y $G_K=\operatorname{Gal}(\bar K/K)$ al grupo absoluto de Galois del cuerpo $K$. El grupo $E[n]$ contiene todos los puntos anulados por $[n]$ sobre $\bar K$, mientras que $E(K)[n]$ contiene solo los definidos sobre $K$; la misma convención vale para el núcleo de cualquier isogenia $\phi$. Los lugares de $K$ forman el conjunto $M_K$. Para un lugar $v$, $K_v$ es la completación respecto a la valuación de $v$; si es finito y corresponde al ideal primo $\pp$, también escribiremos $K_\pp$ y usaremos la valuación $v_\pp$, con $v_\pp(0)=+\infty$.
 
 Para nuestro caso particular de interés fijamos la raíz tercera de la unidad $\omega=(-1+\sqrt{-3})/2$, de modo que $\omega^2+\omega+1=0$. Usaremos una curva en específico, pero la iremos presentando con más o menos generalidad para simplificar la notación. $E_d:y^2=x^3+d$ será la más general, llamada curva de Mordell; luego, para asegurarnos el punto de 3-torsión $(0,t)$, tomaremos $d=t^2$ y la llamaremos $E_t:y^2=x^3+t^2$; después usaremos $t=k^2-1$, con el cual tenemos un punto libre sobre el cuerpo de funciones, y la curva será $E_k:y^2=x^3+{(k^2-1)}^2$; finalmente escribiremos $k=a/b$ y, tras el cambio $(x,y)\mapsto(b^2x,b^3y)$, tendremos
 \[
@@ -304,7 +309,7 @@ Hablando de enteros, un resultado importante es
 Para curvas sobre $\QQ$, si los coeficientes de nuestro modelo $y^2=x^3+Ax+B$ son enteros, todos los puntos de torsión distintos de $\OO$ tienen coordenadas enteras.
 \end{theorem*}
 
-Este teorema viene acompañado también de que, para $P$ de torsión, $y(P)^2$ divide a $4A^3+27B^2$, lo que hace fácil el cálculo de estos puntos. Para cuerpos de números en general hay cotas locales para los denominadores de los puntos de torsión, pero para cuadráticos imaginarios específicamente se probó un análogo en~\cite{MondalChalilBanerjee2025}.
+Este teorema viene acompañado también de que, para $P$ de torsión, ${y(P)}^2$ divide a $4A^3+27B^2$, lo que hace fácil el cálculo de estos puntos. Para cuerpos de números en general hay cotas locales para los denominadores de los puntos de torsión, pero para cuadráticos imaginarios específicamente se probó un análogo en~\cite{MondalChalilBanerjee2025}.
 
 \subsection{Reducción y puntos de torsión}
 
@@ -421,7 +426,7 @@ El emparejamiento
 es bilineal y define una forma  cuadrática definida positiva en la parte libre del grupo de Mordell-Weil.
 \end{theorem*}
 
-La aplicación que nos interesa es que, dados puntos $P_1,\cdots,P_r$, calculamos su matriz de alturas:
+La aplicación que nos interesa es que, dados puntos $P_1,\ldots,P_r$, calculamos su matriz de alturas:
 \[
 M=\lp \lc P_i,P_j \rc \rp_{1\leq i,j\leq r},
 \]
@@ -529,7 +534,7 @@ Finalmente, para saber la curva imagen, veamos
 Y^2-X^3 = \frac{y^2{(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \frac{(x^3+t^2){(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \\ =\frac{(x^9-15x^6t^2+48x^3t^4+64t^6)-(x^9 +12x^6 t^2 + 48 x^3 t^4 + 64t^6)}{x^6}=-27t^2.
 \end{multline*}
 
-Así construimos una isogenia de grado $3$ hacia $E'_t:Y^2=X^3-27t^2$, con núcleo $\lla\OO,(0,t),(0,-t)\rla$.
+Y así hemos construido una isogenia de grado $3$ hacia $E'_t:Y^2=X^3-27t^2$, cuyo núcleo es $\lla\OO,(0,t),(0,-t)\rla$.
 \end{example}
 
 \subsection{Curvas con \texorpdfstring{$j=0$}{j=0}}
@@ -923,7 +928,7 @@ La torsión se conserva incluso en cada fibra no singular, y este resultado ``ya
 \begin{remark}\label{prop:torsionEspecializacion}
 Sea $E/K(\cc)$ una curva elíptica. Para todo $t\in\cc(K)$ cuya fibra sea no singular, la especialización es inyectiva sobre
 \[
-E(K(\cc))_{\rm tors}\longrightarrow\ee_t(K)_{\rm tors}.
+{E(K(\cc))}_{\rm tors}\longrightarrow{\ee_t(K)}_{\rm tors}.
 \]
 En particular, un punto de orden $n$ especializa a un punto de orden exactamente $n$.
 \end{remark}
@@ -1185,7 +1190,7 @@ y tomando de la mitad obtenemos la \emph{sucesión exacta de Kummer para $\hat\p
 
 Rápidamente queremos identificar el segundo y el tercer grupo con otros que conozcamos mejor y podamos controlar, y también entender los morfismos. 
 
-\subsection*{Isomorfismo para $H^1(G_K,E'[\hat\phi])$}
+\subsection*{Isomorfismo para \texorpdfstring{$H^1(G_K,E'[\hat\phi])$}{H1(GK,E'[phi dual])}}
 
 Para el segundo grupo vamos a hacerlo en el caso particular donde $E[\phi]$ sea cíclico y $K$-racional, que podemos obtener simplemente cocientando por el grupo generado por un punto de $n$-torsión (recordemos que una isogenia queda determinada por su núcleo). Si $\phi$ es de grado $n$ y $\mu_n \subset K$ entonces quedará $E'[\hat\phi] \cong \mu_n$ y podemos dar un isomorfismo explícito usando el emparejamiento de Weil con un generador $Q_0\in E(K)[\phi]$. Un teorema de Kummer nos dice que
 \[
@@ -1239,24 +1244,24 @@ Al sumar sus divisores se cancelan los puntos intermedios y, como $nQ_0=\OO$, qu
 
 Con $f$ calculada, elegimos un representante $a\in K^\times$ de la clase que queremos estudiar y ponemos $f(x,y)=az^n$ junto con la ecuación de la curva $E$. Luego manipulando algebraicamente se puede simplificar y, en los casos más simples, se puede llegar a una sola fórmula donde solo cambiando el parámetro $a$ tenemos todos los espacios homogéneos. Esto es lo que sucede tanto en los casos de 2-descenso como 3-descenso.
 
-En nuestra familia la tangente en $(0,t)$ es $y=t$, así que usamos $f=y-t$. Recordemos que esta función vive sobre $E_t$, por lo que corresponde al descenso para $\hat\phi:E'_t\to E_t$ (según la convención de trabajar con funciones sobre $E_t$). La simplificación de $f=az^3$ es justamente la que hicimos al principio del capítulo para obtener la cúbica $C_a$.
+En nuestra familia la tangente en $(0,t)$ es $y=t$, así que usamos $f=y-t$. Recordemos que esta función vive sobre $E_t$, por lo que corresponde al descenso para $\hat\phi:E'_t\to E_t$. La simplificación de $f=az^3$ es justamente la que hicimos al principio del capítulo para obtener la cúbica $C_a$.
 
 \subsection{Morfismo de descenso}
 
-Ahora nos falta analizar el morfismo $\delta$, haciendo la identificación de su codominio con $\KmodN$. Para lo que lo estamos usando únicamente necesitaríamos saber que existe un morfismo inyectivo que sale del cociente de los puntos y que su imagen coincide con el núcleo de $\gamma$ y así podremos acotarla, es decir, no necesitamos calcularlo explícitamente. Igualmente vamos a presentarlo ya que saber la imagen de los elementos que tenemos (como los puntos de torsión y libres con que hayamos partido) nos ayuda a saber qué espacios descartar. Antes de comenzar con la teoría general notemos que, en el caso de la introducción, encontramos un morfismo que cumplía lo que necesitábamos, con el que incluso nos pudimos armar el espacio homogéneo, y fue simplemente de la estructura de la curva. ``Encontrar un morfismo a ojo'' puede ser la solución en muchos casos para evitar esta parte, pero presentaremos el caso general.
+Ahora nos falta analizar el morfismo $\delta$ pero haciendo la identificación de su codominio con $\KmodN$. Para lo que lo estamos usando únicamente necesitaríamos saber que existe un morfismo inyectivo que sale del cociente de los puntos y que su imagen coincide con el núcleo de $\gamma$ y así podremos acotarla, es decir, no necesitamos calcularlo explícitamente. Igualmente vamos a presentarlo ya que saber la imagen de los elementos que tenemos (como los puntos de torsión y libres con que hayamos partido) nos ayuda a saber qué espacios descartar. Antes de comenzar con la teoría general notemos que, en el caso de la introducción, encontramos un morfismo que cumplía lo que necesitábamos, con el que incluso nos pudimos armar el espacio homogéneo, y fue simplemente de la estructura de la curva. ``Encontrar un morfismo a ojo'' puede ser la solución en muchos casos para evitar esta parte, pero presentaremos el caso general.
 
 \begin{lemma}\label{lemma:funcionDescenso}
-Dada una isogenia $\hat\phi:E'\to E$ cíclica de grado $n$ y un punto $Q_0\in E(K)[\phi]$ generador del núcleo de $\phi$, existe una función $f\in K(E)^\times$ tal que $\operatorname{div}(f)=n(Q_0)-n(\OO)$ que puede normalizarse para que $f\circ\hat\phi=g^n$ para alguna $g\in K(E')^\times$.
+Dada una isogenia $\hat\phi:E'\to E$ cíclica de grado $n$ y un punto $Q_0\in E(K)[\phi]$ generador del núcleo de $\phi$, existe una función $f\in {K(E)}^\times$ tal que $\operatorname{div}(f)=n(Q_0)-n(\OO)$ que puede normalizarse para que $f\circ\hat\phi=g^n$ para alguna $g\in {K(E')}^\times$.
 \end{lemma}
 
 \begin{proof}
-Como $Q_0$ tiene orden $n$, el divisor $n(Q_0)- n(\OO)$ (que sería $n$ veces el asociado al punto $Q_0$) es trivial en $\operatorname{Pic}^0(E)$ y por lo tanto es principal: existe $f$ con ese divisor en $K(E)^\times$ ($Q_0\in E(K)$ así que $f$ puede tomarse definida sobre $K$). La función asociada a un divisor estará definida salvo constantes. Veamos que, con la constante adecuada, podemos conseguir que $f\circ\hat\phi=g^n$.
+Como $Q_0$ tiene orden $n$, el divisor $n(Q_0)- n(\OO)$ (que sería $n$ veces el asociado al punto $Q_0$) es trivial en $\operatorname{Pic}^0(E)$ y por lo tanto es principal: existe $f$ con ese divisor en ${K(E)}^\times$ ($Q_0\in E(K)$ así que $f$ puede tomarse definida sobre $K$). La función asociada a un divisor estará definida salvo constantes. Veamos que, con la constante adecuada, podemos conseguir que $f\circ\hat\phi=g^n$.
 
 Como $\hat\phi$ es sobreyectiva, existe $P_0 \in E'(\bar{K})$ con $\hat\phi(P_0)=Q_0$ y las preimágenes de $Q_0$ serán $P_0 + R$ para los $R\in \nuc (\hat\phi)$. Entonces, el divisor 
 \[ 
 D = \sum_{R\in E'[\hat\phi]} (P_0 + R) - \sum_{R\in E'[\hat\phi]} (R) 
 \] 
-es tal que $D = \hat\phi^*((Q_0)-(\OO))$. Viendo $D$ en $\operatorname{Pic}^0(E')$ (como puntos por ser $\cong E'$) se cancelan los $R$ y queda $nP_0$, pero $[n]P_0 = \phi(Q_0) = \OO$ en $E'$ y entonces existe $g \in K(E')^\times$ con $\operatorname{div}(g) = D$ ($g$ está definida sobre $K$ porque $D$ lo está). Ahora como $\operatorname{div}(f)= n((Q_0)-(\OO))$ tenemos
+es tal que $D = \hat\phi^*((Q_0)-(\OO))$. Viendo $D$ en $\operatorname{Pic}^0(E')$ (como puntos por ser $\cong E'$) se cancelan los $R$ y queda $nP_0$, pero $[n]P_0 = \phi(Q_0) = \OO$ en $E'$ y entonces existe $g \in {K(E')}^\times$ con $\operatorname{div}(g) = D$ ($g$ está definida sobre $K$ porque $D$ lo está). Ahora como $\operatorname{div}(f)= n((Q_0)-(\OO))$ tenemos
 \[
 \operatorname{div}(f \circ \hat\phi)=\hat\phi^*(n((Q_0)-(\OO)))=n D=n\ \operatorname{div}(g)=\operatorname{div}(g^n).
 \]
@@ -1462,7 +1467,7 @@ donde los dos de los costados son finitos ($\OO_{K,S}^\times$ es finitamente gen
 
 La elección concreta de representantes para $K(S,n)$, especialmente simple cuando $\OO_K$ es un dominio de factorización única, la desarrollaremos más adelante.
 
-Juntando estos dos resultados tenemos la demostración del teorema porque vimos que $S^{(\hat\phi)}(E'/K) \subseteq K(S,n) $ y este último es finito.
+Juntando estos dos resultados tenemos la demostración del teorema porque vimos que el grupo $S^{(\hat\phi)}(E'/K)$ está incluido en $K(S,n) $ y este último es finito.
 
 \subsection{Cálculo del grupo de Mordell-Weil}
 
@@ -1561,7 +1566,7 @@ Cuando $n=\ell$ es primo, el Selmer es un $\FF_\ell$-subespacio de $K(S,\ell)$. 
 El primer paso es determinar una forma de representar $K(S,n)$. Si el número de clases de $K$ es 1 entonces es simple:
 
 \begin{prop}\label{prop:representantesClaseUno}
-Supongamos que $\OO_K$ tiene número de clases $1$. Sean $\pp_1,\ldots,\pp_s$ los lugares finitos de $S$, elijamos generadores $\pp_i=(\pi_i)$ y un conjunto $U$ de representantes de $\OO_K^\times/(\OO_K^\times)^n$. Entonces un conjunto de representantes de $K(S,n)$ es
+Supongamos que $\OO_K$ tiene número de clases $1$. Sean $\pp_1,\ldots,\pp_s$ los lugares finitos de $S$, elijamos generadores $\pp_i=(\pi_i)$ y un conjunto $U$ de representantes de $\OO_K^\times/{(\OO_K^\times)}^n$. Entonces un conjunto de representantes de $K(S,n)$ es
 \[
 \lla\varepsilon\pi_1^{e_1}\cdots\pi_s^{e_s}:
 \varepsilon\in U,\quad 0\leq e_i<n\rla.
@@ -1574,7 +1579,7 @@ Como $\OO_K$ es un dominio de factorización única, podemos factorizar cualquie
 
 Recordemos la sucesión exacta de la sección anterior:
 \[
-1\longrightarrow\frac{\OO_{K,S}^\times}{(\OO_{K,S}^\times)^n}
+1\longrightarrow\frac{\OO_{K,S}^\times}{{(\OO_{K,S}^\times)}^n}
 \longrightarrow K(S,n)\longrightarrow \operatorname{Cl}(\OO_{K,S})[n]
 \longrightarrow1.
 \]
@@ -1710,13 +1715,13 @@ Para $\alpha,\beta$ de valuación cero en $\pp$ y $j\in\ZZ$, tenemos
 El símbolo depende solamente del residuo módulo $\pp$, y
 \[
 \leg{\alpha}{\pp}_n=1
-\iff\overline\alpha\in\lp(\OO_K/\pp)^\times\rp^n
+\iff\overline\alpha\in\lp{(\OO_K/\pp)}^\times\rp^n
 \iff\alpha\in{(K_\pp^\times)}^n.
 \]
 \end{prop}
 
 \begin{proof}
-La multiplicatividad y la invariancia por congruencias salen de la definición. Si escribimos $\overline\alpha=g^j$ para un generador del grupo cíclico $(\OO_K/\pp)^\times$, entonces $\overline\alpha^{(N(\pp)-1)/n}=1$ equivale a $n\mid j$, que es justamente ser una potencia $n$-ésima. La última equivalencia es directa de usar Hensel con $T^n-\alpha$.
+La multiplicatividad y la invariancia por congruencias salen de la definición. Si escribimos $\overline\alpha=g^j$ para un generador del grupo cíclico ${(\OO_K/\pp)}^\times$, entonces $\overline\alpha^{(N(\pp)-1)/n}=1$ equivale a $n\mid j$, que es justamente ser una potencia $n$-ésima. La última equivalencia es directa de usar Hensel con $T^n-\alpha$.
 \end{proof}
 
 La otra herramienta principal de estos símbolos es una ley de reciprocidad, de las que existen específicas para cada $n$. La famosa ``reciprocidad cuadrática'' de Euler nos permite dar vuelta el símbolo cuadrático de dos primos cambiando de signo solo si ambos son congruentes a $3$ módulo 4. En nuestro caso usaremos bastante la reciprocidad cúbica de $\ZZ[\omega]$ que se puede encontrar (como todas) en~\cite{Lemmermeyer2000}.
@@ -1826,7 +1831,7 @@ Con esta misma lógica para los otros dos casos obtenemos:
 \begin{prop}\label{prop:criterioLocalCubico}
 Con la notación de arriba vale que $C_u(K_\pp)\neq\varnothing$ si y solo si se cumple la condición de la fila correspondiente:
 \[
-\begin{tabular}{c|c}
+\begin{tabular}{c|c} % chktex 44
 r & Condición en $\lp\OO_K/\pp\rp^\times$ \\
 \midrule
 $0$ & $\overline{\varepsilon}$ es un cubo \\
@@ -1877,7 +1882,7 @@ En la notación de la proposición esto nos dice que $\eta = 1$, con lo que para
 
 Con esto vamos a probar que $e_\omega$ queda determinado por los exponentes del resto de los primos, con lo que vamos a reducir la dimensión una vez más.
 
-\subsection{Símbolos para los primos de $t$}
+\subsection{Símbolos para los primos de \texorpdfstring{$t$}{t}}
 
 Para poder aplicar la reciprocidad cúbica a los tres primos vamos a imponer que sean congruentes a $\pm 1$ módulo 3, y que tengan todos la misma clase. Esto fuerza a que $a\equiv 0 \pmod 6$, ya que recordemos que habíamos fijado la misma clase $\delta$ módulo 2.
 
@@ -1959,7 +1964,7 @@ y la condición es
 \subsection{Restricciones sobre los exponentes}
 
 Vamos a combinar las tres condiciones anteriores con la que obtuvimos en $2$ para reducir los candidatos. Ya sabemos que $e_\lambda=0$; reunamos las ecuaciones que tenemos hasta ahora:
-\begin{enumerate}[label=(\alph*),ref=\alph*]
+\begin{enumerate}[label=(\alph*),ref=\alph*] %chktex 36
     \item\label{eq:a} ${(\delta\rho)}^{2e_-}=\omega^{k_-e_\omega}\delta^{e_2+e_+}\rho^{e_0+e_+}$.
     \item\label{eq:b} ${(\delta\rho^2)}^{e_0}=\omega^{k_0e_\omega}\delta^{e_2}\rho^{e_-+e_+}$.
     \item\label{eq:c} ${(\delta\rho)}^{2e_+}=\omega^{k_+e_\omega}\delta^{e_2+e_-}\rho^{e_0+e_-}$.
@@ -1967,7 +1972,7 @@ Vamos a combinar las tres condiciones anteriores con la que obtuvimos en $2$ par
     \item\label{eq:e} $k_-+k_0+k_+\equiv0\pmod3$.
 \end{enumerate}
 
-\subsubsection*{Eliminar la unidad y elegir $\delta$}
+\subsubsection*{Eliminar la unidad y elegir \texorpdfstring{$\delta$}{delta}}
 
 Multiplicando~\eqref{eq:a},~\eqref{eq:b} y~\eqref{eq:c}, desaparece el factor de $\omega$ por~\eqref{eq:e} y usamos $\delta^3=1$ para obtener
 \[
@@ -1978,7 +1983,7 @@ Cancelando los factores comunes queda $\delta^{e_-+e_0+e_+}=1$. Si juntamos esto
 
 Si $\delta=1$, la igualdad que nos quedó no impone ninguna restricción sobre la suma de los exponentes. Por eso elegiremos $\delta\in\lla\omega,\omega^2\rla$: como tiene orden $3$, nos da $e_-+e_0+e_+=0$ en $\FF_3$.
 
-\subsubsection*{La relación entre $e_2$ y $e_0$}
+\subsubsection*{La relación entre \texorpdfstring{$e_2$}{e2} y \texorpdfstring{$e_0$}{e0}}
 
 Volviendo a~\eqref{eq:a} con $e_\omega=0$, tenemos
 \[
@@ -1997,10 +2002,10 @@ e_\omega=0,\qquad e_-+e_0+e_+=0,\qquad e_2=e_0 \quad\text{en }\FF_3.
 Por ejemplo, podemos determinar $e_-$ y $e_+$ y el resto de los exponentes quedan determinados. Con esto probamos que el grupo de Selmer es de dimensión (a lo sumo) 2 sobre $\FF_3$. Juntemos todo en el resultado de lo que nos interesaba probar en esta sección:
 
 \begin{theorem}\label{thm:selmerFamilia}
-Sean $a,b\in\ZZ[\omega]$ tales que $b-a,b$ y $b+a$ sean primos no asociados entre sí y congruentes con $\pm 1$ módulo 3 y $\delta$ módulo 2 para un $\delta\in\lla\omega,\omega^2\rla$, y pongamos $t=(b-a)b(b+a)$. Entonces
+Sean $a,b\in\ZZ[\omega]$ tales que $b-a$, $b$ y $b+a$ sean primos no asociados entre sí y congruentes con $\pm 1$ módulo 3 y $\delta$ módulo 2 para un $\delta\in\lla\omega,\omega^2\rla$, y pongamos $t=(b-a)b(b+a)$. Entonces
 \[
 S^{(\hat\phi)}(E'_t/K)=\im(\alpha)
-=\lc[(2t)^{-1}],\,[(b-a){(b+a)}^2]\rc
+=\lc[{(2t)}^{-1}],\,[(b-a){(b+a)}^2]\rc
 \cong\FF_3^2.
 \]
 En consecuencia, $\Sha(E'_t/K)[\hat\phi]=0$ y $\rg E_t(K)=2$.
@@ -2037,19 +2042,18 @@ Ahora, una vez que nos aseguramos que estas curvas tienen rango exactamente 2, v
 
 
 
-\chapter{Teoremas de distribución de primos}
-\label{cap:primos}
+\chapter{Teoremas de distribución de primos}\label{cap:primos}
 
 Esta será una sección corta donde contaremos algunos resultados de combinatoria aditiva que nos permiten asegurar la existencia de primos del modo que nos interesa para asegurar que tendremos infinitos ejemplos de la curva que construimos. Estos tipos de resultados son los que se usan en los papers de Zywina, Savoie y demás, pero principalmente como una ``caja negra'' ya que provienen de otras áreas de la teoría de números.
 
 
-\section{sobre $\ZZ$ para introducir}
+\section{sobre \texorpdfstring{$\ZZ$}{Z} para introducir}
 
 LINEAR EQUATIONS IN PRIMES
 
 Conjetura generalizada de Hardy-Littlewood: para $\psi_i$ varias formas lineales afines (ie más una cte)
 \[
-\lla n \in B_r \cap \ZZ^d: \psi_1(n), \cdots , \psi_t(n) \text{ son primos} \rla = (1+ o_{asd}(1))(\text{cosas feas})
+\lla n \in B_r \cap \ZZ^d: \psi_1(n), \ldots , \psi_t(n) \text{ son primos} \rla = (1+ o_{asd}(1))(\text{cosas feas})
 \]
 
 Que me dice algo sobre cantidad de valores de $n$ donde consigo que la imagen de mis formas lineales sean todos primos. Ver examples en el primero de tao págs 7 y 8. Después tiene muuuchas cosas buenas y consecuencias, pero no sé si las conjeturas están probadas o no.
@@ -2062,7 +2066,7 @@ THE PRIMES CONTAIN ARBITRARILY LONG POLYNOMIAL PROGRESSIONS
 
 Prueban: given any integer-valued polynomials $P_1,\ldots, P_k \in \ZZ[m]$ in one unknown $m$ with $P_1(0) = \cdots = P_k(0) = 0$ and any $\varepsilon > 0$, we show that there are infinitely many integers $x, n$ with $1 \leq n \leq x^\varepsilon$ such that $x + P_1(n),\ldots , x + P_k(n)$ are simultaneously prime.
 
-Viene de: Theorem $1.1$ (Polynomial Szemerédi theorem).[6] Let $A \subset \ZZ$ be a set of positive upper density, i.e. limsup $|A\cap[N]|/N > 0$. Then given any integer-valued polynomials $P_1,\ldots , P_k \in \ZZ[m]$ in one unknown m with $P_1(0) = \cdots= P_k(0) = 0$, A contains infinitely many progressions of the form $x + P_1(n), . . . , x + P_k(n)$ with
+Viene de: Theorem $1.1$ (Polynomial Szemerédi theorem).[6] Let $A \subset \ZZ$ be a set of positive upper density, i.e\@. limsup $|A\cap[N]|/N > 0$. Then given any integer-valued polynomials $P_1,\ldots , P_k \in \ZZ[m]$ in one unknown m with $P_1(0) = \cdots= P_k(0) = 0$, A contains infinitely many progressions of the form $x + P_1(n), . . . , x + P_k(n)$ with
 $n > 0$.
 
 Y lo hacen poniendo $P$ en vez de $\ZZ$ en el de Szemerédi.
@@ -2083,16 +2087,16 @@ Sean
 \]
 Supongamos que las partes lineales son independientes dos a dos, es decir,
 \[
-A_iB_j-A_jB_i\neq0\qquad(i\neq j),
+A_i B_j-A_j B_i\neq0\qquad(i\neq j),
 \]
 y que para cada ideal primo $\pp$ existe un par $(U,V)$ módulo $\pp$ con
 \[
 \psi_1(U,V)\psi_2(U,V)\psi_3(U,V)\not\equiv0\pmod\pp.
 \]
-Entonces hay infinitos pares $(U,V)\in\ZZ[\omega]^2$ para los que los tres valores son elementos primos. Podemos excluir además cualquier unión finita de rectas afines sobre $K$.
+Entonces hay infinitos pares $(U,V)\in {\ZZ[\omega]}^2$ para los que los tres valores son elementos primos. Podemos excluir además cualquier unión finita de rectas afines sobre $K$.
 \end{theorem}
 
-La segunda hipótesis dice que no hay un primo que impida de antemano los valores simultáneamente primos. El teorema da, más precisamente, al menos un múltiplo positivo de $N^4/(\log N)^3$ pares cuando los cuatro coeficientes de $U,V$ en la base $1,\omega$ están acotados por $N$. Una recta aporta a lo sumo un múltiplo de $N^2$ pares, de modo que podemos excluir finitas rectas. Esto justifica la última afirmación y permite quitar parámetros degenerados. No necesitaremos las herramientas analíticas de su demostración.
+La segunda hipótesis dice que no hay un primo que impida de antemano los valores simultáneamente primos. El teorema da, más precisamente, al menos un múltiplo positivo de $N^4/{(\log N)}^3$ pares cuando los cuatro coeficientes de $U,V$ en la base $1,\omega$ están acotados por $N$. Una recta aporta a lo sumo un múltiplo de $N^2$ pares, de modo que podemos excluir finitas rectas. Esto justifica la última afirmación y permite quitar parámetros degenerados. No necesitaremos las herramientas analíticas de su demostración.
 
 \begin{prop}\label{prop:kaiFamilia}
 Dado un conjunto finito $\mathcal F$ de ideales primos de $\ZZ[\omega]$, existen $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que
@@ -2137,27 +2141,27 @@ Esta es la forma de usar Kai como caja negra: escribir los factores como formas 
 % INICIO DE LA RECOPILACIÓN TEMPORAL DEL CAPÍTULO 4
 \section{Recopilación final: patrones de primos para especializar}\label{sec:primosTemporal}\label{subsec:tmpResumenPrimos}
 
-Reunimos las herramientas que permiten especializar los factores de los coeficientes de una familia elíptica en primos con las condiciones necesarias para el descenso. No hay un único teorema que contenga todas estas aplicaciones: las restricciones sobre los parámetros, las congruencias y el tipo de primo forman parte de cada conclusión. El control del soporte es el vínculo con el descenso; véanse Stoll~\cite[\S1.1, teoremas~1.1--1.2]{Stoll2006Descent} y Schaefer--Stoll~\cite[\S4, lema~4.5 y proposición~4.6]{SchaeferStoll2004}. Producir los primos es un paso previo al cálculo local, no una afirmación de rango.
+Reunimos las herramientas que permiten especializar los factores de los coeficientes de una familia elíptica en primos con las condiciones necesarias para el descenso. No hay un único teorema que contenga todas estas aplicaciones: las restricciones sobre los parámetros, las congruencias y el tipo de primo forman parte de cada conclusión. El control del soporte es el vínculo con el descenso; véanse Stoll~\cite[\S1.1, teoremas~1.1--1.2]{Stoll2006Descent} y Schaefer-Stoll~\cite[\S4, lema~4.5 y proposición~4.6]{SchaeferStoll2004}. Producir los primos es un paso previo al cálculo local, no una afirmación de rango.
 
 Sobre $\QQ$, primo significa entero positivo primo. Sobre un cuerpo de números $K$, un elemento primo $\pi\in\OO_K$ genera un ideal primo no nulo; dos elementos son asociados si difieren por una unidad. Un ideal primo puede no ser principal, y $|N_{K/\QQ}(\pi)|$ puede ser una potencia de un primo racional. Las congruencias de los parámetros se incorporan antes de comprobar las hipótesis de los resultados siguientes.
 
 \paragraph{1. Sobre cualquier cuerpo: Kai, incluyendo la aproximación local.}
 Cuando los factores relevantes son afines, escribimos
 \[
-L_i(\boldsymbol{x})=\boldsymbol{a}_i\cdot\boldsymbol{x}+c_i
+L_i(x)=a_i\cdot x+ c_i
 \in\OO_K[X_1,\ldots,X_d],\qquad 1\leq i\leq r.
 \]
 Suponemos que las partes lineales son no nulas e independientes dos a dos sobre $K$, y que
 \begin{equation}\label{eq:tmpAdmisibilidadK}
 \text{para todo ideal primo }\pp,\quad
-\exists\boldsymbol{x}_{\pp}\in(\OO_K/\pp)^d:
-\quad\prod_iL_i(\boldsymbol{x}_{\pp})\neq0.
+\exists x_{\pp}\in {(\OO_K/\pp)}^d:
+\quad\prod_i L_i(x_{\pp})\neq0.
 \end{equation}
-Entonces hay infinitos parámetros con todos los valores elementos primos. Si $n=[K:\QQ]$, en cajas de tamaño $N$ de una base integral se obtienen $\gg N^{nd}/(\log N)^r$ soluciones. Para imponer signos en los lugares reales se necesita una región de volumen positivo compatible con ellos; sobre $\QQ$ basta una dirección $\boldsymbol{v}$ con $\boldsymbol{a}_i\cdot\boldsymbol{v}>0$ para todo $i$.
+Entonces hay infinitos parámetros con todos los valores elementos primos. Si $n=[K:\QQ]$, en cajas de tamaño $N$ de una base integral se obtienen $\gg N^{nd}/{(\log N)}^r$ soluciones. Para imponer signos en los lugares reales se necesita una región de volumen positivo compatible con ellos; sobre $\QQ$ basta una dirección $v$ con $a_i\cdot v >0$ para todo $i$.
 
-Son los teoremas~1.1 y~12.1 y la observación~12.3 de Kai~\cite{Kai2026Patrones}, que extienden a $K$ el resultado de Green--Tao--Ziegler. Incluyen la producción de primos en clases residuales reducidas y de patrones afines sobre $\QQ$. También se pueden exigir normas racionales primas: los ideales de grado residual mayor que~1 aportan una cantidad despreciable. Esto no permite fijar arbitrariamente coordenadas de los parámetros.
+Son los teoremas~1.1 y~12.1 y la observación~12.3 de Kai~\cite{Kai2026Patrones}, que extienden a $K$ el resultado de Green-Tao-Ziegler. Incluyen la producción de primos en clases residuales reducidas y de patrones afines sobre $\QQ$. También se pueden exigir normas racionales primas: los ideales de grado residual mayor que~1 aportan una cantidad despreciable. Esto no permite fijar arbitrariamente coordenadas de los parámetros.
 
-Para aplicarlo, se introducen las congruencias mediante $\boldsymbol{x}=\boldsymbol{x}_0+M\boldsymbol{y}$, con $M\in\OO_K\setminus\lla0\rla$, y se repite \eqref{eq:tmpAdmisibilidadK}. La comprobación es finita: fuera de los ideales donde alguna parte lineal se anula al reducir, cada factor elimina un hiperplano; si $N(\pp)>r$, esos hiperplanos no cubren todo el espacio residual. El conteo permite excluir ceros de polinomios no nulos en las coordenadas enteras, pues tienen $O(N^{nd-1})$ puntos.
+Para aplicarlo, se introducen las congruencias mediante $x=x_0+My$, con $M\in\OO_K\setminus\lla0\rla$, y se repite~\eqref{eq:tmpAdmisibilidadK}. La comprobación es finita: fuera de los ideales donde alguna parte lineal se anula al reducir, cada factor elimina un hiperplano; si $N(\pp)>r$, esos hiperplanos no cubren todo el espacio residual. El conteo permite excluir ceros de polinomios no nulos en las coordenadas enteras, pues tienen $O(N^{nd-1})$ puntos.
 
 Si $S$ es un conjunto finito de ideales primos y $e_1,\ldots,e_r\in\OO_K[S^{-1}]$ son distintos, el teorema~13.1 y la proposición~13.2 de Kai permiten aproximar pares locales $(\lambda_{\pp},\mu_{\pp})\in K_{\pp}^2$ para $\pp\in S$, controlar $\lambda/\mu$ en los lugares arquimedianos y conseguir que todos los $\lambda-e_i\mu$ sean primos no asociados en $\OO_K[S^{-1}]$. Fuera de $S$, cada uno tiene exactamente un factor primo, con exponente~1; en $S$ puede tener otros factores.
 
@@ -2180,7 +2184,7 @@ Sea $A$ un conjunto de elementos primos de $\OO_K$ de densidad relativa superior
 \beta+k\mathcal V\subset A,\qquad
 \beta\in\OO_K,\quad k\in\ZZ_{>0},
 \]
-sin pares de asociados. Es el teorema~1.4 de Kai, Mimura, Munemasa, Seki y Yoshino, \href{https://arxiv.org/abs/2012.15669v2}{\emph{Constellations in prime elements of number fields}}. Contiene las progresiones de Green--Tao y las constelaciones gaussianas de Tao. Una clase reducida módulo un ideal no nulo tiene la densidad requerida, por el teorema de Mitsui en la formulación de Kai~\cite[\S6]{Kai2026Patrones}.
+sin pares de asociados. Es el teorema~1.4 de Kai, Mimura, Munemasa, Seki y Yoshino, \href{https://arxiv.org/abs/2012.15669v2}{\emph{Constellations in prime elements of number fields}}. Contiene las progresiones de Green-Tao y las constelaciones gaussianas de Tao. Una clase reducida módulo un ideal no nulo tiene la densidad requerida, por el teorema de Mitsui en la formulación de Kai~\cite[\S6]{Kai2026Patrones}.
 
 No es un caso particular del bloque anterior: admite un subconjunto denso arbitrario y exige una dilatación en $\ZZ$. Si $[K:\QQ]>1$, para elementos distintos $v_i$ las aplicaciones
 \[
@@ -2193,30 +2197,30 @@ El teorema~1.6 del mismo artículo sobre constelaciones trata los casos cuadrát
 \[
 F(X,Y)=AX^2+BXY+CY^2,\quad \mcd(A,B,C)=1,
 \]
-su discriminante $B^2-4AC$ no es cuadrado y $F$ no es definida negativa, entonces, para cualquier $\mathcal V\subset\ZZ^2$ finito, existen $\boldsymbol{u}\in\ZZ^2$ y $k\in\ZZ_{>0}$ tales que todos los $F(\boldsymbol{u}+k\boldsymbol{v})$, con $\boldsymbol{v}\in\mathcal V$, son primos racionales distintos. Incluye formas de cuerpos cuadráticos reales e imaginarios; las congruencias adicionales no forman parte automática de este último enunciado.
+su discriminante $B^2-4AC$ no es cuadrado y $F$ no es definida negativa, entonces, para cualquier $\mathcal V\subset\ZZ^2$ finito, existen $u\in\ZZ^2$ y $k\in\ZZ_{>0}$ tales que todos los $F(u+kv)$, con $v\in\mathcal V$, son primos racionales distintos. Incluye formas de cuerpos cuadráticos reales e imaginarios; las congruencias adicionales no forman parte automática de este último enunciado.
 
-\paragraph{3. Descomposición de primos: Chebotarev sobre \texorpdfstring{$K$}{K} y Frei--Tinková sobre \texorpdfstring{$\QQ$}{Q}.}
+\paragraph{3. Descomposición de primos: Chebotarev sobre \texorpdfstring{$K$}{K} y Frei-Tinková sobre \texorpdfstring{$\QQ$}{Q}.}
 Para una extensión de Galois finita $L/K$ y una clase de conjugación $C$, Chebotarev produce infinitos ideales primos no ramificados con $\operatorname{Frob}_{\pp}(L/K)=C$. Para obtener generadores $\pi\equiv c\pmod{\mathfrak m}$, con $c\in\OO_K\setminus\lla0\rla$ coprimo con $\mathfrak m$, se pide además la clase de rayos del ideal $(c)$. Las dos condiciones deben coincidir en la intersección de $L$ con el cuerpo de clases de rayos; los signos se incorporan a la parte infinita del módulo. Fuente: Milne, \href{https://www.jmilne.org/math/CourseNotes/CFT.pdf}{\emph{Class Field Theory}}, versión~4.03, teoremas~V.2.5 y~V.3.23, pp.~156 y~164.
 
-Sobre $\QQ$ se pueden relacionar aditivamente los primos y prescribir por separado sus Frobenius. Sean $L_i(\boldsymbol{x})=\boldsymbol{a}_i\cdot\boldsymbol{x}+c_i\in\ZZ[\boldsymbol{x}]$ con partes lineales no nulas, no proporcionales dos a dos, sin divisor primo fijo para $\prod_iL_i$ y con una dirección $\boldsymbol{v}$ en la que todas las $\boldsymbol{a}_i\cdot\boldsymbol{v}$ sean positivas. Sean $F_i/\QQ$ extensiones de Galois finitas y $C_i$ clases de conjugación. Tomamos $D$ múltiplo de los conductores de las subextensiones abelianas máximas $F_i^{\rm ab}$. Si existe $\boldsymbol{x}_0\pmod D$ tal que todos los $L_i(\boldsymbol{x}_0)$ son unidades módulo $D$ y
+Sobre $\QQ$ se pueden relacionar aditivamente los primos y prescribir por separado sus Frobenius. Sean $L_i( x)= a_i\cdot x+c_i\in\ZZ[ x]$ con partes lineales no nulas, no proporcionales dos a dos, sin divisor primo fijo para $\prod_i L_i$ y con una dirección $ v$ en la que todas las $ a_i\cdot v$ sean positivas. Sean $F_i/\QQ$ extensiones de Galois finitas y $C_i$ clases de conjugación. Tomamos $D$ múltiplo de los conductores de las subextensiones abelianas máximas $F_i^{\rm ab}$. Si existe $ x_0\pmod D$ tal que todos los $L_i( x_0)$ son unidades módulo $D$ y
 \[
-\lp\zeta_D\longmapsto\zeta_D^{L_i(\boldsymbol{x}_0)}\rp
+\lp\zeta_D\longmapsto\zeta_D^{L_i( x_0)}\rp
 \big|_{F_i^{\rm ab}}=C_i\big|_{F_i^{\rm ab}},
 \]
-hay infinitos parámetros con valores $p_i=L_i(\boldsymbol{x})$ primos distintos, no ramificados en $F_i$, y $\operatorname{Frob}_{p_i}(F_i/\QQ)=C_i$. Es el corolario~1.6 de Frei--Tinková, \href{https://arxiv.org/abs/2408.17441v3}{\emph{Linear constellations in primes with arithmetic restrictions}}, incondicional.
+hay infinitos parámetros con valores $p_i=L_i( x)$ primos distintos, no ramificados en $F_i$, y $\operatorname{Frob}_{p_i}(F_i/\QQ)=C_i$. Es el corolario~1.6 de Frei-Tinková, \href{https://arxiv.org/abs/2408.17441v3}{\emph{Linear constellations in primes with arithmetic restrictions}}, incondicional.
 
 Esta última herramienta amplía el resultado afín sobre $\QQ$, pero no tiene por cuerpo base un $K$ arbitrario. Para símbolos de residuos de elementos fijos se aplica Chebotarev a la extensión de Kummer correspondiente: si $\ell$ es primo, $\mu_\ell\subset K$ y $d_j\in K^\times$ son fijos, usamos $K(\sqrt[\ell]{d_1},\ldots,\sqrt[\ell]{d_s})$, excluyendo los lugares sobre $\ell$ y los soportes de los $d_j$. Los símbolos prescritos deben respetar las relaciones entre sus clases en $K^\times/K^{\times\ell}$. Los símbolos entre dos primos que varían no quedan prescritos automáticamente.
 
-\paragraph{4. Sobre \texorpdfstring{$\QQ$}{Q}: patrones polinomiales de Tao--Ziegler.}
-Para producir $x+P_i(\boldsymbol{m})$ primos hay dos versiones complementarias.
+\paragraph{4. Sobre \texorpdfstring{$\QQ$}{Q}: patrones polinomiales de Tao-Ziegler.}
+Para producir $x+P_i(m)$ primos hay dos versiones complementarias.
 \begin{enumerate}
 \item Si $P_i\in\ZZ[m]$ son distintos y $P_i(0)=0$, existen infinitos patrones $x+P_i(m)$, con $m>0$, dentro de cualquier subconjunto de primos de densidad relativa superior positiva. Es el teorema~1.3 de \href{https://arxiv.org/abs/math/0610050}{\emph{The primes contain arbitrarily long polynomial progressions}}. Se puede tomar la clase $c\pmod M$ si $\mcd(c,M)=1$, y exigir $D\mid m$ sustituyendo $P_i(m)$ por $P_i(Dm)$. La demostración transfiere a los primos el teorema polinomial de Szemerédi.
 
-\item Si $P_i\in\ZZ[m_1,\ldots,m_s]$ tienen grado a lo sumo $d\geq1$, sus partes homogéneas de grado $d$ son distintas dos a dos y, para cada primo $p$, existe $(x,\boldsymbol{m})$ módulo $p$ con $\prod_i(x+P_i(\boldsymbol{m}))\neq0$, existen infinitos patrones simultáneamente primos. No se exige $P_i(0)=0$. Es el corolario~1.5, procedente del conteo del teorema~1.4, de \href{https://arxiv.org/abs/1603.07817}{\emph{Polynomial patterns in the primes}}.
+\item Si $P_i\in\ZZ[m_1,\ldots,m_s]$ tienen grado a lo sumo $d\geq1$, sus partes homogéneas de grado $d$ son distintas dos a dos y, para cada primo $p$, existe $(x,m)$ módulo $p$ con $\prod_i(x+P_i(m))\neq0$, existen infinitos patrones simultáneamente primos. No se exige $P_i(0)=0$. Es el corolario~1.5, procedente del conteo del teorema~1.4, de \href{https://arxiv.org/abs/1603.07817}{\emph{Polynomial patterns in the primes}}.
 \end{enumerate}
 La primera versión admite $P_i=0,m^2,m^2+m$, cuyas partes principales no son todas distintas. La segunda admite $0,m^2+1,2m^2$: para el test local sirven $(x,m)=(1,1)$ módulo~2 y $(1,0)$ módulo cualquier primo impar. Estos ejemplos muestran por qué conservamos ambas. Sustituir en Kai una diferencia libre por $m^2$ impone una condición que su conteo afín no controla.
 
-En una variable, con $d=\max_i\gr P_i=\gr(P_i-P_j)$ para $i\neq j$, Matthiesen, Teräväinen y Wang, \href{https://arxiv.org/abs/2405.12190v2}{\emph{Quantitative asymptotics for polynomial patterns in the primes}}, teorema~1.1, mejoran el conteo: el promedio normalizado ponderado por von Mangoldt en $1\leq x\leq N^d$, $1\leq m\leq N$ tiene como término principal el producto de factores locales, positivo bajo la admisibilidad, y error $O_A((\log N)^{-A})$ para cualquier $A>0$. En ese artículo se usa $\Lambda(z)=\log p$ si $|z|=p^j$, $j\geq1$, y $0$ en otro caso; por tanto, para obtener primos positivos también se controla el signo de los valores. Su conclusión para casi todas las traslaciones, corolario~1.4, es en promedio y no fija una traslación elegida previamente.
+En una variable, con $d=\max_i\gr P_i=\gr(P_i-P_j)$ para $i\neq j$, Matthiesen, Teräväinen y Wang, \href{https://arxiv.org/abs/2405.12190v2}{\emph{Quantitative asymptotics for polynomial patterns in the primes}}, teorema~1.1, mejoran el conteo: el promedio normalizado ponderado por von Mangoldt en $1\leq x\leq N^d$, $1\leq m\leq N$ tiene como término principal el producto de factores locales, positivo bajo la admisibilidad, y error $O_A({(\log N)}^{-A})$ para cualquier $A>0$. En ese artículo se usa $\Lambda(z)=\log p$ si $|z|=p^j$, $j\geq1$, y $0$ en otro caso; por tanto, para obtener primos positivos también se controla el signo de los valores. Su conclusión para casi todas las traslaciones, corolario~1.4, es en promedio y no fija una traslación elegida previamente.
 
 Como aplicación a coeficientes elípticos, Zywina~\cite[teorema~1.2 y \S4]{Zywina2025RankTwo} utiliza los primos $m,m+16n^2,m+25n^2$, todos $11\pmod{24}$, en
 \[
@@ -2231,15 +2235,14 @@ Las formas de coeficientes de la tabla producen infinitos primos bajo las condic
 \small
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{@{}p{0.25\linewidth}p{0.70\linewidth}@{}}
-\raggedright \textbf{Fuente} & \textbf{Aplicación e hipótesis}\\
-\hline
-\raggedright \href{https://arxiv.org/abs/math/9811185}{Friedlander e Iwaniec}, teorema~1 &
+\textbf{Fuente} & \textbf{Aplicación e hipótesis}\\
+\href{https://arxiv.org/abs/math/9811185}{Friedlander e Iwaniec}, teorema~1 &
 Infinitos primos $u^2+v^4$ con $u,v>0$: la norma gaussiana $N(u+iv^2)$ tiene una coordenada cuadrada. Las restricciones a progresiones fijas requieren positividad del factor local, como se explica en la p.~947.\\
-\raggedright \href{https://ora.ox.ac.uk/objects/uuid:f9bbed32-c170-427e-b683-8fd72a426827/files/m98f5c889f0f41496bdbd5f3cfca2b711}{Heath-Brown y Moroz}, teorema~1 &
+\href{https://ora.ox.ac.uk/objects/uuid:f9bbed32-c170-427e-b683-8fd72a426827/files/m98f5c889f0f41496bdbd5f3cfca2b711}{Heath-Brown y Moroz}, teorema~1 &
 Para una forma cúbica binaria entera e irreducible $F$, se obtienen valores primos de $f(U,V)=\gamma_0^{-1}F(u_0+MU,v_0+MV)$ si $f$ tiene coeficientes enteros, es primitivo y no tiene divisor primo fijo. Se toman $M>0$, $u_0,v_0\in\ZZ$ y $\gamma_0>0$ igual al contenido. Para que $F$ mismo sea primo se necesita $\gamma_0=1$.\\
-\raggedright \href{https://arxiv.org/abs/2504.20289}{Fuchs, Hsu, Rickards, Schindler y Stange}, teorema~1.1 &
+\href{https://arxiv.org/abs/2504.20289}{Fuchs, Hsu, Rickards, Schindler y Stange}, teorema~1.1 &
 Aplicación a $\QQ(\omega)$: hay infinitos primos $p=x^2-xy+y^2+2$ con $\mcd(x,y)=1$ y $p\equiv c\pmod M$, si $\mcd(M,6)=\mcd(c,M)=\mcd(c-2,M)=1$. Por ejemplo, se puede pedir $p\equiv1\pmod5$.\\
-\raggedright \href{https://arxiv.org/abs/1507.05080}{Maynard}, teoremas~1.1--1.2 &
+\href{https://arxiv.org/abs/1507.05080}{Maynard}, teoremas~1.1--1.2 &
 Si $\theta$ es un entero algebraico de grado $n$, $K=\QQ(\theta)$, $1\leq k<n$ y $n\geq4k$, la forma $N_{K/\QQ}(x_1+x_2\theta+\cdots+x_{n-k}\theta^{n-k-1})$ toma infinitos valores primos. Basta $n\geq22k/7$ si $\theta=\sqrt[n]{a}$, $a\in\ZZ$ y $X^n-a$ es irreducible.\\
 \end{tabular}
 \end{center}
@@ -2249,16 +2252,16 @@ Para mezclar factores primos y condiciones de norma se conserva el teorema~1.2 d
 Sean $\psi_1,\ldots,\psi_{r+s}$ formas afines enteras con partes lineales no nulas, no proporcionales dos a dos, y $f_{r+1},\ldots,f_{r+s}$ formas cuadráticas binarias positivas. Se piden $\psi_1,\ldots,\psi_r$ primos y $\psi_j=f_j(u_j,v_j)$ para $j>r$, en una región donde todos los valores crezcan positivamente. La condición local es que sean positivos los factores
 \[
 \beta_p=\lim_{a\to\infty}\frac{1}{p^{ad}}
-\sum_{\boldsymbol{x}\bmod p^a}
-\prod_{i=1}^r\Lambda_p(\psi_i(\boldsymbol{x}))
-\prod_{j=r+1}^{r+s}\frac{\rho_{f_j,\psi_j(\boldsymbol{x})}(p^a)}{p^a},
+\sum_{x\bmod p^a}
+\prod_{i=1}^r\Lambda_p(\psi_i(x))
+\prod_{j=r+1}^{r+s}\frac{\rho_{f_j,\psi_j(x)}(p^a)}{p^a},
 \]
 donde $d$ es el número de parámetros, $\Lambda_p(z)=p/(p-1)$ si $p\nmid z$ y $0$ en caso contrario, y $\rho_{f,b}(p^a)$ cuenta las soluciones de $f(u,v)\equiv b\pmod{p^a}$. El producto de esos factores converge y, si todos son positivos, el conteo ponderado tiene término principal positivo. Así se obtienen infinitos parámetros; no se exige que los valores representados por las formas cuadráticas también sean primos.
 
 Para imponer una ecuación entre muchos coeficientes primos, una versión con cota explícita es el teorema~1.1 de Yamagishi, \href{https://arxiv.org/abs/2105.12435}{\emph{Diophantine equations in primes: density of prime points on affine hypersurfaces}}. Si $F\in\ZZ[X_1,\ldots,X_n]$ es homogéneo de grado $d\geq2$, $F=0$ tiene un punto no singular en $(0,1)^n$ y uno en $(\ZZ_p^\times)^n$ para cada primo $p$, y
 \[
 n-\dim V_F^*\geq2^8 3^4 5^2d^3(2d-1)^2 4^d,\qquad
-V_F^*=\lla\boldsymbol{z}\in\CC^n:\nabla F(\boldsymbol{z})=0\rla,
+V_F^*=\lla{z}\in\CC^n:\nabla F({z})=0\rla,
 \]
 entonces hay infinitas soluciones con todas las coordenadas primas. La cota muestra que se necesitan muchas variables. Para sistemas con distintos grados, la referencia complementaria es su \href{https://arxiv.org/abs/1703.03332}{\emph{Prime solutions to polynomial equations in many variables and differing degrees}}, teorema~1.2; ese resultado requiere comprobar las condiciones de rango de cada grupo de grados y no se deduce de la cota escrita para una sola ecuación.
 
@@ -2284,7 +2287,7 @@ Las formas $c+6(V-U),c+6V,c+6(V+U)$ tienen determinantes $-36,-72,-36$. En los i
 
 Para repetir sin reutilizar ideales, registramos los usados en $\mathcal F$, tomamos $M=6\prod_{\mathfrak q\in\mathcal F}\pi_{\mathfrak q}$, con $(\pi_{\mathfrak q})=\mathfrak q$, y elegimos $c_{\mathcal F}\equiv c\pmod6$, $c_{\mathcal F}\equiv1\pmod{\mathfrak q}$ para $\mathfrak q\in\mathcal F$. Esto es posible porque $\ZZ[\omega]$ es principal y los ideales usados no dividen $6$. Se buscan $a=MU$, $b=c_{\mathcal F}+MV$; el mismo test local permite repetir el proceso. Cada etapa usa un módulo fijo, sin afirmar uniformidad mientras ese módulo crece.
 
-Infinitos parámetros todavía no significan infinitas curvas. Para $E_t:y^2=x^3+t^2$, un isomorfismo sobre $K$ obliga a que $(t'/t)^2$ sea una sexta potencia y, por tanto, a que $t'/t$ sea un cubo. Sus valuaciones deben ser múltiplos de~3. Si los nuevos productos $t$ tienen tres ideales primos distintos, todos de exponente~1 y con soporte disjunto de los anteriores, una valuación de $t'/t$ es $-1$, lo que impide el isomorfismo. En otras familias hay que comprobar su propio criterio de isomorfismo, además del descenso.
+Infinitos parámetros todavía no significan infinitas curvas. Para $E_t:y^2=x^3+t^2$, un isomorfismo sobre $K$ obliga a que ${(t'/t)}^2$ sea una sexta potencia y, por tanto, a que $t'/t$ sea un cubo. Sus valuaciones deben ser múltiplos de~3. Si los nuevos productos $t$ tienen tres ideales primos distintos, todos de exponente~1 y con soporte disjunto de los anteriores, una valuación de $t'/t$ es $-1$, lo que impide el isomorfismo. En otras familias hay que comprobar su propio criterio de isomorfismo, además del descenso.
 
 \paragraph{Alcance conjetural.}
 La hipótesis H de Schinzel predice infinitos valores simultáneamente primos de polinomios no constantes, irreducibles en $\ZZ[T]$, con coeficientes principales positivos y sin divisor primo fijo del producto. Dickson es el caso de varios factores lineales en una variable; Bateman--Horn añade una predicción de conteo. Son conjeturas, como distingue la introducción de Skorobogatov--Sofos. En particular, los teoremas anteriores no permiten fijar una diferencia arbitraria entre todos los primos del patrón.
@@ -2292,9 +2295,9 @@ La hipótesis H de Schinzel predice infinitos valores simultáneamente primos de
 
 % FIN DE LA RECOPILACIÓN TEMPORAL DEL CAPÍTULO 4
 
-\chapter{Familia de curvas elípticas con \texorpdfstring{$j=0$}{j=0} sobre \texorpdfstring{$\QQ(\omega)$}{Q(omega)} de rango 2}\label{cap:result}
+\chapter{Una familia de curvas elípticas con \texorpdfstring{$j=0$}{j=0} sobre \texorpdfstring{$\QQ(\omega)$}{Q(omega)} de rango 2}\label{cap:result} % chktex 36
 
-En este capitulo juntaremos todo lo que fuimos haciendo a modo de ejemplo para armar un único resultado. Iremos presentandolo con sus deducciones para que sea un capitulo autocontenido pero todo fue hecho previemente y la teoria necesaria para entender cada paso se encuentra en los capitulos anteriores. El objetivo es probar lo siguiente:
+En este capítulo juntaremos todo lo que fuimos haciendo a modo de ejemplo para armar un único resultado. Iremos presentándolo con sus deducciones para que sea un capítulo autocontenido pero todo fue hecho previemente y la teoría necesaria para entender cada paso se encuentra en los capítulos anteriores. El objetivo es probar lo siguiente:
 
 \begin{theorem*}
 Existen infinitas clases de isomorfismo sobre $K$ de curvas elípticas genuinamente definidas sobre el cuerpo, con $j$-invariante $0$ y grupo de Mordell-Weil isomorfo a
@@ -2303,7 +2306,7 @@ Existen infinitas clases de isomorfismo sobre $K$ de curvas elípticas genuiname
 \]
 \end{theorem*}
 
-Todas las curvas seran especializaciones de la misma superficie utilizando la siguiente proposicion:
+Todas las curvas serán especializaciones de la misma superficie utilizando la siguiente proposición:
 \begin{prop*}
 Sean $a,b\in\ZZ[\omega]$, con $a\neq0$, tales que $b-a,b,b+a$ sean elementos primos congruentes a $4+3\omega$ módulo $6$. Entonces la curva
 \[
@@ -2313,24 +2316,26 @@ está genuinamente definida sobre $K$ y su grupo de puntos racionales es
 \[
 E_{a,b}(K)\cong\ZZ/3\ZZ\oplus\ZZ^2,
 \]
-que contiene al punto de torsion $(0,b(a^2-b^2))$ y a los puntos independientes $(a^2-b^2,a(a^2-b^2))$ y $(\omega (a^2-b^2),a(a^2-b^2))$.
+que contiene al punto de torsión $(0,b(a^2-b^2))$ y a los puntos independientes $(a^2-b^2,a(a^2-b^2))$ y $(\omega (a^2-b^2),a(a^2-b^2))$.
 \end{prop*}
 \begin{proof}
-En primera instancia nos interesaba (pensando en el teorema previo) trabajar con las curvas de $j$\nbd-invariante igual a 0, por lo que partimos de las de la forma $y^2=x^3+d$. Luego, para realizar un 3\nbd-descenso impusimos la condicion de que haya un punto de torsion de orden 3 con $d=t^2$ y el punto $(0,t)$. Para que el grupo de torsion sea unicamente $\ZZ /3\ZZ$ precisamos que $t$ no sea ni un cubo ni 4 veces un cubo, y eso lo tendremos al especializarlo. Estas condiciones se explican en la proposicion~\ref{prop:torsionEt}.
+En primera instancia nos interesaba (pensando en el teorema previo) trabajar con las curvas de $j$\nbd-invariante igual a 0, por lo que partimos de las de la forma $y^2=x^3+d$. Luego, para realizar un 3\nbd-descenso impusimos la condición de que haya un punto de torsión de orden 3 con $d=t^2$ y el punto $(0,t)$. Para que el grupo de torsión sea únicamente $\ZZ /3\ZZ$ precisamos que $t$ no sea ni un cubo ni 4 veces un cubo, y eso lo tendremos al especializarlo. Estas condiciones se explican en la proposición~\ref{prop:torsionEt}.
 
-Antes de buscar un punto que no sea de torsion, observemos que como la curva permite el isomorfismo $[\omega](x,y)=(\omega x,y)$, definido sobre nuestro cuerpo $K$, su anillo de endomorfismos va a ser un $\ZZ[\omega]$\nbd-módulo; y por su accion en los puntos independientes esto implica que el rango de la curva es necesariamente par. Ahora si, para que la curva sea de rango 2 elegimos $t=k^2-1$ y nos aseguramos el punto $(k^2-1, k(k^2-1))$. 
+Antes de buscar un punto que no sea de torsión, observemos que como la curva permite el isomorfismo $[\omega](x,y)=(\omega x,y)$, definido sobre nuestro cuerpo $K$, su anillo de endomorfismos va a ser un $\ZZ[\omega]$\nbd-módulo; y por su acción en los puntos independientes esto implica que el rango de la curva es necesariamente par. Ahora sí, para que la curva sea de rango 2 elegimos $t=k^2-1$ y nos aseguramos el punto $(k^2-1, k(k^2-1))$. 
 
-Nos resta elegir correctamente valores de $k$ para acotar el rango superiormente, y como esto lo haremos con el metodo de descenso necesitamos un modelo entero de nuestra curva (por ahora era $k\in K$). Si $k=a/b$ con $a,b\in \OO_K$ entonces la curva nos queda
+Nos resta elegir correctamente valores de $k$ para acotar el rango superiormente, y como esto lo haremos con el método de descenso necesitamos un modelo entero de nuestra curva (por ahora era $k\in K$). Si $k=a/b$ con $a,b\in \OO_K$ entonces la curva nos queda
 \[
 E_{a,b}:y^2=x^3+\lp (b-a)b(b+a)\rp^2.
 \] 
 
-Ahora si, imponiendo la condicion de que los 3 numeros $b-a$, $b$ y $b+a$ sean primos distintos congruentes a $4+3\omega$ módulo 6, obtenemos una cota superior para el grupo de Selmer que nos asegura rango 2 por el analisis hecho en la seccion~\ref{sec:nuestroCasoSeccion}.
+Ahora sí, imponiendo la condición de que los 3 números $b-a$, $b$ y $b+a$ sean primos distintos congruentes a $4+3\omega$ módulo 6, obtenemos una cota superior para el grupo de Selmer que nos asegura rango 2 por el análisis hecho en la sección~\ref{sec:nuestroCasoSeccion}.
 
-Para finalizar mencionemos lo que nos quedo suelto. Sabemos que, como el primo $b$ divide una unica vez a $t$, tenemos la certeza de que no puede caer en otra clase de torsion que no sea la señalada. Tambien por las congruencias que elegimos para los primos y el hecho de que son distintos, el corolario~\ref{cor:parametrosTorsionGenuina} nos asegura que la curva está definida genuinamente sobre $K$. 
+Para finalizar mencionemos lo que nos quedó suelto. Sabemos que, como el primo $b$ divide una única vez a $t$, tenemos la certeza de que no puede caer en otra clase de torsión que no sea la señalada. También por las congruencias que elegimos para los primos y el hecho de que son distintos, el corolario~\ref{cor:parametrosTorsionGenuina} nos asegura que la curva está definida genuinamente sobre $K$. 
 \end{proof}
 
-Para demostrar ahora el teorema necesitamos probar que hay infinitos primos de $\OO_K$ de la forma deseada, y que los puedo tomar fuera de un conjunto finito de restricciones para que cada curva nueva no sea isomorfa a ninguna de las anteriores.  
+Para demostrar ahora el teorema necesitamos probar que hay infinitos primos de $\OO_K$ de la forma deseada, y que los puedo tomar fuera de un conjunto finito de restricciones para que cada curva nueva no sea isomorfa a ninguna de las anteriores. 
+
+\textbf{Falta demo de esto juntando todo.}
 
 
 
@@ -2342,70 +2347,113 @@ Para demostrar ahora el teorema necesitamos probar que hay infinitos primos de $
 
 
 
+\section{Ejemplos}
 
+\subsection*{El lindo}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{proof}
-Aplicamos la proposición~\ref{prop:kaiFamilia}, primero con $\mathcal F$ vacío y luego agregando a $\mathcal F$ los ideales primos usados en cada paso. Así obtenemos sucesivamente ternas de primos con soportes disjuntos. La proposición~\ref{prop:laprop} da las propiedades de cada curva, y el corolario~\ref{cor:parametrosTorsionGenuina} garantiza que son no isomorfas sobre $K$.
-\end{proof}
-
-\section{Un ejemplo y el procedimiento para producir otros}
-
-El par $a=6$, $b=4+3\omega$ ya estudiado en la sección~\ref{sec:espaciosLocales} tiene factores de normas $19$, $13$ y $79$. En este caso
+Un ejemplo simple es tomar $b=4+3\omega$ y $a=6$ que casualmente hace que $b-a = -2+3\omega$, $b$ y $b+a = 10+3\omega$ sean primos: sus normas son respectivamente $19$, $13$ y $79$. Entonces nuestros objetos nos quedan:
 \[
-t=-161-72\omega,\qquad
-P=(29-15\omega,174-90\omega),
+t= (-2+3\omega)(4+3\omega)(10+3\omega) = -161-72\omega, \qquad t^2=20737+18000\omega;
 \]
-y la ecuación es
+la curva es 
 \[
-y^2=x^3+20737+18000\omega.
+E_{a,b} : y^2=x^3+20737+18000\omega,
 \]
-Por la proposición~\ref{prop:laprop}, esta curva tiene torsión $\ZZ/3\ZZ$, rango $2$ y está genuinamente definida sobre $\QQ(\omega)$.
+con los puntos distinguidos $T_0= (0, -161-72\omega)$,
+\[
+P=(29-15\omega,174-90\omega), \quad \text{y}\quad [\omega]P =(15+44\omega,174-90\omega).
+\]
 
-Para obtener otros ejemplos basta seguir estos pasos:
-\begin{enumerate}
-    \item Elegir $U,V\in\ZZ[\omega]$, con $U\neq0$, y poner $a=6U$, $b=4+3\omega+6V$.
-    \item Comprobar que $b-a,b,b+a$ sean primos. En esta clase de congruencia basta comprobar que sus normas sean números primos: no pueden generar un primo inerte, pues el lema~\ref{lem:primosNoConjugados} excluye los ideales fijos por conjugación.
-    \item Escribir $t=(b-a)b(b+a)$ y la curva $E_{a,b}$. El punto $T_0=(0,t)$ genera la torsión, y $P,[\omega]P$ dan los dos puntos independientes indicados.
-    \item Para evitar repeticiones, registrar el conjunto $\lla(b-a),(b),(b+a)\rla$ y pedir que la nueva terna tenga algún ideal primo nuevo. Si queremos evitar todos los anteriores, usar las congruencias de la proposición~\ref{prop:kaiFamilia}.
-\end{enumerate}
+Para el morfismo de descenso precisamos calcular ${(2t)}^2$ que quedará $4(20737+18000\omega) = 82948+72000\omega$ (aunque luego, para ver las clases, nos conviene tener únicamente la factorización). Con eso nos quedará:
+\[
+\alpha:E_{a,b}(K)\longrightarrow\KmodT,\qquad \alpha(R)=
+\begin{cases}
+[1] & R=\OO,\\
+[82948+72000\omega] & R=T_0,\\
+[y+161+72\omega] & R=(x,y)\neq T_0.
+\end{cases}
+\]
+Y al evaluar en $P$ u $\omega P$ (tienen la misma coordenada $y$) tenemos 
+\[
+\alpha(P) = [(174-90\omega)+161+72\omega] = [335-18\omega].
+\]
+El espacio homogéneo asociado a una clase $[u] \in\KmodT$ es 
+\[
+C_u: u^2X^3+Y^3-(322+144\omega)uZ^3=0.
+\]
 
-El descenso certifica el rango de cada ejemplo y Kai garantiza que la construcción puede continuar indefinidamente. No necesitamos ninguna de las conjeturas de la sección~\ref{sec:conjeturas}.
+Por ejemplo, para la clase $u=2t=-322-144\omega$, que debería tener un punto ya que es imagen de $T_0$, tenemos
+\[
+(82948+72000\omega)X^3+Y^3 +(82948+72000\omega)Z^3=0,
+\]
+que tiene el punto $(-1:0:1)$; y para $u=335-18\omega$, imagen de $\alpha(P)$, el espacio es 
+\[
+(111901-12384\omega)X^3+Y^3 -(110462+45036\omega)Z^3=0,
+\]
+que tiene el punto $(1:-29+15\omega:1)$.
 
+Para $u=2$, como $2ut=2^2(-161-72\omega)= -(644+288\omega)$, el espacio asociado es
+\[
+4X^3+Y^3-(644+288\omega)Z^3=0.
+\]
+Este espacio no debería tener puntos sobre $K_{(b)}$ porque vimos que el $2$ no debería ser un cubo módulo $b$. En efecto, nuestro $b$ tiene norma $13$ y 
+\[
+\cub{2}{b} \equiv 2^{\frac{N(b)-1}{3}} = 16 \equiv 3 \pmod b,
+\]
+y $\omega b = 4\omega + 3\omega^2 = \omega -3$ con lo que $3\equiv\omega\pmod b$ y $\omega\neq 1$.
 
+Sabiendo esto vamos a ver el procedimiento de la proposición~\ref{prop:criterioLocalCubico} replicado en este caso puntual:
 
+Supongamos que hay un punto $(X:Y:Z)$ con coordenadas enteras y al menos una es una unidad. Reduciendo módulo $b$ tenemos 
+\[
+4\bar{X}^3+\bar{Y}^3=0 \qquad\text{en }\OO_K/(b)\cong\FF_{13},
+\]
+de donde $\bar{X}$ e $\bar{Y}$ son ambas cero o $4={(\bar{X}/\bar{Y})}^3$, pero vimos que el 2 no es un cubo (y entonces el 4 tampoco), entonces nos queda la primera opción. Esto fuerza a que $X=bX_1$ e $Y=bY_1$ pero entonces $Z$ debe ser la unidad y las valuaciones de los términos son respectivamente 3, 3 y 1, por lo que no se pueden cancelar para que la suma dé 0. 
 
+Con esa cuenta vimos que $C_2(K_{(b)})=\varnothing$, y por lo tanto la clase $[2]$ queda descartada del grupo de Selmer $S^{(\hat\phi)}(E'_t/K)$.
 
+\subsection*{Uno feo}
 
+Veamos ahora unos parámetros más grandes: con los valores
+\[
+a=74070+407340\omega \quad \text{y}\quad b=595210+259263\omega,
+\]
+los tres factores
+\[
+\begin{aligned}
+b-a&=521140-148077\omega,\\
+b&=595210+259263\omega,\\
+b+a&=669280+666603\omega,
+\end{aligned}
+\]
+son primos, porque sus normas son
+\[
+\begin{aligned}
+N(b-a)&=370682545309,\\
+N(b)&=267176317039,\\
+N(b+a)&=446151222169.
+\end{aligned} \footnote{Primos a simple vista.}
+\]
 
-
-
-
-
-
-
-
+Además, como $a\equiv 0\pmod 6$ y $b\equiv 4+3 \omega \pmod6$ cumplen nuestras hipótesis, la curva
+\[
+y^2=x^3-22985195814325741161260521227462371
++27955350656021317544457893656236720\omega
+\]
+tiene el punto de torsión $(0,176391274298486977+232592083835563530\omega)$, los puntos independientes
+\[
+P=(-447497151631-346997085291\omega,
+108199678701127770-66639771130439970\omega),
+\]
+\[
+[\omega]P=(
+346997085291-100500066340\omega,108199678701127770-66639771130439970\omega),
+\]
+todas sus combinaciones lineales, y ningún otro punto sobre $\QQ[\omega]$.
 
 
 % --- Bibliografía ---
-% Si tienes una bibliografía principal, añade esta referencia allí.
-% Si no, puedes incluirla así:
 \bibliographystyle{amsalpha}
-\bibliography{mi_bibliografia} % Nombre de tu archivo .bib
-
-
+\bibliography{mi_bibliografia} 
 
 \end{document}
-% --- Fin del Documento ---
