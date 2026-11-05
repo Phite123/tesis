@@ -312,7 +312,7 @@ Para toda curva elíptica sobre un cuerpo de números $K$ existe un modelo con c
 Hablando de enteros, un resultado importante es 
 
 \begin{theorem*}[Nagell--Lutz]\label{theorem:NagellLutz}
-Para curvas sobre $\QQ$, si los coeficientes de nuestro modelo $y^2=x^3+Ax+B$ son enteros, todos los puntos de torsión distintos de $\OO$ tienen coordenadas enteras.
+Una curva eliptica sobre $\QQ$ con coeficientes enteros tiene todos sus puntos de torsión con coordenadas enteras, exceptuando al neutro.
 \end{theorem*}
 
 Este teorema viene acompañado también de que, para $P$ de torsión de orden mayor a 2, ${y(P)}^2$ divide a $4A^3+27B^2$, lo que hace fácil el cálculo de estos puntos. Para cuerpos de números en general hay cotas locales para los denominadores de los puntos de torsión, pero para cuadráticos imaginarios específicamente se probó un análogo en~\cite{MondalChalilBanerjee2025}.
@@ -447,14 +447,10 @@ Los mapas entre curvas elípticas serán las isogenias:
 Una \emph{isogenia} $\phi: E\to E'$ es un morfismo entre curvas elípticas que manda $\OO_E \mapsto \OO_{E'}$. 
 \end{definition*}
 
-Lo más importante es que respetan la ley del grupo: $\phi(P+Q) = \phi(P) + \phi(Q)$. Estos morfismos estarán definidos por funciones racionales en las coordenadas de los puntos, permitiéndonos calcularlas explícitamente, hablar del cuerpo de definición de una isogenia, y llevándose bien con la acción de Galois que veremos más adelante. Los primeros ejemplos de isogenias son la multiplicación por enteros $m$:
+Lo más importante es que respetan la ley del grupo: $\phi(P+Q) = \phi(P) + \phi(Q)$. Estos morfismos estarán definidos por funciones racionales en las coordenadas de los puntos, permitiéndonos calcularlas explícitamente, hablar del cuerpo de definición de una isogenia, y llevándose bien con la acción de Galois que veremos más adelante. Los primeros ejemplos de isogenias son la multiplicación por enteros:
 
 \begin{definition*}
-La multiplicación por $m$ la denotamos
-\[
-[m]:E\to E
-\]
-definida por $[m](P) = m\cdot P$ es una isogenia.
+Dado un entero $m$, la multiplicación por $m$ denotada $[m]$ y definida por $[m](P) = m\cdot P$ es una isogenia de la curva en si misma.
 \end{definition*}
 
 Las propiedades principales sobre isogenias son las siguientes:
@@ -635,10 +631,13 @@ Diremos que un primo $\pi$ de $\ZZ[\omega]$ es \emph{primario} si es congruente 
 \end{definition*}
 
 \begin{lemma*}
-Sean $\pi,\pi'$ primos primarios, entonces si son asociados son iguales.
+Dos primos primarios asociados son iguales
 \end{lemma*}
 \begin{proof}
-Los seis elementos de $\OO_K^\times=\lla\pm1,\pm\omega,\pm\omega^2\rla$ tienen residuos distintos módulo $3$. Como $\pi\equiv\pi'\equiv1\pmod3$, una igualdad $\pi'=\varepsilon\pi$ fuerza $\varepsilon=1$.
+Las seis unidades $\OO_K^\times=\lla\pm1,\pm\omega,\pm\omega^2\rla$ tienen residuos distintos módulo $3$. Si tengo dos primos asociados distintos difieren en una de ellas, pero la condicion de primario nos dice que módulo 3 no pueden pertenecer a distinta clase.
+ 
+
+$\pi\equiv\pi'\equiv1\pmod3$, una igualdad de la forma $\pi'=\varepsilon\pi$ fuerza $\varepsilon=1$.
 \end{proof}
 
 Si queremos también asegurarnos que no sean conjugados entre sí podemos agregar una condición de congruencia módulo 2.
@@ -819,7 +818,7 @@ realizadas sobre las fibras, pues (casi todas) son curvas elípticas y entonces 
 Dos cosas que querríamos ahora son un análogo al teorema de Mordell--Weil, es decir que este grupo sea finitamente generado, y poder distinguir los casos triviales de los interesantes. Esto último se refiere a que uno podría tener una curva elíptica definida sobre $K$ y decir que está definida sobre $K(\cc)$, o también tenerla sobre $K(\cc)$ pero que sea isomorfa a una definida sobre $K$, y ambos casos querríamos evitarlos para que la superficie realmente parametrice una familia de curvas elípticas ``distintas''. Es fácil ver que esta condición es equivalente a pedir que la superficie $\ee$ no sea de la forma $E_0 \times \cc$ para una curva elíptica $E_0$ definida sobre el cuerpo $K$, ya que en este caso todas las fibras serían $E_0$. La equivalencia de superficies que nos interesa acá es mediante mapas birracionales (racionales en ambas direcciones) que respeten el morfismo $\ee\to\cc$. Si $\ee \sim E_0 \times \cc$ se dice que la superficie es \emph{split}, y caso contrario \emph{non-split}. Resulta que en el caso de cuerpos arbitrarios estos dos elementos vienen de la mano:
 
 \begin{theorem*}[Mordell--Weil para cuerpos de funciones]
-Sea $\ee\to\cc$ una superficie elíptica definida sobre un cuerpo $K$. Si $\ee$ es non-split, entonces $\ee(\cc)$ es finitamente generado.
+El grupo de secciones de una superficie elíptica non-split es finitamente generado.
 \end{theorem*}
 
 Este teorema corresponde al 6.1 del capítulo 3 del libro de Silverman~\cite{SilvermanAdvanced}, y su demostración se puede encontrar allí, principalmente leyendo la sección anterior. En realidad, para cuerpos de números específicamente, el teorema es cierto sin pedir la hipótesis de non-split. Veamos rápidamente por qué en el caso de $\cc=\PP^1$: Si la superficie es de la forma
