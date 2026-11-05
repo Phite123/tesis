@@ -14,6 +14,7 @@ Estas pautas recogen las preferencias expresadas por Pedro para este proyecto.
 - Al final de cada mensaje, incluir un resumen de los cambios; si no se modificó nada, decirlo. En la respuesta final, enumerar los pasajes modificados con sus ubicaciones y distinguir incorporaciones, traslados y correcciones. No mezclar cambios previos de Pedro con los realizados por el asistente.
 - Aplicar las ediciones directamente mediante parches sobre los archivos autorizados, de modo que todos los cambios puedan revisarse en el diff de Codex.
 - Revisar las secciones gradualmente. Atender los pendientes señalados con `\textbf`, sin asumir que todo texto en negrita es un pendiente.
+- Enunciar los teoremas, proposiciones y demás resultados, incluidos los ejemplos, sin numerar por defecto. Numerar y añadir una etiqueta únicamente a los que haga falta citar mediante una referencia interna; mantener los demás sin número.
 
 ## Objetivo y organización
 
