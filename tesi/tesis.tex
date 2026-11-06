@@ -196,9 +196,9 @@ Antes de empezar, fijemos la notación que usaremos. A lo largo de la tesis trab
 \[
 E(K)\cong T\oplus\ZZ^r,
 \]
-donde $T$ es el grupo de torsión y $r=\rg E(K)$ es el rango.
+donde el grupo de torsión es $T$ y $r=\rg E(K)$ es el rango.
 
-Usaremos la notación habitual de teoría de números algebraica, que resumimos a continuación: Denotaremos $\OO_K$ al anillo de enteros, $\bar K$ a una clausura algebraica y $G_K=\operatorname{Gal}(\bar K/K)$ al grupo absoluto de Galois del cuerpo $K$. El grupo $E[n]$ contiene todos los puntos anulados por $[n]$ sobre $\bar K$, mientras que $E(K)[n]$ contiene solo los definidos sobre $K$; la misma convención vale para el núcleo de cualquier isogenia $\phi$. Los lugares de $K$ forman el conjunto $M_K$. Para un lugar $v$, $K_v$ es la completación respecto a la valuación de $v$; si es finito y corresponde al ideal primo $\pp$, también escribiremos $K_\pp$ y usaremos la valuación $v_\pp$, con $v_\pp(0)=+\infty$.
+Usaremos la notación habitual de teoría de números algebraica, que resumimos a continuación: Denotaremos $\OO_K$ al anillo de enteros, $\bar K$ a una clausura algebraica y $G_K=\operatorname{Gal}(\bar K/K)$ al grupo absoluto de Galois del cuerpo $K$. El grupo $E[n]$ contiene todos los puntos anulados por $[n]$ sobre $\bar K$, mientras que el subgrupo $E(K)[n]$ contiene solo los definidos sobre $K$; la misma convención vale para el núcleo de cualquier isogenia $\phi$. Los lugares de $K$ forman el conjunto $M_K$. Para un lugar $v$, la completación respecto a la valuación de $v$ se denota $K_v$; si es finito y corresponde al ideal primo $\pp$, también escribiremos $K_\pp$ y usaremos la valuación $v_\pp$, con $v_\pp(0)=+\infty$.
 
 Para nuestro caso particular de interés fijamos la raíz tercera de la unidad $\omega=(-1+\sqrt{-3})/2$, de modo que $\omega^2+\omega+1=0$. Usaremos una curva en específico, pero la iremos presentando con más o menos generalidad para simplificar la notación. $E_d:y^2=x^3+d$ será la más general, llamada curva de Mordell; luego, para asegurarnos el punto de 3-torsión $(0,t)$, tomaremos $d=t^2$ y la llamaremos $E_t:y^2=x^3+t^2$; después usaremos $t=k^2-1$, con el cual tenemos un punto libre sobre el cuerpo de funciones, y la curva será $E_k:y^2=x^3+{(k^2-1)}^2$; finalmente escribiremos $k=a/b$ y, tras el cambio $(x,y)\mapsto(b^2x,b^3y)$, tendremos
 \[
@@ -237,7 +237,7 @@ Una \emph{curva elíptica} $E$ definida sobre un cuerpo de números $K$ es una e
 \[
 E: y^2 = x^3 + Ax + B
 \]
-donde $A$ y $B$ son elementos de $K$ y vale que $4 A^3+27 B^2 \neq 0$.
+donde los coeficientes $A$ y $B$ son elementos de $K$ y vale que $4 A^3+27 B^2 \neq 0$.
 \end{definition*}
 
 De una curva elíptica nos interesa el conjunto de puntos racionales denotado $E(K)$ que consta de los pares $(x,y)$ de elementos en $K$ que cumplen la ecuación, junto con ``el punto en el infinito'' (un elemento distinguido que proviene de ver la curva proyectivamente, y que denotaremos $\OO$). Este conjunto tiene una estructura de grupo con una descripción geométrica muy elegante.
@@ -324,7 +324,7 @@ Reducir una ecuación módulo un primo nos permite trabajar con un grupo finito.
 Sea $\pp\trianglelefteq\OO_K$ un ideal primo. Diremos que $E$ tiene \emph{buena reducción} en $\pp$ si admite una ecuación de Weierstrass con coeficientes enteros en $\pp$ cuya reducción es no singular, o lo que es equivalente, si al reducir sus coeficientes a $\OO_K/\pp$ queda una curva no singular. En particular, si un modelo entero tiene discriminante no divisible por $\pp$, tenemos buena reducción. Que $\pp$ divida el discriminante de un modelo cualquiera no alcanza para afirmar que la reducción es mala: primero puede ser necesario cambiar de modelo.
 
 \begin{prop*}
-Si $E/K$ tiene buena reducción en $\pp$, la reducción de coordenadas proyectivas define un morfismo de grupos
+Si la curva $E/K$ tiene buena reducción en $\pp$, la reducción de coordenadas proyectivas define un morfismo de grupos
 \[
 E(K)\longrightarrow\bar{E}(\OO_K/\pp),\qquad P\longmapsto\bar{P}.
 \]
@@ -561,14 +561,14 @@ Algo particular que ocurre en la familia de Mordell es el fenómeno de multiplic
 es un automorfismo de la curva definido sobre $K$. 
 
 \begin{prop}\label{prop:omegaIndependencia}
-En estas condiciones, $\rg E(K)$ es par. Si $P\in E(K)$ no es de torsión, entonces $P$ y $[\omega]P$ son independientes.
+En estas condiciones, el rango de $E(K)$ es par. Si $P\in E(K)$ no es de torsión, entonces los puntos $P$ y $[\omega]P$ son independientes.
 \end{prop}
 \begin{proof}
 Como los puntos $P,[\omega]P,{[\omega]}^2P$ están sobre la misma recta horizontal su suma es $\OO$, lo que nos dice en términos de isogenias que $[1]+[\omega]+{[\omega]}^2=0$. Esto nos permite decir que $E(K)$ es un $\ZZ[\omega]$-módulo. Luego, el espacio $E(K) \otimes_\ZZ \QQ$ es un espacio vectorial sobre $\QQ(\omega)$, de modo que su dimensión sobre $\QQ$ es par. Para ver independencia, si $mP+n[\omega]P=\OO$, aplicamos $m+n{[\omega]}^2$ y obtenemos
 \[
 (m^2-mn+n^2)P=\OO.
 \]
-Como $P$ tiene orden infinito y $m^2-mn+n^2$ solo se anula para $m=n=0$, los dos puntos son independientes. El mismo argumento se aplica a una relación módulo torsión, multiplicándola primero por el orden de torsión de ese punto.
+Como el punto $P$ tiene orden infinito y $m^2-mn+n^2$ solo se anula para $m=n=0$, los dos puntos son independientes. El mismo argumento se aplica a una relación módulo torsión, multiplicándola primero por el orden de torsión de ese punto.
 \end{proof}
 
 Para nuestras curvas pusimos la condición de que $d=t^2$ sea un cuadrado para tener en el cuerpo el punto $(0,t)$ que será de 3-torsión y usaremos en el descenso. Si hubiésemos querido que haya otro punto de 3-torsión definido sobre el cuerpo (lo cual ayuda considerablemente al descenso) nos hubiéramos topado con el siguiente problema:
@@ -621,7 +621,13 @@ Para $K=\QQ(\omega)$, la curva $E_d:y^2=x^3+d$ proviene de $\QQ$ si y solo si $d
 En particular, si algún primo $\pp$ aparece en la factorización de $(d)$ con una potencia no múltiplo de 6, y su conjugado $\bar\pp$ no, entonces la curva está genuinamente definida sobre $K$.
 \end{prop}
 \begin{proof}
-Una curva sobre $\QQ$ con $j=0$ admite un modelo $y^2=x^3+q$, con $q\in\QQ^\times$, así que la primera equivalencia sale de la proposición~\ref{prop:isomorfismosMordell}. La segunda nos dice que, mirando sobre el primo bajo $\pp$, se cumple lo que queremos.
+Una curva sobre $\QQ$ con $j=0$ admite un modelo $y^2=x^3+q$, con $q\in\QQ^\times$, así que la primera equivalencia sale de la proposición~\ref{prop:isomorfismosMordell}. 
+
+Si la curva proviene efectivamente de $\QQ$ entonces podemos escribir $d=qu^6$ con $q\in\QQ^\times$ y $u\in K^\times$, pero la valuacion de $q$ en los primos $\pp$ y $\bar\pp$ debe coincidir, dandonos que 
+\[
+v_\pp(d) - v_{\bar\pp}(d) = 6(v_\pp(u) - v_{\bar\pp}(u)) \equiv 0\pmod 6.
+\]
+Ahora, si las valuaciones de $d$ en $\pp$ y $\bar\pp$ no son multiplos de 6 ni se puedan cancelar, entonces la curva no puede venir de $\QQ$. Un ejemplo es que $v_{\bar\pp}(d)=0$ y $v_\pp(d)\not\equiv 0 \pmod 6$ como dice la segunda parte.
 \end{proof}
 
 Para trabajar con primos sobre cuerpos de números se suele elegir una congruencia que nos los determine salvo unidades, de forma que tengamos un único representante para el ideal generado. 
@@ -635,9 +641,6 @@ Dos primos primarios asociados son iguales
 \end{lemma*}
 \begin{proof}
 Las seis unidades $\OO_K^\times=\lla\pm1,\pm\omega,\pm\omega^2\rla$ tienen residuos distintos módulo $3$. Si tengo dos primos asociados distintos difieren en una de ellas, pero la condicion de primario nos dice que módulo 3 no pueden pertenecer a distinta clase.
- 
-
-$\pi\equiv\pi'\equiv1\pmod3$, una igualdad de la forma $\pi'=\varepsilon\pi$ fuerza $\varepsilon=1$.
 \end{proof}
 
 Si queremos también asegurarnos que no sean conjugados entre sí podemos agregar una condición de congruencia módulo 2.
@@ -1083,7 +1086,7 @@ Podemos usar esta herramienta para, una vez probado el rango de dos de ellas, ob
 \chapter{Método de descenso y grupo de Selmer}\label{cap:selmer}
 
 
-En este capítulo presentaremos la forma de obtener una cota superior para el rango, conocida como método del descenso. La idea es encontrar un morfismo inyectivo que salga de los puntos independientes de la curva y que podamos controlar su imagen en el grupo que caiga. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Acá daremos un ejemplo puntual de 3-descenso para motivar y también porque es el que será usado después.
+En este capítulo presentaremos la forma de obtener una cota superior para el rango, conocida como método del descenso. La idea es encontrar un morfismo inyectivo que salga de los generadores de la curva (o de un subgrupo de indice finito) y que podamos controlar su imagen en el grupo que caiga. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Acá daremos un ejemplo puntual de 3-descenso para motivar y también porque es el que será usado después.
 
 Supongamos que tenemos una curva de la forma $E_t: y^2=x^3+t^2$ con coordenadas en $\ZZ$ para hacer más fácil. Podemos pasar restando el $t^2$, factorizar y nos queda 
 \[
@@ -1257,11 +1260,11 @@ Dada una isogenia $\hat\phi:E'\to E$ cíclica de grado $n$ y un punto $Q_0\in E(
 \begin{proof}
 Como $Q_0$ tiene orden $n$, el divisor $n(Q_0)- n(\OO)$ (que sería $n$ veces el asociado al punto $Q_0$) es trivial en $\operatorname{Pic}^0(E)$ y por lo tanto es principal: existe $f$ con ese divisor en ${K(E)}^\times$ ($Q_0\in E(K)$ así que $f$ puede tomarse definida sobre $K$). La función asociada a un divisor estará definida salvo constantes. Veamos que, con la constante adecuada, podemos conseguir que $f\circ\hat\phi=g^n$.
 
-Como $\hat\phi$ es sobreyectiva, existe $P_0 \in E'(\bar{K})$ con $\hat\phi(P_0)=Q_0$ y las preimágenes de $Q_0$ serán $P_0 + R$ para los $R\in \nuc (\hat\phi)$. Entonces, el divisor 
+Como la isogenia $\hat\phi$ es sobreyectiva, existe un punto $P_0 \in E'(\bar{K})$ con $\hat\phi(P_0)=Q_0$ y las preimágenes de $Q_0$ serán $P_0 + R$ para los $R\in \nuc (\hat\phi)$. Entonces, el divisor 
 \[ 
 D = \sum_{R\in E'[\hat\phi]} (P_0 + R) - \sum_{R\in E'[\hat\phi]} (R) 
 \] 
-es tal que $D = \hat\phi^*((Q_0)-(\OO))$. Viendo $D$ en $\operatorname{Pic}^0(E')$ (como puntos por ser $\cong E'$) se cancelan los $R$ y queda $nP_0$, pero $[n]P_0 = \phi(Q_0) = \OO$ en $E'$ y entonces existe $g \in {K(E')}^\times$ con $\operatorname{div}(g) = D$ ($g$ está definida sobre $K$ porque $D$ lo está). Ahora como $\operatorname{div}(f)= n((Q_0)-(\OO))$ tenemos
+es tal que $D = \hat\phi^*((Q_0)-(\OO))$. Viendo $D$ en $\operatorname{Pic}^0(E')$ (como puntos por ser $\cong E'$) se cancelan los $R$ y queda $nP_0$, pero $[n]P_0 = \phi(Q_0) = \OO$ en $E'$ y entonces existe $g \in {K(E')}^\times$ con $\operatorname{div}(g) = D$ (La función $g$ está definida sobre $K$ porque el divisor $D$ lo está). Ahora como $\operatorname{div}(f)= n((Q_0)-(\OO))$ tenemos
 \[
 \operatorname{div}(f \circ \hat\phi)=\hat\phi^*(n((Q_0)-(\OO)))=n D=n\ \operatorname{div}(g)=\operatorname{div}(g^n).
 \]
@@ -1275,7 +1278,7 @@ f\circ\hat\phi = g^n.
 La $f$ del lema nos permitirá dar una descripción explícita de $\delta$, donde para puntos $P\in E(K)$ distintos a $\OO$ y $Q_0$ valdrá $\delta(P)=f(P) \mod {(K^\times)}^n$. Para $\OO$, por ser morfismo, debe caer en la clase trivial ($f$ tendría un polo en $\OO$, por eso no está definida); y en $Q_0$ la definimos como el valor de su coeficiente principal $c$ ($f$ tiene un cero en $Q_0$). Juntemos esto en un resultado y demostrémoslo abajo:
 
 \begin{theorem}[Morfismo de descenso]\label{thm:morfismoDescenso}
-Sea $f$ la función del Lema~\ref{lemma:funcionDescenso}. El mapa
+Sea $f$ la función del Lema previo~\ref{lemma:funcionDescenso}. El mapa
 \[
 \begin{array}{crcl}
 \alpha:&E(K) & \longrightarrow & \KmodN \\
@@ -1450,7 +1453,7 @@ Si $Q$ reduce a $\bar{Q} \neq \bar{Q_0},\bar{\OO}$ entonces $f(Q)$ es una unidad
 \end{proof}
 
 \begin{lemma*}
-$K(S,n)$ es finito (si $S$ es finito).
+El subgrupo $K(S,n)$ es finito (si $S$ es finito).
 \end{lemma*}
 
 \begin{proof}
@@ -1576,7 +1579,7 @@ Supongamos que $\OO_K$ tiene número de clases $1$. Sean $\pp_1,\ldots,\pp_s$ lo
 \end{prop*}
 
 \begin{proof}
-Como $\OO_K$ es un dominio de factorización única, podemos factorizar cualquier $a\in K^\times$ como una unidad por un producto de elementos primos, permitiendo exponentes negativos. Si $[a]\in K(S,n)$, los exponentes de los primos fuera de $S$ son múltiplos de $n$, así que podemos eliminarlos dividiendo por una potencia $n$-ésima. Podemos hacer lo mismo con los múltiplos de $n$ en los exponentes de los $\pi_i$, y reducir la unidad módulo potencias $n$-ésimas. Esto da la expresión del enunciado. Dos expresiones de esa forma representan la misma clase solamente si sus exponentes coinciden y sus unidades representan la misma clase.
+Como el anillo $\OO_K$ es un dominio de factorización única, podemos factorizar cualquier $a\in K^\times$ como una unidad por un producto de elementos primos, permitiendo exponentes negativos. Si $[a]\in K(S,n)$, los exponentes de los primos fuera de $S$ son múltiplos de $n$, así que podemos eliminarlos dividiendo por una potencia $n$-ésima. Podemos hacer lo mismo con los múltiplos de $n$ en los exponentes de los $\pi_i$, y reducir la unidad módulo potencias $n$-ésimas. Esto da la expresión del enunciado. Dos expresiones de esa forma representan la misma clase solamente si sus exponentes coinciden y sus unidades representan la misma clase.
 \end{proof}
 
 Recordemos la sucesión exacta de la sección anterior:
@@ -1638,7 +1641,7 @@ Como explicamos al principio del capítulo, buscamos dos números a distancia $2
 \begin{equation*}
 C_u:\quad uX^3+u^{-1}Y^3+2tZ^3=0.
 \end{equation*}
-Para una curva fija, $t$ queda fijo y $u$ recorre los representantes de las clases; cambiar $t$ sería cambiar la curva elíptica. En las cuentas de esta familia seguiremos con $K=\QQ(\omega)$ y $t\in\OO_K\setminus\lla0\rla$. 
+Para una curva fija, dejamos fijo $t$ y el parametro $u$ recorre los representantes de las clases; cambiar el $t$ sería cambiar la curva elíptica. En las cuentas de esta familia seguiremos con $K=\QQ(\omega)$ y $t\in\OO_K\setminus\lla0\rla$. 
 
 Según el grado del descenso, convienen distintos tipos de ecuaciones. Por ejemplo, para los elementos del Selmer del descenso por multiplicación por $2$, $3$ y $4$ se usan, respectivamente, modelos $y^2=g(x)$ con $g$ de grado $4$, cúbicas en $\PP^2$ e intersecciones de dos cuádricas en $\PP^3$~\cite{Stoll2006Descent}.
 
@@ -2068,7 +2071,7 @@ Sean
 \[
 \psi_i(x)=a_{i1}x_1+\cdots+a_{id}x_d+c_i \in\ZZ[X_1,\ldots,X_d],\qquad i=1,\ldots,r,
 \]
-con vectores de coeficientes $a_i=(a_{i1},\ldots,a_{id})$ no nulos y no proporcionales dos a dos. Supongamos que existe $v\in\RR^d$ con $a_i\cdot v>0$ para todo $i$, y que para cada primo $p$ existe $x$ tal que ninguna es divisible por $p$. Entonces existen infinitos $x\in\ZZ^d$ para los cuales todos los $\psi_i(x)$ son primos positivos.
+con vectores de coeficientes $a_i=(a_{i1},\ldots,a_{id})$ no nulos y no proporcionales dos a dos. Supongamos que existe $v\in\RR^d$ con $a_i\cdot v>0$ para todo $i$, y que para cada primo $p$ existe $x$ tal que ninguna es divisible por $p$. Entonces existen infinitos $x\in\ZZ^d$ para los cuales todos los valores $\psi_i(x)$ son primos positivos.
 \end{theorem*}
 
 Y la generalización de esto a cuerpos de números por Kai será nuestro teorema principal para producir los primos que necesitamos.
@@ -2100,11 +2103,13 @@ y sus elementos no son asociados dos a dos.
 Finalmente, Kai generalizó el teorema de Green--Tao--Ziegler a cuerpos de números. Este resultado engloba a todos los anteriormente mencionados y es el que usaremos más adelante. También es el utilizado en los últimos dos trabajos de Zywina. El resultado está en~\cite{Kai2026Patrones}, y también es importante mencionar que el resultado tiene su versión cuantitativa allí.
 
 \begin{theorem*}[Kai, 2023]
-Sea $K$ un cuerpo de números, supongamos que tenemos formas lineales
+Consideremos las formas lineales afines
 \[
-\psi_i(x)=a_{i1}x_1+\cdots+a_{id}x_d+c_i \in\OO_K[X_1,\ldots,X_d],\qquad i=1,\ldots,r,
+\psi_i(X_1,\ldots,X_d)=a_{i1}X_1+\cdots+a_{id}X_d+c_i,\qquad i=1,\ldots,r,
 \]
-que los vectores $(a_{i1},\ldots,a_{id})$ son no nulos e independientes dos a dos sobre $K$, y que para cada ideal primo $\pp$ existe $x\in{(\OO_K/\pp)}^d$ con $\psi_i(x) \neq 0 \pmod \pp$ para todo $i$. Entonces existen infinitos $x\in\OO_K^d$ para los que todos los $\psi_i(x)$ son elementos primos.
+con coeficientes en $\OO_K$. Supongamos que los vectores de coeficientes $(a_{i1},\ldots,a_{id})$ son no nulos e independientes dos a dos sobre $K$.Supongamos además que, para cada ideal primo no nulo $\pp$ de $\OO_K$, existe una tupla $x\in{(\OO_K/\pp)}^d$ para la cual ninguno de los valores $\psi_1(x),\ldots,\psi_r(x)$ es cero.
+
+Entonces existen infinitas tuplas $x\in\OO_K^d$ para las cuales todos los valores $\psi_1(x),\ldots,\psi_r(x)$ son elementos primos de $\OO_K$.
 \end{theorem*}
 
 Además, en el mismo paper~\cite{Kai2026Patrones}, la proposición 13.2 nos va a servir más específicamente para generar los resultados que vamos a usar:
@@ -2139,7 +2144,13 @@ Además, podemos prefijar el signo de $\mu$ en cada lugar real.
 
 Para utilizar este resultado veamos que nos quiere decir en palabras que conocemos. Queremos fijar $S$ como el conjunto de primos ``malos''. Luego para cada uno de ellos, supongamos que $U_{\pp,1}$ es una bola abierta alrededor de $\lambda_{\pp}$, entonces se ve como $\lambda_\pp + \pp^n \ZZ_\pp$, lo que nos dice que sus elementos son congruentes a $\lambda_\pp$ módulo $\pp^n$, que son las condiciones de congruencia que nos interesan imponer; y si también lo hacemos con $U_{\pp,2}$ para $\mu_\pp$ y producteamos ambas, entonces los elementos de la forma $\lambda-e_i \mu$ cumplen la congruencia. Finalmente, el tercer punto nos da lo que queremos: primos no asociados de $\OO_K[S^{-1}]$, que serán también primos de $\OO_K$ eligiendo bien las condiciones de los primos de $S$ (o sea que no sean $0$ módulo $\pp$). Los $e_i$ nos permiten dar saltos distintos y armar la constelación que queramos.
 
-Esta es la versión que utiliza Zywina en su último paper~\cite{Zywina2026SmallRank}, también Koymans y Pagano~\cite{KoymansPagano2025}.
+Esta es la versión que utiliza Zywina en su último paper~\cite{Zywina2026SmallRank}. Koymans y Pagano utilizan la formulacion del teorema con formas afines~\cite{KoymansPagano2025}.
+
+Despues, en la proposición 13.3, se agrega el hecho de que los caracteres en los primos que quedan vamos a poder conocerlos en funcion de las condiciones elegidas. Si $(\pp_i)$ es el primo que divide a $\lambda-e_i\mu$, su morfismo de Frobenius en una extension cíclica no ramificada fuera de $S$ queda determinado por los valores en $S$ y los lugares arquimedeanos. En particular, si $\mu_\ell\subset K$ y
+$L=K(\sqrt[\ell]{c})$ para un $c\in K^\times$ fijo, esto permite controlar símbolos de la forma ${\lp\frac{c}{\pp_i}\rp}_\ell$ mediante condiciones locales compatibles sobre $(\lambda,\mu)$. Para esto hay que incluir en $S$ tambien los primos sobre $\ell$ y los que dividen a $c$.
+
+
+Vamos a usar la proposición en un ejemplo, que luego será parte del resultado final:
 
 \begin{example}\label{ej:kaiMiCaso}
 En nuestro caso queremos que $b-a,b,b+a$ sean primos de $\OO_{\QQ(\omega)}$ no asociados y congruentes a $4+3\omega$ módulo $6$. Para aplicar la proposición tomamos nuestro conjunto de primos sobre los que ponemos las condiciones $S=\lla(2),(1-\omega)\rla$ y los $e_1=1, e_2=0$ y $e_3=-1$ para luego poner $b=\lambda$ y $a=\mu$.
@@ -2190,11 +2201,11 @@ Q(X_1,\ldots,X_5)=a_1 X_1^2 + \cdots+a_5 X_5^2.
 Existe una constante $C_Q$ tal que, para todo entero $n>C_Q$, si la ecuación $Q(x_1,\ldots,x_5)=n$ tiene solución en $\ZZ_p^5$ para cada primo $p$, entonces tiene solución en $\ZZ^5$.
 \end{theorem*}
 
-La condición de representar a $n$ en $\ZZ_p$ realmente no es difícil de chequear ya que, por ejemplo, para los primos que no dividan a 3 coeficientes, usando que $\alpha x^2 + \beta y^2 = \gamma$ tiene solución en $\FF_p$ para todo $\alpha, \beta \in \FF_p^\times$ y $\gamma\in \FF_p$, por Hensel ya nos garantizamos que representan todo $n$ (son necesarios dos coeficientes para la solución y un tercero para que no se anule la derivada)\footnote{Salvo $p=2$ como siempre.}. 
+La condición de representar a $n$ en $\ZZ_p$ realmente no es difícil de chequear ya que, por ejemplo, para los primos que no dividan a 3 coeficientes, usando que la ecuación $\alpha x^2 + \beta y^2 = \gamma$ tiene solución en $\FF_p$ para todo $\alpha, \beta \in \FF_p^\times$ y $\gamma\in \FF_p$, por Hensel ya nos garantizamos que representan todo $n$ (son necesarios dos coeficientes para la solución y un tercero para que no se anule la derivada)\footnote{Salvo $p=2$ como siempre.}. 
 
 Puede también suceder que nuestra forma no represente todos los enteros positivos pero sí lo haga con los que a nosotros nos interesan, y se puede ver que si comprobamos esto: que nuestra clase es representada en $\ZZ_p$ para todo $p$, entonces vamos a tener que la representa en $\ZZ$ a partir de un punto.
 
-Antes de seguir, aclaremos por qué los resultados sobre primos racionales también pueden servirnos para encontrar elementos primos en cuerpos de números si nuestro polinomio que representa primos es una norma que baja del cuerpo $K$ a $\QQ$. Si $\pi\in\OO_K$ tiene norma igual a un primo racional $p$, entonces $\pi$ es un elemento primo de $\OO_K$\footnote{$\OO_K/(\pi)$ tiene $p$ elementos, como es un cuerpo no hay divisores del 0.}, incluso sin necesidad de suponer que el número de clases sea $1$.
+Antes de seguir, aclaremos por qué los resultados sobre primos racionales también pueden servirnos para encontrar elementos primos en cuerpos de números si nuestro polinomio que representa primos es una norma que baja del cuerpo $K$ a $\QQ$. Si $\pi\in\OO_K$ tiene norma igual a un primo racional $p$, entonces $\pi$ es un elemento primo de $\OO_K$\footnote{El anillo cociente $\OO_K/(\pi)$ tiene $p$ elementos, como es un cuerpo no hay divisores del 0.}, incluso sin necesidad de suponer que el número de clases sea $1$.
 
 Cuando una forma binaria $F(X,Y)$ es una norma $N_{K/\QQ}(X+Y\theta)$, con $\theta\in\OO_K$, si tenemos que $p=F(x,y)$ entonces $\pi=x+y\theta$ será un primo del cuerpo. Además, para fijar condiciones de congruencia, si conocemos $x\equiv r$ e $y\equiv s\pmod M$, obtenemos
 \[
@@ -2280,7 +2291,9 @@ Ahora sí, imponiendo la condición de que los 3 números $b-a$, $b$ y $b+a$ sea
 Para finalizar mencionemos lo que nos quedó suelto. Sabemos que, como el primo $b$ divide una única vez a $t$, tenemos la certeza de que no puede caer en otra clase de torsión que no sea la señalada. También por las congruencias que elegimos para los primos y el hecho de que son distintos, el corolario~\ref{cor:parametrosTorsionGenuina} nos asegura que la curva está definida genuinamente sobre $K$. 
 \end{proof}
 
-Para demostrar ahora el teorema necesitamos probar que hay infinitos primos de $\OO_K$ de la forma deseada en la proposición y que las curvas no son isomorfas, que fue demostrado en el ejemplo~\ref{ej:kaiMiCaso}. 
+Para demostrar ahora el teorema, lo unico que nos falta es que haya infinitos primos de $\OO_K$ de la forma deseada en la proposición y que las curvas que nos brindan no sean isomorfas entre si. Todo esto fue demostrado en el ejemplo~\ref{ej:kaiMiCaso}, y se explican dos formas de asegurarnos de que no sean isomorfas las curvas.
+
+
 
 
 \section{Ejemplos}
@@ -2344,7 +2357,7 @@ Supongamos que hay un punto $(X:Y:Z)$ con coordenadas enteras y al menos una es 
 \[
 4\bar{X}^3+\bar{Y}^3=0 \qquad\text{en }\OO_K/(b)\cong\FF_{13},
 \]
-de donde $\bar{X}$ e $\bar{Y}$ son ambas cero o $4={-(\bar{Y}/\bar{X})}^3$, pero vimos que el 2 no es un cubo (y entonces el 4 tampoco), entonces nos queda la primera opción. Esto fuerza a que $X=bX_1$ e $Y=bY_1$ pero entonces $Z$ debe ser la unidad y las valuaciones de los primeros dos términos son mayores o iguales a 3, mientras que la del último es 1, por lo que no se pueden cancelar para que la suma dé 0. 
+de donde $\bar{X}$ e $\bar{Y}$ son ambas cero o $4={-(\bar{Y}/\bar{X})}^3$, pero vimos que el 2 no es un cubo (y entonces el 4 tampoco), entonces nos queda la primera opción. Esto fuerza a que $X=bX_1$ e $Y=bY_1$ pero entonces la coordenada $Z$ debe ser la unidad y las valuaciones de los primeros dos términos son mayores o iguales a 3, mientras que la del último es 1, por lo que no se pueden cancelar para que la suma dé 0. 
 
 Con esa cuenta vimos que $C_2(K_{(b)})=\varnothing$, y por lo tanto la clase $[2]$ queda descartada del grupo de Selmer $S^{(\hat\phi)}(E'_t/K)$.
 
