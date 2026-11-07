@@ -2236,7 +2236,21 @@ Q(X_1,\ldots,X_5)=a_1 X_1^2 + \cdots+a_5 X_5^2.
 Existe una constante $C_Q$ tal que, para todo entero $n>C_Q$, si la ecuación $Q(x_1,\ldots,x_5)=n$ tiene solución en $\ZZ_p^5$ para cada primo $p$, entonces tiene solución en $\ZZ^5$.
 \end{theorem*}
 
-\textbf{Comentario de local global.} Puede también suceder que nuestra forma no represente todos los enteros positivos pero sí lo haga con los que a nosotros nos interesan, y se puede ver que si comprobamos esto: que nuestra clase es representada en $\ZZ_p$ para todo $p$, entonces vamos a tener que la representa en $\ZZ$ a partir de un punto.
+Puede también suceder que nuestra forma no represente todos los enteros positivos pero sí lo haga con los que a nosotros nos interesan, y se puede ver que si comprobamos esto: que nuestra clase es representada en $\ZZ_p$ para todo $p$, entonces vamos a tener que la representa en $\ZZ$ a partir de un punto.
+
+Esto es parte del principio local-global para formas cuadraticas: una forma cuadrática representa un entero sobre $\QQ$ si y solo si lo representa sobre $\RR$ y sobre $\QQ_p$ para cada primo $p$. Este resultado de Hasse y Minkowski nos garantiza representacion racional pero no necesariamente entera, y en menos de 5 variables tenemos resultados de representacion solo a partir de una constante (igualmente esto nos sirve a nuestros fines de especializacion). Estos resultados fueron sacados del survey de Hanke~\cite{Hanke2004TernaryQuadraticForms}.
+
+\begin{theorem*}[Kloosterman; Duke]
+Sea $Q\in\ZZ[X_1,\ldots,X_r]$ una forma cuadrática
+definida positiva, con $r\in\{3,4\}$.
+Existe una constante $C_Q$ tal que, para todo primo
+$\ell>C_Q$, la ecuación
+\[
+Q(x_1,\ldots,x_r)=\ell
+\]
+tiene solución en $\ZZ^r$ si y solo si tiene solución
+en $\ZZ_p^r$ para cada primo $p$.
+\end{theorem*}
 
 La condición de representar a $n$ en $\ZZ_p$ realmente no es difícil de chequear ya que, por ejemplo, usando que la ecuación $\alpha x^2 + \beta y^2 = \gamma$ tiene solución en $\FF_p$ para todo $\alpha, \beta \in \FF_p^\times$ y $\gamma\in \FF_p$, por Hensel ya nos garantizamos que representan todo $n$\footnote{Salvo $p=2$ como siempre.}. 
 
@@ -2253,7 +2267,7 @@ En particular, todos ellos son congruentes a $F(r,s)$ módulo $M$.
 Y lo mismo vale para formas cúbicas binarias, probado por Heath-Brown y Moroz:
 
 \begin{theorem*}[Heath-Brown--Moroz, 2004]
-Sea $F\in\ZZ[X,Y]$ una forma cúbica binaria con coeficientes enteros, primitiva, irreducible sobre $\QQ$ y tal que no exista un primo que divida a todos sus valores\footnote{Esta condición es lógica, en el caso de cuadráticas era inmediata.}. Sean $M\geq1$ y $r,s\in\ZZ$ tales que $\mcd(F(r,s),M)=1$. Entonces existen infinitos primos positivos
+Sea $F\in\ZZ[X,Y]$ una forma cúbica binaria con coeficientes enteros, primitiva, irreducible sobre $\QQ$ y tal que no exista un primo que divida a todos sus valores\footnote{Esta condición es logicamente necesaria, y en el caso de cuadráticas era inmediata.}. Sean $M\geq1$ y $r,s\in\ZZ$ tales que $\mcd(F(r,s),M)=1$. Entonces existen infinitos primos positivos
 \[
 p=F(x,y),\qquad x\equiv r\pmod M,\quad y\equiv s\pmod M.
 \]
