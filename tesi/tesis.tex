@@ -312,7 +312,7 @@ Para toda curva elíptica sobre un cuerpo de números $K$ existe un modelo con c
 Hablando de enteros, un resultado importante es 
 
 \begin{theorem*}[Nagell--Lutz]\label{theorem:NagellLutz}
-Una curva eliptica sobre $\QQ$ con coeficientes enteros tiene todos sus puntos de torsión con coordenadas enteras, exceptuando al neutro.
+Una curva elíptica sobre $\QQ$ con coeficientes enteros tiene todos sus puntos de torsión con coordenadas enteras, exceptuando al neutro.
 \end{theorem*}
 
 Este teorema viene acompañado también de que, para $P$ de torsión de orden mayor a 2, ${y(P)}^2$ divide a $4A^3+27B^2$, lo que hace fácil el cálculo de estos puntos. Para cuerpos de números en general hay cotas locales para los denominadores de los puntos de torsión, pero para cuadráticos imaginarios específicamente se probó un análogo en~\cite{MondalChalilBanerjee2025}.
@@ -623,11 +623,11 @@ En particular, si algún primo $\pp$ aparece en la factorización de $(d)$ con u
 \begin{proof}
 Una curva sobre $\QQ$ con $j=0$ admite un modelo $y^2=x^3+q$, con $q\in\QQ^\times$, así que la primera equivalencia sale de la proposición~\ref{prop:isomorfismosMordell}. 
 
-Si la curva proviene efectivamente de $\QQ$ entonces podemos escribir $d=qu^6$ con $q\in\QQ^\times$ y $u\in K^\times$, pero la valuacion de $q$ en los primos $\pp$ y $\bar\pp$ debe coincidir, dandonos que 
+Si la curva proviene efectivamente de $\QQ$ entonces podemos escribir $d=qu^6$ con $q\in\QQ^\times$ y $u\in K^\times$, pero la valuación de $q$ en los primos $\pp$ y $\bar\pp$ debe coincidir, dándonos que 
 \[
 v_\pp(d) - v_{\bar\pp}(d) = 6(v_\pp(u) - v_{\bar\pp}(u)) \equiv 0\pmod 6.
 \]
-Ahora, si las valuaciones de $d$ en $\pp$ y $\bar\pp$ no son multiplos de 6 ni se puedan cancelar, entonces la curva no puede venir de $\QQ$. Un ejemplo es que $v_{\bar\pp}(d)=0$ y $v_\pp(d)\not\equiv 0 \pmod 6$ como dice la segunda parte.
+Ahora, si las valuaciones de $d$ en $\pp$ y $\bar\pp$ no son múltiplos de 6 ni se puedan cancelar, entonces la curva no puede venir de $\QQ$. Un ejemplo es que $v_{\bar\pp}(d)=0$ y $v_\pp(d)\not\equiv 0 \pmod 6$ como dice la segunda parte.
 \end{proof}
 
 Para trabajar con primos sobre cuerpos de números se suele elegir una congruencia que nos los determine salvo unidades, de forma que tengamos un único representante para el ideal generado. 
@@ -640,7 +640,7 @@ Diremos que un primo $\pi$ de $\ZZ[\omega]$ es \emph{primario} si es congruente 
 Dos primos primarios asociados son iguales
 \end{lemma*}
 \begin{proof}
-Las seis unidades $\OO_K^\times=\lla\pm1,\pm\omega,\pm\omega^2\rla$ tienen residuos distintos módulo $3$. Si tengo dos primos asociados distintos difieren en una de ellas, pero la condicion de primario nos dice que módulo 3 no pueden pertenecer a distinta clase.
+Las seis unidades $\OO_K^\times=\lla\pm1,\pm\omega,\pm\omega^2\rla$ tienen residuos distintos módulo $3$. Si tengo dos primos asociados distintos difieren en una de ellas, pero la condición de primario nos dice que módulo 3 no pueden pertenecer a distinta clase.
 \end{proof}
 
 Si queremos también asegurarnos que no sean conjugados entre sí podemos agregar una condición de congruencia módulo 2.
@@ -1086,7 +1086,7 @@ Podemos usar esta herramienta para, una vez probado el rango de dos de ellas, ob
 \chapter{Método de descenso y grupo de Selmer}\label{cap:selmer}
 
 
-En este capítulo presentaremos la forma de obtener una cota superior para el rango, conocida como método del descenso. La idea es encontrar un morfismo inyectivo que salga de los generadores de la curva (o de un subgrupo de indice finito) y que podamos controlar su imagen en el grupo que caiga. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Acá daremos un ejemplo puntual de 3-descenso para motivar y también porque es el que será usado después.
+En este capítulo presentaremos la forma de obtener una cota superior para el rango, conocida como método del descenso. La idea es encontrar un morfismo inyectivo que salga de los generadores de la curva (o de un subgrupo de índice finito) y que podamos controlar su imagen en el grupo que caiga. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Acá daremos un ejemplo puntual de 3-descenso para motivar y también porque es el que será usado después.
 
 Supongamos que tenemos una curva de la forma $E_t: y^2=x^3+t^2$ con coordenadas en $\ZZ$ para hacer más fácil. Podemos pasar restando el $t^2$, factorizar y nos queda 
 \[
@@ -1641,7 +1641,7 @@ Como explicamos al principio del capítulo, buscamos dos números a distancia $2
 \begin{equation*}
 C_u:\quad uX^3+u^{-1}Y^3+2tZ^3=0.
 \end{equation*}
-Para una curva fija, dejamos fijo $t$ y el parametro $u$ recorre los representantes de las clases; cambiar el $t$ sería cambiar la curva elíptica. En las cuentas de esta familia seguiremos con $K=\QQ(\omega)$ y $t\in\OO_K\setminus\lla0\rla$. 
+Para una curva fija, dejamos fijo $t$ y el parámetro $u$ recorre los representantes de las clases; cambiar el $t$ sería cambiar la curva elíptica. En las cuentas de esta familia seguiremos con $K=\QQ(\omega)$ y $t\in\OO_K\setminus\lla0\rla$. 
 
 Según el grado del descenso, convienen distintos tipos de ecuaciones. Por ejemplo, para los elementos del Selmer del descenso por multiplicación por $2$, $3$ y $4$ se usan, respectivamente, modelos $y^2=g(x)$ con $g$ de grado $4$, cúbicas en $\PP^2$ e intersecciones de dos cuádricas en $\PP^3$~\cite{Stoll2006Descent}.
 
@@ -2144,10 +2144,10 @@ Además, podemos prefijar el signo de $\mu$ en cada lugar real.
 
 Para utilizar este resultado veamos que nos quiere decir en palabras que conocemos. Queremos fijar $S$ como el conjunto de primos ``malos''. Luego para cada uno de ellos, supongamos que $U_{\pp,1}$ es una bola abierta alrededor de $\lambda_{\pp}$, entonces se ve como $\lambda_\pp + \pp^n \ZZ_\pp$, lo que nos dice que sus elementos son congruentes a $\lambda_\pp$ módulo $\pp^n$, que son las condiciones de congruencia que nos interesan imponer; y si también lo hacemos con $U_{\pp,2}$ para $\mu_\pp$ y producteamos ambas, entonces los elementos de la forma $\lambda-e_i \mu$ cumplen la congruencia. Finalmente, el tercer punto nos da lo que queremos: primos no asociados de $\OO_K[S^{-1}]$, que serán también primos de $\OO_K$ eligiendo bien las condiciones de los primos de $S$ (o sea que no sean $0$ módulo $\pp$). Los $e_i$ nos permiten dar saltos distintos y armar la constelación que queramos.
 
-Esta es la versión que utiliza Zywina en su último paper~\cite{Zywina2026SmallRank}. Koymans y Pagano utilizan la formulacion del teorema con formas afines~\cite{KoymansPagano2025}.
+Esta es la versión que utiliza Zywina en su último paper~\cite{Zywina2026SmallRank}. Koymans y Pagano utilizan la formulación del teorema con formas afines~\cite{KoymansPagano2025}.
 
-Despues, en la proposición 13.3, se agrega el hecho de que los caracteres en los primos que quedan vamos a poder conocerlos en funcion de las condiciones elegidas. Si $(\pp_i)$ es el primo que divide a $\lambda-e_i\mu$, su morfismo de Frobenius en una extension cíclica no ramificada fuera de $S$ queda determinado por los valores en $S$ y los lugares arquimedeanos. En particular, si $\mu_\ell\subset K$ y
-$L=K(\sqrt[\ell]{c})$ para un $c\in K^\times$ fijo, esto permite controlar símbolos de la forma ${\lp\frac{c}{\pp_i}\rp}_\ell$ mediante condiciones locales compatibles sobre $(\lambda,\mu)$. Para esto hay que incluir en $S$ tambien los primos sobre $\ell$ y los que dividen a $c$.
+Después, en la proposición 13.3, se agrega el hecho de que los caracteres en los primos que quedan vamos a poder conocerlos en función de las condiciones elegidas. Si $(\pp_i)$ es el primo que divide a $\lambda-e_i\mu$, su morfismo de Frobenius en una extensión cíclica no ramificada fuera de $S$ queda determinado por los valores en $S$ y los lugares arquimedeanos. En particular, si $\mu_\ell\subset K$ y
+$L=K(\sqrt[\ell]{c})$ para un $c\in K^\times$ fijo, esto permite controlar símbolos de la forma ${\lp\frac{c}{\pp_i}\rp}_\ell$ mediante condiciones locales compatibles sobre $(\lambda,\mu)$. Para esto hay que incluir en $S$ también los primos sobre $\ell$ y los que dividen a $c$.
 
 
 Vamos a usar la proposición en un ejemplo, que luego será parte del resultado final:
@@ -2175,9 +2175,29 @@ x+P_1(n),\ldots,x+P_r(n),\qquad n>0.
 \]
 \end{theorem*}
 
-Zywina usa este resultado para obtener $m, m+16n^2, m+25n^2$ primos congruentes a $11$ módulo $24$.
+Presentemos un ejemplo más completo del uso de este resultado:
 
-En un segundo trabajo, de 2018, Tao y Ziegler relajaron la condición $P_i(0)=0$ a cambio de una hipótesis similar a la que teníamos antes para lineales.
+\begin{example*}
+En su segundo paper relativo a estos temas~\cite{Zywina2025RankTwo}, Zywina prueba que existen infinitas curvas elípticas de rango dos sobre $\QQ$ no isomorfas sobre $\overline\QQ$. Para ello primeramente considera la siguiente superficie elíptica:
+\[
+y^2 = x^3- 5(T + 16)x^2 + 4(T + 16)(T + 25)x.
+\]
+Esta curva tiene un punto de 2-torsión para el descenso, dos puntos independientes de orden infinito y discriminante $2^8 3^2 T {(T+16)}^3 {(T+25)}^2$. 
+
+Recordemos que para el descenso vamos a tener que controlar los primos de mala reducción. Para este caso Zywina hace la especialización $t=m/n^2$, con $m,n$ enteros positivos coprimos (en vez de la usual $t=m/n$ por lo que veremos más adelante) y es por eso que aparecen patrones polinómicos: necesitará que $m, m+16n^2, m+25n^2$ sean primos congruentes a $11$ módulo $24$, y para ello utiliza el teorema previo. Notemos que el primer polinomio que considera es el constante $0$, y que el teorema permite esto.
+
+Al especializar en $t=m/n^2$ y llevar a un modelo entero obtenemos 
+\[
+Y^2=X^3-5(m+16n^2)X^2 +4(m+16n^2)(m+25n^2)X,
+\]
+cuyo discriminante es $2^8 3^2 m{(m+16n^2)}^3{(m+25n^2)}^2$. En el caso de haber usado $t=m/n$ nuestro discriminante hubiese quedado $2^8 3^2 m n^6 {(m+16n)}^3{(m+25n)}^2$, y acá se puede ver claramente el problema (y la solución): este modelo puede tener mala reducción en los divisores de $n$ y no podremos controlar que sea primo a la vez que $m$ y una combinación lineal de ambos. Como vimos en el primer capítulo, las potencias doceavas en el discriminante en general se pueden simplificar, entonces cambiar $n$ por $n^2$ nos va a dar un modelo de buena reducción allí; y el teorema nos va a garantizar poder seguir asegurándonos los primos.
+
+Podía anticiparse geométricamente esta elección, con el cálculo de símbolos de Kodaira de la superficie: el correspondiente a $T=\infty$ es $\mathrm{I}_0^*$, y estos pueden convertirse en una fibra no singular al pasar al modelo minimal luego de un cambio de base cuadrático. Esta es la explicación geométrica de elegir un denominador cuadrado, y es una de las herramientas que nos brinda la clasificación de Kodaira de las fibras singulares de una superficie elíptica.
+
+Por el proceso de descenso, Zywina muestra que si los valores $m, m+16n^2, m+25n^2$ son primos congruentes a $11$ módulo $24$, entonces la curva tendrá rango exactamente $2$. Luego, viendo que los $j$-invariantes de las curvas son distintos para cada par $m,n$ prueba que no son isomorfas sobre $\overline{\QQ}$.
+\end{example*}
+
+En un segundo trabajo, de 2018, Tao y Ziegler relajaron la condición $P_i(0)=0$ a cambio de una hipótesis similar a la que teníamos antes para lineales, pero este resultado no se puede aplicar directamente a toda clase de congruencia.
 
 \begin{theorem*}[Tao--Ziegler, 2018]
 Sean $P_1,\ldots,P_r\in\ZZ[T]$ de grado a lo sumo $d\geq1$, con coeficientes de $T^d$ distintos dos a dos. Supongamos que para cada primo $p$ existen $x,n$ módulo $p$ tales que ninguno de los $x+P_i(n)$ es divisible por $p$. Entonces existen infinitos pares de enteros positivos $x,n$ para los cuales todos los $x+P_i(n)$ son primos.
@@ -2185,13 +2205,28 @@ Sean $P_1,\ldots,P_r\in\ZZ[T]$ de grado a lo sumo $d\geq1$, con coeficientes de 
 
 No existe (aún) una generalización de estos resultados a cuerpos de números. Tao menciona en el paper que, de la misma forma que con Green--Tao, podrían generalizarse a $\ZZ[i]$.
 
-Para el caso ``sin una traslación $x$'' sigue abierta la hipótesis H de Schinzel: si $P_1,\ldots,P_r\in\ZZ[T]$ son irreducibles, no constantes, tienen coeficientes principales positivos y su producto no tiene divisor primo fijo, deberían existir infinitos $n>0$ con todos los $P_i(n)$ primos. 
+Para el caso ``sin una traslación $x$'' sigue abierta la hipótesis H de Schinzel: 
+\begin{conjecture*}
+Dados polinomios $P_1,\ldots,P_r\in\ZZ[T]$ irreducibles, no constantes, con coeficientes principales positivos y tales que su producto no tiene un divisor primo fijo, existen infinitos $n>0$ con todos los $P_i(n)$ primos. 
+\end{conjecture*}
+
+
 
 \section{Otros patrones}
 
 En los trabajos considerados no hay aplicaciones de otros resultados sobre patrones de primos a este tipo de construcciones, pero igualmente recopilamos a continuación algunos resultados similares no cubiertos por los anteriores, en caso de que puedan ser útiles en otro trabajo.
 
-Quedaron fuera del alcance de lo anterior las formas cuadráticas o cúbicas. El primer resultado es que todo primo congruente a 1 módulo 4 se puede escribir como suma de dos cuadrados, luego que todo entero positivo se puede escribir como suma de cuatro cuadrados, y finalmente está el siguiente:
+Antes de comenzar, aclaremos por qué los resultados sobre primos racionales también pueden servirnos para encontrar elementos primos en cuerpos de números: si nuestro polinomio que representa primos es una norma que baja del cuerpo $K$ a $\QQ$ y $\pi\in\OO_K$ tiene norma igual a un primo racional $p$, entonces $\pi$ es un elemento primo de $\OO_K$\footnote{El anillo cociente $\OO_K/(\pi)$ tiene $p$ elementos, como es un cuerpo no hay divisores del 0.}, incluso sin necesidad de suponer que el número de clases sea $1$.
+
+Cuando, por ejemplo, una forma binaria $F(X,Y)$ es una norma $N_{K/\QQ}(X+Y\theta)$, con $\theta\in\OO_K$, si tenemos que $p=F(x,y)$ entonces $\pi=x+y\theta$ será un primo del cuerpo. Además, para fijar condiciones de congruencia, si conocemos $x\equiv r$ e $y\equiv s\pmod M$, obtenemos
+\[
+\pi\equiv r+s\theta\pmod{M\OO_K}.
+\]
+Por eso nos interesarán especialmente los resultados que permiten restringir las variables a progresiones aritméticas. Conocer solamente una congruencia de $p=N_{K/\QQ}(\pi)$ no determina, en general, la congruencia de $\pi$.
+
+
+
+Quedaron fuera del alcance de las secciones anteriores las formas cuadráticas o cúbicas. El primer resultado de representación es que todo primo congruente a 1 módulo 4 se puede escribir como suma de dos cuadrados. Luego que todo entero positivo se puede escribir como suma de cuatro cuadrados. Por último:
 
 \begin{theorem*}[Tartakowsky, 1929]
 Sean $a_1,\ldots,a_5$ enteros positivos y pongamos
@@ -2201,17 +2236,9 @@ Q(X_1,\ldots,X_5)=a_1 X_1^2 + \cdots+a_5 X_5^2.
 Existe una constante $C_Q$ tal que, para todo entero $n>C_Q$, si la ecuación $Q(x_1,\ldots,x_5)=n$ tiene solución en $\ZZ_p^5$ para cada primo $p$, entonces tiene solución en $\ZZ^5$.
 \end{theorem*}
 
-La condición de representar a $n$ en $\ZZ_p$ realmente no es difícil de chequear ya que, por ejemplo, para los primos que no dividan a 3 coeficientes, usando que la ecuación $\alpha x^2 + \beta y^2 = \gamma$ tiene solución en $\FF_p$ para todo $\alpha, \beta \in \FF_p^\times$ y $\gamma\in \FF_p$, por Hensel ya nos garantizamos que representan todo $n$ (son necesarios dos coeficientes para la solución y un tercero para que no se anule la derivada)\footnote{Salvo $p=2$ como siempre.}. 
+\textbf{Comentario de local global.} Puede también suceder que nuestra forma no represente todos los enteros positivos pero sí lo haga con los que a nosotros nos interesan, y se puede ver que si comprobamos esto: que nuestra clase es representada en $\ZZ_p$ para todo $p$, entonces vamos a tener que la representa en $\ZZ$ a partir de un punto.
 
-Puede también suceder que nuestra forma no represente todos los enteros positivos pero sí lo haga con los que a nosotros nos interesan, y se puede ver que si comprobamos esto: que nuestra clase es representada en $\ZZ_p$ para todo $p$, entonces vamos a tener que la representa en $\ZZ$ a partir de un punto.
-
-Antes de seguir, aclaremos por qué los resultados sobre primos racionales también pueden servirnos para encontrar elementos primos en cuerpos de números si nuestro polinomio que representa primos es una norma que baja del cuerpo $K$ a $\QQ$. Si $\pi\in\OO_K$ tiene norma igual a un primo racional $p$, entonces $\pi$ es un elemento primo de $\OO_K$\footnote{El anillo cociente $\OO_K/(\pi)$ tiene $p$ elementos, como es un cuerpo no hay divisores del 0.}, incluso sin necesidad de suponer que el número de clases sea $1$.
-
-Cuando una forma binaria $F(X,Y)$ es una norma $N_{K/\QQ}(X+Y\theta)$, con $\theta\in\OO_K$, si tenemos que $p=F(x,y)$ entonces $\pi=x+y\theta$ será un primo del cuerpo. Además, para fijar condiciones de congruencia, si conocemos $x\equiv r$ e $y\equiv s\pmod M$, obtenemos
-\[
-\pi\equiv r+s\theta\pmod{M\OO_K}.
-\]
-Por eso nos interesarán especialmente los resultados que permiten restringir las variables a progresiones aritméticas. Conocer solamente una congruencia de $p=N_{K/\QQ}(\pi)$ no determina, en general, la congruencia de $\pi$.
+La condición de representar a $n$ en $\ZZ_p$ realmente no es difícil de chequear ya que, por ejemplo, usando que la ecuación $\alpha x^2 + \beta y^2 = \gamma$ tiene solución en $\FF_p$ para todo $\alpha, \beta \in \FF_p^\times$ y $\gamma\in \FF_p$, por Hensel ya nos garantizamos que representan todo $n$\footnote{Salvo $p=2$ como siempre.}. 
 
 Volviendo a formas cuadráticas con dos variables, tenemos el siguiente teorema:
 
@@ -2223,9 +2250,9 @@ p=F(x,y),\qquad x\equiv r\pmod M,\quad y\equiv s\pmod M.
 En particular, todos ellos son congruentes a $F(r,s)$ módulo $M$.
 \end{theorem*}
 
-Y lo mismo vale para formas cúbicas binarias, probado por Heath-Brown y Moroz:\footnote{D. R. Heath-Brown y B. Z. Moroz, \emph{On the representation of primes by cubic polynomials in two variables}, Proceedings of the London Mathematical Society 88 (2004), teorema~1, p.~289. Usamos el caso del polinomio $F(r+MX,s+MY)$.}
+Y lo mismo vale para formas cúbicas binarias, probado por Heath-Brown y Moroz:
 
-\begin{theorem*}[Heath-Brown--Moroz, 2004] %chktex 8
+\begin{theorem*}[Heath-Brown--Moroz, 2004]
 Sea $F\in\ZZ[X,Y]$ una forma cúbica binaria con coeficientes enteros, primitiva, irreducible sobre $\QQ$ y tal que no exista un primo que divida a todos sus valores\footnote{Esta condición es lógica, en el caso de cuadráticas era inmediata.}. Sean $M\geq1$ y $r,s\in\ZZ$ tales que $\mcd(F(r,s),M)=1$. Entonces existen infinitos primos positivos
 \[
 p=F(x,y),\qquad x\equiv r\pmod M,\quad y\equiv s\pmod M.
@@ -2244,7 +2271,7 @@ Este tipo de polinomios pueden aparecer como normas de elementos con una forma e
 u^2+v^4=N_{\QQ(i)/\QQ}(u+iv^2).
 \]
 
-El trabajo de Kai, Mimura, Munemasa, Seki y Yoshino también contiene un resultado sobre primos racionales representados por formas cuadráticas binarias, con la ventaja de poder agregar las constelaciones de antes.
+El trabajo de Kai, Mimura, Munemasa, Seki y Yoshino también contiene un resultado sobre primos racionales representados por formas cuadráticas binarias; con la ventaja de poder agregar las constelaciones de antes, es decir, representar varios valores primos simultáneamente.
 
 \begin{theorem*}[Kai--Mimura--Munemasa--Seki--Yoshino, 2020]
 Sea $F(X,Y)=aX^2+bXY+cY^2$ una forma cuadrática definida positiva con coeficientes enteros primitiva con discriminante $b^2-4ac$ no cuadrado. Para todo conjunto finito $\mathcal V\subset\ZZ^2$ existen $u\in\ZZ^2$ y $k\in\ZZ_{>0}$ tales que los valores $F(u+kv)$, con $v\in\mathcal V$, son primos positivos distintos.
@@ -2291,7 +2318,7 @@ Ahora sí, imponiendo la condición de que los 3 números $b-a$, $b$ y $b+a$ sea
 Para finalizar mencionemos lo que nos quedó suelto. Sabemos que, como el primo $b$ divide una única vez a $t$, tenemos la certeza de que no puede caer en otra clase de torsión que no sea la señalada. También por las congruencias que elegimos para los primos y el hecho de que son distintos, el corolario~\ref{cor:parametrosTorsionGenuina} nos asegura que la curva está definida genuinamente sobre $K$. 
 \end{proof}
 
-Para demostrar ahora el teorema, lo unico que nos falta es que haya infinitos primos de $\OO_K$ de la forma deseada en la proposición y que las curvas que nos brindan no sean isomorfas entre si. Todo esto fue demostrado en el ejemplo~\ref{ej:kaiMiCaso}, y se explican dos formas de asegurarnos de que no sean isomorfas las curvas.
+Para demostrar ahora el teorema, lo único que nos falta es que haya infinitos primos de $\OO_K$ de la forma deseada en la proposición y que las curvas que nos brindan no sean isomorfas entre sí. Todo esto fue demostrado en el ejemplo~\ref{ej:kaiMiCaso}, y se explican dos formas de asegurarnos de que no sean isomorfas las curvas.
 
 
 
