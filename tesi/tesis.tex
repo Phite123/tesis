@@ -181,7 +181,7 @@ El objetivo de esta tesis es recopilar la teoría necesaria para la construcció
 
 El grupo abeliano de puntos racionales de una curva elíptica $E$ sobre un cuerpo de números $K$ es finitamente generado, y podemos considerar su parte de torsión y el rango de su parte libre. 
 
-Nos enfocaremos en el rango, que es un valor del que se sabe mucho menos que la torsión, y es componente de muchas conjeturas famosas. De las preguntas principales sobre él algunas son: el rango máximo que puede alcanzar una curva definida sobre $\QQ$, con el récord actual de rango al menos $32$ por Elkies, Klagsbrun y Li~\cite{DujellaRankRecords}, o el máximo dado un grupo de torsión fijo, ver~\cite{ElkiesKlagsbrun2020}; qué valores de rango aparecen infinitas veces, con una heurística por Park, Poonen, Voight y Wood~\cite{ParkPoonenVoightWood2019} que predice infinitas curvas de cada rango hasta $20$ y solo finitas de rango mayor que $21$, dejando abierto el caso $21$; muchas conjeturas que lo relacionan con otros invariantes de la curva, siendo la más famosa la de Birch y Swinnerton-Dyer; y la de dar familias \emph{explícitas} de curvas de un rango fijo, que recién en el último tiempo se comenzaron a obtener ejemplos gracias a una inteligente combinación de resultados ya conocidos. Hay también resultados de densidad, como el de Bhargava y Shankar que nos dice que el rango promedio es menor a $3/2$, cota que se fue mejorando hasta el óptimo $1/2$ dentro de los tantos resultados publicados por OpenAI\@.
+Nos enfocaremos en el rango, que es un valor del que se sabe mucho menos que la torsión, y es componente de muchas conjeturas famosas. De las preguntas principales sobre él algunas son: el rango máximo que puede alcanzar una curva definida sobre $\QQ$, con el récord actual de rango al menos $32$ por Elkies, Klagsbrun y Li~\cite{DujellaRankRecords}, o el máximo dado un grupo de torsión fijo, ver~\cite{ElkiesKlagsbrun2020}; qué valores de rango aparecen infinitas veces, con una heurística por Park, Poonen, Voight y Wood~\cite{ParkPoonenVoightWood2019} que predice infinitas curvas de cada rango hasta $20$ y solo finitas de rango mayor que $21$, dejando abierto el caso $21$; muchas conjeturas que lo relacionan con otros invariantes de la curva, siendo la más famosa la de Birch y Swinnerton-Dyer; y la de dar familias \emph{explícitas} de curvas de un rango fijo, que recién en el último tiempo se comenzaron a obtener ejemplos gracias a una inteligente combinación de resultados ya conocidos. Hay también resultados de densidad, como el de Bhargava y Shankar que nos dice que el rango promedio es menor a $3/2$, cota que se fue mejorando.
 
 Un resultado conocido de Silverman nos da una forma de construir infinitas curvas sobre $\QQ$ de rango al menos $r$ vía especializaciones de una curva elíptica definida sobre $\QQ(T)$. Usando el método del descenso, que previamente se usaba sólo en casos particulares, junto con resultados de combinatoria aditiva para aplicarlo a toda una familia, se encontró una forma de acotar superiormente el rango. Logrando que la cota superior sea igual a la inferior obtenemos una familia de curvas de un rango fijo. El mejor resultado hasta la fecha es el de Zywina~\cite{Zywina2026SmallRank} que da ejemplos de curvas de rango $r$ para todo $0\leq r \leq 4$ y sobre cualquier cuerpo de números. 
 
@@ -450,7 +450,7 @@ Una \emph{isogenia} $\phi: E\to E'$ es un morfismo entre curvas elípticas que m
 Lo más importante es que respetan la ley del grupo: $\phi(P+Q) = \phi(P) + \phi(Q)$. Estos morfismos estarán definidos por funciones racionales en las coordenadas de los puntos, permitiéndonos calcularlas explícitamente, hablar del cuerpo de definición de una isogenia, y llevándose bien con la acción de Galois que veremos más adelante. Los primeros ejemplos de isogenias son la multiplicación por enteros:
 
 \begin{definition*}
-Dado un entero $m$, la multiplicación por $m$ denotada $[m]$ y definida por $[m](P) = m\cdot P$ es una isogenia de la curva en si misma.
+Dado un entero $m$, la multiplicación por $m$ denotada $[m]$ y definida por $[m](P) = m\cdot P$ es una isogenia de la curva en sí misma.
 \end{definition*}
 
 Las propiedades principales sobre isogenias son las siguientes:
@@ -2142,7 +2142,7 @@ son primos no asociados dos a dos en $\OO_K[S^{-1}]$.
 Además, podemos prefijar el signo de $\mu$ en cada lugar real.
 \end{prop*}
 
-Para utilizar este resultado veamos que nos quiere decir en palabras que conocemos. Queremos fijar $S$ como el conjunto de primos ``malos''. Luego para cada uno de ellos, supongamos que $U_{\pp,1}$ es una bola abierta alrededor de $\lambda_{\pp}$, entonces se ve como $\lambda_\pp + \pp^n \ZZ_\pp$, lo que nos dice que sus elementos son congruentes a $\lambda_\pp$ módulo $\pp^n$, que son las condiciones de congruencia que nos interesan imponer; y si también lo hacemos con $U_{\pp,2}$ para $\mu_\pp$ y producteamos ambas, entonces los elementos de la forma $\lambda-e_i \mu$ cumplen la congruencia. Finalmente, el tercer punto nos da lo que queremos: primos no asociados de $\OO_K[S^{-1}]$, que serán también primos de $\OO_K$ eligiendo bien las condiciones de los primos de $S$ (o sea que no sean $0$ módulo $\pp$). Los $e_i$ nos permiten dar saltos distintos y armar la constelación que queramos.
+Para utilizar este resultado veamos qué nos quiere decir en palabras que conocemos. Queremos fijar $S$ como el conjunto de primos ``malos''. Luego para cada uno de ellos, supongamos que $U_{\pp,1}$ es una bola abierta alrededor de $\lambda_{\pp}$, entonces se ve como $\lambda_\pp + \pp^n \ZZ_\pp$, lo que nos dice que sus elementos son congruentes a $\lambda_\pp$ módulo $\pp^n$, que son las condiciones de congruencia que nos interesan imponer; y si también lo hacemos con $U_{\pp,2}$ para $\mu_\pp$ y producteamos ambas, entonces los elementos de la forma $\lambda-e_i \mu$ cumplen la congruencia. Finalmente, el tercer punto nos da lo que queremos: primos no asociados de $\OO_K[S^{-1}]$, que serán también primos de $\OO_K$ eligiendo bien las condiciones de los primos de $S$ (o sea que no sean $0$ módulo $\pp$). Los $e_i$ nos permiten dar saltos distintos y armar la constelación que queramos.
 
 Esta es la versión que utiliza Zywina en su último paper~\cite{Zywina2026SmallRank}. Koymans y Pagano utilizan la formulación del teorema con formas afines~\cite{KoymansPagano2025}.
 
@@ -2210,8 +2210,6 @@ Para el caso ``sin una traslación $x$'' sigue abierta la hipótesis H de Schinz
 Dados polinomios $P_1,\ldots,P_r\in\ZZ[T]$ irreducibles, no constantes, con coeficientes principales positivos y tales que su producto no tiene un divisor primo fijo, existen infinitos $n>0$ con todos los $P_i(n)$ primos. 
 \end{conjecture*}
 
-
-
 \section{Otros patrones}
 
 En los trabajos considerados no hay aplicaciones de otros resultados sobre patrones de primos a este tipo de construcciones, pero igualmente recopilamos a continuación algunos resultados similares no cubiertos por los anteriores, en caso de que puedan ser útiles en otro trabajo.
@@ -2226,38 +2224,30 @@ Por eso nos interesarán especialmente los resultados que permiten restringir la
 
 
 
-Quedaron fuera del alcance de las secciones anteriores las formas cuadráticas o cúbicas. El primer resultado de representación es que todo primo congruente a 1 módulo 4 se puede escribir como suma de dos cuadrados. Luego que todo entero positivo se puede escribir como suma de cuatro cuadrados. Por último:
+Entonces, quedaron fuera del alcance de las secciones anteriores las formas cuadráticas o cúbicas. Hay muchos resultados sobre representación de primos o de enteros en general por formas cuadráticas. El más conocido puede ser el siguiente:
 
-\begin{theorem*}[Tartakowsky, 1929]
-Sean $a_1,\ldots,a_5$ enteros positivos y pongamos
-\[
-Q(X_1,\ldots,X_5)=a_1 X_1^2 + \cdots+a_5 X_5^2.
-\]
-Existe una constante $C_Q$ tal que, para todo entero $n>C_Q$, si la ecuación $Q(x_1,\ldots,x_5)=n$ tiene solución en $\ZZ_p^5$ para cada primo $p$, entonces tiene solución en $\ZZ^5$.
+\begin{theorem*}[Lagrange, 1770]
+Todo entero no negativo es suma de cuatro cuadrados.
 \end{theorem*}
 
-Puede también suceder que nuestra forma no represente todos los enteros positivos pero sí lo haga con los que a nosotros nos interesan, y se puede ver que si comprobamos esto: que nuestra clase es representada en $\ZZ_p$ para todo $p$, entonces vamos a tener que la representa en $\ZZ$ a partir de un punto.
+Si nos interesa que la forma cuadrática tenga coeficientes vamos a usar otros resultados. Por el principio local-global de formas cuadráticas, muchos resultados dependen únicamente de la representabilidad sobre cada primo. 
 
-Esto es parte del principio local-global para formas cuadraticas: una forma cuadrática representa un entero sobre $\QQ$ si y solo si lo representa sobre $\RR$ y sobre $\QQ_p$ para cada primo $p$. Este resultado de Hasse y Minkowski nos garantiza representacion racional pero no necesariamente entera, y en menos de 5 variables tenemos resultados de representacion solo a partir de una constante (igualmente esto nos sirve a nuestros fines de especializacion). Estos resultados fueron sacados del survey de Hanke~\cite{Hanke2004TernaryQuadraticForms}.
-
-\begin{theorem*}[Kloosterman; Duke]
-Sea $Q\in\ZZ[X_1,\ldots,X_r]$ una forma cuadrática
-definida positiva, con $r\in\{3,4\}$.
-Existe una constante $C_Q$ tal que, para todo primo
-$\ell>C_Q$, la ecuación
-\[
-Q(x_1,\ldots,x_r)=\ell
-\]
-tiene solución en $\ZZ^r$ si y solo si tiene solución
-en $\ZZ_p^r$ para cada primo $p$.
+\begin{theorem*}
+Para toda forma cuadrática definida positiva con coeficientes enteros y de 3 o más variables, existe una constante a partir de la cual todo primo que la forma represente sobre $\ZZ_p$ para todo $p$ va a ser representado sobre $\ZZ$.
 \end{theorem*}
 
+Juntamos todo en un resultado por comodidad pero: para formas de 5 variables o más el resultado es de Tartakowsky en 1929, para 4 de Kloosterman en 1926 y para 3 de Duke--Schulze-Pillot en 1990. También son para representación de enteros pero con distintas restricciones que podemos evitar presentándolos solo para primos. 
+
+Estos resultados fueron sacados del survey de Hanke~\cite{Hanke2004TernaryQuadraticForms}.
+
+\begin{remark*}
 La condición de representar a $n$ en $\ZZ_p$ realmente no es difícil de chequear ya que, por ejemplo, usando que la ecuación $\alpha x^2 + \beta y^2 = \gamma$ tiene solución en $\FF_p$ para todo $\alpha, \beta \in \FF_p^\times$ y $\gamma\in \FF_p$, por Hensel ya nos garantizamos que representan todo $n$\footnote{Salvo $p=2$ como siempre.}. 
+\end{remark*}
 
-Volviendo a formas cuadráticas con dos variables, tenemos el siguiente teorema:
+Para formas cuadráticas con dos variables no tenemos ese resultado pero sí el siguiente:
 
 \begin{theorem*}[Iwaniec, 1974]
-Sea $F(X,Y)=aX^2+bXY+cY^2$ una forma cuadrática definida positiva con coeficientes enteros primitiva. Sean $M\geq1$ y $r,s\in\ZZ$ tales que $\mcd(F(r,s),M)=1$. Entonces existen infinitos primos positivos
+Sea $F$ una forma cuadrática binaria definida positiva con coeficientes enteros primitiva. Sean $M\geq1$ y $r,s\in\ZZ$ tales que $\mcd(F(r,s),M)=1$. Entonces existen infinitos primos positivos
 \[
 p=F(x,y),\qquad x\equiv r\pmod M,\quad y\equiv s\pmod M.
 \]
@@ -2267,30 +2257,28 @@ En particular, todos ellos son congruentes a $F(r,s)$ módulo $M$.
 Y lo mismo vale para formas cúbicas binarias, probado por Heath-Brown y Moroz:
 
 \begin{theorem*}[Heath-Brown--Moroz, 2004]
-Sea $F\in\ZZ[X,Y]$ una forma cúbica binaria con coeficientes enteros, primitiva, irreducible sobre $\QQ$ y tal que no exista un primo que divida a todos sus valores\footnote{Esta condición es logicamente necesaria, y en el caso de cuadráticas era inmediata.}. Sean $M\geq1$ y $r,s\in\ZZ$ tales que $\mcd(F(r,s),M)=1$. Entonces existen infinitos primos positivos
+Sea $F\in\ZZ[X,Y]$ una forma cúbica binaria con coeficientes enteros, primitiva, irreducible sobre $\QQ$ y tal que no exista un primo que divida a todos sus valores\footnote{Esta condición es lógicamente necesaria, y en el caso de cuadráticas era inmediata.}. Sean $M\geq1$ y $r,s\in\ZZ$ tales que $\mcd(F(r,s),M)=1$. Entonces existen infinitos primos positivos
 \[
 p=F(x,y),\qquad x\equiv r\pmod M,\quad y\equiv s\pmod M.
 \]
 En particular, todos ellos son congruentes a $F(r,s)$ módulo $M$.
 \end{theorem*}
 
-También hay resultados para otros polinomios concretos, como el de Friedlander e Iwaniec, que probaron en 1998 que existen infinitos primos de la forma
-\[
-u^2+v^4,
-\]
-y además que podemos restringir $u$ y $v$ a progresiones aritméticas fijas. Así, para pedir $p\equiv a\pmod b$, con $\mcd(a,b)=1$, alcanza con encontrar $r,s\in\ZZ$ tales que $r^2+s^4\equiv a\pmod b$ y tomar $u\equiv r$, $v\equiv s\pmod b$. No cualquier clase va a poder ser cubierta de esta forma, por ejemplo nunca podrán representarse los primos congruentes a $3$ módulo 4.
-
-Este tipo de polinomios pueden aparecer como normas de elementos con una forma específica, como por ejemplo
-\[
-u^2+v^4=N_{\QQ(i)/\QQ}(u+iv^2).
-\]
-
-El trabajo de Kai, Mimura, Munemasa, Seki y Yoshino también contiene un resultado sobre primos racionales representados por formas cuadráticas binarias; con la ventaja de poder agregar las constelaciones de antes, es decir, representar varios valores primos simultáneamente.
+El mismo trabajo de Kai, Mimura, Munemasa, Seki y Yoshino también contiene un resultado sobre primos racionales representados por formas cuadráticas binarias; con la ventaja de poder agregar las constelaciones de antes, es decir, representar varios valores primos simultáneamente.
 
 \begin{theorem*}[Kai--Mimura--Munemasa--Seki--Yoshino, 2020]
 Sea $F(X,Y)=aX^2+bXY+cY^2$ una forma cuadrática definida positiva con coeficientes enteros primitiva con discriminante $b^2-4ac$ no cuadrado. Para todo conjunto finito $\mathcal V\subset\ZZ^2$ existen $u\in\ZZ^2$ y $k\in\ZZ_{>0}$ tales que los valores $F(u+kv)$, con $v\in\mathcal V$, son primos positivos distintos.
 \end{theorem*}
 
+
+También hay resultados para otros polinomios concretos, como el de Friedlander e Iwaniec, que probaron en 1998 que existen infinitos primos de la forma
+\[
+u^2+v^4,
+\]
+y además que podemos restringir $u$ y $v$ a progresiones aritméticas fijas. Así, para pedir $p\equiv a\pmod b$, con $\mcd(a,b)=1$, alcanza con encontrar $r,s\in\ZZ$ tales que $r^2+s^4\equiv a\pmod b$ y tomar $u\equiv r$, $v\equiv s\pmod b$. No cualquier clase va a poder ser cubierta de esta forma, por ejemplo nunca podrán representarse los primos congruentes a $3$ módulo 4. Este tipo de polinomios pueden aparecer como normas de elementos con una forma específica, como por ejemplo
+\[
+u^2+v^4=N_{\QQ(i)/\QQ}(u+iv^2).
+\]
 
 
 
