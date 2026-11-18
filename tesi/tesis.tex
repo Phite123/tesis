@@ -274,7 +274,7 @@ donde $T$ es un grupo finito correspondiente a la torsión de la curva, y tenemo
 El \emph{rango de una curva elíptica}, denotado por $r$, es el exponente de la parte libre del grupo de Mordell--Weil.
 \end{definition*}
 
-Sobre el grupo de torsión de una curva elíptica se conocen resultados que lo clasifican muy bien y cotas para su crecimiento. Recopilando algunos de ellos, Mazur~\cite{Mazur1977} dio una completa clasificación de todos los que pueden aparecer sobre $\QQ$; Merel~\cite{Merel1996} demostró que sobre un cuerpo de números de grado $d$, si una curva elíptica tiene un punto de $p$-torsión entonces $p<d^{3d^2}$, dando así también una cota para el orden del grupo de torsión que depende solo del grado de la extensión. Sobre cuerpos cuadráticos ya se conocían los posibles por Kenku--Momose~\cite{KenkuMomose1988} y Kamienny~\cite{Kamienny1992}, y luego sobre los específicos que nos interesan, Najman~\cite{Najman2010} la redujo más aún; y para cada uno de estos, hay un modelo que lo parametriza bien recopilado en~\cite{Rabarison2010}, si es que al lector le interesa trabajar con alguno en particular.
+Sobre el grupo de torsión de una curva elíptica se conocen resultados que lo clasifican muy bien y cotas para su crecimiento. Recopilando algunos de ellos, Mazur~\cite{Mazur1977} dio una completa clasificación de todos los que pueden aparecer sobre $\QQ$; Merel~\cite{Merel1996} demostró que sobre un cuerpo de números de grado $d>1$, si una curva elíptica tiene un punto de $p$-torsión entonces $p<d^{3d^2}$, dando también una cota para el orden del grupo de torsión que depende solo del grado de la extensión. Sobre cuerpos cuadráticos ya se conocían los posibles por Kenku--Momose~\cite{KenkuMomose1988} y Kamienny~\cite{Kamienny1992}, y luego sobre los específicos que nos interesan, Najman~\cite{Najman2010} la redujo más aún; y para cada uno de estos, hay un modelo que lo parametriza bien recopilado en~\cite{Rabarison2010}, si es que al lector le interesa trabajar con alguno en particular.
 
 Sobre el rango hay recopilados resultados en la introducción. Para justificar también el estudio de las curvas elípticas, el teorema de Faltings que nos habla sobre curvas de género mayor a 1, que no tendrán ``rango'':
 
@@ -1096,7 +1096,7 @@ Podemos usar esta herramienta para, una vez probado el rango de dos de ellas, ob
 \chapter{Método de descenso y grupo de Selmer}\label{cap:selmer}
 
 
-En este capítulo presentaremos la forma de obtener una cota superior para el rango, conocida como método del descenso. La idea es encontrar un morfismo inyectivo que salga de un cociente del grupo de Mordell--Weil y que podamos controlar la imagen, que tendrá tantos generadores como puntos de torsión e independientes tenga la curva. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Acá daremos un ejemplo puntual de 3-descenso para motivar y también porque es el que será usado después.
+En este capítulo presentaremos la forma de obtener una cota superior para el rango, conocida como método del descenso. La idea es encontrar un morfismo inyectivo que salga de un cociente del grupo de Mordell--Weil y que podamos controlar su imagen, que tendrá una cantidad de generadores relacionada con la de puntos de torsión e independientes de la curva. Un ejemplo muy claro de 2-descenso está presentado en el libro de Silverman y Tate~\cite{SilvermanTate} y el de Silverman~\cite{SilvermanAEC}. Acá daremos un ejemplo puntual de 3-descenso para motivar y también porque es el que será usado después.
 
 Supongamos que tenemos una curva de la forma $E_t: y^2=x^3+t^2$ con $t$ entero para hacer más fácil. Podemos pasar restando el $t^2$, factorizar y nos queda 
 \[
@@ -1495,7 +1495,7 @@ Para calcular el grupo de Mordell--Weil de una curva $E$ nos interesa calcular $
 \frac{E(K)}{\hat\phi(E'(K))} \to 1.
 \end{equation}
 
-De la sucesión se puede ver que, si conseguimos encontrar generadores o simplemente acotar el orden, tanto de $E'(K) / \phi (E(K))$ como de $E(K) / \hat\phi (E'(K))$, entonces, como el núcleo de la isogenia es conocido (o computable), tendremos una forma efectiva de encontrar los generadores (o acotar el orden) de $E(K)/nE(K)$. Esto, junto con la información de la $n$\nbd-torsión, nos va a decir exactamente el rango de la curva.
+De la sucesión se puede ver que, si conseguimos encontrar generadores o simplemente acotar el orden, tanto de $E'(K) / \phi (E(K))$ como de $E(K) / \hat\phi (E'(K))$, entonces, como el núcleo de la isogenia es conocido (o computable), tendremos una forma efectiva de encontrar los generadores (o acotar el orden) de $E(K)/nE(K)$. Esto, junto con la información de la $n$\nbd-torsión, nos va a acotar el rango de la curva.
 
 Si $E(K)\cong T \oplus \ZZ^r$, entonces 
 \[
@@ -2209,10 +2209,10 @@ cuyo discriminante es $2^8 3^2 m{(m+16n^2)}^3{(m+25n^2)}^2$. En el caso de usar 
 
 Podía anticiparse geométricamente esta elección, con el cálculo de símbolos de Kodaira de la superficie: el correspondiente a $T=\infty$ es $\mathrm{I}_0^*$, y estos pueden convertirse en una fibra no singular al pasar al modelo minimal luego de un cambio de base cuadrático. Esta es la explicación geométrica de elegir un denominador cuadrado, y es una de las herramientas que nos brinda la clasificación de Kodaira de las fibras singulares de una superficie elíptica.
 
-Por el proceso de descenso, Zywina muestra que si los valores $m, m+16n^2, m+25n^2$ son primos congruentes a $11$ módulo $24$, entonces la curva tendrá rango exactamente $2$. Luego, viendo que los $j$-invariantes de las curvas son distintos para cada par $m,n$ prueba que no son isomorfas sobre $\overline{\QQ}$.
+Por el proceso de descenso, Zywina muestra que si los valores $m, m+16n^2, m+25n^2$ son primos congruentes a $11$ módulo $24$, entonces la curva tendrá rango exactamente $2$. Luego, viendo que los $j$-invariantes de las curvas toman infinitos valores distintos prueba que no son isomorfas sobre $\overline{\QQ}$.
 \end{example*}
 
-En un segundo trabajo, de 2018, Tao y Ziegler relajaron la condición $P_i(0)=0$ a cambio de una hipótesis similar a la que teníamos antes para lineales, pero este resultado no permite fijar la clase de congruencia de los primos que genera.
+En un segundo trabajo, de 2018, Tao y Ziegler relajaron la condición $P_i(0)=0$ a cambio de una hipótesis similar a la que teníamos antes para lineales, pero este resultado no permite fijar la clase de congruencia en que caen los primos generados tan directamente como los anteriores.
 
 \begin{theorem*}[Tao--Ziegler, 2018]
 Sean $P_1,\ldots,P_r\in\ZZ[T]$ de grado a lo sumo $d\geq1$, con coeficientes de $T^d$ distintos dos a dos. Supongamos que para cada primo $p$ existen $x,n$ módulo $p$ tales que ninguno de los $x+P_i(n)$ es divisible por $p$. Entonces existen infinitos pares de enteros positivos $x,n$ para los cuales todos los $x+P_i(n)$ son primos.
@@ -2245,7 +2245,7 @@ Entonces, quedaron fuera del alcance de las secciones anteriores las formas cuad
 Todo entero no negativo es suma de cuatro cuadrados.
 \end{theorem*}
 
-Si nos interesa que la forma cuadrática tenga coeficientes distintos vamos a usar otros resultados. Por el principio local-global de formas cuadráticas, muchos resultados dependen únicamente de la representabilidad sobre cada primo. 
+Si nos interesa que la forma cuadrática tenga coeficientes enteros arbitrarios vamos a usar otros resultados. Por el principio local-global de formas cuadráticas, muchos resultados dependen únicamente de la representabilidad sobre cada primo. 
 
 \begin{theorem*}[Tartakowsky, Kloosterman, Duke--Schulze-Pillot]
 Para toda forma cuadrática definida positiva con coeficientes enteros y de 3 o más variables, existe una constante a partir de la cual todo primo que la forma represente sobre $\ZZ_p$ para todo $p$ va a ser representado sobre $\ZZ$.
@@ -2366,9 +2366,9 @@ Como el resultado de Kai nos garantiza infinitos pares que dan primos no asociad
 
 \section{Ejemplos}
 
-\subsection*{El lindo}
+\subsection*{El simple}
 
-Un ejemplo simple es tomar $b=4+3\omega$ y $a=6$ que casualmente hace que $b-a = -2+3\omega$, $b$ y $b+a = 10+3\omega$ sean primos: sus normas son respectivamente $19$, $13$ y $79$. Entonces nuestros objetos nos quedan:
+Un ejemplo cómodo es tomar $b=4+3\omega$ y $a=6$ que casualmente hace que $b-a = -2+3\omega$, $b$ y $b+a = 10+3\omega$ sean primos: sus normas son respectivamente $19$, $13$ y $79$. Entonces nuestros objetos nos quedan:
 \[
 t= (-2+3\omega)(4+3\omega)(10+3\omega) = -161-72\omega, \qquad t^2=20737+18000\omega;
 \]
@@ -2497,7 +2497,29 @@ respectivamente. No podemos afirmar que con sus combinaciones lineales generamos
 
 \section{Trabajo a futuro}
 
-nuevo resultado de savoie
+En agosto de 2026, Ben Savoie anunció un nuevo resultado donde presenta familias infinitas de curvas elitpicas de $j$\nbd-invariante $1728$ sobre $\QQ(i)$ de rangos 4 y 6~\cite{Savoie2026QiRanks4And6}. Los métodos utilizados allí son similares a los presentados en este trabajo, aunque con pequeños ajustes novedosos, como el uso de superficies K3 para la familia de rango 6. Un posible trabajo a futuro es adaptar esos resultados para el caso de $j$\nbd-invariante igual a $0$ y curvas en $\QQ(\omega)$, como hicimos para el caso de rago $2$. 
+
+Más posibilidades son el estudio de otras superficies elípticas de $j$\nbd-invariante $0$ para las que se conozca la estructura, y buscar acotar su rango superiormente; o en otra dirección, explorar resultados sobre valores primos simultáneos, como por ejemplo el recientemente anunciado por Achenjang y Woo~\cite{AchenjangWoo2026}, que utiliza formas lineales junto con una norma para construir twists cuadráticos de rango exactamente $2$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
