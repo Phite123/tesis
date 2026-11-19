@@ -1038,7 +1038,7 @@ pero con esta especialización no va a ser posible. Otra opción es la de consid
 
 \subsection{Herramientas geométricas y el método de Elkies}
 
-Las identidades anteriores son fáciles de verificar una vez encontradas, pero buscar muchas a la vez produce sistemas grandes. Las superficies K3 permiten organizar esa búsqueda con herramientas procedientes de la geometría que no llegamos a presentar. Contaremos el proceso solo para mencionar que existe y los elementos usados. La referencia expositiva principal es~\cite{Elkies2007HighRank}; las fórmulas completas de su ejemplo de rango $17$ están en~\cite{Elkies2026K3Rank17}.
+Las identidades anteriores son fáciles de verificar una vez encontradas, pero buscar muchas a la vez produce sistemas grandes. Las superficies K3 permiten organizar esa búsqueda con herramientas procedentes de la geometría que no llegamos a presentar. Contaremos el proceso solo para mencionar que existe y los elementos usados. La referencia expositiva principal es~\cite{Elkies2007HighRank}; las fórmulas completas de su ejemplo de rango $17$ están en~\cite{Elkies2026K3Rank17}.
 
 \begin{enumerate}
     \item \emph{Elegir la geometría que permita el rango buscado.} Asociado a la superficie existe el grupo de Néron--Severi, que depende de las intersecciones de las curvas por ella, y su rango libre nos da una cota para el de $E(\bar{K}(T))$. Entonces necesitamos un grupo de Néron--Severi grande y pocas componentes de fibras reducibles. Elkies elige las intersecciones que deberían tener los divisores y las secciones usando retículos. Esto impone restricciones antes de buscar los coeficientes de una ecuación.
@@ -2251,7 +2251,7 @@ Si nos interesa que la forma cuadrática tenga coeficientes enteros arbitrarios 
 Para toda forma cuadrática definida positiva con coeficientes enteros y de 3 o más variables, existe una constante a partir de la cual todo primo que la forma represente sobre $\ZZ_p$ para todo $p$ va a ser representado sobre $\ZZ$.
 \end{theorem*}
 
-Juntamos todo en un resultado por comodidad pero: para formas de 5 variables o más el resultado es de Tartakowsky en 1929, para 4 de Kloosterman en 1926 y para 3 de Duke--Schulze-Pillot en 1990. También son para representación de enteros pero con distintas restricciones, que podemos evitar presentándolos solo para primos. Para formas no degeneradas de 4 o más variables podemos cambiar la condición de definida positiva por indefinida y vale también el resultado, incluso sin una cota inferior. Este último resultado es de Siegel y se puede encontrar en~\cite{Siegel1951Indefinite}.
+Juntamos todo en un resultado por comodidad pero: para formas de cinco variables o más el resultado es de Tartakowsky~\cite{Tartakowsky1929II}, para cuatro de Kloosterman~\cite{Kloosterman1926QuadraticForms} y para tres de Duke y Schulze-Pillot~\cite{DukeSchulzePillot1990}. También son para representación de enteros pero con distintas restricciones, que podemos evitar presentándolos solo para primos. Para formas no degeneradas de 4 o más variables podemos cambiar la condición de definida positiva por indefinida y vale también el resultado, incluso sin una cota inferior. Este último resultado es de Siegel y se puede encontrar en~\cite{Siegel1951Indefinite}. Una exposición de estos resultados y de sus distintas hipótesis puede encontrarse en~\cite{Hanke2004TernaryQuadraticForms}.
 
 \begin{remark*}
 La condición de representar a $n$ en $\ZZ_p$ realmente no es difícil de chequear. Por ejemplo, podemos usar que la ecuación $\alpha x^2 + \beta y^2 = \gamma$ tiene solución en $\FF_p$ para todo $\alpha, \beta \in \FF_p^\times$ y $\gamma\in \FF_p$, y luego el lema de Hensel, que nos dice que eso nos garantiza una solución sobre $\ZZ_p$ siempre que alguna derivada parcial no se anule módulo $p$ en la solución (para usarlo, esto obliga a descartar el primo 2, como siempre, y a considerar una variable más).
@@ -2281,7 +2281,7 @@ En particular, todos ellos son congruentes a $F(r,s)$ módulo $M$.
 
 La condición de que un primo no divida a todos los valores que tome la forma es lógicamente necesaria. No la pedimos en el caso de cuadráticas porque era inmediata de que la forma sea primitiva.
 
-El mismo trabajo de Kai, Mimura, Munemasa, Seki y Yoshino también contiene un resultado sobre primos racionales representados por formas cuadráticas binarias; con la ventaja de poder agregar las constelaciones de antes, es decir, representar varios valores primos simultáneamente.
+El mismo trabajo de Kai, Mimura, Munemasa, Seki y Yoshino~\cite{KaiMimuraMunemasaSekiYoshino2020} también contiene un resultado sobre primos racionales representados por formas cuadráticas binarias; con la ventaja de poder agregar las constelaciones de antes, es decir, representar varios valores primos simultáneamente.
 
 \begin{theorem*}[Kai--Mimura--Munemasa--Seki--Yoshino, 2020]
 Sea $F(X,Y)=aX^2+bXY+cY^2$ una forma cuadrática definida positiva con coeficientes enteros primitiva con discriminante $b^2-4ac$ no cuadrado. Para todo conjunto finito $\mathcal V\subset\ZZ^2$ existen $u\in\ZZ^2$ y $k\in\ZZ_{>0}$ tales que los valores $F(u+kv)$, con $v\in\mathcal V$, son primos positivos distintos.
@@ -2497,7 +2497,7 @@ respectivamente. No podemos afirmar que con sus combinaciones lineales generamos
 
 \section{Trabajo a futuro}
 
-En agosto de 2026, Ben Savoie anunció un nuevo resultado donde presenta familias infinitas de curvas elitpicas de $j$\nbd-invariante $1728$ sobre $\QQ(i)$ de rangos 4 y 6~\cite{Savoie2026QiRanks4And6}. Los métodos utilizados allí son similares a los presentados en este trabajo, aunque con pequeños ajustes novedosos, como el uso de superficies K3 para la familia de rango 6. Un posible trabajo a futuro es adaptar esos resultados para el caso de $j$\nbd-invariante igual a $0$ y curvas en $\QQ(\omega)$, como hicimos para el caso de rago $2$. 
+En agosto de 2026, Ben Savoie anunció un nuevo resultado donde presenta familias infinitas de curvas elípticas de $j$\nbd-invariante $1728$ sobre $\QQ(i)$ de rangos 4 y 6~\cite{Savoie2026QiRanks4And6}. Los métodos utilizados allí son similares a los presentados en este trabajo, aunque con pequeños ajustes novedosos, como el uso de superficies K3 para la familia de rango 6. Un posible trabajo a futuro es adaptar esos resultados para el caso de $j$\nbd-invariante igual a $0$ y curvas en $\QQ(\omega)$, como hicimos para el caso de rango $2$. 
 
 Más posibilidades son el estudio de otras superficies elípticas de $j$\nbd-invariante $0$ para las que se conozca la estructura, y buscar acotar su rango superiormente; o en otra dirección, explorar resultados sobre valores primos simultáneos, como por ejemplo el recientemente anunciado por Achenjang y Woo~\cite{AchenjangWoo2026}, que utiliza formas lineales junto con una norma para construir twists cuadráticos de rango exactamente $2$. 
 
