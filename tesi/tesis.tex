@@ -185,7 +185,7 @@ Nos enfocaremos en el rango, que es un valor del que se sabe mucho menos que la 
 
 Un resultado conocido de Silverman nos da una forma de construir infinitas curvas sobre $\QQ$ de rango al menos $r$ vía especializaciones de una curva elíptica definida sobre $\QQ(T)$. Usando el método del descenso, que previamente se usaba solo en casos particulares, junto con resultados de combinatoria aditiva para aplicarlo a toda una familia, se encontró una forma de acotar superiormente el rango. Logrando que la cota superior sea igual a la inferior obtenemos una familia de curvas de un rango fijo. El trabajo que hasta la fecha abarca más casos es el preprint de Zywina~\cite{Zywina2026SmallRank} que da ejemplos de curvas de rango $r$ para todo $0\leq r \leq 4$ y sobre cualquier cuerpo de números. 
 
-También surge el interés de resultados análogos fijando cierta condición para la curva, y en nuestro caso lo haremos con el $j$-invariante. Los valores que tienen un comportamiento diferente son $j=1728$, naturalmente interesante sobre $\QQ(i)$, para el cual Savoie~\cite{Savoie2025QiRank2} dio una familia de curvas de rango 2; y $j=0$ sobre $\QQ(\omega)$, que estudiaremos aquí, y presentaremos el siguiente resultado:
+También surge el interés de resultados análogos fijando cierta condición para la curva, y en este caso lo haremos con el $j$-invariante. Los valores que tienen un comportamiento diferente son $j=1728$, naturalmente interesante sobre $\QQ(i)$, para el cual Savoie~\cite{Savoie2025QiRank2} dio una familia de curvas de rango 2; y $j=0$ sobre $\QQ(\omega)$, que estudiaremos aquí, y presentaremos el siguiente resultado:
 
 \begin{theorem*}[\ref{thm:elTeo}]
 Existen infinitas curvas elípticas sobre $\QQ(\omega)$ no isomorfas, genuinamente definidas sobre el cuerpo, con $j$-invariante $0$ y grupo de Mordell--Weil isomorfo a
@@ -231,7 +231,7 @@ Una ecuación diofántica es una ecuación polinomial de la que buscamos solucio
     \item Encontrar un elemento que sea unidad en dos cuerpos cuadráticos $\QQ(\sqrt{a})$ y $\QQ(\sqrt{b})$ simultáneamente es equivalente a encontrar un punto sobre $\QQ$, no trivial, en la curva $y^2 = x(x+a)(x+b)$.
     \item Encontrar un triángulo rectángulo cuya hipotenusa y suma de catetos sean cuadrados perfectos es equivalente a encontrar un punto racional en la curva $y^2=x^3+8x$.
     \item Suponer que existe una solución $(a,b,c)$ no trivial a $X^n + Y^n = Z^n$ y analizar la curva $y^2=x(x-a^n)(x+b^n)$ lleva a muchos años de desarrollo de la matemática.
-    \item Encontrar puntos racionales con todas sus coordenadas positivas de la curva $y^2 = x^3+109x^2+224x$ nos puede ayudar a resolver un viral de WhatsApp.
+    \item Encontrar puntos racionales con todas sus coordenadas positivas de la curva $y^2 = x^3+109x^2+224x$ nos puede ayudar a resolver el viral de las frutas de WhatsApp\footnote{De un articulo~\cite{BremnerMacleod2014Cubic} pasado por \href{https://www.reddit.com/r/math/s/h6zQjUBwDf}{Reddit}.}.
 \end{itemize}
 
 En particular todos estos se modelan con curvas elípticas y se ayudan de toda la teoría desarrollada de las mismas para encontrar las soluciones.
@@ -284,7 +284,7 @@ Una curva no singular de género mayor o igual a 2 tiene solo finitos puntos sob
 
 Juntando ese teorema con el resultado conocido de que una curva de género cero no tiene puntos o es isomorfa a $\PP^1$, las curvas elípticas pueden ser consideradas el caso más interesante de curvas cuando se habla de puntos racionales sobre cuerpos de números.
 
-\section{Más resultados sobre curvas elípticas}
+\section{Resultados principales sobre curvas elípticas}
 
 Recopilemos algunos resultados que se conocen sobre curvas elípticas y que nos pueden ayudar a utilizarlas para resolver las preguntas que las motivan. 
 
@@ -324,32 +324,6 @@ Una curva elíptica sobre $\QQ$ con coeficientes enteros tiene todos sus puntos 
 \end{theorem*}
 
 Este teorema viene acompañado también de que, para $P$ de torsión de orden mayor a 2, ${y(P)}^2$ divide a $4A^3+27B^2$, lo que hace fácil el cálculo de estos puntos. Para cuerpos de números en general hay cotas locales para los denominadores de los puntos de torsión, y para cuadráticos imaginarios de número de clases uno específicamente hay un análogo en el preprint~\cite{MondalChalilBanerjee2025}.
-
-\subsection{Reducción y puntos de torsión}
-
-Reducir una ecuación módulo un primo nos permite trabajar con un grupo finito. Esto es especialmente útil para acotar la torsión: en los primos adecuados, un punto de torsión conserva su orden al reducir.
-
-Sea $\pp\trianglelefteq\OO_K$ un ideal primo. Diremos que $E$ tiene \emph{buena reducción} en $\pp$ si admite una ecuación de Weierstrass con coeficientes enteros en $\pp$ cuya reducción es no singular, o lo que es equivalente, si al reducir sus coeficientes a $\OO_K/\pp$ queda una curva no singular. En particular, si un modelo entero tiene discriminante no divisible por $\pp$, tenemos buena reducción. Que $\pp$ divida el discriminante de un modelo cualquiera no alcanza para afirmar que la reducción es mala: primero puede ser necesario cambiar de modelo.
-
-\begin{prop*}
-Si la curva $E/K$ tiene buena reducción en $\pp$, la reducción de coordenadas proyectivas define un morfismo de grupos
-\[
-E(K)\longrightarrow\bar{E}(\OO_K/\pp),\qquad P\longmapsto\bar{P}.
-\]
-Si $\pp \nmid n$, este morfismo es inyectivo sobre $E(K)[n]$. En particular, los puntos de torsión de orden coprimo con $\pp$ conservan su orden.
-\end{prop*}
-
-El uso de coordenadas proyectivas permite reducir también los puntos cuyas coordenadas afines tienen denominadores divisibles por $\pp$; algunos de ellos reducen a $\OO$. 
-
-La forma de aplicar este resultado es contando los puntos de $\bar{E}(\OO_K/\pp)$, incluyendo $\OO$, que consta de probar con finitos casos. Luego, si un primo $\ell\neq p$ divide el orden de un punto de torsión racional, tiene que dividir también ese cardinal; y comparando con varios primos de buena reducción obtenemos restricciones. Igualmente no necesariamente conseguiremos llegar hasta el orden de la torsión de esta forma.
-
-La buena reducción también controla el cuerpo que necesitamos para definir los puntos de torsión. Esto nos permite limitar los primos donde puede aparecer ramificación al hacer descenso.
-
-\begin{prop*}
-Sea $E$ una curva elíptica sobre un cuerpo de números $K$, y sea $K(E[n])$ el cuerpo obtenido agregando las coordenadas de todos sus puntos de $n$-torsión. Si $E$ tiene buena reducción en un primo $\pp\trianglelefteq\OO_K$ y $\pp\nmid n$, entonces $K(E[n])/K$ no ramifica en $\pp$.
-\end{prop*}
-
-Así, para buscar los posibles primos de ramificación, basta considerar los de mala reducción y los que dividen $n$.
 
 \subsection{Puntos en la curva}
 
@@ -425,6 +399,32 @@ En particular, hay $n^2$ puntos de $n$-torsión sobre $\bar{K}$.
 \end{prop}
 
 Una forma de verlo es estudiar $E(\CC)$: la teoría compleja identifica este grupo con $\CC/\Lambda$, donde $\Lambda$ es un reticulado. Los puntos anulados por $n$ corresponden entonces a $\lp\frac{1}{n}\Lambda\rp/\Lambda\cong{(\ZZ/n\ZZ)}^2$. Como sus coordenadas satisfacen los polinomios de división son algebraicas sobre $K$. 
+
+\subsection{Reducción y puntos de torsión}
+
+Reducir una ecuación módulo un primo nos permite trabajar con un grupo finito. Esto es especialmente útil para acotar la torsión: en los primos adecuados, un punto de torsión conserva su orden al reducir.
+
+Sea $\pp\trianglelefteq\OO_K$ un ideal primo. Diremos que $E$ tiene \emph{buena reducción} en $\pp$ si admite una ecuación de Weierstrass con coeficientes enteros en $\pp$ cuya reducción es no singular, o lo que es equivalente, si al reducir sus coeficientes a $\OO_K/\pp$ queda una curva no singular. En particular, si un modelo entero tiene discriminante no divisible por $\pp$, tenemos buena reducción. Que $\pp$ divida el discriminante de un modelo cualquiera no alcanza para afirmar que la reducción es mala: primero puede ser necesario cambiar de modelo.
+
+\begin{prop*}
+Si la curva $E/K$ tiene buena reducción en $\pp$, la reducción de coordenadas proyectivas define un morfismo de grupos
+\[
+E(K)\longrightarrow\bar{E}(\OO_K/\pp),\qquad P\longmapsto\bar{P}.
+\]
+Si $\pp \nmid n$, este morfismo es inyectivo sobre $E(K)[n]$. En particular, los puntos de torsión de orden coprimo con $\pp$ conservan su orden.
+\end{prop*}
+
+El uso de coordenadas proyectivas permite reducir también los puntos cuyas coordenadas afines tienen denominadores divisibles por $\pp$; algunos de ellos reducen a $\OO$. 
+
+La forma de aplicar este resultado es contando los puntos de $\bar{E}(\OO_K/\pp)$, incluyendo $\OO$, que consta de probar con finitos casos. Luego, si un primo $\ell\neq p$ divide el orden de un punto de torsión racional, tiene que dividir también ese cardinal; y comparando con varios primos de buena reducción obtenemos restricciones. Igualmente no necesariamente conseguiremos llegar hasta el orden de la torsión de esta forma.
+
+La buena reducción también controla el cuerpo que necesitamos para definir los puntos de torsión. Esto nos permite limitar los primos donde puede aparecer ramificación al hacer descenso.
+
+\begin{prop*}
+Sea $E$ una curva elíptica sobre un cuerpo de números $K$, y sea $K(E[n])$ el cuerpo obtenido agregando las coordenadas de todos sus puntos de $n$-torsión. Si $E$ tiene buena reducción en un primo $\pp\trianglelefteq\OO_K$ y $\pp\nmid n$, entonces $K(E[n])/K$ no ramifica en $\pp$.
+\end{prop*}
+
+Así, para buscar los posibles primos de ramificación, basta considerar los de mala reducción y los que dividen $n$.
 
 \subsection{Altura canónica e independencia}
 
@@ -515,7 +515,7 @@ Asociada a una isogenia $\phi:E\to E'$ tendremos su isogenia dual $\hat\phi:E'\t
 
 En particular, dos curvas isógenas sobre $K$ tienen el mismo rango: al pasar a las partes libres y tensorizar con $\QQ$, la isogenia tiene inversa $\hat\phi/\gr (\phi)$. Por eso en el caso general podremos calcular el rango usando cualquiera de las dos curvas del descenso. 
 
-\begin{example*}
+\begin{example}
 Tomemos la familia $E_t:y^2=x^3+t^2$, con $t\neq0$. El punto $T_0=(0,t)$ tiene orden $3$, y entonces $G=\lla\OO,T_0,-T_0\rla$. Como $x(T_0)=0$ se simplifican muchas cuentas.
 
 Para $P=(x,y)$ fuera de $G$, las pendientes de las rectas por $P$ y $\pm T_0$ son $(y\mp t)/x$, de donde
@@ -543,7 +543,7 @@ Y^2-X^3 = \frac{y^2{(x^3-8t^2)}^2-{(x^3+4t^2)}^3}{x^6} = \frac{(x^3+t^2){(x^3-8t
 \end{multline*}
 
 Y así construimos una isogenia de grado $3$ hacia $E'_t:Y^2=X^3-27t^2$, cuyo núcleo es $\lla\OO,(0,t),(0,-t)\rla$.
-\end{example*}
+\end{example}
 
 \subsection{Curvas con \texorpdfstring{$j=0$}{j=0}}
 
@@ -562,7 +562,7 @@ Nosotros trabajaremos con curvas de $j$-invariante igual a 0. De la definición 
 Sean $d,d'\in K^\times$. Las curvas $E_d:y^2=x^3+d$ y $E_{d'}:y^2=x^3+d'$ son isomorfas sobre $K$ si y solo si $d'/d\in{(K^\times)}^6$.
 \end{prop}
 
-Para nuestros modelos $E_t:y^2=x^3+t^2$ y $E_{t'}:y^2=x^3+{(t')}^2$, la condición equivale a que $t'/t$ sea un cubo en $K$.
+Para los modelos $E_t:y^2=x^3+t^2$ y $E_{t'}:y^2=x^3+{(t')}^2$, la condición equivale a que $t'/t$ sea un cubo en $K$.
 
 Algo particular que ocurre en la familia de Mordell es el fenómeno de multiplicación compleja, que no veremos acá en toda su generalidad, pero en este caso nos da que, siempre que tengamos $\omega\in K$, tendremos un morfismo definido en la misma curva que nos permite obtener dos puntos independientes a partir de uno. El mapa
 \[
@@ -581,17 +581,17 @@ Como los puntos $P,[\omega]P,{[\omega]}^2P$ están sobre la misma recta horizont
 Como el punto $P$ tiene orden infinito y $m^2-mn+n^2$ solo se anula para $m=n=0$, los dos puntos son independientes. El mismo argumento se aplica a una relación módulo torsión, multiplicándola primero por el orden de torsión de ese punto.
 \end{proof}
 
-Para nuestras curvas pusimos la condición de que $d=t^2$ sea un cuadrado para tener en el cuerpo el punto $(0,t)$ que será de 3-torsión y usaremos en el descenso. Si quisiéramos tener otro punto independiente de 3-torsión definido sobre el cuerpo (lo cual ayuda considerablemente al descenso) nos toparíamos con el siguiente problema:
+Para las curvas que tratamos acá pusimos la condición de que $d=t^2$ sea un cuadrado para tener en el cuerpo el punto $(0,t)$, que será de 3-torsión y usaremos en el descenso. Si quisiéramos tener otro punto independiente de 3-torsión definido sobre el cuerpo (lo cual ayuda considerablemente al descenso) nos toparíamos con el siguiente problema:
 
-\begin{prop*}
+\begin{prop}
 Sea $K$ un cuerpo de números que contiene $\omega$. Todas las curvas de $j$-invariante $0$ cuya 3-torsión está completamente definida sobre $K$ son isomorfas sobre $K$ a $E:y^2=x^3+16$.
-\end{prop*}
+\end{prop}
 \begin{proof}
 Podemos escribir la curva como $E_t$. La condición de que toda la 3-torsión esté en $K$ nos dice que el polinomio de división $\psi_3$ debe partirse completamente.
 \[
 \psi_3(x)=3x(x^3+4t^2).
 \]
-Como $x=0$ es nuestro punto, el otro factor debe tener una raíz $c\in K^\times$. Entonces de $c^3=-4 t^2$ tenemos que $t=4{(c^2/4t)}^3 = 4 u^3$ para un $u\in K^\times$. De esta forma, como por la proposición~\ref{prop:isomorfismosMordell} potencias cúbicas en $t$ nos dan la misma curva, todas serán isomorfas a $E:y^2=x^3+4^2$.
+Como $x=0$ es el punto que ya renemos, el otro factor debe tener una raíz $c\in K^\times$. Entonces de $c^3=-4 t^2$ tenemos que $t=4{(c^2/4t)}^3 = 4 u^3$ para un $u\in K^\times$. De esta forma, como por la proposición~\ref{prop:isomorfismosMordell} potencias cúbicas en $t$ nos dan la misma curva, todas serán isomorfas a $E:y^2=x^3+4^2$.
 
 Recíprocamente, los nueve puntos de $E[3]$ son los generados por
 \[
@@ -600,7 +600,7 @@ Recíprocamente, los nueve puntos de $E[3]$ son los generados por
 y todos pertenecen a $K$. Observemos para facilitar la cuenta que $1+2\omega = \sqrt{-3}$. También es fácil encontrar explícitamente todos poniendo $\omega$ y $\omega^2$ en las coordenadas $x$, y $\pm$ en las coordenadas $y$.
 \end{proof}
 
-Con esto clasifiquemos completamente la torsión de nuestras curvas para luego poder dar un resultado exacto sobre el grupo de Mordell--Weil. Recordemos que sobre $\QQ(\omega)$ los grupos posibles de torsión son más que sobre $\QQ$, y usaremos la clasificación completa dada por Najman~\cite{Najman2010Completa} para este cuerpo.
+Con esto clasifiquemos completamente la torsión de las curvas que nos quedan, para luego poder dar un resultado exacto sobre el grupo de Mordell--Weil. Recordemos que sobre $\QQ(\omega)$ los grupos posibles de torsión son más que sobre $\QQ$, y usaremos la clasificación completa dada por Najman~\cite{Najman2010Completa} para este cuerpo.
 
 \begin{prop}\label{prop:torsionEt}
 Sea $K=\QQ(\omega)$ y $t\neq0$. La torsión de $E_t:y^2=x^3+t^2$ es
@@ -623,7 +623,7 @@ Solo quedan los tres grupos del enunciado, y los primeros dos ya los caracteriza
 
 \subsection{Reconocer si la curva proviene de un subcuerpo}\label{subsec:definicionGenuina}
 
-Siguiendo el enfoque de Savoie~\cite{Savoie2025QiRank2}, diremos que una curva está \emph{genuinamente definida sobre $K$} si no es isomorfa sobre $K$ a una curva definida sobre un subcuerpo propio. Para $K=\QQ(\omega)$ solo debemos descartar que provenga de $\QQ$. Tener un coeficiente no racional no basta: un cambio de variables podría eliminarlo. En este capítulo veremos cómo nos aseguramos que nuestra familia de curvas lo cumpla. 
+Siguiendo el enfoque de Savoie~\cite{Savoie2025QiRank2}, diremos que una curva está \emph{genuinamente definida sobre $K$} si no es isomorfa sobre $K$ a una curva definida sobre un subcuerpo propio. Para $K=\QQ(\omega)$ solo debemos descartar que provenga de $\QQ$. Tener un coeficiente no racional no basta: un cambio de variables podría eliminarlo. En este capítulo veremos cómo nos aseguramos que la familia de curvas con la que venimos trabajando lo cumpla. 
 
 \begin{prop}\label{prop:genuinaDef}
 Para $K=\QQ(\omega)$, la curva $E_d:y^2=x^3+d$ proviene de $\QQ$ si y solo si $d$ es congruente a un racional módulo potencias sextas de $K$.
@@ -767,7 +767,7 @@ En este capítulo presentaremos a las superficies elípticas de un modo orientad
 
 Si queremos trabajar con curvas elípticas que cumplan una propiedad fija, lo natural es agregarles un parámetro $T$ y codificar en él la información que queramos. Lo que más nos va a interesar es la sección de los teoremas de especialización, que nos dice que al especializar nuestro parámetro en un elemento del cuerpo, la curva elíptica que queda cumple las propiedades deseadas. La mejor referencia para comenzar con el tema puede ser el capítulo 3 del ``advanced'' de Silverman~\cite{SilvermanAdvanced}, y para seguir recomendamos el artículo por Schütt y Shioda~\cite{SchuttShioda2010}.
 
-Por ejemplo, si nos interesa el caso de $j$-invariante igual a 0 nuestras curvas tendrán la forma $y^2=x^3+d$; y si además queremos tener un punto de 3-torsión asegurado para el 3-descenso, entonces, notando que si $x=0$ queda $y^2 = d$ y esto puede tener dos soluciones, tenemos que la curva 
+Por ejemplo, si nos interesa el caso de $j$-invariante igual a 0 las curvas tendrán la forma $y^2=x^3+d$; y si además queremos tener un punto de 3-torsión asegurado para el 3-descenso, entonces, notando que si $x=0$ queda $y^2 = d$ y esto puede tener dos soluciones, tenemos que la curva 
 \[
 E_t: y^2 = x^3 + t^2
 \]
@@ -883,7 +883,7 @@ No vamos a entrar en estos temas, pero en los artículos citados se encuentran l
 
 \section{Teoremas de especialización}\label{sec:especializacion}
 
-Vamos a comentar la recopilación del apéndice C, sección 20, de Silverman~\cite{SilvermanAEC}, conservando también la versión que usaremos para nuestra familia.
+Vamos a comentar la recopilación del apéndice C, sección 20, de Silverman~\cite{SilvermanAEC}, conservando también la versión que usaremos para la familia que nos interesa.
 
 Recordemos que a nosotros nos interesa generar una familia de curvas elípticas con características particulares de su grupo de Mordell--Weil, y que dijimos que íbamos a hacer esto vía especialización de una superficie elíptica. Hasta ahora vimos (comentamos) la construcción de ese grupo en el contexto de superficies elípticas y algunas de sus propiedades. Veamos ahora cuándo esas propiedades se traspasan a las curvas que obtenemos.
 
@@ -959,15 +959,15 @@ Sean $E,E'$ curvas elípticas sobre $K(\cc)$ y sea $\phi:E\to E'$ una isogenia d
 definida sobre $K$ y de grado $n$. Si $\nuc(\phi)=\lc T_0\rc$ para un punto $T_0\in E(K(\cc))$ de orden $n$, entonces $\nuc(\phi_t)=\lc {(T_0)}_t\rc$.
 \end{prop*}
 
-La demostración no la presentaremos, pero es nuevamente excluir finitos parámetros por todo lo que podría reducir mal o bajar el grado, y en los lugares restantes es un mapa racional que manda el neutro al neutro, entonces es morfismo y respeta la ley de grupo. 
+La demostración no la presentaremos, pero es nuevamente excluir finitos parámetros por todo lo que podría reducir mal o bajar el grado, y en los lugares restantes es un mapa racional que manda el neutro al neutro, entonces es morfismo y respeta la ley de grupo. Se puede ver en~\cite{SilvermanAdvanced}. 
 
-\begin{example*}
-En nuestra familia sobre $K=\QQ(\omega)$ tenemos
+\begin{example}
+En la familia, sobre $K=\QQ(\omega)$,
 \[
 E_k:y^2=x^3+{(k^2-1)}^2,\qquad
 E'_k:y^2=x^3-27{(k^2-1)}^2.
 \]
-Y la isogenia proveniente de cocientar por el generador de la 3-torsión, tomando $t=k^2-1$, queda, fuera del núcleo,
+La isogenia proveniente de cocientar por el generador de la $3$\nbd-torsión, tomando $t=k^2-1$, queda, fuera del núcleo, igual a
 \[
 \phi_k(x,y)=\lp
 \frac{x^3+4{(k^2-1)}^2}{x^2},
@@ -976,7 +976,7 @@ Y la isogenia proveniente de cocientar por el generador de la 3-torsión, tomand
 \]
 
 Lo que probamos es que, para cada $k_0\in K$ con $k_0\neq\pm 1$, basta reemplazar $k$ por $k_0$: obtenemos una isogenia de grado $3$ con núcleo $\lc(0,k_0^2-1)\rc$. Los valores $k_0=\pm1$ se excluyen porque ambas curvas son singulares. También tendríamos que excluir los denominadores de la isogenia en $x$, pero no excluyen otros parámetros porque los puntos con $x=0$ forman, junto con $\OO$, el núcleo y se envían a $\OO$ (Vélu nos da la fórmula en todos los puntos fuera del núcleo).
-\end{example*}
+\end{example}
 
 
 \section{Construir superficies elípticas de rango alto}\label{sec:construirRangoAlto}
@@ -985,13 +985,13 @@ Lo primero para mencionar en esta sección es que no hay una teoría para obtene
 
 Recordemos que queremos $r$ puntos independientes sobre $K(\cc)$. Podemos elegir la forma de los puntos y buscar los coeficientes que hagan que todos pertenezcan a la misma curva.
 
-La que utilizamos para nuestras curvas fue muy simple: primero determinamos la forma necesaria para $j$-invariante 0 y un punto de 3-torsión: $y^2 = x^3+t^2$ y luego determinamos $t$ para tener un punto libre. La idea de poner $x=t$ fue arbitraria, pero nos dio una opción posible: como quedó $y^2=t^2(t+1)$ solo hizo falta que $t+1$ sea un cuadrado. De esta forma, con $t=k^2-1$ conseguimos tener el punto $(t,t\sqrt{t+1})$ en la curva (y definido en el cuerpo). 
+La que utilizamos para el ejemplo fue muy simple: primero determinamos la forma necesaria para $j$-invariante 0 y un punto de 3-torsión: $y^2 = x^3+t^2$ y luego determinamos $t$ para tener un punto libre. La idea de poner $x=t$ fue arbitraria, pero nos dio una opción posible: como quedó $y^2=t^2(t+1)$ solo hizo falta que $t+1$ sea un cuadrado. De esta forma, con $t=k^2-1$ conseguimos tener el punto $(t,t\sqrt{t+1})$ en la curva (y definido en el cuerpo). 
 
 Veamos construcciones más complejas.
 
 \subsection{Construcciones mediante identidades}
 
-Otra construcción para $j=0$ la dan Choudhry y Zargar~\cite{ChoudhryZargar2016} con la siguiente idea: En nuestra familia $y^2=x^3+t^2$ (los autores escriben $k$ en lugar de $t$) queremos que varias diferencias $v_i^2-u_i^3$ sean el mismo cuadrado. Reescribamos sus fórmulas para ver la identidad que las hace funcionar.
+Otra construcción para $j=0$ la dan Choudhry y Zargar~\cite{ChoudhryZargar2016} con la siguiente idea: En la familia $y^2=x^3+t^2$ (los autores escriben $k$ en lugar de $t$) queremos que varias diferencias $v_i^2-u_i^3$ sean el mismo cuadrado. Reescribamos sus fórmulas para ver la identidad que las hace funcionar.
 
 Para parámetros $a,b,c$, pongamos
 \[
@@ -1121,7 +1121,7 @@ En todo este razonamiento quedan muchas cosas para analizar que veremos en este 
 
 Este capítulo se basará en los capítulos VIII y X del libro de Silverman~\cite{SilvermanAEC}, donde también se da un ejemplo de 2-descenso. También se menciona allí que la generalización a cuerpos de números donde $\OO_K$ es un dominio de factorización única es directa.
 
-La aplicación que nos interesa es controlar estos cálculos en una familia de curvas vía condiciones de congruencia sobre ciertos primos (impuestas a posteriori) que nos bastarán para calcular el grupo de Selmer de cada curva, para luego obtener infinitas de rango fijo. En esa dirección aparecieron en los últimos años muchos resultados: Koymans y Pagano~\cite{KoymansPagano2025} combinan 2-descenso y combinatoria aditiva para construir curvas sin crecimiento de rango en ciertas extensiones; Zywina tiene una serie de resultados combinando descenso y especialización de superficies para dar infinitas curvas de cada rango entre 0 y 4 sobre todo cuerpo de números; y Savoie~\cite{Savoie2025QiRank2} obtiene una familia de curvas de rango 2 y $j$-invariante igual a 1728 sobre $\QQ(i)$ usando 2-descenso, cuyo procedimiento adaptaremos a nuestro caso: una familia de rango 2 y $j$-invariante igual a 0 sobre $\QQ(\omega)$ usando 3-descenso.
+La aplicación que nos interesa es controlar estos cálculos en una familia de curvas vía condiciones de congruencia sobre ciertos primos (impuestas a posteriori) que nos bastarán para calcular el grupo de Selmer de cada curva, para luego obtener infinitas de rango fijo. En esa dirección aparecieron en los últimos años muchos resultados: Koymans y Pagano~\cite{KoymansPagano2025} combinan 2-descenso y combinatoria aditiva para construir curvas sin crecimiento de rango en ciertas extensiones; Zywina tiene una serie de resultados combinando descenso y especialización de superficies para dar infinitas curvas de cada rango entre 0 y 4 sobre todo cuerpo de números; y Savoie~\cite{Savoie2025QiRank2} obtiene una familia de curvas de rango 2 y $j$-invariante igual a 1728 sobre $\QQ(i)$ usando 2-descenso, cuyo procedimiento adaptaremos al caso que nos interesa: una familia de rango 2 y $j$-invariante igual a 0 sobre $\QQ(\omega)$ usando 3-descenso.
 
 
 \section{Teoría de Selmer y morfismo de descenso}
@@ -1257,7 +1257,7 @@ Al sumar sus divisores se cancelan los puntos intermedios y, como $nQ_0=\OO$, qu
 
 Con $f$ calculada, elegimos un representante $a\in K^\times$ de la clase que queremos estudiar y ponemos $f(x,y)=az^n$ junto con la ecuación de la curva $E$. Luego manipulando algebraicamente se puede simplificar y, en los casos más simples, se puede llegar a una sola fórmula donde solo cambiando el parámetro $a$ tenemos todos los espacios homogéneos. Esto es lo que sucede tanto en los casos de 2-descenso como 3-descenso.
 
-En nuestra familia la tangente en $(0,t)$ es $y=t$, así que usamos $f=y-t$. Recordemos que esta función vive sobre $E_t$, por lo que corresponde al descenso para $\hat\phi:E'_t\to E_t$. La simplificación de $f=az^3$ es justamente la que hicimos al principio del capítulo para obtener la cúbica $C_a$.
+En la familia mencionada, la tangente en $(0,t)$ es $y=t$, así que usamos $f=y-t$. Recordemos que esta función vive sobre $E_t$, por lo que corresponde al descenso para $\hat\phi:E'_t\to E_t$. La simplificación de $f=az^3$ es justamente la que hicimos al principio del capítulo para obtener la cúbica $C_a$.
 
 \subsection{Morfismo de descenso}
 
@@ -1582,7 +1582,7 @@ si encontramos un lugar donde el espacio homogéneo no tiene puntos, ya podemos 
 
 Cuando $n=\ell$ es primo, el Selmer es un $\FF_\ell$-subespacio de $K(S,\ell)$. Si una clase queda descartada, también queda descartado su subespacio generado, es decir todas sus potencias con exponentes $1,\ldots,\ell-1$. La clase trivial sí permanece.
 
-\subsection{Elegir los representantes}
+\subsection{Representantes de \texorpdfstring{$K(S,n)$}{K (S,n)}}
 
 El primer paso es determinar una forma de representar $K(S,n)$. Si el número de clases de $K$ es 1 entonces es simple:
 
@@ -1619,10 +1619,10 @@ toda clase de $K(S,n)$ tiene un representante que es una $S'$-unidad (acá no af
 
 Si preferimos no ampliar $S$, la sucesión exacta da otra opción: para cada clase de $\operatorname{Cl}(\OO_{K,S})[n]$ elegimos un ideal $\aaa$, encontramos $a$ con $\aaa^n=(a)$ en $\OO_{K,S}$ y multiplicamos esos $a$ por representantes de las $S$-unidades módulo potencias $n$-ésimas.
 
-\begin{example*}
-En nuestro caso $K=\QQ(\omega)$, con $\omega^2+\omega+1=0$, el anillo $\OO_K=\ZZ[\omega]$ es un dominio de factorización única. Las unidades son $\lla\pm1,\pm\omega,\pm\omega^2\rla$ y, módulo cubos, podemos representarlas por $1,\omega,\omega^2$. Como el único lugar arquimedeano de $K$ es complejo y $\CC^\times/{(\CC^\times)}^3$ es trivial, no aporta clases a $K(S,n)$.
+\begin{example}
+En el caso de $K=\QQ(\omega)$, con $\omega^2+\omega+1=0$, el anillo $\OO_K=\ZZ[\omega]$ es un dominio de factorización única. Las unidades son $\lla\pm1,\pm\omega,\pm\omega^2\rla$ y, módulo cubos, podemos representarlas por $1,\omega,\omega^2$. Como el único lugar arquimedeano de $K$ es complejo y $\CC^\times/{(\CC^\times)}^3$ es trivial, no aporta clases a $K(S,n)$.
 
-Tomemos en nuestra curva $t=(b-a)b(b+a)$ y supongamos que sus tres factores son primos, no asociados entre sí y que no dividen a $6$. El discriminante es $-432t^4$, así que podemos tomar como lugares finitos de $S$ los primos
+Tomemos en la curva $E_t$ el valor $t=(b-a)b(b+a)$ y supongamos que sus tres factores son primos, no asociados entre sí y que no dividen a $6$. El discriminante es $-432t^4$, así que podemos tomar como lugares finitos de $S$ los primos
 \[
 (1-\omega),\quad (2),\quad (b-a),\quad (b),\quad (b+a),
 \]
@@ -1634,9 +1634,9 @@ u=\omega^{e_\omega}{(1-\omega)}^{e_\lambda}2^{e_2}
 {(b-a)}^{e_-} b^{e_0} {(b+a)}^{e_+},\qquad e_i\in\lla0,1,2\rla.
 \]
 Son $3^6$ clases, es decir, un espacio vectorial de dimensión $6$. Como los puntos conocidos nos darán dos clases independientes, buscamos cuatro restricciones lineales independientes para reducir los candidatos a dimensión $2$. 
-\end{example*}
+\end{example}
 
-\subsection{De la clase a una ecuación}
+\subsection{De una clase de Selmer a una ecuación}
 
 Para descartar una clase necesitamos una ecuación donde podamos hacer las cuentas. Lo importante es encontrar una forma de escribir los espacios homogéneos en la que la clase aparezca como un parámetro: así hacemos la construcción una sola vez y después cambiamos ese parámetro para recorrer los candidatos.
 
@@ -1649,7 +1649,7 @@ g(x,y)=uz^n h(x,y).
 \]
 Son dos ecuaciones en tres variables: su intersección describe una curva en el espacio afín. Fijados $E$ y $f$, el único dato que cambiamos es $u$. Además, si reemplazamos $u$ por $us^n$, el cambio $z\mapsto z/s$ identifica las dos ecuaciones, como corresponde a representantes de una misma clase.
 
-En nuestro ejemplo, la forma de simplificar la ecuación sale directamente de
+En el ejemplo presentado, la forma de simplificar la ecuación sale directamente de
 \[
 (y-t)(y+t)=x^3.
 \]
@@ -1679,7 +1679,7 @@ Más generalmente, si tenemos una ecuación en $K_\pp$ podemos cancelar denomina
 
 Para ir en sentido contrario usaremos Hensel: una solución módulo $\pp$ se levanta al anillo de enteros local $\OO_{K_\pp}$ si alguna derivada parcial no se anula. En nuestras ecuaciones, fijamos dos coordenadas y corregimos la tercera.
 
-\begin{lemma*}[Hensel en este caso]
+\begin{lemma}
 Sean $A,B,C\in\OO_K$, $n\geq2$ y $\pp$ un ideal primo no nulo de $\OO_K$. Si $x_0,y_0,z_0\in\OO_K$ cumplen
 \[
 Ax_0^n+By_0^n+Cz_0^n\equiv0\pmod\pp,
@@ -1690,7 +1690,7 @@ entonces existe $x\in\OO_{K_\pp}$, con $x\equiv x_0\pmod\pp$, tal que
 Ax^n+By_0^n+Cz_0^n=0.
 \]
 Así obtenemos un punto $(x:y_0:z_0)$ sobre $K_\pp$. Lo mismo vale intercambiando las variables.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
 Fijamos $y_0,z_0$ y definimos el polinomio $h(T)=AT^n+By_0^n+Cz_0^n$. Tenemos $h(x_0)\equiv0\pmod\pp$ y $h'(x_0)=nAx_0^{n-1}\not\equiv0\pmod\pp$. Con esto nos armaremos $x_j$ en cada potencia $\pp^j$ de modo que, como $\OO_{K_\pp}$ es completo y cada coordenada que agregamos tiene menor módulo ($\pp$-ádico), la sucesión converge a un $x$ que cumple $h(x)=0$.
@@ -1745,7 +1745,7 @@ El símbolo depende solamente del residuo módulo $\pp$, y
 La multiplicatividad y la invariancia por congruencias salen de la definición. Si escribimos $\overline\alpha=g^j$ para un generador del grupo cíclico ${(\OO_K/\pp)}^\times$, entonces $\overline\alpha^{(N(\pp)-1)/n}=1$ equivale a $n\mid j$, que es justamente ser una potencia $n$-ésima. La última equivalencia es directa de usar Hensel con $T^n-\alpha$.
 \end{proof}
 
-La otra herramienta principal de estos símbolos es una ley de reciprocidad, de las que existen específicas para cada $n$. La famosa ``reciprocidad cuadrática'' de Gauss nos permite dar vuelta el símbolo cuadrático de dos primos cambiando de signo solo si ambos son congruentes a $3$ módulo 4. En nuestro caso usaremos bastante la reciprocidad cúbica de $\ZZ[\omega]$ que se puede encontrar (como todas) en~\cite{Lemmermeyer2000}.
+La otra herramienta principal de estos símbolos es una ley de reciprocidad, de las que existen específicas para cada $n$. La famosa ``reciprocidad cuadrática'' de Gauss nos permite dar vuelta el símbolo cuadrático de dos primos cambiando de signo solo si ambos son congruentes a $3$ módulo 4. En el caso de $3$\nbd-descenso usaremos bastante la reciprocidad cúbica de $\ZZ[\omega]$ que se puede encontrar (como todas) en~\cite{Lemmermeyer2000}.
 
 \begin{theorem*}[Reciprocidad cúbica]
 Sean $\beta,\gamma\in\ZZ[\omega]$ coprimos entre sí y congruentes a $1$ o $-1$ módulo $3$. Entonces
@@ -1754,11 +1754,11 @@ Sean $\beta,\gamma\in\ZZ[\omega]$ coprimos entre sí y congruentes a $1$ o $-1$ 
 \]
 \end{theorem*}
 
-Cada símbolo cúbico vale $1$, $\omega$ u $\omega^2$, que podemos resumir en un valor en $\FF_3$ correspondiente a la potencia de $\omega$, y organizar la información de cada clase del Selmer en una matriz sobre ese cuerpo, como hacen Kling y Savoie en~\cite{KlingSavoie2025} para 2-descenso en $\QQ(i)$. Esto es perfectamente replicable en nuestro caso pero nos quedaremos con el análisis de una sola familia para llegar al resultado.
+Cada símbolo cúbico vale $1$, $\omega$ u $\omega^2$, que podemos resumir en un valor en $\FF_3$ correspondiente a la potencia de $\omega$, y organizar la información de cada clase del Selmer en una matriz sobre ese cuerpo, como hacen Kling y Savoie en~\cite{KlingSavoie2025} para 2-descenso en $\QQ(i)$. Esto es perfectamente replicable en el caso considerado en esta tesis, pero nos quedaremos con el análisis de una sola familia para llegar al resultado.
 
-\section{Nuestro caso particular}\label{sec:nuestroCasoSeccion}
+\section{3-descenso para la familia \texorpdfstring{$E_{a,b}$}{E (a,b)}}\label{sec:nuestroCasoSeccion}
 
-\subsection{El morfismo para el 3-descenso}\label{sec:descensoFamilia}
+\subsection{El morfismo de descenso}\label{sec:descensoFamilia}
 
 Vamos a presentar el morfismo que usaremos para $E_t$ para el 3\nbd-descenso. Trabajaremos por ahora con $t\in\OO_K$ y las curvas
 \[
@@ -1771,14 +1771,14 @@ S^{(\phi)}(E_t/K)\cong S^{(\hat\phi)}(E'_t/K),
 \]
 y bastará calcular uno solo. Esto es específico del caso que elegimos, tomada la idea del otro caso puntual donde ocurre esto, que es el que hace Savoie~\cite{Savoie2025QiRank2}.
 
-\begin{prop*}
+\begin{prop}
 El mapa $\alpha:E_t(K)\to \KmodT$ dado por
 \[
 \alpha(x,y)=[y-t],\qquad
 \alpha(\OO)=[1],\qquad \alpha(T_0)=[{(2t)}^{-1}]
 \]
 es el morfismo de descenso de $\hat\phi$. Su núcleo es $\hat\phi(E'_t(K))$ y su imagen está contenida en $K(S,3)$, tomando $S$ formado por el lugar complejo y los primos de $6t$.
-\end{prop*}
+\end{prop}
 
 \begin{proof}
 Una posible demostración es la que dimos por encima en el inicio del capítulo, que se basa en que aislamos un $x^3$ en la ecuación. Le faltarían detalles pero es completamente válida, aunque acá vamos a dar otra demostración ``menos sacada de la galera''.
@@ -1796,8 +1796,8 @@ Para el valor en el punto $T_0$ podemos tomar $x$ como parámetro local, escribi
 
 Para facilitar el descarte de clases en el grupo de Selmer, algo importante es ver qué clases ya tenemos representadas por los puntos que conocemos.
 
-\begin{example*}
-En nuestro caso, las clases de los puntos $T_0$ y $P$ son
+\begin{example}
+En la curva $E_{a,b}$, las clases de los puntos $T_0$ y $P$ son
 \[
 \alpha(T_0)=[{(2t)}^{-1}]=[{(2t)}^2],\qquad
 \alpha(P)=[(b-a){(b+a)}^2],
@@ -1810,9 +1810,9 @@ En las coordenadas de los exponentes $(e_\lambda, e_\omega,e_2,e_-,e_0,e_+)$, qu
 \alpha(P)\longleftrightarrow(0,0,0,1,0,2),
 \]
 cuyas clases son visiblemente independientes. Este isomorfismo para el descenso es el que aparece en~\cite{KlingSavoie2025}, permite su enfoque matricial y simplifica la presentación.
-\end{example*}
+\end{example}
 
-\subsection{Condiciones para descartar}
+\subsection{Condiciones para descartar clases de Selmer}
 
 En toda esta sección haremos las cuentas que precisamos para descartar las clases en el grupo de Selmer. Recordemos que $t=(b-a)b(b+a)$, con los tres factores primos, no asociados y coprimos con $6$. El grupo que tenemos es 
 \begin{equation*}
@@ -1943,7 +1943,7 @@ k_-+k_0+k_+ \equiv\frac{N(b-a)+N(b)+N(b+a)-3}{3}=\frac{3N(b)+2N(a)-3}{3}\equiv0\
 \]
 Donde la última congruencia sale de que $N(b)\equiv1\pmod3$ por ser $b\equiv \pm 1 \pmod3$ y $N(a)\equiv0\pmod9$ porque $a \equiv0\pmod3$.
 
-\subsection{Relaciones entre los símbolos}
+\subsection*{Relaciones entre los símbolos}
 
 Vamos a juntar los símbolos que definimos y el criterio de la proposición.
 
@@ -2023,7 +2023,7 @@ e_\omega=0,\qquad e_-+e_0+e_+=0,\qquad e_2=e_0 \quad\text{en }\FF_3.
 
 Por ejemplo, podemos determinar $e_-$ y $e_+$ y el resto de los exponentes quedan determinados. Con esto probamos que el grupo de Selmer es de dimensión (a lo sumo) 2 sobre $\FF_3$. Juntemos todo en el resultado de lo que nos interesaba probar en esta sección:
 
-\begin{theorem*}
+\begin{theorem}
 Sean $a,b\in\ZZ[\omega]$ tales que $b-a$, $b$ y $b+a$ sean primos no asociados entre sí y congruentes con $\pm 1$ módulo 3 y $\delta$ módulo 2 para un $\delta\in\lla\omega,\omega^2\rla$, y pongamos $t=(b-a)b(b+a)$. Entonces
 \[
 S^{(\hat\phi)}(E'_t/K)=\im(\alpha)
@@ -2031,7 +2031,7 @@ S^{(\hat\phi)}(E'_t/K)=\im(\alpha)
 \cong\FF_3^2.
 \]
 En consecuencia, $\Sha(E'_t/K)[\hat\phi]=0$ y $\rg E_t(K)=2$.
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
 Las restricciones que encontramos dejan un espacio de dimensión 2 y la imagen de los puntos que tenemos nos lo realiza. La afirmación sobre $\Sha$ se sigue de la sucesión exacta corta. Por el isomorfismo entre los grupos de Selmer y por el hecho de que los núcleos de las isogenias están definidos sobre $K$, la cota que probamos del rango de la curva en~\ref{prop:cotaRangoSelmerIsogenias} nos queda:
@@ -2170,7 +2170,7 @@ Después, en la siguiente proposición, Kai agrega el hecho de que los caractere
 Vamos a usar la proposición en un ejemplo, que luego será parte del resultado final:
 
 \begin{example}\label{ej:kaiMiCaso}
-En nuestro caso queremos que $b-a,b,b+a$ sean primos de $\OO_{\QQ(\omega)}$ no asociados y congruentes a $4+3\omega$ módulo $6$. Para aplicar la proposición tomamos nuestro conjunto de primos sobre los que ponemos las condiciones $S=\lla(2),(1-\omega)\rla$ y los $e_1=1, e_2=0$ y $e_3=-1$ para luego poner $b=\lambda$ y $a=\mu$.
+En el ejemplo que venimos considerando queremos que $b-a,b,b+a$ sean primos de $\OO_{\QQ(\omega)}$ no asociados y congruentes a $4+3\omega$ módulo $6$. Para aplicar la proposición tomamos nuestro conjunto de primos sobre los que ponemos las condiciones $S=\lla(2),(1-\omega)\rla$ y los $e_1=1, e_2=0$ y $e_3=-1$ para luego poner $b=\lambda$ y $a=\mu$.
 
 Para el primo $(2)$ nuestro entorno es $(3\omega,0)$ y para $\pp=(1-\omega)$ es $(1,0)$, pero necesitamos una restricción módulo $\pp^2=(3)$, así que $U_{\pp}$ será $1+{\pp}^2 \OO_{\pp} \times 0+{\pp}^2 \OO_{\pp}$ (un producto de bolas, un abierto de $K_{\pp}^2$). Esto nos garantiza que nuestros valores $(\lambda,\mu)$ sean congruentes a $(4+3\omega, 0)$ módulo 6. Para el lugar complejo no necesitamos restricciones, o sea tomamos $V_v=\CC$.
 
@@ -2331,7 +2331,7 @@ En primera instancia nos interesaba (pensando en el teorema previo) trabajar con
 
 Antes de buscar un punto que no sea de torsión, observemos que, como la curva permite el isomorfismo $[\omega](x,y)=(\omega x,y)$ y que está definido sobre nuestro cuerpo, el grupo $E(\QQ(\omega))$ va a ser un $\ZZ[\omega]$\nbd-módulo; y por su acción en los puntos independientes esto implica que el rango de la curva es necesariamente par. Ahora sí, para que la curva sea de rango 2 elegimos $t=k^2-1$ y nos aseguramos el punto $(k^2-1, k(k^2-1))$. 
 
-Nos resta elegir correctamente valores de $k$ para acotar el rango superiormente, y como esto lo haremos con el método de descenso necesitamos un modelo entero de nuestra curva (por ahora era $k\in \QQ(\omega)$). Si $k=a/b$ con $a,b\in \OO_{\QQ(\omega)}$ entonces la curva nos queda
+Nos resta elegir correctamente valores de $k$ para acotar el rango superiormente, y como esto lo haremos con el método de descenso necesitamos un modelo entero de la curva $E_k$ (por ahora era $k\in \QQ(\omega)$). Si $k=a/b$ con $a,b\in \OO_{\QQ(\omega)}$ entonces la curva nos queda
 \[
 E_{a,b}:y^2=x^3+\lp (b-a)b(b+a)\rp^2.
 \] 
@@ -2431,11 +2431,9 @@ de donde $\bar{X}$ e $\bar{Y}$ son ambas cero o $4={-(\bar{Y}/\bar{X})}^3$, pero
 
 Con esa cuenta vimos que $C_2(K_{(b)})=\varnothing$, y por lo tanto la clase $[2]$ queda descartada del grupo de Selmer $S^{(\hat\phi)}(E'_t/K)$.
 
-\subsection*{Uno con coeficientes más grandes}
+\subsection*{Como obtener coeficientes más grandes}
 
-Podemos pedirle a nuestra IA preferida que nos genere unos valores que cumplan las hipótesis y chequearlos con Sage. 
-
-Otra opción es: queremos valores $b-a, b$ y $b+a$ en $\ZZ[\omega]$ tales que sean congruentes a $4+3\omega \pmod{6}$ y que la norma $N_{\QQ(\omega)/\QQ}$ evaluada en ellos tome valores primos de $\QQ$. Para ello escribimos $a=6u$ y $b=4+3\omega+6v$, con $u,v\in\ZZ[\omega]$ y $u\neq0$, de modo que las congruencias requeridas se cumplen automáticamente. Para tomar parámetros enteros ponemos $u=x+y\omega$ y $v=r+s\omega$ con $x,y,r,s\in\ZZ$; de forma que nos quedan
+Primero veamos una forma de generarnos coeficientes con las condiciones que precisamos. Una opcion es la siguiente: queremos valores $b-a, b$ y $b+a$ en $\ZZ[\omega]$ tales que sean congruentes a $4+3\omega \pmod{6}$ y que la norma $N_{\QQ(\omega)/\QQ}$ evaluada en ellos tome valores primos de $\QQ$. Para ello escribimos $a=6u$ y $b=4+3\omega+6v$, con $u,v\in\ZZ[\omega]$ y $u\neq0$, de modo que las congruencias requeridas se cumplen automáticamente. Para tomar parámetros enteros ponemos $u=x+y\omega$ y $v=r+s\omega$ con $x,y,r,s\in\ZZ$; de forma que nos quedan
 \[
 a=6x+6y\omega, \qquad b=(4+6r)+(3+6s)\omega.
 \]
@@ -2458,6 +2456,11 @@ N(b+a)
 \end{aligned}
 \]
 para $x,y,r,s\in\ZZ$ con $(x,y)\neq (0,0)$.
+
+Para ello podemos inicializar valores de $s,x$ e $y$, iterar $r$ entre un rango elegido armándonos los valores de $a$ y $b$, y calcular las normas de los elementos $b-a$, $b$ y $b+a$ chequeando si son tres números primos en cada iteración. Esto se puede hacer con un simple código.
+
+
+\subsection*{Ejemplo con coeficientes grandes}
 
 Por ejemplo, con los siguientes valores 
 \[
@@ -2497,7 +2500,7 @@ respectivamente. No podemos afirmar que con sus combinaciones lineales generamos
 
 \section{Trabajo a futuro}
 
-En agosto de 2026, Ben Savoie anunció un nuevo resultado donde presenta familias infinitas de curvas elípticas de $j$\nbd-invariante $1728$ sobre $\QQ(i)$ de rangos 4 y 6~\cite{Savoie2026QiRanks4And6}. Los métodos utilizados allí son similares a los presentados en este trabajo, aunque con pequeños ajustes novedosos, como el uso de superficies K3 para la familia de rango 6. Un posible trabajo a futuro es adaptar esos resultados para el caso de $j$\nbd-invariante igual a $0$ y curvas en $\QQ(\omega)$, como hicimos para el caso de rango $2$. 
+En agosto de 2026, Ben Savoie anunció un nuevo resultado donde presenta familias infinitas de curvas elípticas de $j$\nbd-invariante $1728$ sobre $\QQ(i)$ de rangos 4 y 6~\cite{Savoie2026QiRanks4And6}. Los métodos utilizados allí son similares a los presentados en este trabajo, aunque con pequeños ajustes novedosos, como el uso de superficies K3 para la familia de rango 6. Es posible adaptar esos resultados para el caso de $j$\nbd-invariante igual a $0$ y curvas en $\QQ(\omega)$, como hicimos para el caso de rango $2$. 
 
 Más posibilidades son el estudio de otras superficies elípticas de $j$\nbd-invariante $0$ para las que se conozca la estructura, y buscar acotar su rango superiormente; o en otra dirección, explorar resultados sobre valores primos simultáneos, como por ejemplo el recientemente anunciado por Achenjang y Woo~\cite{AchenjangWoo2026}, que utiliza formas lineales junto con una norma para construir twists cuadráticos de rango exactamente $2$. 
 
